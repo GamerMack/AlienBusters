@@ -1,0 +1,477 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BDDC24301E6E5966005E103C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDC242F1E6E5966005E103C /* AppDelegate.swift */; };
+		BDDC24321E6E5966005E103C /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = BDDC24311E6E5966005E103C /* GameScene.sks */; };
+		BDDC24341E6E5966005E103C /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = BDDC24331E6E5966005E103C /* Actions.sks */; };
+		BDDC24361E6E5966005E103C /* TestScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDC24351E6E5966005E103C /* TestScene.swift */; };
+		BDDC24381E6E5966005E103C /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDC24371E6E5966005E103C /* GameViewController.swift */; };
+		BDDC243B1E6E5966005E103C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDDC24391E6E5966005E103C /* Main.storyboard */; };
+		BDDC243D1E6E5966005E103C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDDC243C1E6E5966005E103C /* Assets.xcassets */; };
+		BDDC24401E6E5966005E103C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDDC243E1E6E5966005E103C /* LaunchScreen.storyboard */; };
+		BDDC24491E6E5C0B005E103C /* TextureAtlasManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDC24481E6E5C0B005E103C /* TextureAtlasManager.swift */; };
+		BDDC244B1E6E615D005E103C /* SceneA.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDC244A1E6E615D005E103C /* SceneA.swift */; };
+		BDDC24521E6E69A1005E103C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDC24511E6E69A1005E103C /* Constants.swift */; };
+		BDDC24541E6E69C4005E103C /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDC24531E6E69C4005E103C /* Math.swift */; };
+		BDDC24561E6E69F5005E103C /* UserOptionsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDC24551E6E69F5005E103C /* UserOptionsManager.swift */; };
+		BDDC246A1E6E6E48005E103C /* Alpha Dance.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BDDC24571E6E6E48005E103C /* Alpha Dance.mp3 */; };
+		BDDC246B1E6E6E48005E103C /* Cheerful Annoyance.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BDDC24581E6E6E48005E103C /* Cheerful Annoyance.mp3 */; };
+		BDDC246C1E6E6E48005E103C /* Drumming Sticks.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BDDC24591E6E6E48005E103C /* Drumming Sticks.mp3 */; };
+		BDDC246D1E6E6E48005E103C /* Farm Frolics.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BDDC245A1E6E6E48005E103C /* Farm Frolics.mp3 */; };
+		BDDC246E1E6E6E48005E103C /* Flowing Rocks.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BDDC245B1E6E6E48005E103C /* Flowing Rocks.mp3 */; };
+		BDDC246F1E6E6E48005E103C /* Game Over.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BDDC245C1E6E6E48005E103C /* Game Over.mp3 */; };
+		BDDC24701E6E6E48005E103C /* German Virtue.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BDDC245D1E6E6E48005E103C /* German Virtue.mp3 */; };
+		BDDC24711E6E6E48005E103C /* Infinite Descent.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BDDC245E1E6E6E48005E103C /* Infinite Descent.mp3 */; };
+		BDDC24721E6E6E48005E103C /* Italian Mom.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BDDC245F1E6E6E48005E103C /* Italian Mom.mp3 */; };
+		BDDC24731E6E6E48005E103C /* Mishief Stroll.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BDDC24601E6E6E48005E103C /* Mishief Stroll.mp3 */; };
+		BDDC24741E6E6E48005E103C /* Mission Plausible.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BDDC24611E6E6E48005E103C /* Mission Plausible.mp3 */; };
+		BDDC24751E6E6E48005E103C /* Night at the Beach.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BDDC24621E6E6E48005E103C /* Night at the Beach.mp3 */; };
+		BDDC24761E6E6E48005E103C /* Polka Train.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BDDC24631E6E6E48005E103C /* Polka Train.mp3 */; };
+		BDDC24771E6E6E48005E103C /* Sad Descent.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BDDC24641E6E6E48005E103C /* Sad Descent.mp3 */; };
+		BDDC24781E6E6E48005E103C /* Sad Town.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BDDC24651E6E6E48005E103C /* Sad Town.mp3 */; };
+		BDDC24791E6E6E48005E103C /* Space Cadet.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BDDC24661E6E6E48005E103C /* Space Cadet.mp3 */; };
+		BDDC247A1E6E6E48005E103C /* Swinging Pants.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BDDC24671E6E6E48005E103C /* Swinging Pants.mp3 */; };
+		BDDC247B1E6E6E48005E103C /* Time Driving.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BDDC24681E6E6E48005E103C /* Time Driving.mp3 */; };
+		BDDC247C1E6E6E48005E103C /* Wacky Waiting.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BDDC24691E6E6E48005E103C /* Wacky Waiting.mp3 */; };
+		BDDC247F1E6E7654005E103C /* CrossHair.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDC247E1E6E7654005E103C /* CrossHair.swift */; };
+		BDDC24811E6E7C30005E103C /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDC24801E6E7C30005E103C /* GameOverScene.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		BDDC242C1E6E5966005E103C /* AlienBusters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlienBusters.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDDC242F1E6E5966005E103C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BDDC24311E6E5966005E103C /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		BDDC24331E6E5966005E103C /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
+		BDDC24351E6E5966005E103C /* TestScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestScene.swift; sourceTree = "<group>"; };
+		BDDC24371E6E5966005E103C /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		BDDC243A1E6E5966005E103C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BDDC243C1E6E5966005E103C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BDDC243F1E6E5966005E103C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BDDC24411E6E5966005E103C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BDDC24481E6E5C0B005E103C /* TextureAtlasManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextureAtlasManager.swift; sourceTree = "<group>"; };
+		BDDC244A1E6E615D005E103C /* SceneA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneA.swift; sourceTree = "<group>"; };
+		BDDC24511E6E69A1005E103C /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		BDDC24531E6E69C4005E103C /* Math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Math.swift; sourceTree = "<group>"; };
+		BDDC24551E6E69F5005E103C /* UserOptionsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserOptionsManager.swift; sourceTree = "<group>"; };
+		BDDC24571E6E6E48005E103C /* Alpha Dance.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Alpha Dance.mp3"; sourceTree = "<group>"; };
+		BDDC24581E6E6E48005E103C /* Cheerful Annoyance.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Cheerful Annoyance.mp3"; sourceTree = "<group>"; };
+		BDDC24591E6E6E48005E103C /* Drumming Sticks.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Drumming Sticks.mp3"; sourceTree = "<group>"; };
+		BDDC245A1E6E6E48005E103C /* Farm Frolics.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Farm Frolics.mp3"; sourceTree = "<group>"; };
+		BDDC245B1E6E6E48005E103C /* Flowing Rocks.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Flowing Rocks.mp3"; sourceTree = "<group>"; };
+		BDDC245C1E6E6E48005E103C /* Game Over.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Game Over.mp3"; sourceTree = "<group>"; };
+		BDDC245D1E6E6E48005E103C /* German Virtue.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "German Virtue.mp3"; sourceTree = "<group>"; };
+		BDDC245E1E6E6E48005E103C /* Infinite Descent.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Infinite Descent.mp3"; sourceTree = "<group>"; };
+		BDDC245F1E6E6E48005E103C /* Italian Mom.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Italian Mom.mp3"; sourceTree = "<group>"; };
+		BDDC24601E6E6E48005E103C /* Mishief Stroll.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Mishief Stroll.mp3"; sourceTree = "<group>"; };
+		BDDC24611E6E6E48005E103C /* Mission Plausible.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Mission Plausible.mp3"; sourceTree = "<group>"; };
+		BDDC24621E6E6E48005E103C /* Night at the Beach.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Night at the Beach.mp3"; sourceTree = "<group>"; };
+		BDDC24631E6E6E48005E103C /* Polka Train.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Polka Train.mp3"; sourceTree = "<group>"; };
+		BDDC24641E6E6E48005E103C /* Sad Descent.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Sad Descent.mp3"; sourceTree = "<group>"; };
+		BDDC24651E6E6E48005E103C /* Sad Town.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Sad Town.mp3"; sourceTree = "<group>"; };
+		BDDC24661E6E6E48005E103C /* Space Cadet.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Space Cadet.mp3"; sourceTree = "<group>"; };
+		BDDC24671E6E6E48005E103C /* Swinging Pants.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Swinging Pants.mp3"; sourceTree = "<group>"; };
+		BDDC24681E6E6E48005E103C /* Time Driving.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Time Driving.mp3"; sourceTree = "<group>"; };
+		BDDC24691E6E6E48005E103C /* Wacky Waiting.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Wacky Waiting.mp3"; sourceTree = "<group>"; };
+		BDDC247E1E6E7654005E103C /* CrossHair.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrossHair.swift; sourceTree = "<group>"; };
+		BDDC24801E6E7C30005E103C /* GameOverScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BDDC24291E6E5966005E103C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BDDC24231E6E5966005E103C = {
+			isa = PBXGroup;
+			children = (
+				BDDC242E1E6E5966005E103C /* AlienBusters */,
+				BDDC242D1E6E5966005E103C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BDDC242D1E6E5966005E103C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BDDC242C1E6E5966005E103C /* AlienBusters.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BDDC242E1E6E5966005E103C /* AlienBusters */ = {
+			isa = PBXGroup;
+			children = (
+				BDDC247D1E6E763D005E103C /* Characters */,
+				BDDC24501E6E6993005E103C /* Utility */,
+				BDDC244F1E6E6855005E103C /* BackgroundMusic */,
+				BDDC244E1E6E61E8005E103C /* Storyboards */,
+				BDDC244D1E6E61D4005E103C /* Controllers */,
+				BDDC244C1E6E6163005E103C /* Scenes */,
+				BDDC24471E6E5BF6005E103C /* Singletons */,
+				BDDC242F1E6E5966005E103C /* AppDelegate.swift */,
+				BDDC24331E6E5966005E103C /* Actions.sks */,
+				BDDC243C1E6E5966005E103C /* Assets.xcassets */,
+				BDDC24411E6E5966005E103C /* Info.plist */,
+			);
+			path = AlienBusters;
+			sourceTree = "<group>";
+		};
+		BDDC24471E6E5BF6005E103C /* Singletons */ = {
+			isa = PBXGroup;
+			children = (
+				BDDC24481E6E5C0B005E103C /* TextureAtlasManager.swift */,
+				BDDC24551E6E69F5005E103C /* UserOptionsManager.swift */,
+			);
+			name = Singletons;
+			sourceTree = "<group>";
+		};
+		BDDC244C1E6E6163005E103C /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				BDDC24351E6E5966005E103C /* TestScene.swift */,
+				BDDC24311E6E5966005E103C /* GameScene.sks */,
+				BDDC244A1E6E615D005E103C /* SceneA.swift */,
+				BDDC24801E6E7C30005E103C /* GameOverScene.swift */,
+			);
+			name = Scenes;
+			sourceTree = "<group>";
+		};
+		BDDC244D1E6E61D4005E103C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				BDDC24371E6E5966005E103C /* GameViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		BDDC244E1E6E61E8005E103C /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				BDDC243E1E6E5966005E103C /* LaunchScreen.storyboard */,
+				BDDC24391E6E5966005E103C /* Main.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		BDDC244F1E6E6855005E103C /* BackgroundMusic */ = {
+			isa = PBXGroup;
+			children = (
+				BDDC24571E6E6E48005E103C /* Alpha Dance.mp3 */,
+				BDDC24581E6E6E48005E103C /* Cheerful Annoyance.mp3 */,
+				BDDC24591E6E6E48005E103C /* Drumming Sticks.mp3 */,
+				BDDC245A1E6E6E48005E103C /* Farm Frolics.mp3 */,
+				BDDC245B1E6E6E48005E103C /* Flowing Rocks.mp3 */,
+				BDDC245C1E6E6E48005E103C /* Game Over.mp3 */,
+				BDDC245D1E6E6E48005E103C /* German Virtue.mp3 */,
+				BDDC245E1E6E6E48005E103C /* Infinite Descent.mp3 */,
+				BDDC245F1E6E6E48005E103C /* Italian Mom.mp3 */,
+				BDDC24601E6E6E48005E103C /* Mishief Stroll.mp3 */,
+				BDDC24611E6E6E48005E103C /* Mission Plausible.mp3 */,
+				BDDC24621E6E6E48005E103C /* Night at the Beach.mp3 */,
+				BDDC24631E6E6E48005E103C /* Polka Train.mp3 */,
+				BDDC24641E6E6E48005E103C /* Sad Descent.mp3 */,
+				BDDC24651E6E6E48005E103C /* Sad Town.mp3 */,
+				BDDC24661E6E6E48005E103C /* Space Cadet.mp3 */,
+				BDDC24671E6E6E48005E103C /* Swinging Pants.mp3 */,
+				BDDC24681E6E6E48005E103C /* Time Driving.mp3 */,
+				BDDC24691E6E6E48005E103C /* Wacky Waiting.mp3 */,
+			);
+			name = BackgroundMusic;
+			sourceTree = "<group>";
+		};
+		BDDC24501E6E6993005E103C /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				BDDC24511E6E69A1005E103C /* Constants.swift */,
+				BDDC24531E6E69C4005E103C /* Math.swift */,
+			);
+			name = Utility;
+			sourceTree = "<group>";
+		};
+		BDDC247D1E6E763D005E103C /* Characters */ = {
+			isa = PBXGroup;
+			children = (
+				BDDC247E1E6E7654005E103C /* CrossHair.swift */,
+			);
+			name = Characters;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BDDC242B1E6E5966005E103C /* AlienBusters */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BDDC24441E6E5966005E103C /* Build configuration list for PBXNativeTarget "AlienBusters" */;
+			buildPhases = (
+				BDDC24281E6E5966005E103C /* Sources */,
+				BDDC24291E6E5966005E103C /* Frameworks */,
+				BDDC242A1E6E5966005E103C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AlienBusters;
+			productName = AlienBusters;
+			productReference = BDDC242C1E6E5966005E103C /* AlienBusters.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BDDC24241E6E5966005E103C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = AlexMakedonski;
+				TargetAttributes = {
+					BDDC242B1E6E5966005E103C = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = BDDC24271E6E5966005E103C /* Build configuration list for PBXProject "AlienBusters" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BDDC24231E6E5966005E103C;
+			productRefGroup = BDDC242D1E6E5966005E103C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BDDC242B1E6E5966005E103C /* AlienBusters */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BDDC242A1E6E5966005E103C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDDC24701E6E6E48005E103C /* German Virtue.mp3 in Resources */,
+				BDDC246B1E6E6E48005E103C /* Cheerful Annoyance.mp3 in Resources */,
+				BDDC247B1E6E6E48005E103C /* Time Driving.mp3 in Resources */,
+				BDDC24781E6E6E48005E103C /* Sad Town.mp3 in Resources */,
+				BDDC24721E6E6E48005E103C /* Italian Mom.mp3 in Resources */,
+				BDDC243B1E6E5966005E103C /* Main.storyboard in Resources */,
+				BDDC24321E6E5966005E103C /* GameScene.sks in Resources */,
+				BDDC246A1E6E6E48005E103C /* Alpha Dance.mp3 in Resources */,
+				BDDC24761E6E6E48005E103C /* Polka Train.mp3 in Resources */,
+				BDDC247C1E6E6E48005E103C /* Wacky Waiting.mp3 in Resources */,
+				BDDC24741E6E6E48005E103C /* Mission Plausible.mp3 in Resources */,
+				BDDC24731E6E6E48005E103C /* Mishief Stroll.mp3 in Resources */,
+				BDDC24711E6E6E48005E103C /* Infinite Descent.mp3 in Resources */,
+				BDDC24771E6E6E48005E103C /* Sad Descent.mp3 in Resources */,
+				BDDC24791E6E6E48005E103C /* Space Cadet.mp3 in Resources */,
+				BDDC246F1E6E6E48005E103C /* Game Over.mp3 in Resources */,
+				BDDC243D1E6E5966005E103C /* Assets.xcassets in Resources */,
+				BDDC246C1E6E6E48005E103C /* Drumming Sticks.mp3 in Resources */,
+				BDDC24401E6E5966005E103C /* LaunchScreen.storyboard in Resources */,
+				BDDC246D1E6E6E48005E103C /* Farm Frolics.mp3 in Resources */,
+				BDDC24751E6E6E48005E103C /* Night at the Beach.mp3 in Resources */,
+				BDDC24341E6E5966005E103C /* Actions.sks in Resources */,
+				BDDC247A1E6E6E48005E103C /* Swinging Pants.mp3 in Resources */,
+				BDDC246E1E6E6E48005E103C /* Flowing Rocks.mp3 in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BDDC24281E6E5966005E103C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDDC244B1E6E615D005E103C /* SceneA.swift in Sources */,
+				BDDC24561E6E69F5005E103C /* UserOptionsManager.swift in Sources */,
+				BDDC24361E6E5966005E103C /* TestScene.swift in Sources */,
+				BDDC24811E6E7C30005E103C /* GameOverScene.swift in Sources */,
+				BDDC247F1E6E7654005E103C /* CrossHair.swift in Sources */,
+				BDDC24491E6E5C0B005E103C /* TextureAtlasManager.swift in Sources */,
+				BDDC24541E6E69C4005E103C /* Math.swift in Sources */,
+				BDDC24381E6E5966005E103C /* GameViewController.swift in Sources */,
+				BDDC24301E6E5966005E103C /* AppDelegate.swift in Sources */,
+				BDDC24521E6E69A1005E103C /* Constants.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		BDDC24391E6E5966005E103C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BDDC243A1E6E5966005E103C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BDDC243E1E6E5966005E103C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BDDC243F1E6E5966005E103C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BDDC24421E6E5966005E103C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BDDC24431E6E5966005E103C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BDDC24451E6E5966005E103C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = AlienBusters/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.AlexMakedonski.AlienBusters;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		BDDC24461E6E5966005E103C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = AlienBusters/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.AlexMakedonski.AlienBusters;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BDDC24271E6E5966005E103C /* Build configuration list for PBXProject "AlienBusters" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BDDC24421E6E5966005E103C /* Debug */,
+				BDDC24431E6E5966005E103C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BDDC24441E6E5966005E103C /* Build configuration list for PBXNativeTarget "AlienBusters" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BDDC24451E6E5966005E103C /* Debug */,
+				BDDC24461E6E5966005E103C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BDDC24241E6E5966005E103C /* Project object */;
+}
