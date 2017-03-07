@@ -1,0 +1,63 @@
+//Game structure: Simple linear structure; user progresses from one level to the next based on whether he wins or not; minimum of 20 levels needed
+
+//Game Modes
+	(A) Time Limit: Player must kill as many enemies as possible
+	(B) No Time Limit/Limited Ammo
+	—>Player has options to redo a completed level to improve stats
+
+//Stats
+	i.	Number of bullets fired
+	ii.	Number of kills
+	iii.	Time for level completion
+	iv. 	Shooting accuracy
+
+//CrossHair
+	->Large crosshair - uses more bullets
+	->Small crosshair - fewer bullets
+	->Night vision crosshair (light node is built in)
+
+//Keep track of the firing rate, stored a timer as a stored property; if firing rate exceed minimum level, a wind field is generated which sucks in a cloud
+	//If firing rate is too fast, a the player becomes smaller and smaller
+
+//A damaged alien ship emits smoke when hits
+//Subclass UIResponder to allow for crosshairs to be expanded
+
+
+
+
+//Consider having other objects in the game e.g. user must hit a
+
+//When alien is shot down, he spawns a ground based version, and then comes out and crawls
+
+//Create a swarm of bees, the Queen bee is the root node, all of the other bees are added as subsides; the Queen Bee is smaller than the other bees and harder to hit; if the player can hit the Queen Bee, all of the other bees die
+
+//Bats fly in a dark environment; a light must be attached to the crosshairs in order to make the bats visible; this will be a more difficult level
+
+//Madfly requires two hits to be killed; the first hit causes madly to lose opacity and to fly faster
+
+//Stealth alien ship: This alien ship fades in and out of the scene
+
+//Player gets smaller and smaller with each miss
+
+//Space aliens and alien ships are also available
+
+//Another enemy types spawns two news clones for each one destroyed; the player must be use a 2-bullet crosshair to destroy the newly spawned enemies
+
+//Other enemies can lift gun and fire back at user, if user is hit, screen shows a red overlay; these enemies must be hit before they can fire at the player
+
+//More enemies:
+	Flying aliens: pink, yellow, green, blue
+	Walking aliens(can hide behind obstacles)
+	Alien ships
+	Evil Sun
+	SpikeMan
+	SpringMan
+	SpikeBall
+	Cloud
+
+
+//The
+
+//Other game levels:
+	-Use particle emitters to create snow and rain to obstruct the player’s vision
+	-Escort the plane protect a plane; make sure it can fly across the screen without 		getting hit by an enemy
