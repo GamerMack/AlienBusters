@@ -19,36 +19,39 @@ class FlyingAlien: SKSpriteNode, Enemy{
     private let textureAtlas = TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .FlyingAliens)
     
     
+    //2 hits are required to destroy a flying alien
+    var health: Int = 2
+    
     //var defaultForceApplied = 40.0
     var isManned: Bool = false{
         didSet{
             switch(self.alienColor){
                 case .blue:
                     if(isManned){
-                        self.run(SKAction.setTexture(TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .FlyingAliens)!.textureNamed("shipBlue")))
-                    }else{
                         self.run(SKAction.setTexture(TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .FlyingAliens)!.textureNamed("shipBlue_manned")))
+                    }else{
+                        self.run(SKAction.setTexture(TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .FlyingAliens)!.textureNamed("shipBlue")))
                     }
                     break
                 case .green:
                     if(isManned){
-                        self.run(SKAction.setTexture(TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .FlyingAliens)!.textureNamed("shipGreen")))
-                    }else{
                         self.run(SKAction.setTexture(TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .FlyingAliens)!.textureNamed("shipGreen_manned")))
+                    }else{
+                        self.run(SKAction.setTexture(TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .FlyingAliens)!.textureNamed("shipGreen")))
                     }
                     break
                 case .yellow:
                     if(isManned){
-                        self.run(SKAction.setTexture(TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .FlyingAliens)!.textureNamed("shipYellow")))
-                    }else{
                         self.run(SKAction.setTexture(TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .FlyingAliens)!.textureNamed("shipYellow_manned")))
+                    }else{
+                        self.run(SKAction.setTexture(TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .FlyingAliens)!.textureNamed("shipYellow")))
                     }
                     break
                 case .pink:
                     if(isManned){
-                        self.run(SKAction.setTexture(TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .FlyingAliens)!.textureNamed("shipPink")))
-                    }else{
                         self.run(SKAction.setTexture(TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .FlyingAliens)!.textureNamed("shipPink_manned")))
+                    }else{
+                        self.run(SKAction.setTexture(TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .FlyingAliens)!.textureNamed("shipPink")))
                     }
                     break
                 
@@ -125,38 +128,80 @@ class FlyingAlien: SKSpriteNode, Enemy{
     
     
     func update(currentTime: TimeInterval){
-        
+        updateFlyingMode(currentTime: currentTime)
+        updateVelocity()
+    
+    }
+    
+    private func updateFlyingMode(currentTime: TimeInterval){
         timeSinceLastFlyModeTransition += currentTime - lastUpdateInterval
         lastUpdateInterval = currentTime
         
         if(timeSinceLastFlyModeTransition > flyModeTransitionInterval){
             isManned = !isManned
             timeSinceLastFlyModeTransition = 0
-            print("Changed manned state")
         }
         
         lastUpdateInterval = currentTime
         
-        let xForceComponent = Int(arc4random_uniform(UInt32(10)))
-        let yForceComponent = Int(arc4random_uniform(UInt32(10)))
+    }
+    
+    private func updateVelocity(){
+        var xForceComponent: Int = getForceVelocityComponent()
+        var yForceComponent: Int = getForceVelocityComponent()
         
-        let coinFlipX = Int(arc4random_uniform(2))
-        let coinFlipY = Int(arc4random_uniform(2))
+        randomizeVelocityComponentDirection(velocityComponent: &xForceComponent)
+        randomizeVelocityComponentDirection(velocityComponent: &yForceComponent)
         
-        let adjustedXForceComponent = coinFlipX == 1 ? xForceComponent: -xForceComponent
-        let adjustedYForceComponent = coinFlipY == 1 ? yForceComponent: -yForceComponent
-        
-        let forceVectorApplied = CGVector(dx: adjustedXForceComponent, dy: adjustedYForceComponent)
+        let forceVectorApplied = CGVector(dx: xForceComponent, dy: yForceComponent)
         
         self.physicsBody?.applyImpulse(forceVectorApplied, at: self.position)
 
+    }
     
+    private func getForceVelocityComponent() -> Int{
+        switch(self.health){
+        case 2:
+            return Int(arc4random_uniform(20))
+        case 1:
+            return Int(arc4random_uniform(30))
+        case 0:
+            return Int(arc4random_uniform(45))
+        default:
+            return Int(arc4random_uniform(10))
+        }
+    }
+    
+    private func randomizeVelocityComponentDirection(velocityComponent: inout Int){
+        let coinFlip = Int(arc4random_uniform(2))
+        
+        velocityComponent = coinFlip == 1 ? velocityComponent: -velocityComponent
+
     }
     
     func respondToHitAt(touchLocation: CGPoint){
         
-            if self.contains(touchLocation){
-               
+        if(!isManned) { return }
+        
+        if self.contains(touchLocation){
+            
+            switch(self.health){
+            case 2:
+                self.run(SKAction.fadeAlpha(to: 0.6, duration: 0.25))
+                self.health -= 1
+                break
+            case 1:
+                self.run(SKAction.fadeAlpha(to: 0.3, duration: 0.25))
+                self.health -= 1
+                break
+            case 0:
+                createExplosionFor(spriteNode: self)
+                self.run(SKAction.sequence([
+                    SKAction.wait(forDuration: 2.0),
+                    SKAction.removeFromParent()
+                    ]))
+                break
+            default:
                 createExplosionFor(spriteNode: self)
                 self.run(SKAction.sequence([
                     SKAction.wait(forDuration: 2.0),
@@ -164,6 +209,9 @@ class FlyingAlien: SKSpriteNode, Enemy{
                     ]))
                 
             }
+          
+                
+        }
             
             
           
