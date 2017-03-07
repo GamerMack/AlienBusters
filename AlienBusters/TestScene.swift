@@ -12,11 +12,21 @@ import AVFoundation
 
 class TestScene: SKScene {
     
-    let textureAtlasManager = TextureAtlasManager.sharedInstance
+    private let textureAtlasManager = TextureAtlasManager.sharedInstance
+    
+    private let timeLimit: TimeInterval = 10.0
+    private var timeElapsed: TimeInterval = 0.00
+    private var previousTime: TimeInterval = 0.00
+    private var numberOfBullets = 5
+    private var numberOfKills = 0
     
     private let shootingSound = SKAction.playSoundFileNamed(SoundEffects.Laser9, waitForCompletion: false)
+    
     private var player: CrossHair?
     private var background: Background?
+    private var hud: HUD?
+    
+    
     override func didMove(to view: SKView) {
         
         setup()
@@ -43,9 +53,14 @@ class TestScene: SKScene {
         
         //Configure background
         background = Background(backgroundType: .ColoredCastle)
-        background!.zPosition = 0
+        background!.zPosition = -2
         background!.scale(to: self.size)
         self.addChild(background!)
+        
+        //Configure HUD display
+        hud = HUD()
+        hud!.zPosition = -1
+        self.addChild(hud!)
         
     }
     
@@ -62,13 +77,21 @@ class TestScene: SKScene {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        //If the player runs out of bullets, he cannot fire anymore
+        if(numberOfBullets == 0) {
+            print("No more bullets")
+            return
+        }
+        
         let touch = touches.first! as UITouch
         let touchLocation = touch.location(in: self)
         
-        if let player = player{
-            if player.contains(touchLocation){
-                player.run(self.shootingSound)
-            }
+        
+        if let player = player, player.contains(touchLocation){
+            player.run(self.shootingSound)
+            numberOfBullets -= 1
+        
         }
     }
     
@@ -93,9 +116,16 @@ class TestScene: SKScene {
     
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
+        
+        let deltaTime = currentTime - previousTime
+        timeElapsed += deltaTime
+        
         if let player = player{
             player.update()
         }
+        
+        
+        previousTime = currentTime
     }
     
     private func loadScene(){
