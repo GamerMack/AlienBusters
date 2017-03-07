@@ -77,7 +77,7 @@ class TextureAtlasManager{
           regularExplosionAtlas = SKTextureAtlas(named: "RegularExplosion")
           groundExplosionAtlas = SKTextureAtlas(named: "GroundExplosion")
           backgroundObjectsAtlas = SKTextureAtlas(named: "BackgroundObjects")
-          backgroundScenesAtlas = SKTextureAtlas(named: "BackgroundScenes")
+          backgroundScenesAtlas = SKTextureAtlas(named: "BackgroundScenes.atlas")
     }
     
 }

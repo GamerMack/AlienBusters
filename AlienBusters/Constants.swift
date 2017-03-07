@@ -48,6 +48,21 @@ class BackgroundMusic{
 }
 
 
+//Sound Effects
+
+class SoundEffects{
+    static let Laser2 = "laser2.wav"
+    static let Laser3 = "laser3.wav"
+    static let Laser4 = "laser4.wav"
+    static let Laser5 = "laser5.wav"
+    static let Laser6 = "laser6.wav"
+    static let Laser7 = "laser7.wav"
+    static let Laser8 = "laser8.wav"
+    static let Laser9 = "laser9.wav"
+    
+}
+
+
 
 //UserOptions and Configuration Constants
 

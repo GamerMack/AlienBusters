@@ -14,19 +14,14 @@ class TestScene: SKScene {
     
     let textureAtlasManager = TextureAtlasManager.sharedInstance
     
+    private let shootingSound = SKAction.playSoundFileNamed(SoundEffects.Laser9, waitForCompletion: false)
     private var player: CrossHair?
     private var background: Background?
-    
     override func didMove(to view: SKView) {
         
         setup()
         
-        let backgroundTexture = SKTexture(image: #imageLiteral(resourceName: "colored_forest"))
-        let backgroundSprite = SKSpriteNode(texture: backgroundTexture)
-        backgroundSprite.anchorPoint = CGPoint(x: 0.5, y: 0.5)
-        backgroundSprite.position = CGPoint.zero
-        backgroundSprite.zPosition = 0
-        self.addChild(backgroundSprite)
+
         
       
     }
@@ -49,6 +44,7 @@ class TestScene: SKScene {
         //Configure background
         background = Background(backgroundType: .ColoredCastle)
         background!.zPosition = 0
+        background!.scale(to: self.size)
         self.addChild(background!)
         
     }
@@ -70,12 +66,20 @@ class TestScene: SKScene {
         let touchLocation = touch.location(in: self)
         
         if let player = player{
-            player.updateTargetPosition(position: touchLocation)
+            if player.contains(touchLocation){
+                player.run(self.shootingSound)
+            }
         }
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchMoved(toPoint: t.location(in: self)) }
+        for t in touches {
+            let touchLocation = t.location(in: self)
+            
+            if let player = player{
+                player.updateTargetPosition(position: touchLocation)
+            }
+        }
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
