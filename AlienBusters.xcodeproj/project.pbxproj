@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BD2DEE331E6EE9100060750D /* AnimationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2DEE321E6EE9100060750D /* AnimationsManager.swift */; };
 		BDDC24301E6E5966005E103C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDC242F1E6E5966005E103C /* AppDelegate.swift */; };
 		BDDC24321E6E5966005E103C /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = BDDC24311E6E5966005E103C /* GameScene.sks */; };
 		BDDC24341E6E5966005E103C /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = BDDC24331E6E5966005E103C /* Actions.sks */; };
@@ -59,6 +60,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BD2DEE321E6EE9100060750D /* AnimationsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationsManager.swift; sourceTree = "<group>"; };
 		BDDC242C1E6E5966005E103C /* AlienBusters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlienBusters.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDDC242F1E6E5966005E103C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BDDC24311E6E5966005E103C /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 			children = (
 				BDDC24481E6E5C0B005E103C /* TextureAtlasManager.swift */,
 				BDDC24551E6E69F5005E103C /* UserOptionsManager.swift */,
+				BD2DEE321E6EE9100060750D /* AnimationsManager.swift */,
 			);
 			name = Singletons;
 			sourceTree = "<group>";
@@ -363,6 +366,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD2DEE331E6EE9100060750D /* AnimationsManager.swift in Sources */,
 				BDDC24831E6E9119005E103C /* Background.swift in Sources */,
 				BDDC244B1E6E615D005E103C /* SceneA.swift in Sources */,
 				BDDC24561E6E69F5005E103C /* UserOptionsManager.swift in Sources */,

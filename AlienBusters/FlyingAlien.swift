@@ -153,6 +153,23 @@ class FlyingAlien: SKSpriteNode, Enemy{
     
     }
     
+    func respondToHitAt(touchLocation: CGPoint){
+        
+            if self.contains(touchLocation){
+               
+                createExplosionFor(spriteNode: self)
+                self.run(SKAction.sequence([
+                    SKAction.wait(forDuration: 2.0),
+                    SKAction.removeFromParent()
+                    ]))
+                
+            }
+            
+            
+          
+        
+    }
+    
     
 
   

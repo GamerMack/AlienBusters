@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SpriteKit
 import AVFoundation
 
 //Preload Sounds
@@ -37,4 +38,21 @@ func preloadSounds() {
         //Error handling code
     }
 
+}
+
+
+
+func createExplosionFor(spriteNode: SKSpriteNode){
+    /** OPTIONAL CODE FOR ADDING A PLACEHOLDER NODE TO EXECUTE THE EXPLOSION ANIMATION
+     let explodingNode = SKSpriteNode(texture: nil, color: .clear, size: CGSize(width: 50, height: 50))
+     
+     explodingNode.position = CGPoint.zero
+     self.addChild(explodingNode)
+     **/
+    
+    
+    let explosionAnimationWithSound = AnimationsManager.sharedInstance.getAnimationWithNameOf(animationName: "explosionAnimationWithSound")
+    
+    spriteNode.run(explosionAnimationWithSound, withKey: "delayedExplosion")
+    
 }

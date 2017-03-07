@@ -99,8 +99,14 @@ class TestScene: SKScene {
         if let player = player, player.contains(touchLocation){
             player.run(self.shootingSound)
             numberOfBullets -= 1
+            
+            if let flyingAlien = flyingAlien, flyingAlien.contains(touchLocation){
+                flyingAlien.respondToHitAt(touchLocation: touchLocation)
+            }
         
         }
+        
+       
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -108,7 +114,8 @@ class TestScene: SKScene {
             let touchLocation = t.location(in: self)
             
             if let player = player{
-                player.updateTargetPosition(position: touchLocation)
+                //player.updateTargetPosition(position: touchLocation)
+                player.position = touchLocation
             }
         }
     }
