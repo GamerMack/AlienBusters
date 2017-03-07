@@ -40,35 +40,37 @@ class CrossHair: SKSpriteNode{
     }
     
     
-    convenience init(crossHairType: CrossHairType) {
+    convenience init?(crossHairType: CrossHairType) {
         
-        var texture: SKTexture
+        var texture: SKTexture?
         
         switch(crossHairType){
         case .BlueLarge:
-            texture = TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .CrossHair)!.textureNamed("crosshair_blue_large")
+            texture = TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .CrossHair)?.textureNamed("crosshair_blue_large")
             break
         case .BlueSmall:
-            texture = TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .CrossHair)!.textureNamed("crosshair_blue_small")
+            texture = TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .CrossHair)?.textureNamed("crosshair_blue_small")
             break
         case .RedLarge:
-            texture = TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .CrossHair)!.textureNamed("crosshair_red_large")
+            texture = TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .CrossHair)?.textureNamed("crosshair_red_large")
             break
         case .RedSmall:
-            texture = TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .CrossHair)!.textureNamed("crosshair_red_small")
+            texture = TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .CrossHair)?.textureNamed("crosshair_red_small")
             break
         case .OutlineLarge:
-            texture = TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .CrossHair)!.textureNamed("crosshair_outline_large")
+            texture = TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .CrossHair)?.textureNamed("crosshair_outline_large")
             break
         case .OutlineSmall:
-            texture = TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .CrossHair)!.textureNamed("crosshair_outline_small")
+            texture = TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .CrossHair)?.textureNamed("crosshair_outline_small")
             break
         default:
-            texture = TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .CrossHair)!.textureNamed("crosshair_blue_small")
+            texture = TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .CrossHair)?.textureNamed("crosshair_blue_small")
         }
         
         
-        self.init(texture: texture, color: .clear, size: texture.size())
+        guard let crosshairTexture = texture else { return nil}
+        
+        self.init(texture: crosshairTexture, color: .clear, size: crosshairTexture.size())
         setup()
         
     }

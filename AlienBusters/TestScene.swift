@@ -25,13 +25,21 @@ class TestScene: SKScene {
     private var player: CrossHair?
     private var background: Background?
     private var hud: HUD?
-    
+    private var flyingAlien: FlyingAlien?
     
     override func didMove(to view: SKView) {
         
         setup()
         
-
+        flyingAlien = FlyingAlien(alienColor: .pink)
+        flyingAlien!.zPosition = 1
+        
+        let barrierNode = SKSpriteNode(texture: nil, color: .clear, size: self.size)
+        barrierNode.zPosition = 1
+        barrierNode.physicsBody = SKPhysicsBody(edgeLoopFrom: CGRect(x: -200, y: -200, width: 400, height: 400))
+        self.addChild(barrierNode)
+        
+        self.addChild(flyingAlien!)
         
       
     }
@@ -124,8 +132,16 @@ class TestScene: SKScene {
             player.update()
         }
         
+       
+        
         
         previousTime = currentTime
+    }
+    
+    override func didSimulatePhysics() {
+        if let flyingAlien = flyingAlien{
+           flyingAlien.update(currentTime: timeElapsed)
+        }
     }
     
     private func loadScene(){

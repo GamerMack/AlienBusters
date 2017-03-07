@@ -40,50 +40,52 @@ class Background: SKSpriteNode{
     }
     
     
-    convenience init(backgroundType: BackgroundType) {
+    convenience init?(backgroundType: BackgroundType) {
         
-        var texture: SKTexture
+        var texture: SKTexture?
         
         switch(backgroundType){
         case .UncoloredHills:
-            texture = TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .BackgroundScenes)!.textureNamed("uncolored_hills")
+            texture = TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .BackgroundScenes)?.textureNamed("uncolored_hills")
             break
         case .UncoloredPeaks:
-            texture = TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .BackgroundScenes)!.textureNamed("uncolored_peaks")
+            texture = TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .BackgroundScenes)?.textureNamed("uncolored_peaks")
             break
         case .UncoloredPlain:
-            texture = TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .BackgroundScenes)!.textureNamed("uncolored_plain")
+            texture = TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .BackgroundScenes)?.textureNamed("uncolored_plain")
             break
         case .UncoloredDesert:
-            texture = TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .BackgroundScenes)!.textureNamed("uncolored_desert")
+            texture = TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .BackgroundScenes)?.textureNamed("uncolored_desert")
             break
         case .UncoloredForest:
-            texture = TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .BackgroundScenes)!.textureNamed("uncolored_forest")
+            texture = TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .BackgroundScenes)?.textureNamed("uncolored_forest")
             break
         case .UncoloredPiramids:
-            texture = TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .BackgroundScenes)!.textureNamed("uncolored_piramids")
+            texture = TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .BackgroundScenes)?.textureNamed("uncolored_piramids")
             break
         case .UncoloredTallTrees:
-             texture = TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .BackgroundScenes)!.textureNamed("uncolored_talltrees")
+             texture = TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .BackgroundScenes)?.textureNamed("uncolored_talltrees")
             break
         case .ColoredCastle:
-             texture = TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .BackgroundScenes)!.textureNamed("colored_castle")
+             texture = TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .BackgroundScenes)?.textureNamed("colored_castle")
             break
         case .ColoredDesert:
-             texture = TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .BackgroundScenes)!.textureNamed("colored_desert")
+             texture = TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .BackgroundScenes)?.textureNamed("colored_desert")
             break
         case .ColoredForest:
-             texture = TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .BackgroundScenes)!.textureNamed("colored_forest")
+             texture = TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .BackgroundScenes)?.textureNamed("colored_forest")
             break
         case .ColoredTallTrees:
-             texture = TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .BackgroundScenes)!.textureNamed("colored_talltrees")
+             texture = TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .BackgroundScenes)?.textureNamed("colored_talltrees")
             break
         default:
-            texture = TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .BackgroundScenes)!.textureNamed("uncolored_forest")
+            texture = TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .BackgroundScenes)?.textureNamed("uncolored_forest")
         }
         
         
-        self.init(texture: texture, color: .clear, size: texture.size())
+        guard let backgroundTexture = texture else {  return nil }
+        
+        self.init(texture: backgroundTexture, color: .clear, size: backgroundTexture.size())
         setup()
         
     }

@@ -55,6 +55,7 @@
 		BDDC249A1E6E9D0D005E103C /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDC24991E6E9D0D005E103C /* HelperFunctions.swift */; };
 		BDDC249C1E6E9E71005E103C /* FlyingAlien.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDC249B1E6E9E71005E103C /* FlyingAlien.swift */; };
 		BDDC249E1E6EA082005E103C /* HUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDC249D1E6EA082005E103C /* HUD.swift */; };
+		BDDC24A01E6EB9D5005E103C /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDC249F1E6EB9D5005E103C /* Enemy.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -108,6 +109,7 @@
 		BDDC24991E6E9D0D005E103C /* HelperFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperFunctions.swift; sourceTree = "<group>"; };
 		BDDC249B1E6E9E71005E103C /* FlyingAlien.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlyingAlien.swift; sourceTree = "<group>"; };
 		BDDC249D1E6EA082005E103C /* HUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUD.swift; sourceTree = "<group>"; };
+		BDDC249F1E6EB9D5005E103C /* Enemy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -236,6 +238,7 @@
 				BDDC24821E6E9119005E103C /* Background.swift */,
 				BDDC249B1E6E9E71005E103C /* FlyingAlien.swift */,
 				BDDC249D1E6EA082005E103C /* HUD.swift */,
+				BDDC249F1E6EB9D5005E103C /* Enemy.swift */,
 			);
 			name = Characters;
 			sourceTree = "<group>";
@@ -371,6 +374,7 @@
 				BDDC24541E6E69C4005E103C /* Math.swift in Sources */,
 				BDDC24381E6E5966005E103C /* GameViewController.swift in Sources */,
 				BDDC24301E6E5966005E103C /* AppDelegate.swift in Sources */,
+				BDDC24A01E6EB9D5005E103C /* Enemy.swift in Sources */,
 				BDDC249E1E6EA082005E103C /* HUD.swift in Sources */,
 				BDDC249C1E6E9E71005E103C /* FlyingAlien.swift in Sources */,
 				BDDC24521E6E69A1005E103C /* Constants.swift in Sources */,
