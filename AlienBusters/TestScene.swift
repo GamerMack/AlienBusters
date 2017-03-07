@@ -15,11 +15,18 @@ class TestScene: SKScene {
     let textureAtlasManager = TextureAtlasManager.sharedInstance
     
     private var player: CrossHair?
+    private var background: Background?
     
     override func didMove(to view: SKView) {
         
         setup()
         
+        let backgroundTexture = SKTexture(image: #imageLiteral(resourceName: "colored_forest"))
+        let backgroundSprite = SKSpriteNode(texture: backgroundTexture)
+        backgroundSprite.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        backgroundSprite.position = CGPoint.zero
+        backgroundSprite.zPosition = 0
+        self.addChild(backgroundSprite)
         
       
     }
@@ -34,10 +41,15 @@ class TestScene: SKScene {
         bg.autoplayLooped = true
         self.addChild(bg)
         
-        //TextureAtlasManager Test
+        //Configure player
         player = CrossHair(crossHairType: .BlueLarge)
         player!.zPosition = 3
         self.addChild(player!)
+        
+        //Configure background
+        background = Background(backgroundType: .ColoredCastle)
+        background!.zPosition = 0
+        self.addChild(background!)
         
     }
     

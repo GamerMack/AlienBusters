@@ -41,6 +41,15 @@
 		BDDC247C1E6E6E48005E103C /* Wacky Waiting.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BDDC24691E6E6E48005E103C /* Wacky Waiting.mp3 */; };
 		BDDC247F1E6E7654005E103C /* CrossHair.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDC247E1E6E7654005E103C /* CrossHair.swift */; };
 		BDDC24811E6E7C30005E103C /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDC24801E6E7C30005E103C /* GameOverScene.swift */; };
+		BDDC24831E6E9119005E103C /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDC24821E6E9119005E103C /* Background.swift */; };
+		BDDC248D1E6E95A1005E103C /* laser2.wav in Resources */ = {isa = PBXBuildFile; fileRef = BDDC24851E6E95A1005E103C /* laser2.wav */; };
+		BDDC248E1E6E95A1005E103C /* laser3.wav in Resources */ = {isa = PBXBuildFile; fileRef = BDDC24861E6E95A1005E103C /* laser3.wav */; };
+		BDDC248F1E6E95A1005E103C /* laser4.wav in Resources */ = {isa = PBXBuildFile; fileRef = BDDC24871E6E95A1005E103C /* laser4.wav */; };
+		BDDC24901E6E95A1005E103C /* laser5.wav in Resources */ = {isa = PBXBuildFile; fileRef = BDDC24881E6E95A1005E103C /* laser5.wav */; };
+		BDDC24911E6E95A1005E103C /* laser6.wav in Resources */ = {isa = PBXBuildFile; fileRef = BDDC24891E6E95A1005E103C /* laser6.wav */; };
+		BDDC24921E6E95A1005E103C /* laser7.wav in Resources */ = {isa = PBXBuildFile; fileRef = BDDC248A1E6E95A1005E103C /* laser7.wav */; };
+		BDDC24931E6E95A1005E103C /* laser8.wav in Resources */ = {isa = PBXBuildFile; fileRef = BDDC248B1E6E95A1005E103C /* laser8.wav */; };
+		BDDC24941E6E95A1005E103C /* laser9.wav in Resources */ = {isa = PBXBuildFile; fileRef = BDDC248C1E6E95A1005E103C /* laser9.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +89,15 @@
 		BDDC24691E6E6E48005E103C /* Wacky Waiting.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Wacky Waiting.mp3"; sourceTree = "<group>"; };
 		BDDC247E1E6E7654005E103C /* CrossHair.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrossHair.swift; sourceTree = "<group>"; };
 		BDDC24801E6E7C30005E103C /* GameOverScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
+		BDDC24821E6E9119005E103C /* Background.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
+		BDDC24851E6E95A1005E103C /* laser2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = laser2.wav; sourceTree = "<group>"; };
+		BDDC24861E6E95A1005E103C /* laser3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = laser3.wav; sourceTree = "<group>"; };
+		BDDC24871E6E95A1005E103C /* laser4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = laser4.wav; sourceTree = "<group>"; };
+		BDDC24881E6E95A1005E103C /* laser5.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = laser5.wav; sourceTree = "<group>"; };
+		BDDC24891E6E95A1005E103C /* laser6.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = laser6.wav; sourceTree = "<group>"; };
+		BDDC248A1E6E95A1005E103C /* laser7.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = laser7.wav; sourceTree = "<group>"; };
+		BDDC248B1E6E95A1005E103C /* laser8.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = laser8.wav; sourceTree = "<group>"; };
+		BDDC248C1E6E95A1005E103C /* laser9.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = laser9.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +130,7 @@
 		BDDC242E1E6E5966005E103C /* AlienBusters */ = {
 			isa = PBXGroup;
 			children = (
+				BDDC24841E6E9572005E103C /* SoundEffects */,
 				BDDC247D1E6E763D005E103C /* Characters */,
 				BDDC24501E6E6993005E103C /* Utility */,
 				BDDC244F1E6E6855005E103C /* BackgroundMusic */,
@@ -203,8 +222,24 @@
 			isa = PBXGroup;
 			children = (
 				BDDC247E1E6E7654005E103C /* CrossHair.swift */,
+				BDDC24821E6E9119005E103C /* Background.swift */,
 			);
 			name = Characters;
+			sourceTree = "<group>";
+		};
+		BDDC24841E6E9572005E103C /* SoundEffects */ = {
+			isa = PBXGroup;
+			children = (
+				BDDC24851E6E95A1005E103C /* laser2.wav */,
+				BDDC24861E6E95A1005E103C /* laser3.wav */,
+				BDDC24871E6E95A1005E103C /* laser4.wav */,
+				BDDC24881E6E95A1005E103C /* laser5.wav */,
+				BDDC24891E6E95A1005E103C /* laser6.wav */,
+				BDDC248A1E6E95A1005E103C /* laser7.wav */,
+				BDDC248B1E6E95A1005E103C /* laser8.wav */,
+				BDDC248C1E6E95A1005E103C /* laser9.wav */,
+			);
+			name = SoundEffects;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,25 +303,33 @@
 			files = (
 				BDDC24701E6E6E48005E103C /* German Virtue.mp3 in Resources */,
 				BDDC246B1E6E6E48005E103C /* Cheerful Annoyance.mp3 in Resources */,
+				BDDC24901E6E95A1005E103C /* laser5.wav in Resources */,
 				BDDC247B1E6E6E48005E103C /* Time Driving.mp3 in Resources */,
+				BDDC24931E6E95A1005E103C /* laser8.wav in Resources */,
 				BDDC24781E6E6E48005E103C /* Sad Town.mp3 in Resources */,
 				BDDC24721E6E6E48005E103C /* Italian Mom.mp3 in Resources */,
 				BDDC243B1E6E5966005E103C /* Main.storyboard in Resources */,
 				BDDC24321E6E5966005E103C /* GameScene.sks in Resources */,
 				BDDC246A1E6E6E48005E103C /* Alpha Dance.mp3 in Resources */,
 				BDDC24761E6E6E48005E103C /* Polka Train.mp3 in Resources */,
+				BDDC24911E6E95A1005E103C /* laser6.wav in Resources */,
 				BDDC247C1E6E6E48005E103C /* Wacky Waiting.mp3 in Resources */,
 				BDDC24741E6E6E48005E103C /* Mission Plausible.mp3 in Resources */,
+				BDDC248F1E6E95A1005E103C /* laser4.wav in Resources */,
 				BDDC24731E6E6E48005E103C /* Mishief Stroll.mp3 in Resources */,
 				BDDC24711E6E6E48005E103C /* Infinite Descent.mp3 in Resources */,
 				BDDC24771E6E6E48005E103C /* Sad Descent.mp3 in Resources */,
 				BDDC24791E6E6E48005E103C /* Space Cadet.mp3 in Resources */,
 				BDDC246F1E6E6E48005E103C /* Game Over.mp3 in Resources */,
+				BDDC248E1E6E95A1005E103C /* laser3.wav in Resources */,
 				BDDC243D1E6E5966005E103C /* Assets.xcassets in Resources */,
+				BDDC24941E6E95A1005E103C /* laser9.wav in Resources */,
 				BDDC246C1E6E6E48005E103C /* Drumming Sticks.mp3 in Resources */,
 				BDDC24401E6E5966005E103C /* LaunchScreen.storyboard in Resources */,
 				BDDC246D1E6E6E48005E103C /* Farm Frolics.mp3 in Resources */,
 				BDDC24751E6E6E48005E103C /* Night at the Beach.mp3 in Resources */,
+				BDDC248D1E6E95A1005E103C /* laser2.wav in Resources */,
+				BDDC24921E6E95A1005E103C /* laser7.wav in Resources */,
 				BDDC24341E6E5966005E103C /* Actions.sks in Resources */,
 				BDDC247A1E6E6E48005E103C /* Swinging Pants.mp3 in Resources */,
 				BDDC246E1E6E6E48005E103C /* Flowing Rocks.mp3 in Resources */,
@@ -300,6 +343,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDDC24831E6E9119005E103C /* Background.swift in Sources */,
 				BDDC244B1E6E615D005E103C /* SceneA.swift in Sources */,
 				BDDC24561E6E69F5005E103C /* UserOptionsManager.swift in Sources */,
 				BDDC24361E6E5966005E103C /* TestScene.swift in Sources */,
