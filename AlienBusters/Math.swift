@@ -36,3 +36,11 @@ func DistanceBetweenPoints(firstPoint: CGPoint, secondPoint: CGPoint) -> NumberU
     return NumberUnit(hypot(secondPoint.x - firstPoint.x, secondPoint.y - firstPoint.y))
 }
 
+func RandomIntegerBetween(min: Int, max: Int) -> Int{
+    return Int(UInt32(min) + arc4random_uniform(UInt32(max-min+1)))
+}
+
+func RandomFloatRange(min: CGFloat, max: CGFloat) -> CGFloat{
+    return CGFloat(Float(arc4random()/0xFFFFFFFF))*(max-min) + min
+}
+

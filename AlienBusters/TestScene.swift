@@ -17,7 +17,16 @@ class TestScene: SKScene {
     private let timeLimit: TimeInterval = 10.0
     private var timeElapsed: TimeInterval = 0.00
     private var previousTime: TimeInterval = 0.00
-    private var numberOfBullets = 5
+    
+    private var numberOfBullets = 5{
+        didSet{
+            if(numberOfBullets == 0){
+                self.run(SKAction.wait(forDuration: 3.0))
+                loadGameOverScene()
+            }
+        }
+    }
+    
     private var numberOfKills = 0
     
     private let shootingSound = SKAction.playSoundFileNamed(SoundEffects.Laser9, waitForCompletion: false)
@@ -151,7 +160,9 @@ class TestScene: SKScene {
         }
     }
     
-    private func loadScene(){
+
+    
+    private func loadGameOverScene(){
         let scene = GameOverScene()
         let transition = SKTransition.crossFade(withDuration: 0.20)
         view?.presentScene(scene, transition: transition)

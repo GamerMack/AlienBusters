@@ -8,8 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		BD2DEE331E6EE9100060750D /* AnimationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2DEE321E6EE9100060750D /* AnimationsManager.swift */; };
+		BD2DEE351E6EF8160060750D /* NTLScene2.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2DEE341E6EF8160060750D /* NTLScene2.swift */; };
+		BD2DEE371E6EF84E0060750D /* NTLScene3.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2DEE361E6EF84E0060750D /* NTLScene3.swift */; };
+		BD2DEE391E6EFD680060750D /* FallingAliens.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2DEE381E6EFD680060750D /* FallingAliens.swift */; };
+		BD2DEE3B1E6F05AA0060750D /* FallingAliensController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2DEE3A1E6F05AA0060750D /* FallingAliensController.swift */; };
 		BDDC24301E6E5966005E103C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDC242F1E6E5966005E103C /* AppDelegate.swift */; };
-		BDDC24321E6E5966005E103C /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = BDDC24311E6E5966005E103C /* GameScene.sks */; };
 		BDDC24341E6E5966005E103C /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = BDDC24331E6E5966005E103C /* Actions.sks */; };
 		BDDC24361E6E5966005E103C /* TestScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDC24351E6E5966005E103C /* TestScene.swift */; };
 		BDDC24381E6E5966005E103C /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDC24371E6E5966005E103C /* GameViewController.swift */; };
@@ -61,9 +64,12 @@
 
 /* Begin PBXFileReference section */
 		BD2DEE321E6EE9100060750D /* AnimationsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationsManager.swift; sourceTree = "<group>"; };
+		BD2DEE341E6EF8160060750D /* NTLScene2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NTLScene2.swift; sourceTree = "<group>"; };
+		BD2DEE361E6EF84E0060750D /* NTLScene3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NTLScene3.swift; sourceTree = "<group>"; };
+		BD2DEE381E6EFD680060750D /* FallingAliens.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FallingAliens.swift; sourceTree = "<group>"; };
+		BD2DEE3A1E6F05AA0060750D /* FallingAliensController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FallingAliensController.swift; sourceTree = "<group>"; };
 		BDDC242C1E6E5966005E103C /* AlienBusters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlienBusters.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDDC242F1E6E5966005E103C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BDDC24311E6E5966005E103C /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		BDDC24331E6E5966005E103C /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
 		BDDC24351E6E5966005E103C /* TestScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestScene.swift; sourceTree = "<group>"; };
 		BDDC24371E6E5966005E103C /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
@@ -174,7 +180,8 @@
 			isa = PBXGroup;
 			children = (
 				BDDC24351E6E5966005E103C /* TestScene.swift */,
-				BDDC24311E6E5966005E103C /* GameScene.sks */,
+				BD2DEE341E6EF8160060750D /* NTLScene2.swift */,
+				BD2DEE361E6EF84E0060750D /* NTLScene3.swift */,
 				BDDC244A1E6E615D005E103C /* SceneA.swift */,
 				BDDC24801E6E7C30005E103C /* GameOverScene.swift */,
 			);
@@ -240,8 +247,10 @@
 				BDDC247E1E6E7654005E103C /* CrossHair.swift */,
 				BDDC24821E6E9119005E103C /* Background.swift */,
 				BDDC249B1E6E9E71005E103C /* FlyingAlien.swift */,
+				BD2DEE381E6EFD680060750D /* FallingAliens.swift */,
 				BDDC249D1E6EA082005E103C /* HUD.swift */,
 				BDDC249F1E6EB9D5005E103C /* Enemy.swift */,
+				BD2DEE3A1E6F05AA0060750D /* FallingAliensController.swift */,
 			);
 			name = Characters;
 			sourceTree = "<group>";
@@ -331,7 +340,6 @@
 				BDDC24781E6E6E48005E103C /* Sad Town.mp3 in Resources */,
 				BDDC24721E6E6E48005E103C /* Italian Mom.mp3 in Resources */,
 				BDDC243B1E6E5966005E103C /* Main.storyboard in Resources */,
-				BDDC24321E6E5966005E103C /* GameScene.sks in Resources */,
 				BDDC246A1E6E6E48005E103C /* Alpha Dance.mp3 in Resources */,
 				BDDC24761E6E6E48005E103C /* Polka Train.mp3 in Resources */,
 				BDDC24911E6E95A1005E103C /* laser6.wav in Resources */,
@@ -367,9 +375,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD2DEE331E6EE9100060750D /* AnimationsManager.swift in Sources */,
+				BD2DEE351E6EF8160060750D /* NTLScene2.swift in Sources */,
 				BDDC24831E6E9119005E103C /* Background.swift in Sources */,
 				BDDC244B1E6E615D005E103C /* SceneA.swift in Sources */,
 				BDDC24561E6E69F5005E103C /* UserOptionsManager.swift in Sources */,
+				BD2DEE391E6EFD680060750D /* FallingAliens.swift in Sources */,
 				BDDC24361E6E5966005E103C /* TestScene.swift in Sources */,
 				BDDC24811E6E7C30005E103C /* GameOverScene.swift in Sources */,
 				BDDC249A1E6E9D0D005E103C /* HelperFunctions.swift in Sources */,
@@ -378,7 +388,9 @@
 				BDDC24541E6E69C4005E103C /* Math.swift in Sources */,
 				BDDC24381E6E5966005E103C /* GameViewController.swift in Sources */,
 				BDDC24301E6E5966005E103C /* AppDelegate.swift in Sources */,
+				BD2DEE371E6EF84E0060750D /* NTLScene3.swift in Sources */,
 				BDDC24A01E6EB9D5005E103C /* Enemy.swift in Sources */,
+				BD2DEE3B1E6F05AA0060750D /* FallingAliensController.swift in Sources */,
 				BDDC249E1E6EA082005E103C /* HUD.swift in Sources */,
 				BDDC249C1E6E9E71005E103C /* FlyingAlien.swift in Sources */,
 				BDDC24521E6E69A1005E103C /* Constants.swift in Sources */,

@@ -138,6 +138,12 @@ class PlayerStats{
     static let OverallShootingAccuracy = "OverallShootingAccuracy"
 }
 
-//ErrorTypes and Validators
+//Contact Bitmasks
 
+class PhysicsCategory{
+    static let NoCategory: UInt32 = 0b0 << 0
+    static let Player: UInt32 = 0b0 << 1
+    static let Enemy: UInt32 = 0b0 << 2
+    static let Ground: UInt32 = 0b0 << 3
+}
 
