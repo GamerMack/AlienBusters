@@ -50,6 +50,10 @@
 		BDDC24921E6E95A1005E103C /* laser7.wav in Resources */ = {isa = PBXBuildFile; fileRef = BDDC248A1E6E95A1005E103C /* laser7.wav */; };
 		BDDC24931E6E95A1005E103C /* laser8.wav in Resources */ = {isa = PBXBuildFile; fileRef = BDDC248B1E6E95A1005E103C /* laser8.wav */; };
 		BDDC24941E6E95A1005E103C /* laser9.wav in Resources */ = {isa = PBXBuildFile; fileRef = BDDC248C1E6E95A1005E103C /* laser9.wav */; };
+		BDDC24971E6E9C55005E103C /* rumble2.wav in Resources */ = {isa = PBXBuildFile; fileRef = BDDC24951E6E9C55005E103C /* rumble2.wav */; };
+		BDDC24981E6E9C55005E103C /* rumble3.wav in Resources */ = {isa = PBXBuildFile; fileRef = BDDC24961E6E9C55005E103C /* rumble3.wav */; };
+		BDDC249A1E6E9D0D005E103C /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDC24991E6E9D0D005E103C /* HelperFunctions.swift */; };
+		BDDC249C1E6E9E71005E103C /* FlyingAlien.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDC249B1E6E9E71005E103C /* FlyingAlien.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -98,6 +102,10 @@
 		BDDC248A1E6E95A1005E103C /* laser7.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = laser7.wav; sourceTree = "<group>"; };
 		BDDC248B1E6E95A1005E103C /* laser8.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = laser8.wav; sourceTree = "<group>"; };
 		BDDC248C1E6E95A1005E103C /* laser9.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = laser9.wav; sourceTree = "<group>"; };
+		BDDC24951E6E9C55005E103C /* rumble2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = rumble2.wav; sourceTree = "<group>"; };
+		BDDC24961E6E9C55005E103C /* rumble3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = rumble3.wav; sourceTree = "<group>"; };
+		BDDC24991E6E9D0D005E103C /* HelperFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperFunctions.swift; sourceTree = "<group>"; };
+		BDDC249B1E6E9E71005E103C /* FlyingAlien.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlyingAlien.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,6 +222,7 @@
 			children = (
 				BDDC24511E6E69A1005E103C /* Constants.swift */,
 				BDDC24531E6E69C4005E103C /* Math.swift */,
+				BDDC24991E6E9D0D005E103C /* HelperFunctions.swift */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -223,6 +232,7 @@
 			children = (
 				BDDC247E1E6E7654005E103C /* CrossHair.swift */,
 				BDDC24821E6E9119005E103C /* Background.swift */,
+				BDDC249B1E6E9E71005E103C /* FlyingAlien.swift */,
 			);
 			name = Characters;
 			sourceTree = "<group>";
@@ -230,6 +240,8 @@
 		BDDC24841E6E9572005E103C /* SoundEffects */ = {
 			isa = PBXGroup;
 			children = (
+				BDDC24951E6E9C55005E103C /* rumble2.wav */,
+				BDDC24961E6E9C55005E103C /* rumble3.wav */,
 				BDDC24851E6E95A1005E103C /* laser2.wav */,
 				BDDC24861E6E95A1005E103C /* laser3.wav */,
 				BDDC24871E6E95A1005E103C /* laser4.wav */,
@@ -305,6 +317,7 @@
 				BDDC246B1E6E6E48005E103C /* Cheerful Annoyance.mp3 in Resources */,
 				BDDC24901E6E95A1005E103C /* laser5.wav in Resources */,
 				BDDC247B1E6E6E48005E103C /* Time Driving.mp3 in Resources */,
+				BDDC24971E6E9C55005E103C /* rumble2.wav in Resources */,
 				BDDC24931E6E95A1005E103C /* laser8.wav in Resources */,
 				BDDC24781E6E6E48005E103C /* Sad Town.mp3 in Resources */,
 				BDDC24721E6E6E48005E103C /* Italian Mom.mp3 in Resources */,
@@ -321,6 +334,7 @@
 				BDDC24771E6E6E48005E103C /* Sad Descent.mp3 in Resources */,
 				BDDC24791E6E6E48005E103C /* Space Cadet.mp3 in Resources */,
 				BDDC246F1E6E6E48005E103C /* Game Over.mp3 in Resources */,
+				BDDC24981E6E9C55005E103C /* rumble3.wav in Resources */,
 				BDDC248E1E6E95A1005E103C /* laser3.wav in Resources */,
 				BDDC243D1E6E5966005E103C /* Assets.xcassets in Resources */,
 				BDDC24941E6E95A1005E103C /* laser9.wav in Resources */,
@@ -348,11 +362,13 @@
 				BDDC24561E6E69F5005E103C /* UserOptionsManager.swift in Sources */,
 				BDDC24361E6E5966005E103C /* TestScene.swift in Sources */,
 				BDDC24811E6E7C30005E103C /* GameOverScene.swift in Sources */,
+				BDDC249A1E6E9D0D005E103C /* HelperFunctions.swift in Sources */,
 				BDDC247F1E6E7654005E103C /* CrossHair.swift in Sources */,
 				BDDC24491E6E5C0B005E103C /* TextureAtlasManager.swift in Sources */,
 				BDDC24541E6E69C4005E103C /* Math.swift in Sources */,
 				BDDC24381E6E5966005E103C /* GameViewController.swift in Sources */,
 				BDDC24301E6E5966005E103C /* AppDelegate.swift in Sources */,
+				BDDC249C1E6E9E71005E103C /* FlyingAlien.swift in Sources */,
 				BDDC24521E6E69A1005E103C /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
