@@ -45,6 +45,17 @@ class BackgroundMusic{
     static let FarmFrolics = kFarmFrolics
     static let FlowingRocks = kFlowingRocks
     static let GameOver = kGameOver
+    
+    
+    //Configure background music
+    static func configureBackgroundMusicFrom(fileNamed fileName: String, forParentNode parentNode: SKNode){
+        
+        let bg = SKAudioNode(fileNamed: fileName)
+        bg.autoplayLooped = true
+        parentNode.addChild(bg)
+        
+    }
+
 }
 
 

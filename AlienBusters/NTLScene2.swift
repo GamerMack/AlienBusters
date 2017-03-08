@@ -22,9 +22,9 @@ class NTLScene2: SKScene, SKPhysicsContactDelegate{
     
     
     override func didMove(to view: SKView) {
-        let bg = SKAudioNode(fileNamed: BackgroundMusic.FarmFrolics)
-        bg.autoplayLooped = true
-        self.addChild(bg)
+     
+        //Configure Background Music
+        BackgroundMusic.configureBackgroundMusicFrom(fileNamed: BackgroundMusic.FarmFrolics, forParentNode: self)
         
         //Add the Flying Aliens Controller
         self.addChild(self.fallingAliensController)

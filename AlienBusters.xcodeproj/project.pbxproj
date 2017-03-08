@@ -12,6 +12,10 @@
 		BD2DEE371E6EF84E0060750D /* NTLScene3.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2DEE361E6EF84E0060750D /* NTLScene3.swift */; };
 		BD2DEE391E6EFD680060750D /* FallingAliens.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2DEE381E6EFD680060750D /* FallingAliens.swift */; };
 		BD2DEE3B1E6F05AA0060750D /* FallingAliensController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2DEE3A1E6F05AA0060750D /* FallingAliensController.swift */; };
+		BD3049E51E6FACBA0083B0ED /* NTLScene4.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3049E41E6FACBA0083B0ED /* NTLScene4.swift */; };
+		BD3049E91E6FB2D30083B0ED /* NoTimeLimitMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3049E81E6FB2D30083B0ED /* NoTimeLimitMode.swift */; };
+		BD3049EC1E6FB5AD0083B0ED /* TimeLimitMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3049EB1E6FB5AD0083B0ED /* TimeLimitMode.swift */; };
+		BD3049EF1E6FB5EE0083B0ED /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3049EE1E6FB5EE0083B0ED /* MenuScene.swift */; };
 		BDDC24301E6E5966005E103C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDC242F1E6E5966005E103C /* AppDelegate.swift */; };
 		BDDC24341E6E5966005E103C /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = BDDC24331E6E5966005E103C /* Actions.sks */; };
 		BDDC24361E6E5966005E103C /* TestScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDC24351E6E5966005E103C /* TestScene.swift */; };
@@ -68,6 +72,10 @@
 		BD2DEE361E6EF84E0060750D /* NTLScene3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NTLScene3.swift; sourceTree = "<group>"; };
 		BD2DEE381E6EFD680060750D /* FallingAliens.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FallingAliens.swift; sourceTree = "<group>"; };
 		BD2DEE3A1E6F05AA0060750D /* FallingAliensController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FallingAliensController.swift; sourceTree = "<group>"; };
+		BD3049E41E6FACBA0083B0ED /* NTLScene4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NTLScene4.swift; sourceTree = "<group>"; };
+		BD3049E81E6FB2D30083B0ED /* NoTimeLimitMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoTimeLimitMode.swift; sourceTree = "<group>"; };
+		BD3049EB1E6FB5AD0083B0ED /* TimeLimitMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeLimitMode.swift; sourceTree = "<group>"; };
+		BD3049EE1E6FB5EE0083B0ED /* MenuScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
 		BDDC242C1E6E5966005E103C /* AlienBusters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlienBusters.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDDC242F1E6E5966005E103C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BDDC24331E6E5966005E103C /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
@@ -131,6 +139,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BD3049E61E6FAF140083B0ED /* NoTimeLimitScenes */ = {
+			isa = PBXGroup;
+			children = (
+				BD2DEE341E6EF8160060750D /* NTLScene2.swift */,
+				BD3049E41E6FACBA0083B0ED /* NTLScene4.swift */,
+				BD2DEE361E6EF84E0060750D /* NTLScene3.swift */,
+				BD3049E81E6FB2D30083B0ED /* NoTimeLimitMode.swift */,
+			);
+			name = NoTimeLimitScenes;
+			sourceTree = "<group>";
+		};
+		BD3049E71E6FAF1D0083B0ED /* TimeLimitScenes */ = {
+			isa = PBXGroup;
+			children = (
+				BD3049EB1E6FB5AD0083B0ED /* TimeLimitMode.swift */,
+			);
+			name = TimeLimitScenes;
+			sourceTree = "<group>";
+		};
+		BD3049EA1E6FB55E0083B0ED /* TestScenes */ = {
+			isa = PBXGroup;
+			children = (
+				BDDC24351E6E5966005E103C /* TestScene.swift */,
+				BDDC244A1E6E615D005E103C /* SceneA.swift */,
+			);
+			name = TestScenes;
+			sourceTree = "<group>";
+		};
+		BD3049ED1E6FB5D80083B0ED /* TransitionalScenes */ = {
+			isa = PBXGroup;
+			children = (
+				BDDC24801E6E7C30005E103C /* GameOverScene.swift */,
+				BD3049EE1E6FB5EE0083B0ED /* MenuScene.swift */,
+			);
+			name = TransitionalScenes;
+			sourceTree = "<group>";
+		};
 		BDDC24231E6E5966005E103C = {
 			isa = PBXGroup;
 			children = (
@@ -179,11 +224,10 @@
 		BDDC244C1E6E6163005E103C /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				BDDC24351E6E5966005E103C /* TestScene.swift */,
-				BD2DEE341E6EF8160060750D /* NTLScene2.swift */,
-				BD2DEE361E6EF84E0060750D /* NTLScene3.swift */,
-				BDDC244A1E6E615D005E103C /* SceneA.swift */,
-				BDDC24801E6E7C30005E103C /* GameOverScene.swift */,
+				BD3049ED1E6FB5D80083B0ED /* TransitionalScenes */,
+				BD3049EA1E6FB55E0083B0ED /* TestScenes */,
+				BD3049E71E6FAF1D0083B0ED /* TimeLimitScenes */,
+				BD3049E61E6FAF140083B0ED /* NoTimeLimitScenes */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -377,6 +421,7 @@
 				BD2DEE331E6EE9100060750D /* AnimationsManager.swift in Sources */,
 				BD2DEE351E6EF8160060750D /* NTLScene2.swift in Sources */,
 				BDDC24831E6E9119005E103C /* Background.swift in Sources */,
+				BD3049E51E6FACBA0083B0ED /* NTLScene4.swift in Sources */,
 				BDDC244B1E6E615D005E103C /* SceneA.swift in Sources */,
 				BDDC24561E6E69F5005E103C /* UserOptionsManager.swift in Sources */,
 				BD2DEE391E6EFD680060750D /* FallingAliens.swift in Sources */,
@@ -390,8 +435,11 @@
 				BDDC24301E6E5966005E103C /* AppDelegate.swift in Sources */,
 				BD2DEE371E6EF84E0060750D /* NTLScene3.swift in Sources */,
 				BDDC24A01E6EB9D5005E103C /* Enemy.swift in Sources */,
+				BD3049EC1E6FB5AD0083B0ED /* TimeLimitMode.swift in Sources */,
 				BD2DEE3B1E6F05AA0060750D /* FallingAliensController.swift in Sources */,
+				BD3049E91E6FB2D30083B0ED /* NoTimeLimitMode.swift in Sources */,
 				BDDC249E1E6EA082005E103C /* HUD.swift in Sources */,
+				BD3049EF1E6FB5EE0083B0ED /* MenuScene.swift in Sources */,
 				BDDC249C1E6E9E71005E103C /* FlyingAlien.swift in Sources */,
 				BDDC24521E6E69A1005E103C /* Constants.swift in Sources */,
 			);
