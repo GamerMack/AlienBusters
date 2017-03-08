@@ -17,6 +17,7 @@
 		BD3049EC1E6FB5AD0083B0ED /* TimeLimitMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3049EB1E6FB5AD0083B0ED /* TimeLimitMode.swift */; };
 		BD3049EF1E6FB5EE0083B0ED /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3049EE1E6FB5EE0083B0ED /* MenuScene.swift */; };
 		BDDB9E841E6FCAFF004D1D2B /* SpaceShip.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDB9E831E6FCAFF004D1D2B /* SpaceShip.swift */; };
+		BDDB9E861E6FD7C3004D1D2B /* SmokeEmitterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDB9E851E6FD7C3004D1D2B /* SmokeEmitterManager.swift */; };
 		BDDC24301E6E5966005E103C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDC242F1E6E5966005E103C /* AppDelegate.swift */; };
 		BDDC24361E6E5966005E103C /* TestScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDC24351E6E5966005E103C /* TestScene.swift */; };
 		BDDC24381E6E5966005E103C /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDC24371E6E5966005E103C /* GameViewController.swift */; };
@@ -77,6 +78,7 @@
 		BD3049EB1E6FB5AD0083B0ED /* TimeLimitMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeLimitMode.swift; sourceTree = "<group>"; };
 		BD3049EE1E6FB5EE0083B0ED /* MenuScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
 		BDDB9E831E6FCAFF004D1D2B /* SpaceShip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpaceShip.swift; sourceTree = "<group>"; };
+		BDDB9E851E6FD7C3004D1D2B /* SmokeEmitterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmokeEmitterManager.swift; sourceTree = "<group>"; };
 		BDDC242C1E6E5966005E103C /* AlienBusters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlienBusters.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDDC242F1E6E5966005E103C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BDDC24351E6E5966005E103C /* TestScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestScene.swift; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 				BDDC24481E6E5C0B005E103C /* TextureAtlasManager.swift */,
 				BDDC24551E6E69F5005E103C /* UserOptionsManager.swift */,
 				BD2DEE321E6EE9100060750D /* AnimationsManager.swift */,
+				BDDB9E851E6FD7C3004D1D2B /* SmokeEmitterManager.swift */,
 			);
 			name = Singletons;
 			sourceTree = "<group>";
@@ -441,6 +444,7 @@
 				BDDC249E1E6EA082005E103C /* HUD.swift in Sources */,
 				BD3049EF1E6FB5EE0083B0ED /* MenuScene.swift in Sources */,
 				BDDC249C1E6E9E71005E103C /* FlyingAlien.swift in Sources */,
+				BDDB9E861E6FD7C3004D1D2B /* SmokeEmitterManager.swift in Sources */,
 				BDDC24521E6E69A1005E103C /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

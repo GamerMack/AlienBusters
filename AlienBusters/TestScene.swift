@@ -85,6 +85,11 @@ class TestScene: SKScene {
         hud!.zPosition = -1
         self.addChild(hud!)
         
+        //Create an emitter node
+        let emitterNode = SmokeEmitterManager.sharedInstance.createSmokeEmitterFor(engineState: .Accelerated)
+        emitterNode.zPosition = 2
+        self.addChild(emitterNode)
+        
     }
     
     func touchDown(atPoint pos : CGPoint) {
@@ -120,8 +125,7 @@ class TestScene: SKScene {
             }
             
             if let spaceShip = spaceShip, spaceShip.contains(touchLocation){
-                //Not yet implemented
-                //spaceShip.respondToHitAt(touchLocation: touchLocation)
+                spaceShip.respondToHitAt(touchLocation: touchLocation)
             }
         
         }

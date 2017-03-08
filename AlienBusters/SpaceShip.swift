@@ -129,6 +129,7 @@ class SpaceShip: SKSpriteNode{
     func update(currentTime: TimeInterval){
         updateFlyingMode(currentTime: currentTime)
         
+        
         if(isOffScreen()){
             setRandomPosition()
         }
@@ -166,6 +167,48 @@ class SpaceShip: SKSpriteNode{
         
         lastUpdateInterval = currentTime
     }
+    
+    
+    func respondToHitAt(touchLocation: CGPoint){
+        
+        if(isInStealthMode) { return }
+        
+        if self.contains(touchLocation){
+            
+            switch(self.health){
+            case 2:
+                let emitterNode = SmokeEmitterManager.sharedInstance.createSmokeEmitterFor(engineState: .NormalRunning)
+                emitterNode.position = CGPoint(x: 0, y: -10)
+                emitterNode.zPosition = 2
+                self.addChild(emitterNode)
+                self.health -= 1
+                break
+            case 1:
+                self.removeAllChildren()
+                let emitterNode = SmokeEmitterManager.sharedInstance.createSmokeEmitterFor(engineState: .Accelerated)
+                emitterNode.position = CGPoint(x: 0, y: -10)
+                emitterNode.zPosition = 2
+
+                self.addChild(emitterNode)
+                self.health -= 1
+                break
+            case 0:
+                createExplosionFor(spriteNode: self)
+                self.run(SKAction.sequence([
+                    SKAction.wait(forDuration: 2.0),
+                    SKAction.removeFromParent()
+                    ]))
+                break
+            default:
+                createExplosionFor(spriteNode: self)
+                self.run(SKAction.sequence([
+                    SKAction.wait(forDuration: 2.0),
+                    SKAction.removeFromParent()
+                    ]))
+            }
+        }
+    }
+    
 
     
 }
