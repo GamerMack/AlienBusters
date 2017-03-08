@@ -71,13 +71,23 @@ class CrossHair: SKSpriteNode{
         guard let crosshairTexture = texture else { return nil}
         
         self.init(texture: crosshairTexture, color: .clear, size: crosshairTexture.size())
+        configureLighting()
         setup()
         
     }
     
     private func setup(){
-        self.position = CGPoint(x: 0, y: 0.2*kViewHeight/2)
+        self.position = CGPoint(x: 0, y: 0)
         targetPosition = self.position
+    }
+    
+    private func configureLighting(){
+        let crosshairLight = SKLightNode()
+        crosshairLight.categoryBitMask = 1
+        crosshairLight.lightColor = SKColor.yellow
+        crosshairLight.shadowColor = SKColor.gray
+        crosshairLight.ambientColor = SKColor.clear
+        self.addChild(crosshairLight)
     }
     
     //MARK: - Update

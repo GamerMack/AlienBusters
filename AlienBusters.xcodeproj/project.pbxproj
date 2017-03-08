@@ -16,6 +16,7 @@
 		BD2912701E6FEBC900ADE12E /* StartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD29126F1E6FEBC900ADE12E /* StartButton.swift */; };
 		BD2912721E6FF4E300ADE12E /* GameFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2912711E6FF4E300ADE12E /* GameFonts.swift */; };
 		BD2912741E70070A00ADE12E /* PauseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2912731E70070A00ADE12E /* PauseButton.swift */; };
+		BD2912761E70227600ADE12E /* Bat.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2912751E70227600ADE12E /* Bat.swift */; };
 		BD2DEE331E6EE9100060750D /* AnimationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2DEE321E6EE9100060750D /* AnimationsManager.swift */; };
 		BD2DEE351E6EF8160060750D /* NTLScene2.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2DEE341E6EF8160060750D /* NTLScene2.swift */; };
 		BD2DEE371E6EF84E0060750D /* NTLScene3.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2DEE361E6EF84E0060750D /* NTLScene3.swift */; };
@@ -86,6 +87,7 @@
 		BD29126F1E6FEBC900ADE12E /* StartButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartButton.swift; sourceTree = "<group>"; };
 		BD2912711E6FF4E300ADE12E /* GameFonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameFonts.swift; sourceTree = "<group>"; };
 		BD2912731E70070A00ADE12E /* PauseButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PauseButton.swift; sourceTree = "<group>"; };
+		BD2912751E70227600ADE12E /* Bat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bat.swift; sourceTree = "<group>"; };
 		BD2DEE321E6EE9100060750D /* AnimationsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationsManager.swift; sourceTree = "<group>"; };
 		BD2DEE341E6EF8160060750D /* NTLScene2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NTLScene2.swift; sourceTree = "<group>"; };
 		BD2DEE361E6EF84E0060750D /* NTLScene3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NTLScene3.swift; sourceTree = "<group>"; };
@@ -333,6 +335,7 @@
 				BDDC249F1E6EB9D5005E103C /* Enemy.swift */,
 				BD2DEE3A1E6F05AA0060750D /* FallingAliensController.swift */,
 				BDDB9E831E6FCAFF004D1D2B /* SpaceShip.swift */,
+				BD2912751E70227600ADE12E /* Bat.swift */,
 			);
 			name = Characters;
 			sourceTree = "<group>";
@@ -462,6 +465,7 @@
 				BDDC24831E6E9119005E103C /* Background.swift in Sources */,
 				BD3049E51E6FACBA0083B0ED /* NTLScene4.swift in Sources */,
 				BDDC244B1E6E615D005E103C /* SceneA.swift in Sources */,
+				BD2912761E70227600ADE12E /* Bat.swift in Sources */,
 				BDDC24561E6E69F5005E103C /* UserOptionsManager.swift in Sources */,
 				BD2912721E6FF4E300ADE12E /* GameFonts.swift in Sources */,
 				BD2DEE391E6EFD680060750D /* FallingAliens.swift in Sources */,

@@ -15,7 +15,6 @@ class NTLScene2: SKScene, SKPhysicsContactDelegate{
     private var player: CrossHair?
     private var background: Background?
     private var hud: HUD?
-    private var flyingAlien: FlyingAlien?
     
     private let fallingAliensController = FallingAliensController()
     private var lastUpdateTime = 0.0
