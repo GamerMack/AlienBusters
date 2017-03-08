@@ -14,13 +14,21 @@ class FlyingAlien: SKSpriteNode, Enemy{
     enum AlienColor{
         case pink,yellow,blue,green
     }
+    
    
     private let textureAtlasManager = TextureAtlasManager.sharedInstance
     private let textureAtlas = TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .FlyingAliens)
     
+    //Timer-Related Variables
+    var timeSinceLastFlyModeTransition = 0.00
+    var lastUpdateInterval = 0.00
+    var flyModeTransitionInterval = 5.00
+    var totalGameTime = 0.00
     
-    //2 hits are required to destroy a flying alien
-    var health: Int = 2
+    
+    var health: Int = 2                 //2 hits are required to destroy a flying alien
+    var alienColor: AlienColor = .blue
+
     
     //var defaultForceApplied = 40.0
     var isManned: Bool = false{
@@ -62,14 +70,8 @@ class FlyingAlien: SKSpriteNode, Enemy{
     
     
     
-    var alienColor: AlienColor = .blue
     
-    //Timer-Related Variables
-    var timeSinceLastFlyModeTransition = 0.00
-    var lastUpdateInterval = 0.00
-    var flyModeTransitionInterval = 5.00
-    var totalGameTime = 0.00
-    
+  
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -135,7 +137,6 @@ class FlyingAlien: SKSpriteNode, Enemy{
     
     private func updateFlyingMode(currentTime: TimeInterval){
         timeSinceLastFlyModeTransition += currentTime - lastUpdateInterval
-        lastUpdateInterval = currentTime
         
         if(timeSinceLastFlyModeTransition > flyModeTransitionInterval){
             isManned = !isManned

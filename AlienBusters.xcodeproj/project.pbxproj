@@ -16,8 +16,8 @@
 		BD3049E91E6FB2D30083B0ED /* NoTimeLimitMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3049E81E6FB2D30083B0ED /* NoTimeLimitMode.swift */; };
 		BD3049EC1E6FB5AD0083B0ED /* TimeLimitMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3049EB1E6FB5AD0083B0ED /* TimeLimitMode.swift */; };
 		BD3049EF1E6FB5EE0083B0ED /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3049EE1E6FB5EE0083B0ED /* MenuScene.swift */; };
+		BDDB9E841E6FCAFF004D1D2B /* SpaceShip.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDB9E831E6FCAFF004D1D2B /* SpaceShip.swift */; };
 		BDDC24301E6E5966005E103C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDC242F1E6E5966005E103C /* AppDelegate.swift */; };
-		BDDC24341E6E5966005E103C /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = BDDC24331E6E5966005E103C /* Actions.sks */; };
 		BDDC24361E6E5966005E103C /* TestScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDC24351E6E5966005E103C /* TestScene.swift */; };
 		BDDC24381E6E5966005E103C /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDC24371E6E5966005E103C /* GameViewController.swift */; };
 		BDDC243B1E6E5966005E103C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDDC24391E6E5966005E103C /* Main.storyboard */; };
@@ -76,9 +76,9 @@
 		BD3049E81E6FB2D30083B0ED /* NoTimeLimitMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoTimeLimitMode.swift; sourceTree = "<group>"; };
 		BD3049EB1E6FB5AD0083B0ED /* TimeLimitMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeLimitMode.swift; sourceTree = "<group>"; };
 		BD3049EE1E6FB5EE0083B0ED /* MenuScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
+		BDDB9E831E6FCAFF004D1D2B /* SpaceShip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpaceShip.swift; sourceTree = "<group>"; };
 		BDDC242C1E6E5966005E103C /* AlienBusters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlienBusters.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDDC242F1E6E5966005E103C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BDDC24331E6E5966005E103C /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
 		BDDC24351E6E5966005E103C /* TestScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestScene.swift; sourceTree = "<group>"; };
 		BDDC24371E6E5966005E103C /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		BDDC243A1E6E5966005E103C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -203,8 +203,6 @@
 				BDDC244D1E6E61D4005E103C /* Controllers */,
 				BDDC244C1E6E6163005E103C /* Scenes */,
 				BDDC24471E6E5BF6005E103C /* Singletons */,
-				BDDC242F1E6E5966005E103C /* AppDelegate.swift */,
-				BDDC24331E6E5966005E103C /* Actions.sks */,
 				BDDC243C1E6E5966005E103C /* Assets.xcassets */,
 				BDDC24411E6E5966005E103C /* Info.plist */,
 			);
@@ -278,6 +276,7 @@
 		BDDC24501E6E6993005E103C /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				BDDC242F1E6E5966005E103C /* AppDelegate.swift */,
 				BDDC24511E6E69A1005E103C /* Constants.swift */,
 				BDDC24531E6E69C4005E103C /* Math.swift */,
 				BDDC24991E6E9D0D005E103C /* HelperFunctions.swift */,
@@ -295,6 +294,7 @@
 				BDDC249D1E6EA082005E103C /* HUD.swift */,
 				BDDC249F1E6EB9D5005E103C /* Enemy.swift */,
 				BD2DEE3A1E6F05AA0060750D /* FallingAliensController.swift */,
+				BDDB9E831E6FCAFF004D1D2B /* SpaceShip.swift */,
 			);
 			name = Characters;
 			sourceTree = "<group>";
@@ -405,7 +405,6 @@
 				BDDC24751E6E6E48005E103C /* Night at the Beach.mp3 in Resources */,
 				BDDC248D1E6E95A1005E103C /* laser2.wav in Resources */,
 				BDDC24921E6E95A1005E103C /* laser7.wav in Resources */,
-				BDDC24341E6E5966005E103C /* Actions.sks in Resources */,
 				BDDC247A1E6E6E48005E103C /* Swinging Pants.mp3 in Resources */,
 				BDDC246E1E6E6E48005E103C /* Flowing Rocks.mp3 in Resources */,
 			);
@@ -435,6 +434,7 @@
 				BDDC24301E6E5966005E103C /* AppDelegate.swift in Sources */,
 				BD2DEE371E6EF84E0060750D /* NTLScene3.swift in Sources */,
 				BDDC24A01E6EB9D5005E103C /* Enemy.swift in Sources */,
+				BDDB9E841E6FCAFF004D1D2B /* SpaceShip.swift in Sources */,
 				BD3049EC1E6FB5AD0083B0ED /* TimeLimitMode.swift in Sources */,
 				BD2DEE3B1E6F05AA0060750D /* FallingAliensController.swift in Sources */,
 				BD3049E91E6FB2D30083B0ED /* NoTimeLimitMode.swift in Sources */,

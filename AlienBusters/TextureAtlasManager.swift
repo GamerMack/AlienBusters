@@ -23,6 +23,9 @@ class TextureAtlasManager{
         case HUD
         case CrossHair
         case Trees
+        case UI
+        case SpaceShips
+        case UFO
     }
     
     func getTextureAtlasOfType(textureAtlasType: TextureAtlasType) -> SKTextureAtlas?{
@@ -49,6 +52,12 @@ class TextureAtlasManager{
                 return treesAtlas
             case .FlyingAliens:
                 return flyingAliensAtlas
+            case .UFO:
+                return ufoAtlas
+            case .UI:
+                return userInterfaceAtlas
+            case .SpaceShips:
+                return spaceShipsAtlas
 
         }
     }
@@ -62,7 +71,9 @@ class TextureAtlasManager{
     private var groundExplosionAtlas: SKTextureAtlas?
     private var backgroundObjectsAtlas: SKTextureAtlas?
     private var backgroundScenesAtlas: SKTextureAtlas?
-    
+    private var ufoAtlas: SKTextureAtlas?
+    private var userInterfaceAtlas: SKTextureAtlas?
+    private var spaceShipsAtlas: SKTextureAtlas?
     
     private init(){
         setup()
@@ -78,6 +89,9 @@ class TextureAtlasManager{
           groundExplosionAtlas = SKTextureAtlas(named: "GroundExplosion")
           backgroundObjectsAtlas = SKTextureAtlas(named: "BackgroundObjects")
           backgroundScenesAtlas = SKTextureAtlas(named: "BackgroundScenes.atlas")
+            ufoAtlas = SKTextureAtlas(named: "UFO.atlas")
+            userInterfaceAtlas = SKTextureAtlas(named: "UI.atlas")
+            spaceShipsAtlas = SKTextureAtlas(named: "SpaceShips.atlas")
     }
     
 }

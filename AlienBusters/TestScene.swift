@@ -35,20 +35,26 @@ class TestScene: SKScene {
     private var background: Background?
     private var hud: HUD?
     private var flyingAlien: FlyingAlien?
+    private var spaceShip: SpaceShip?
     
     override func didMove(to view: SKView) {
         
         setup()
         
+        /** TestCode for Flying Alien
         flyingAlien = FlyingAlien(alienColor: .pink)
         flyingAlien!.zPosition = 1
+        **/
+        
+        spaceShip = SpaceShip(spaceShipType: .Blue1)
+        self.addChild(spaceShip!)
         
         let barrierNode = SKSpriteNode(texture: nil, color: .clear, size: self.size)
         barrierNode.zPosition = 1
         barrierNode.physicsBody = SKPhysicsBody(edgeLoopFrom: CGRect(x: -200, y: -200, width: 400, height: 400))
         self.addChild(barrierNode)
         
-        self.addChild(flyingAlien!)
+       // self.addChild(flyingAlien!)
         
       
     }
@@ -112,6 +118,11 @@ class TestScene: SKScene {
             if let flyingAlien = flyingAlien, flyingAlien.contains(touchLocation){
                 flyingAlien.respondToHitAt(touchLocation: touchLocation)
             }
+            
+            if let spaceShip = spaceShip, spaceShip.contains(touchLocation){
+                //Not yet implemented
+                //spaceShip.respondToHitAt(touchLocation: touchLocation)
+            }
         
         }
         
@@ -149,6 +160,9 @@ class TestScene: SKScene {
         }
         
        
+        if let spaceShip = spaceShip{
+            spaceShip.update(currentTime: timeElapsed)
+        }
         
         
         previousTime = currentTime
@@ -156,7 +170,7 @@ class TestScene: SKScene {
     
     override func didSimulatePhysics() {
         if let flyingAlien = flyingAlien{
-           flyingAlien.update(currentTime: timeElapsed)
+           //flyingAlien.update(currentTime: timeElapsed)
         }
     }
     
