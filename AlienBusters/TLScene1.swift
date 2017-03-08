@@ -18,8 +18,67 @@ class TLScene1: SKScene{
     var hud: HUD?
     var bat: Bat?
     
+    var timeLimit: Int = 30
+    var timerIsStarted = false
+    var lastUpdateTime: TimeInterval = 0.00
+    var totalRunningTime: TimeInterval = 0.00
+    
+    var helpButton: SKSpriteNode?
+    
     override func didMove(to view: SKView) {
         configureBasicSceneElements(withPlayerTypeOf: .BlueLarge, andWithBackgroundOf: .ColoredForest, withBackgroundMusicFrom: BackgroundMusic.FlowingRocks)
+        
+        configureHelpButton()
+        
+        
+        let introBoxTexture = TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .UI)?.textureNamed("yellow_panel")
+        let introBox = SKSpriteNode(texture: introBoxTexture, color: .clear, size: CGSize(width: kViewWidth*0.4, height: kViewHeight*0.4))
+        introBox.position = CGPoint.zero
+        introBox.zPosition = 10
+        
+        let introxBoxHeight = introBoxTexture!.size().height
+        
+        let introText1 = SKLabelNode(fontNamed: FontTypes.NoteWorthyBold)
+        introBox.addChild(introText1)
+        introText1.position = CGPoint(x: 0, y: introxBoxHeight*0.4 )
+        introText1.text = "Level 1"
+        introText1.fontSize = 30.0
+        introText1.zPosition = 12
+        
+        let introText2 = SKLabelNode(fontNamed: FontTypes.NoteWorthyLight)
+        introBox.addChild(introText2)
+        introText2.position = CGPoint(x: 0, y: 0 )
+        introText2.text = "Find and Shoot All the Alien Bats"
+        introText2.fontSize = 20.0
+        introText2.zPosition = 12
+        
+        let introText3 = SKLabelNode(fontNamed: FontTypes.NoteWorthyLight)
+        introBox.addChild(introText3)
+        introText3.position = CGPoint(x: 0, y: -introxBoxHeight*0.4 )
+        introText3.fontSize = 20.0
+        introText3.text = "Time Limit: \(timeLimit) seconds"
+        introText3.zPosition = 12
+        self.addChild(introBox)
+        
+        
+        let introTextPulseAction = SKAction.sequence([
+            SKAction.fadeIn(withDuration: 0.2),
+            SKAction.fadeOut(withDuration: 0.2)
+            ])
+        
+        let pulsingAction = SKAction.repeatForever(introTextPulseAction)
+        
+        introText1.run(pulsingAction)
+        
+        introBox.run(SKAction.sequence([
+            SKAction.wait(forDuration: 6.0),
+            SKAction.removeFromParent(),
+            SKAction.run({
+                [weak self] in
+                self?.timerIsStarted = true
+            })
+            ]))
+        
         
         
         bat = Bat()
@@ -54,11 +113,20 @@ class TLScene1: SKScene{
     }
     
     override func update(_ currentTime: TimeInterval) {
+        if(timerIsStarted){
+            totalRunningTime += currentTime - lastUpdateTime
+            lastUpdateTime = currentTime
+            
+            if(kDebug){
+                print("Current running time: \(totalRunningTime)")
+            }
+        }
         
         guard let player = player, let bat = bat else { return }
         
         player.update()
-       bat.checkForReposition()
+        bat.checkForReposition()
+        
     }
     
     
@@ -104,6 +172,38 @@ class TLScene1: SKScene{
         hud = HUD()
         hud!.zPosition = -1
         self.addChild(hud!)
+        
+    }
+    
+    private func configureHelpButton(){
+       
+        let helpButtonTexture = TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .UI)?.textureNamed("yellow_button01")
+        
+        let helpButtonHeight = kViewHeight*0.05
+        let helpButtonWidth = kViewWidth*0.06
+        let helpButtonSize = CGSize(width: helpButtonWidth, height: helpButtonHeight)
+        helpButton = SKSpriteNode(texture: helpButtonTexture!, color: SKColor.blue, size: helpButtonSize)
+        
+        
+        guard let helpButton = helpButton else { return }
+        
+        helpButton.name = "Help"
+        helpButton.anchorPoint = CGPoint(x: 1.0, y: 1.0)
+        helpButton.zPosition = 12
+        helpButton.position = CGPoint(x: kViewWidth/2-helpButtonWidth-10, y: kViewHeight/2-helpButtonHeight-5)
+        
+        let helpButtonText = SKLabelNode(fontNamed: FontTypes.NoteWorthyLight)
+        helpButtonText.fontSize = 10.0
+        helpButtonText.fontColor = SKColor.blue
+        helpButtonText.text = "Help"
+        helpButtonText.name = "Help"
+        helpButtonText.verticalAlignmentMode = .center
+        helpButtonText.horizontalAlignmentMode = .center
+        helpButtonText.position = CGPoint(x: -15.0, y: -10.0)
+        helpButtonText.zPosition = 13
+        
+        helpButton.addChild(helpButtonText)
+        self.addChild(helpButton)
         
     }
     
