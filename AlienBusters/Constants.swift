@@ -10,6 +10,9 @@ import Foundation
 import UIKit
 import SpriteKit
 
+//Debug Mode Flag
+let kDebug = true
+
 //Screen Size
 let kViewSize = UIScreen.main.bounds
 let kViewWidth = kViewSize.width
@@ -174,3 +177,12 @@ class PhysicsCategory{
     static let Ground: UInt32 = 0b0 << 3
 }
 
+
+//Node Names
+
+class NodeNames{
+    static let StartButton = "StartButton"
+    static let PauseButton = "PauseButton"
+    static let ResumeButton = "ResumeButton"
+    
+}

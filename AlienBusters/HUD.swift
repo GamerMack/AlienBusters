@@ -15,6 +15,9 @@ class HUD: SKSpriteNode{
     private let textureAtlasManager = TextureAtlasManager.sharedInstance
     private let hudAtlas = TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .HUD)
     
+    let pauseButton = PauseButton(buttonType: .Pause)
+
+    
     var bulletNodes: [SKSpriteNode] = []
     var killCountText = SKLabelNode(text: "00000")
     
@@ -74,10 +77,17 @@ class HUD: SKSpriteNode{
                 self.addChild(newBulletNode)
             }
         }
+        
+        setupPauseButton()
 
 
     }
     
+    private func setupPauseButton(){
+        if let pauseButton = pauseButton{
+            self.addChild(pauseButton)
+        }
+    }
     
     func setKillCountDisplay(newKillCount: Int){
         let formatter = NumberFormatter()

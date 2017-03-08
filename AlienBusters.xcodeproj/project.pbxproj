@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BD2912631E6FE8C400ADE12E /* NTLScene1.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2912621E6FE8C400ADE12E /* NTLScene1.swift */; };
+		BD2912651E6FE8FA00ADE12E /* NTLScene5.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2912641E6FE8FA00ADE12E /* NTLScene5.swift */; };
+		BD2912671E6FE92300ADE12E /* TLScene1.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2912661E6FE92300ADE12E /* TLScene1.swift */; };
+		BD2912691E6FE94D00ADE12E /* TLScene2.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2912681E6FE94D00ADE12E /* TLScene2.swift */; };
+		BD29126B1E6FE96400ADE12E /* TLScene3.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD29126A1E6FE96400ADE12E /* TLScene3.swift */; };
+		BD29126D1E6FE98700ADE12E /* TLScene5.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD29126C1E6FE98700ADE12E /* TLScene5.swift */; };
+		BD2912701E6FEBC900ADE12E /* StartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD29126F1E6FEBC900ADE12E /* StartButton.swift */; };
+		BD2912721E6FF4E300ADE12E /* GameFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2912711E6FF4E300ADE12E /* GameFonts.swift */; };
+		BD2912741E70070A00ADE12E /* PauseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2912731E70070A00ADE12E /* PauseButton.swift */; };
 		BD2DEE331E6EE9100060750D /* AnimationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2DEE321E6EE9100060750D /* AnimationsManager.swift */; };
 		BD2DEE351E6EF8160060750D /* NTLScene2.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2DEE341E6EF8160060750D /* NTLScene2.swift */; };
 		BD2DEE371E6EF84E0060750D /* NTLScene3.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2DEE361E6EF84E0060750D /* NTLScene3.swift */; };
@@ -68,6 +77,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BD2912621E6FE8C400ADE12E /* NTLScene1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NTLScene1.swift; sourceTree = "<group>"; };
+		BD2912641E6FE8FA00ADE12E /* NTLScene5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NTLScene5.swift; sourceTree = "<group>"; };
+		BD2912661E6FE92300ADE12E /* TLScene1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TLScene1.swift; sourceTree = "<group>"; };
+		BD2912681E6FE94D00ADE12E /* TLScene2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TLScene2.swift; sourceTree = "<group>"; };
+		BD29126A1E6FE96400ADE12E /* TLScene3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TLScene3.swift; sourceTree = "<group>"; };
+		BD29126C1E6FE98700ADE12E /* TLScene5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TLScene5.swift; sourceTree = "<group>"; };
+		BD29126F1E6FEBC900ADE12E /* StartButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartButton.swift; sourceTree = "<group>"; };
+		BD2912711E6FF4E300ADE12E /* GameFonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameFonts.swift; sourceTree = "<group>"; };
+		BD2912731E70070A00ADE12E /* PauseButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PauseButton.swift; sourceTree = "<group>"; };
 		BD2DEE321E6EE9100060750D /* AnimationsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationsManager.swift; sourceTree = "<group>"; };
 		BD2DEE341E6EF8160060750D /* NTLScene2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NTLScene2.swift; sourceTree = "<group>"; };
 		BD2DEE361E6EF84E0060750D /* NTLScene3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NTLScene3.swift; sourceTree = "<group>"; };
@@ -141,13 +159,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BD29126E1E6FEBBF00ADE12E /* UIElements */ = {
+			isa = PBXGroup;
+			children = (
+				BD29126F1E6FEBC900ADE12E /* StartButton.swift */,
+				BD2912731E70070A00ADE12E /* PauseButton.swift */,
+			);
+			name = UIElements;
+			sourceTree = "<group>";
+		};
 		BD3049E61E6FAF140083B0ED /* NoTimeLimitScenes */ = {
 			isa = PBXGroup;
 			children = (
+				BD3049E81E6FB2D30083B0ED /* NoTimeLimitMode.swift */,
+				BD2912621E6FE8C400ADE12E /* NTLScene1.swift */,
 				BD2DEE341E6EF8160060750D /* NTLScene2.swift */,
 				BD3049E41E6FACBA0083B0ED /* NTLScene4.swift */,
 				BD2DEE361E6EF84E0060750D /* NTLScene3.swift */,
-				BD3049E81E6FB2D30083B0ED /* NoTimeLimitMode.swift */,
+				BD2912641E6FE8FA00ADE12E /* NTLScene5.swift */,
 			);
 			name = NoTimeLimitScenes;
 			sourceTree = "<group>";
@@ -156,6 +185,10 @@
 			isa = PBXGroup;
 			children = (
 				BD3049EB1E6FB5AD0083B0ED /* TimeLimitMode.swift */,
+				BD29126A1E6FE96400ADE12E /* TLScene3.swift */,
+				BD2912661E6FE92300ADE12E /* TLScene1.swift */,
+				BD2912681E6FE94D00ADE12E /* TLScene2.swift */,
+				BD29126C1E6FE98700ADE12E /* TLScene5.swift */,
 			);
 			name = TimeLimitScenes;
 			sourceTree = "<group>";
@@ -197,6 +230,7 @@
 		BDDC242E1E6E5966005E103C /* AlienBusters */ = {
 			isa = PBXGroup;
 			children = (
+				BD29126E1E6FEBBF00ADE12E /* UIElements */,
 				BDDC24841E6E9572005E103C /* SoundEffects */,
 				BDDC247D1E6E763D005E103C /* Characters */,
 				BDDC24501E6E6993005E103C /* Utility */,
@@ -218,6 +252,7 @@
 				BDDC24551E6E69F5005E103C /* UserOptionsManager.swift */,
 				BD2DEE321E6EE9100060750D /* AnimationsManager.swift */,
 				BDDB9E851E6FD7C3004D1D2B /* SmokeEmitterManager.swift */,
+				BD2912711E6FF4E300ADE12E /* GameFonts.swift */,
 			);
 			name = Singletons;
 			sourceTree = "<group>";
@@ -422,22 +457,31 @@
 			files = (
 				BD2DEE331E6EE9100060750D /* AnimationsManager.swift in Sources */,
 				BD2DEE351E6EF8160060750D /* NTLScene2.swift in Sources */,
+				BD2912631E6FE8C400ADE12E /* NTLScene1.swift in Sources */,
+				BD2912701E6FEBC900ADE12E /* StartButton.swift in Sources */,
 				BDDC24831E6E9119005E103C /* Background.swift in Sources */,
 				BD3049E51E6FACBA0083B0ED /* NTLScene4.swift in Sources */,
 				BDDC244B1E6E615D005E103C /* SceneA.swift in Sources */,
 				BDDC24561E6E69F5005E103C /* UserOptionsManager.swift in Sources */,
+				BD2912721E6FF4E300ADE12E /* GameFonts.swift in Sources */,
 				BD2DEE391E6EFD680060750D /* FallingAliens.swift in Sources */,
 				BDDC24361E6E5966005E103C /* TestScene.swift in Sources */,
+				BD2912671E6FE92300ADE12E /* TLScene1.swift in Sources */,
 				BDDC24811E6E7C30005E103C /* GameOverScene.swift in Sources */,
+				BD2912741E70070A00ADE12E /* PauseButton.swift in Sources */,
 				BDDC249A1E6E9D0D005E103C /* HelperFunctions.swift in Sources */,
+				BD29126D1E6FE98700ADE12E /* TLScene5.swift in Sources */,
 				BDDC247F1E6E7654005E103C /* CrossHair.swift in Sources */,
 				BDDC24491E6E5C0B005E103C /* TextureAtlasManager.swift in Sources */,
 				BDDC24541E6E69C4005E103C /* Math.swift in Sources */,
+				BD2912691E6FE94D00ADE12E /* TLScene2.swift in Sources */,
 				BDDC24381E6E5966005E103C /* GameViewController.swift in Sources */,
 				BDDC24301E6E5966005E103C /* AppDelegate.swift in Sources */,
 				BD2DEE371E6EF84E0060750D /* NTLScene3.swift in Sources */,
 				BDDC24A01E6EB9D5005E103C /* Enemy.swift in Sources */,
+				BD29126B1E6FE96400ADE12E /* TLScene3.swift in Sources */,
 				BDDB9E841E6FCAFF004D1D2B /* SpaceShip.swift in Sources */,
+				BD2912651E6FE8FA00ADE12E /* NTLScene5.swift in Sources */,
 				BD3049EC1E6FB5AD0083B0ED /* TimeLimitMode.swift in Sources */,
 				BD2DEE3B1E6F05AA0060750D /* FallingAliensController.swift in Sources */,
 				BD3049E91E6FB2D30083B0ED /* NoTimeLimitMode.swift in Sources */,

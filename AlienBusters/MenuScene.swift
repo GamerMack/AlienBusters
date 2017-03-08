@@ -104,7 +104,7 @@ class MenuScene: SKScene{
             let touchLocation = t.location(in: self)
             let nodeTouched = nodes(at: touchLocation)[0]
             
-            if nodeTouched.name == "StartButton"{
+            if nodeTouched.name == NodeNames.StartButton{
                 startButton.removeAllActions()
                 startButton.run(SKAction.run({
                     self.startButton.zPosition = -10
@@ -230,7 +230,7 @@ class MenuScene: SKScene{
         startButton.texture = textureAtlas.textureNamed("yellow_button09")
         startButton.anchorPoint = CGPoint(x: 0.5,y: 0.5)
         startButton.size = CGSize(width: 295, height: 76)
-        startButton.name = "StartButton"
+        startButton.name = NodeNames.StartButton
         startButton.position = CGPoint(x: 0, y: -80)
         startButton.zPosition = 2
         self.addChild(startButton)
@@ -244,7 +244,7 @@ class MenuScene: SKScene{
         startButtonText.verticalAlignmentMode = .center
         startButtonText.position = CGPoint(x: 0, y: 2)
         startButtonText.fontSize = 40
-        startButtonText.name = "StartButton"
+        startButtonText.name = NodeNames.StartButton
         startButtonText.zPosition = 3
         startButton.addChild(startButtonText)
         
