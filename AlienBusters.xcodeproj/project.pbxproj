@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BD2323111E705A2500E3A2FC /* QueenAlien.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2323101E705A2500E3A2FC /* QueenAlien.swift */; };
+		BD2323141E705CB100E3A2FC /* GravityFields.sks in Resources */ = {isa = PBXBuildFile; fileRef = BD2323131E705CB100E3A2FC /* GravityFields.sks */; };
 		BD2912631E6FE8C400ADE12E /* NTLScene1.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2912621E6FE8C400ADE12E /* NTLScene1.swift */; };
 		BD2912651E6FE8FA00ADE12E /* NTLScene5.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2912641E6FE8FA00ADE12E /* NTLScene5.swift */; };
 		BD2912671E6FE92300ADE12E /* TLScene1.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2912661E6FE92300ADE12E /* TLScene1.swift */; };
@@ -79,6 +81,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BD2323101E705A2500E3A2FC /* QueenAlien.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueenAlien.swift; sourceTree = "<group>"; };
+		BD2323131E705CB100E3A2FC /* GravityFields.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GravityFields.sks; sourceTree = "<group>"; };
 		BD2912621E6FE8C400ADE12E /* NTLScene1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NTLScene1.swift; sourceTree = "<group>"; };
 		BD2912641E6FE8FA00ADE12E /* NTLScene5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NTLScene5.swift; sourceTree = "<group>"; };
 		BD2912661E6FE92300ADE12E /* TLScene1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TLScene1.swift; sourceTree = "<group>"; };
@@ -163,6 +167,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BD2323121E705C9B00E3A2FC /* SKSFiles */ = {
+			isa = PBXGroup;
+			children = (
+				BD2323131E705CB100E3A2FC /* GravityFields.sks */,
+			);
+			name = SKSFiles;
+			sourceTree = "<group>";
+		};
 		BD29126E1E6FEBBF00ADE12E /* UIElements */ = {
 			isa = PBXGroup;
 			children = (
@@ -234,6 +246,7 @@
 		BDDC242E1E6E5966005E103C /* AlienBusters */ = {
 			isa = PBXGroup;
 			children = (
+				BD2323121E705C9B00E3A2FC /* SKSFiles */,
 				BD29126E1E6FEBBF00ADE12E /* UIElements */,
 				BDDC24841E6E9572005E103C /* SoundEffects */,
 				BDDC247D1E6E763D005E103C /* Characters */,
@@ -339,6 +352,7 @@
 				BDDB9E831E6FCAFF004D1D2B /* SpaceShip.swift */,
 				BD2912751E70227600ADE12E /* Bat.swift */,
 				BD2912771E704B9300ADE12E /* BatController.swift */,
+				BD2323101E705A2500E3A2FC /* QueenAlien.swift */,
 			);
 			name = Characters;
 			sourceTree = "<group>";
@@ -429,6 +443,7 @@
 				BDDC24721E6E6E48005E103C /* Italian Mom.mp3 in Resources */,
 				BDDC243B1E6E5966005E103C /* Main.storyboard in Resources */,
 				BDDC246A1E6E6E48005E103C /* Alpha Dance.mp3 in Resources */,
+				BD2323141E705CB100E3A2FC /* GravityFields.sks in Resources */,
 				BDDC24761E6E6E48005E103C /* Polka Train.mp3 in Resources */,
 				BDDC24911E6E95A1005E103C /* laser6.wav in Resources */,
 				BDDC247C1E6E6E48005E103C /* Wacky Waiting.mp3 in Resources */,
@@ -467,6 +482,7 @@
 				BD2912701E6FEBC900ADE12E /* StartButton.swift in Sources */,
 				BDDC24831E6E9119005E103C /* Background.swift in Sources */,
 				BD3049E51E6FACBA0083B0ED /* NTLScene4.swift in Sources */,
+				BD2323111E705A2500E3A2FC /* QueenAlien.swift in Sources */,
 				BDDC244B1E6E615D005E103C /* SceneA.swift in Sources */,
 				BD2912761E70227600ADE12E /* Bat.swift in Sources */,
 				BDDC24561E6E69F5005E103C /* UserOptionsManager.swift in Sources */,
