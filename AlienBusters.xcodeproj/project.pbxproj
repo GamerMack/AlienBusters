@@ -17,6 +17,7 @@
 		BD2912721E6FF4E300ADE12E /* GameFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2912711E6FF4E300ADE12E /* GameFonts.swift */; };
 		BD2912741E70070A00ADE12E /* PauseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2912731E70070A00ADE12E /* PauseButton.swift */; };
 		BD2912761E70227600ADE12E /* Bat.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2912751E70227600ADE12E /* Bat.swift */; };
+		BD2912781E704B9300ADE12E /* BatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2912771E704B9300ADE12E /* BatController.swift */; };
 		BD2DEE331E6EE9100060750D /* AnimationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2DEE321E6EE9100060750D /* AnimationsManager.swift */; };
 		BD2DEE351E6EF8160060750D /* NTLScene2.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2DEE341E6EF8160060750D /* NTLScene2.swift */; };
 		BD2DEE371E6EF84E0060750D /* NTLScene3.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2DEE361E6EF84E0060750D /* NTLScene3.swift */; };
@@ -88,6 +89,7 @@
 		BD2912711E6FF4E300ADE12E /* GameFonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameFonts.swift; sourceTree = "<group>"; };
 		BD2912731E70070A00ADE12E /* PauseButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PauseButton.swift; sourceTree = "<group>"; };
 		BD2912751E70227600ADE12E /* Bat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bat.swift; sourceTree = "<group>"; };
+		BD2912771E704B9300ADE12E /* BatController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BatController.swift; sourceTree = "<group>"; };
 		BD2DEE321E6EE9100060750D /* AnimationsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationsManager.swift; sourceTree = "<group>"; };
 		BD2DEE341E6EF8160060750D /* NTLScene2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NTLScene2.swift; sourceTree = "<group>"; };
 		BD2DEE361E6EF84E0060750D /* NTLScene3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NTLScene3.swift; sourceTree = "<group>"; };
@@ -336,6 +338,7 @@
 				BD2DEE3A1E6F05AA0060750D /* FallingAliensController.swift */,
 				BDDB9E831E6FCAFF004D1D2B /* SpaceShip.swift */,
 				BD2912751E70227600ADE12E /* Bat.swift */,
+				BD2912771E704B9300ADE12E /* BatController.swift */,
 			);
 			name = Characters;
 			sourceTree = "<group>";
@@ -493,6 +496,7 @@
 				BD3049EF1E6FB5EE0083B0ED /* MenuScene.swift in Sources */,
 				BDDC249C1E6E9E71005E103C /* FlyingAlien.swift in Sources */,
 				BDDB9E861E6FD7C3004D1D2B /* SmokeEmitterManager.swift in Sources */,
+				BD2912781E704B9300ADE12E /* BatController.swift in Sources */,
 				BDDC24521E6E69A1005E103C /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

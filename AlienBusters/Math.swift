@@ -44,3 +44,11 @@ func RandomFloatRange(min: CGFloat, max: CGFloat) -> CGFloat{
     return CGFloat(Float(arc4random()/0xFFFFFFFF))*(max-min) + min
 }
 
+func RandomizeSign(coordinateValue: inout Int){
+    
+    let coinFlip = Int(arc4random_uniform(2))
+    
+    coordinateValue = coinFlip == 1 ? -coordinateValue: coordinateValue
+}
+
+

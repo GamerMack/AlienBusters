@@ -35,7 +35,7 @@ class Bat: SKSpriteNode{
         super.init(texture: texture, color: color, size: size)
     }
     
-    convenience init( ) {
+    convenience init(scalingFactor: CGFloat = 1.0) {
         
         let batTexture = TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .Enemies)!.textureNamed("bat")
         
@@ -44,6 +44,8 @@ class Bat: SKSpriteNode{
         self.init(texture: batTexture,color: SKColor.clear, size: batSize)
         
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        self.xScale *= scalingFactor
+        self.yScale *= scalingFactor
         
         
         self.physicsBody = SKPhysicsBody(circleOfRadius: batTexture.size().width/2)
@@ -51,8 +53,6 @@ class Bat: SKSpriteNode{
         self.physicsBody?.allowsRotation = false 
 
         setPosition()
-        
-        
         configureActions()
         configureLighting()
 
@@ -61,13 +61,13 @@ class Bat: SKSpriteNode{
     
    
     
-    private func setPosition(){
+    func setPosition(){
         
         var randomXPos = Int(arc4random_uniform(UInt32(kViewWidth/2)))
         var randomYPos = Int(arc4random_uniform(UInt32(kViewHeight/2)))
         
-        randomizeSign(coordinateValue: &randomXPos)
-        randomizeSign(coordinateValue: &randomYPos)
+        RandomizeSign(coordinateValue: &randomXPos)
+        RandomizeSign(coordinateValue: &randomYPos)
         
         self.position = CGPoint(x: randomXPos, y: randomYPos)
 
@@ -118,8 +118,8 @@ class Bat: SKSpriteNode{
         var randomXImpulse = Int(arc4random_uniform(2))
         var randomYImpulse = Int(arc4random_uniform(2))
         
-        randomizeSign(coordinateValue: &randomXImpulse)
-        randomizeSign(coordinateValue: &randomYImpulse)
+        RandomizeSign(coordinateValue: &randomXImpulse)
+        RandomizeSign(coordinateValue: &randomYImpulse)
         
      
         
@@ -129,13 +129,7 @@ class Bat: SKSpriteNode{
     }
     
     
-    private func randomizeSign(coordinateValue: inout Int){
-        
-        let coinFlip = Int(arc4random_uniform(2))
-        
-        coordinateValue = coinFlip == 1 ? -coordinateValue: coordinateValue
-    }
-    
+   
    
     
     
