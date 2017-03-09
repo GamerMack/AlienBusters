@@ -184,5 +184,12 @@ class NodeNames{
     static let StartButton = "StartButton"
     static let PauseButton = "PauseButton"
     static let ResumeButton = "ResumeButton"
+    static let RestartGameButton = "RestartGame"
+    static let ReturnToMenuButton = "ReturnToMenu"
     
+}
+
+class ZPositionOrder{
+    static let background = CGFloat(-12.0)
+    static let hud = CGFloat(10.0)
 }

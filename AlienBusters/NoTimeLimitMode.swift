@@ -16,7 +16,7 @@ Gameplay Mode is determined at the MenuScene, along with Difficulty Level.  Scen
  
  **/
 
-protocol NoTimeLimitMode {
+protocol NoTimeLimitMode: class {
     //The minimum properties required for a scene in NoTimeLimitMode
     var player: CrossHair? { get set}
     var background: Background? { get set }

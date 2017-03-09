@@ -166,10 +166,10 @@ class TestScene: SKScene {
                     spaceShip.respondToHitAt(touchLocation: touchLocation)
                 }
                 
-                if let hud = hud, let pauseButton = hud.pauseButton, pauseButton.contains(touchLocation){
-                    pauseButtonPressed()
-                }
-                
+//                if let hud = hud, let pauseButton = hud.pauseButton, pauseButton.contains(touchLocation){
+//                    pauseButtonPressed()
+//                }
+//                
               
                 
             }
@@ -287,20 +287,20 @@ class TestScene: SKScene {
     }
     
     private func pauseButtonPressed(){
-        if let hud = hud, let pauseButton = hud.pauseButton{
-            pauseButton.tapped()
-            
-            if(pauseButton.getPauseState()){
-                statePaused(notification: nil)
-                
-                gameNode.isPaused = true
-            } else {
-                
-                stateResume()
-                gameNode.isPaused = false
-            }
-            
-        }
+//        if let hud = hud, let pauseButton = hud.pauseButton{
+//            pauseButton.tapped()
+//            
+//            if(pauseButton.getPauseState()){
+//                statePaused(notification: nil)
+//                
+//                gameNode.isPaused = true
+//            } else {
+//                
+//                stateResume()
+//                gameNode.isPaused = false
+//            }
+//            
+//        }
     }
     
     deinit {

@@ -11,85 +11,49 @@ import SpriteKit
 
 class TLScene1: SKScene{
     
-    var gameNode = SKSpriteNode()
     
+    var pauseButton: PauseButton?
+    var gameNode = SKSpriteNode()
     var player: CrossHair?
     var background: Background?
     var hud: HUD?
     var bat: Bat?
     
-    var timeLimit: Int = 30
+    //Required variables for conformance to TimeLimitMode class
+    
+    var timeLimit: TimeInterval = 5.0
     var timerIsStarted = false
     var lastUpdateTime: TimeInterval = 0.00
     var totalRunningTime: TimeInterval = 0.00
     
+    
     var helpButton: SKSpriteNode?
     
     override func didMove(to view: SKView) {
+        
+      
         configureBasicSceneElements(withPlayerTypeOf: .BlueLarge, andWithBackgroundOf: .ColoredForest, withBackgroundMusicFrom: BackgroundMusic.FlowingRocks)
         
+        setupIntroMessageBox()
         configureHelpButton()
-        
-        
-        let introBoxTexture = TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .UI)?.textureNamed("yellow_panel")
-        let introBox = SKSpriteNode(texture: introBoxTexture, color: .clear, size: CGSize(width: kViewWidth*0.4, height: kViewHeight*0.4))
-        introBox.position = CGPoint.zero
-        introBox.zPosition = 10
-        
-        let introxBoxHeight = introBoxTexture!.size().height
-        
-        let introText1 = SKLabelNode(fontNamed: FontTypes.NoteWorthyBold)
-        introBox.addChild(introText1)
-        introText1.position = CGPoint(x: 0, y: introxBoxHeight*0.4 )
-        introText1.text = "Level 1"
-        introText1.fontSize = 30.0
-        introText1.zPosition = 12
-        
-        let introText2 = SKLabelNode(fontNamed: FontTypes.NoteWorthyLight)
-        introBox.addChild(introText2)
-        introText2.position = CGPoint(x: 0, y: 0 )
-        introText2.text = "Find and Shoot All the Alien Bats"
-        introText2.fontSize = 20.0
-        introText2.zPosition = 12
-        
-        let introText3 = SKLabelNode(fontNamed: FontTypes.NoteWorthyLight)
-        introBox.addChild(introText3)
-        introText3.position = CGPoint(x: 0, y: -introxBoxHeight*0.4 )
-        introText3.fontSize = 20.0
-        introText3.text = "Time Limit: \(timeLimit) seconds"
-        introText3.zPosition = 12
-        self.addChild(introBox)
-        
-        
-        let introTextPulseAction = SKAction.sequence([
-            SKAction.fadeIn(withDuration: 0.2),
-            SKAction.fadeOut(withDuration: 0.2)
-            ])
-        
-        let pulsingAction = SKAction.repeatForever(introTextPulseAction)
-        
-        introText1.run(pulsingAction)
-        
-        introBox.run(SKAction.sequence([
-            SKAction.wait(forDuration: 6.0),
-            SKAction.removeFromParent(),
-            SKAction.run({
-                [weak self] in
-                self?.timerIsStarted = true
-            })
-            ]))
-        
-        
+        setupPauseButton()
         
         bat = Bat()
         
         gameNode.addChild(bat!)
-        
         self.addChild(gameNode)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
+        let touch = touches.first! as UITouch
+        let touchLocation = touch.location(in: self)
+        
+        if let pauseButton = pauseButton, nodes(at: touchLocation)[0].name == NodeNames.PauseButton{
+            pauseButton.tapped()
+        }
+        
+       
     }
     
     
@@ -97,7 +61,15 @@ class TLScene1: SKScene{
         
         guard let bat = bat else { return }
         
-       bat.update()
+      // bat.update()
+    }
+    
+    private func setupPauseButton(){
+        pauseButton = PauseButton(buttonType: .Pause)
+        
+        if let pauseButton = pauseButton{
+            self.addChild(pauseButton)
+        }
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -114,6 +86,9 @@ class TLScene1: SKScene{
     
     override func update(_ currentTime: TimeInterval) {
         if(timerIsStarted){
+            
+           
+            
             totalRunningTime += currentTime - lastUpdateTime
             lastUpdateTime = currentTime
             
@@ -170,9 +145,27 @@ class TLScene1: SKScene{
         
         //Configure HUD display
         hud = HUD()
-        hud!.zPosition = -1
         self.addChild(hud!)
         
+        
+    }
+    
+    private func setupIntroMessageBox(){
+        if let introMessage = createIntroMessageWith(levelTitle: "Level 1", levelDescription: "Find all the bats and shoot them", levelTimeLimit: self.timeLimit){
+            
+            
+            self.addChild(introMessage)
+            
+            introMessage.run(SKAction.sequence([
+                SKAction.wait(forDuration: 4.0),
+                SKAction.removeFromParent(),
+                SKAction.run({
+                    [weak self] in
+                    self?.timerIsStarted = true
+                })
+                ]))
+            
+        }
     }
     
     private func configureHelpButton(){
@@ -205,6 +198,12 @@ class TLScene1: SKScene{
         helpButton.addChild(helpButtonText)
         self.addChild(helpButton)
         
+    }
+    
+    func gameOver(){
+        if let hud = hud{
+            hud.showRestartButtons()
+        }
     }
     
 }

@@ -15,8 +15,8 @@ class HUD: SKSpriteNode{
     private let textureAtlasManager = TextureAtlasManager.sharedInstance
     private let hudAtlas = TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .HUD)
     
-    let pauseButton = PauseButton(buttonType: .Pause)
-
+    var restartButton: SKSpriteNode?
+    var menuButton: SKSpriteNode?
     
     var bulletNodes: [SKSpriteNode] = []
     var killCountText = SKLabelNode(text: "00000")
@@ -35,6 +35,9 @@ class HUD: SKSpriteNode{
     
     convenience init() {
         self.init(texture: nil, color: .clear, size: CGSize(width: 300, height: 300))
+        self.anchorPoint = CGPoint(x: 0, y: 0)
+        self.zPosition = ZPositionOrder.hud
+        self.size = CGSize(width: kViewWidth, height: kViewHeight)
         
         scoreIconTexture = hudAtlas?.textureNamed("text_score")
         bulletNodeTexture = hudAtlas?.textureNamed("icon_bullet_gold_long")
@@ -43,11 +46,11 @@ class HUD: SKSpriteNode{
         let scoreIconSize = scoreIcon.size
         scoreIcon.xScale *= 0.7
         scoreIcon.yScale *= 0.7
-        //Configure the size and position of the Kill score icon (assume a scene anchore point of (0.5,0.5)
-        let scoreIconYPos = CGFloat(180.0)//screenSize.height/2-23
-        let scoreIconXPos = CGFloat(-250.0)//-screenSize.width/2 + 20
-        scoreIcon.position = CGPoint(x: scoreIconXPos, y: scoreIconYPos)
         
+        //Configure the size and position of the Kill score icon (assume a scene anchore point of (0.5,0.5)
+        let scoreIconYPos = CGFloat(kViewHeight*0.5*0.8)
+        let scoreIconXPos = CGFloat(-kViewWidth*0.5*0.8)
+        scoreIcon.position = CGPoint(x: scoreIconXPos, y: scoreIconYPos)
         
         
         //Configure the killCountText display
@@ -69,7 +72,7 @@ class HUD: SKSpriteNode{
                 let newBulletNode = SKSpriteNode(texture: bulletNodeTexture)
                 
                 let yPos = scoreIconYPos - scoreIconSize.height
-                let xPos = scoreIconXPos - 50 + CGFloat(index)*(bulletSize.width + 5.0)
+                let xPos = scoreIconXPos - kViewWidth*0.07 + CGFloat(index)*(bulletSize.width + 5.0)
                 
                 newBulletNode.position = CGPoint(x: xPos, y: yPos)
                 bulletNodes.append(newBulletNode)
@@ -78,17 +81,72 @@ class HUD: SKSpriteNode{
             }
         }
         
-        setupPauseButton()
+        
+        setupRestartButtons()
 
 
     }
     
-    private func setupPauseButton(){
-        if let pauseButton = pauseButton{
-            self.addChild(pauseButton)
+    func showRestartButtons(){
+        //Set the button alpha to zero
+        if let restartButton = restartButton, let menuButton = menuButton{
+            restartButton.alpha = 0
+            menuButton.alpha = 0
+            
+            self.addChild(restartButton)
+            self.addChild(menuButton)
+            
+            let fadeAnimation = SKAction.fadeAlpha(to: 1.0, duration: 1.0)
+            
+            restartButton.run(fadeAnimation)
+            menuButton.run(fadeAnimation)
         }
+        
     }
     
+    private func setupRestartButtons(){
+        
+        guard let menuButtonTexture = TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .HUD)?.textureNamed("button-menu") else { return }
+        
+        guard let restartButtonTexture = TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .HUD)?.textureNamed("button-restart") else { return }
+        
+        menuButton = SKSpriteNode(texture: menuButtonTexture)
+        
+        restartButton = SKSpriteNode(texture: restartButtonTexture)
+        
+        if let menuButton = menuButton, let restartButton = restartButton{
+            menuButton.name = NodeNames.ReturnToMenuButton
+            restartButton.name = NodeNames.RestartGameButton
+            
+            menuButton.size = CGSize(width: kViewWidth*0.2, height: kViewHeight*0.3)
+            restartButton.size = CGSize(width: kViewWidth*0.2, height: kViewHeight*0.3)
+            
+            menuButton.position = CGPoint(x: kViewWidth*0.5*0.2, y: 0)
+            restartButton.position = CGPoint(x: menuButton.position.x - menuButton.size.width - 30, y: menuButton.position.y)
+            
+            let returnToMenuText = SKLabelNode(fontNamed: FontTypes.NoteWorthyLight)
+            returnToMenuText.text = "Main Menu"
+            returnToMenuText.fontSize = 20.0
+            returnToMenuText.verticalAlignmentMode = .bottom
+            returnToMenuText.position = CGPoint(x: 0, y: -menuButton.size.height)
+            menuButton.addChild(returnToMenuText)
+            
+            let restartGameText = SKLabelNode(fontNamed: FontTypes.NoteWorthyLight)
+            restartGameText.text = "Restart Level"
+            restartGameText.fontSize = 20.0
+            restartGameText.verticalAlignmentMode = .bottom
+            restartGameText.position = CGPoint(x: 0, y: -restartButton.size.height)
+            restartButton.addChild(restartGameText)
+            
+            
+        }
+        
+        
+       
+        
+    }
+    
+  
     func setKillCountDisplay(newKillCount: Int){
         let formatter = NumberFormatter()
         formatter.minimumIntegerDigits = 5

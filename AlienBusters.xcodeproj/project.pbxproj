@@ -29,6 +29,8 @@
 		BD3049E91E6FB2D30083B0ED /* NoTimeLimitMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3049E81E6FB2D30083B0ED /* NoTimeLimitMode.swift */; };
 		BD3049EC1E6FB5AD0083B0ED /* TimeLimitMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3049EB1E6FB5AD0083B0ED /* TimeLimitMode.swift */; };
 		BD3049EF1E6FB5EE0083B0ED /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3049EE1E6FB5EE0083B0ED /* MenuScene.swift */; };
+		BDD8AA361E7127C70054AB61 /* SceneInterfaceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD8AA351E7127C70054AB61 /* SceneInterfaceManager.swift */; };
+		BDD8AA381E7129CA0054AB61 /* SceneInterfaceManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD8AA371E7129CA0054AB61 /* SceneInterfaceManagerDelegate.swift */; };
 		BDDB9E841E6FCAFF004D1D2B /* SpaceShip.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDB9E831E6FCAFF004D1D2B /* SpaceShip.swift */; };
 		BDDB9E861E6FD7C3004D1D2B /* SmokeEmitterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDB9E851E6FD7C3004D1D2B /* SmokeEmitterManager.swift */; };
 		BDDC24301E6E5966005E103C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDC242F1E6E5966005E103C /* AppDelegate.swift */; };
@@ -103,6 +105,8 @@
 		BD3049E81E6FB2D30083B0ED /* NoTimeLimitMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoTimeLimitMode.swift; sourceTree = "<group>"; };
 		BD3049EB1E6FB5AD0083B0ED /* TimeLimitMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeLimitMode.swift; sourceTree = "<group>"; };
 		BD3049EE1E6FB5EE0083B0ED /* MenuScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
+		BDD8AA351E7127C70054AB61 /* SceneInterfaceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneInterfaceManager.swift; sourceTree = "<group>"; };
+		BDD8AA371E7129CA0054AB61 /* SceneInterfaceManagerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneInterfaceManagerDelegate.swift; sourceTree = "<group>"; };
 		BDDB9E831E6FCAFF004D1D2B /* SpaceShip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpaceShip.swift; sourceTree = "<group>"; };
 		BDDB9E851E6FD7C3004D1D2B /* SmokeEmitterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmokeEmitterManager.swift; sourceTree = "<group>"; };
 		BDDC242C1E6E5966005E103C /* AlienBusters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlienBusters.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -335,6 +339,8 @@
 				BDDC24511E6E69A1005E103C /* Constants.swift */,
 				BDDC24531E6E69C4005E103C /* Math.swift */,
 				BDDC24991E6E9D0D005E103C /* HelperFunctions.swift */,
+				BDD8AA351E7127C70054AB61 /* SceneInterfaceManager.swift */,
+				BDD8AA371E7129CA0054AB61 /* SceneInterfaceManagerDelegate.swift */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -477,6 +483,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD2DEE331E6EE9100060750D /* AnimationsManager.swift in Sources */,
+				BDD8AA361E7127C70054AB61 /* SceneInterfaceManager.swift in Sources */,
 				BD2DEE351E6EF8160060750D /* NTLScene2.swift in Sources */,
 				BD2912631E6FE8C400ADE12E /* NTLScene1.swift in Sources */,
 				BD2912701E6FEBC900ADE12E /* StartButton.swift in Sources */,
@@ -494,6 +501,7 @@
 				BD2912741E70070A00ADE12E /* PauseButton.swift in Sources */,
 				BDDC249A1E6E9D0D005E103C /* HelperFunctions.swift in Sources */,
 				BD29126D1E6FE98700ADE12E /* TLScene5.swift in Sources */,
+				BDD8AA381E7129CA0054AB61 /* SceneInterfaceManagerDelegate.swift in Sources */,
 				BDDC247F1E6E7654005E103C /* CrossHair.swift in Sources */,
 				BDDC24491E6E5C0B005E103C /* TextureAtlasManager.swift in Sources */,
 				BDDC24541E6E69C4005E103C /* Math.swift in Sources */,

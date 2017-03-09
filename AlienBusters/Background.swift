@@ -93,6 +93,7 @@ class Background: SKSpriteNode{
     private func setup(){
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         self.position = CGPoint(x: 0, y: 0.0)
+        self.zPosition = ZPositionOrder.background
     }
     
     //MARK: - Update
