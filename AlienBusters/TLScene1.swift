@@ -21,7 +21,7 @@ class TLScene1: SKScene{
     
     //GameState Toggle Buttons
     var introButton: SKSpriteNode?
-    var pauseButton: PauseButton?
+    var pauseButton: SKSpriteNode?
     var helpButton: SKSpriteNode?
 
     //Game characters and other game elements
@@ -72,26 +72,42 @@ class TLScene1: SKScene{
         
         switch(state){
             case .Running:
-                for node in nodes(at: touchLocation){
-                    if(node.name == NodeNames.PauseButton){
-                      
-                        statePaused()
+                if let pauseButton = pauseButton, pauseButton.contains(touchLocation){
+                    for node in pauseButton.children{
+                        if let node = node as? SKLabelNode{
+                            node.text = "Resume"
+                            node.name = NodeNames.ResumeButton
+                        }
                     }
+                    pauseButton.name = NodeNames.ResumeButton
+                    pauseButton.userData?.setValue(true, forKey: "isPaused")
+                    
+                    print("You tapped the pause button")
+                    statePaused()
                 }
+              
                 break
             case .Paused:
-                for node in nodes(at: touchLocation){
-                    if(node.name == NodeNames.ResumeButton){
-                        
-                        stateResume()
+                if let pauseButton = pauseButton, pauseButton.contains(touchLocation){
+                    
+                    for node in pauseButton.children{
+                        if let node = node as? SKLabelNode{
+                            node.text = "Pause"
+                            node.name = NodeNames.PauseButton
+                        }
                     }
+                    
+                    print("You tapped the resume button")
+                    stateResume()
                 }
+               
                 break
             case .Waiting:
                 for node in nodes(at: touchLocation){
                     if(node.name == NodeNames.StartButton){
                         node.removeFromParent()
                         stateRunning()
+                        
                     }
                 }
                 break
@@ -122,9 +138,9 @@ class TLScene1: SKScene{
     }
     
     private func setupPauseButton(){
-        pauseButton = PauseButton(buttonType: .Pause)
-        
+        pauseButton = createPauseButton()
         if let pauseButton = pauseButton{
+            pauseButton.zPosition = 10
             self.addChild(pauseButton)
         }
     }
@@ -150,28 +166,27 @@ class TLScene1: SKScene{
         if(state != .Running){
             return
         } else {
-           
-                if(timerIsStarted){
-                    totalRunningTime += currentTime - lastUpdateTime
-                  
-                    
-                    if let player = player, let bat = bat{
-                        player.update()
-                        bat.checkForReposition()
-                    }
-                    
-                    if(kDebug){
-                        print("Current running time: \(totalRunningTime)")
-                    }
-                }
-                
-            
-                
-            
+           updateRunningTime(currentTime: currentTime)
+         
+            if let player = player, let bat = bat{
+                player.update()
+                bat.checkForReposition()
+            }
+        
         }
         
         lastUpdateTime = currentTime
         
+    }
+    
+    private func updateRunningTime(currentTime: TimeInterval){
+        if(timerIsStarted){
+            totalRunningTime += currentTime - lastUpdateTime
+            
+            if(kDebug){
+                print("Current running time: \(totalRunningTime)")
+            }
+        }
     }
     
     
@@ -248,7 +263,7 @@ class TLScene1: SKScene{
         }
         
         if let hud = hud{
-            hud.showRestartButtons()
+            //hud.showRestartButtons()
         }
     }
     

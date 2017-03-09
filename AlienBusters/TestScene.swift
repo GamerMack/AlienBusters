@@ -21,7 +21,6 @@ class TestScene: SKScene {
     private var state: State = .Waiting
     private var previousState: State = .Waiting
     
-    private let startButton = StartButton()
     private let gameNode = SKNode()
     
     private let timeLimit: TimeInterval = 10.0
@@ -122,7 +121,6 @@ class TestScene: SKScene {
         **/
         
         //Add the Start Button
-        gameNode.addChild(startButton)
         
     }
     
@@ -175,9 +173,6 @@ class TestScene: SKScene {
             }
             break
         case .Waiting:
-            if(startButton.contains(touchLocation)){
-                stateRunning()
-            }
             break
         case .Paused:
             return

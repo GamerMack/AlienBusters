@@ -15,9 +15,8 @@
 		BD2912691E6FE94D00ADE12E /* TLScene2.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2912681E6FE94D00ADE12E /* TLScene2.swift */; };
 		BD29126B1E6FE96400ADE12E /* TLScene3.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD29126A1E6FE96400ADE12E /* TLScene3.swift */; };
 		BD29126D1E6FE98700ADE12E /* TLScene5.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD29126C1E6FE98700ADE12E /* TLScene5.swift */; };
-		BD2912701E6FEBC900ADE12E /* StartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD29126F1E6FEBC900ADE12E /* StartButton.swift */; };
 		BD2912721E6FF4E300ADE12E /* GameFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2912711E6FF4E300ADE12E /* GameFonts.swift */; };
-		BD2912741E70070A00ADE12E /* PauseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2912731E70070A00ADE12E /* PauseButton.swift */; };
+		BD2912741E70070A00ADE12E /* HelperFunctions2.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2912731E70070A00ADE12E /* HelperFunctions2.swift */; };
 		BD2912761E70227600ADE12E /* Bat.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2912751E70227600ADE12E /* Bat.swift */; };
 		BD2912781E704B9300ADE12E /* BatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2912771E704B9300ADE12E /* BatController.swift */; };
 		BD2DEE331E6EE9100060750D /* AnimationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2DEE321E6EE9100060750D /* AnimationsManager.swift */; };
@@ -93,9 +92,8 @@
 		BD2912681E6FE94D00ADE12E /* TLScene2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TLScene2.swift; sourceTree = "<group>"; };
 		BD29126A1E6FE96400ADE12E /* TLScene3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TLScene3.swift; sourceTree = "<group>"; };
 		BD29126C1E6FE98700ADE12E /* TLScene5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TLScene5.swift; sourceTree = "<group>"; };
-		BD29126F1E6FEBC900ADE12E /* StartButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartButton.swift; sourceTree = "<group>"; };
 		BD2912711E6FF4E300ADE12E /* GameFonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameFonts.swift; sourceTree = "<group>"; };
-		BD2912731E70070A00ADE12E /* PauseButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PauseButton.swift; sourceTree = "<group>"; };
+		BD2912731E70070A00ADE12E /* HelperFunctions2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperFunctions2.swift; sourceTree = "<group>"; };
 		BD2912751E70227600ADE12E /* Bat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bat.swift; sourceTree = "<group>"; };
 		BD2912771E704B9300ADE12E /* BatController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BatController.swift; sourceTree = "<group>"; };
 		BD2DEE321E6EE9100060750D /* AnimationsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationsManager.swift; sourceTree = "<group>"; };
@@ -186,8 +184,7 @@
 		BD29126E1E6FEBBF00ADE12E /* UIElements */ = {
 			isa = PBXGroup;
 			children = (
-				BD29126F1E6FEBC900ADE12E /* StartButton.swift */,
-				BD2912731E70070A00ADE12E /* PauseButton.swift */,
+				BD2912731E70070A00ADE12E /* HelperFunctions2.swift */,
 			);
 			name = UIElements;
 			sourceTree = "<group>";
@@ -500,7 +497,6 @@
 				BDD8AA361E7127C70054AB61 /* SceneInterfaceManager.swift in Sources */,
 				BD2DEE351E6EF8160060750D /* NTLScene2.swift in Sources */,
 				BD2912631E6FE8C400ADE12E /* NTLScene1.swift in Sources */,
-				BD2912701E6FEBC900ADE12E /* StartButton.swift in Sources */,
 				BDD8AA3B1E715AA40054AB61 /* SKSceneExtension.swift in Sources */,
 				BDDC24831E6E9119005E103C /* Background.swift in Sources */,
 				BD3049E51E6FACBA0083B0ED /* NTLScene4.swift in Sources */,
@@ -514,7 +510,7 @@
 				BDDC24361E6E5966005E103C /* TestScene.swift in Sources */,
 				BD2912671E6FE92300ADE12E /* TLScene1.swift in Sources */,
 				BDDC24811E6E7C30005E103C /* GameOverScene.swift in Sources */,
-				BD2912741E70070A00ADE12E /* PauseButton.swift in Sources */,
+				BD2912741E70070A00ADE12E /* HelperFunctions2.swift in Sources */,
 				BDDC249A1E6E9D0D005E103C /* HelperFunctions.swift in Sources */,
 				BD29126D1E6FE98700ADE12E /* TLScene5.swift in Sources */,
 				BDD8AA381E7129CA0054AB61 /* SceneInterfaceManagerDelegate.swift in Sources */,
