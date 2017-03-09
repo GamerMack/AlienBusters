@@ -93,8 +93,9 @@ class HUD: SKSpriteNode{
             restartButton.alpha = 0
             menuButton.alpha = 0
             
-            self.addChild(restartButton)
-            self.addChild(menuButton)
+            menuButton.zPosition = 12
+            restartButton.zPosition = 12
+           
             
             let fadeAnimation = SKAction.fadeAlpha(to: 1.0, duration: 1.0)
             
@@ -138,6 +139,12 @@ class HUD: SKSpriteNode{
             restartGameText.position = CGPoint(x: 0, y: -restartButton.size.height)
             restartButton.addChild(restartGameText)
             
+            restartButton.zPosition = -15
+            menuButton.zPosition = -15
+            
+//            self.addChild(restartButton)
+//            self.addChild(menuButton)
+//            
             
         }
         

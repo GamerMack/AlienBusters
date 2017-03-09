@@ -16,7 +16,6 @@
 		BD29126B1E6FE96400ADE12E /* TLScene3.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD29126A1E6FE96400ADE12E /* TLScene3.swift */; };
 		BD29126D1E6FE98700ADE12E /* TLScene5.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD29126C1E6FE98700ADE12E /* TLScene5.swift */; };
 		BD2912721E6FF4E300ADE12E /* GameFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2912711E6FF4E300ADE12E /* GameFonts.swift */; };
-		BD2912741E70070A00ADE12E /* HelperFunctions2.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2912731E70070A00ADE12E /* HelperFunctions2.swift */; };
 		BD2912761E70227600ADE12E /* Bat.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2912751E70227600ADE12E /* Bat.swift */; };
 		BD2912781E704B9300ADE12E /* BatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2912771E704B9300ADE12E /* BatController.swift */; };
 		BD2B80231E71A53500E509AF /* ButtonFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2B80221E71A53500E509AF /* ButtonFactory.swift */; };
@@ -94,7 +93,6 @@
 		BD29126A1E6FE96400ADE12E /* TLScene3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TLScene3.swift; sourceTree = "<group>"; };
 		BD29126C1E6FE98700ADE12E /* TLScene5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TLScene5.swift; sourceTree = "<group>"; };
 		BD2912711E6FF4E300ADE12E /* GameFonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameFonts.swift; sourceTree = "<group>"; };
-		BD2912731E70070A00ADE12E /* HelperFunctions2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperFunctions2.swift; sourceTree = "<group>"; };
 		BD2912751E70227600ADE12E /* Bat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bat.swift; sourceTree = "<group>"; };
 		BD2912771E704B9300ADE12E /* BatController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BatController.swift; sourceTree = "<group>"; };
 		BD2B80221E71A53500E509AF /* ButtonFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonFactory.swift; sourceTree = "<group>"; };
@@ -186,7 +184,6 @@
 		BD29126E1E6FEBBF00ADE12E /* UIElements */ = {
 			isa = PBXGroup;
 			children = (
-				BD2912731E70070A00ADE12E /* HelperFunctions2.swift */,
 				BD2B80221E71A53500E509AF /* ButtonFactory.swift */,
 			);
 			name = UIElements;
@@ -513,7 +510,6 @@
 				BDDC24361E6E5966005E103C /* TestScene.swift in Sources */,
 				BD2912671E6FE92300ADE12E /* TLScene1.swift in Sources */,
 				BDDC24811E6E7C30005E103C /* GameOverScene.swift in Sources */,
-				BD2912741E70070A00ADE12E /* HelperFunctions2.swift in Sources */,
 				BDDC249A1E6E9D0D005E103C /* HelperFunctions.swift in Sources */,
 				BD29126D1E6FE98700ADE12E /* TLScene5.swift in Sources */,
 				BDD8AA381E7129CA0054AB61 /* SceneInterfaceManagerDelegate.swift in Sources */,

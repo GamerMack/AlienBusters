@@ -157,15 +157,21 @@ class TLScene1: SKScene{
             return
         } else {
            updateRunningTime(currentTime: currentTime)
+            
+            if(currentTime > timeLimit){
+                gameOver()
+            }
          
             if let player = player, let bat = bat{
                 player.update()
                 bat.checkForReposition()
             }
+            
+            lastUpdateTime = currentTime
         
         }
         
-        lastUpdateTime = currentTime
+      
         
     }
     
@@ -253,7 +259,7 @@ class TLScene1: SKScene{
         }
         
         if let hud = hud{
-            //hud.showRestartButtons()
+            hud.showRestartButtons()
         }
     }
     
@@ -276,7 +282,7 @@ class TLScene1: SKScene{
     func stateGameOver(){
         state = .GameOver
         timerIsStarted = false
-        gameOver()
+    
     }
     
 }

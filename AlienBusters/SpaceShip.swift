@@ -193,14 +193,14 @@ class SpaceShip: SKSpriteNode{
                 self.health -= 1
                 break
             case 0:
-                createExplosionFor(spriteNode: self)
+                AnimationsFactory.createExplosionFor(spriteNode: self)
                 self.run(SKAction.sequence([
                     SKAction.wait(forDuration: 2.0),
                     SKAction.removeFromParent()
                     ]))
                 break
             default:
-                createExplosionFor(spriteNode: self)
+                AnimationsFactory.createExplosionFor(spriteNode: self)
                 self.run(SKAction.sequence([
                     SKAction.wait(forDuration: 2.0),
                     SKAction.removeFromParent()

@@ -14,7 +14,7 @@ class GameViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        preloadSounds()
+        SoundLoader.preloadSounds()
         
         let testScene = TestScene(size: self.view.bounds.size)
         let tlScene1 = TLScene1(size: self.view.bounds.size)
