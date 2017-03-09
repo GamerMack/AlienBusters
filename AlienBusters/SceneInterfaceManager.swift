@@ -20,7 +20,7 @@ class SceneInterfaceManager: SceneInterfaceManagerDelegate{
     
     
     func setupIntroMessageBox(){
-        if let introMessage = createIntroMessageWith(levelTitle: "Level 1", levelDescription: "Find all the bats and shoot them", levelTimeLimit: managedScene.timeLimit){
+        if let introMessage = ButtonFactory.createIntroMessageWith(levelTitle: "Level 1", levelDescription: "Find all the bats and shoot them", levelTimeLimit: managedScene.timeLimit){
             
             
             managedScene.addChild(introMessage)

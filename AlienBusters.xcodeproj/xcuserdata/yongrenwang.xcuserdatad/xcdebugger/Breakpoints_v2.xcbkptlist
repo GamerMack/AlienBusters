@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AlienBusters/TLScene1.swift"
-            timestampString = "510762866.287208"
+            timestampString = "510764169.596515"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "169"
-            endingLineNumber = "169"
+            startingLineNumber = "159"
+            endingLineNumber = "159"
             landmarkName = "update(_:)"
             landmarkType = "7">
          </BreakpointContent>

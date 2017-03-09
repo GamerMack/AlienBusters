@@ -19,6 +19,7 @@
 		BD2912741E70070A00ADE12E /* HelperFunctions2.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2912731E70070A00ADE12E /* HelperFunctions2.swift */; };
 		BD2912761E70227600ADE12E /* Bat.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2912751E70227600ADE12E /* Bat.swift */; };
 		BD2912781E704B9300ADE12E /* BatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2912771E704B9300ADE12E /* BatController.swift */; };
+		BD2B80231E71A53500E509AF /* ButtonFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2B80221E71A53500E509AF /* ButtonFactory.swift */; };
 		BD2DEE331E6EE9100060750D /* AnimationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2DEE321E6EE9100060750D /* AnimationsManager.swift */; };
 		BD2DEE351E6EF8160060750D /* NTLScene2.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2DEE341E6EF8160060750D /* NTLScene2.swift */; };
 		BD2DEE371E6EF84E0060750D /* NTLScene3.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2DEE361E6EF84E0060750D /* NTLScene3.swift */; };
@@ -96,6 +97,7 @@
 		BD2912731E70070A00ADE12E /* HelperFunctions2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperFunctions2.swift; sourceTree = "<group>"; };
 		BD2912751E70227600ADE12E /* Bat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bat.swift; sourceTree = "<group>"; };
 		BD2912771E704B9300ADE12E /* BatController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BatController.swift; sourceTree = "<group>"; };
+		BD2B80221E71A53500E509AF /* ButtonFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonFactory.swift; sourceTree = "<group>"; };
 		BD2DEE321E6EE9100060750D /* AnimationsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationsManager.swift; sourceTree = "<group>"; };
 		BD2DEE341E6EF8160060750D /* NTLScene2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NTLScene2.swift; sourceTree = "<group>"; };
 		BD2DEE361E6EF84E0060750D /* NTLScene3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NTLScene3.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				BD2912731E70070A00ADE12E /* HelperFunctions2.swift */,
+				BD2B80221E71A53500E509AF /* ButtonFactory.swift */,
 			);
 			name = UIElements;
 			sourceTree = "<group>";
@@ -529,6 +532,7 @@
 				BD2DEE3B1E6F05AA0060750D /* FallingAliensController.swift in Sources */,
 				BD3049E91E6FB2D30083B0ED /* NoTimeLimitMode.swift in Sources */,
 				BDDC249E1E6EA082005E103C /* HUD.swift in Sources */,
+				BD2B80231E71A53500E509AF /* ButtonFactory.swift in Sources */,
 				BD3049EF1E6FB5EE0083B0ED /* MenuScene.swift in Sources */,
 				BDDC249C1E6E9E71005E103C /* FlyingAlien.swift in Sources */,
 				BDDB9E861E6FD7C3004D1D2B /* SmokeEmitterManager.swift in Sources */,

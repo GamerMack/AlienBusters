@@ -73,14 +73,8 @@ class TLScene1: SKScene{
         switch(state){
             case .Running:
                 if let pauseButton = pauseButton, pauseButton.contains(touchLocation){
-                    for node in pauseButton.children{
-                        if let node = node as? SKLabelNode{
-                            node.text = "Resume"
-                            node.name = NodeNames.ResumeButton
-                        }
-                    }
-                    pauseButton.name = NodeNames.ResumeButton
-                    pauseButton.userData?.setValue(true, forKey: "isPaused")
+    
+                    ButtonFactory.resetPauseButton(pauseButton: pauseButton, withLabelTextOf: "Resume",  andWithNodeNameOf: NodeNames.ResumeButton, withPauseState: true)
                     
                     print("You tapped the pause button")
                     statePaused()
@@ -90,13 +84,9 @@ class TLScene1: SKScene{
             case .Paused:
                 if let pauseButton = pauseButton, pauseButton.contains(touchLocation){
                     
-                    for node in pauseButton.children{
-                        if let node = node as? SKLabelNode{
-                            node.text = "Pause"
-                            node.name = NodeNames.PauseButton
-                        }
-                    }
-                    
+                    ButtonFactory.resetPauseButton(pauseButton: pauseButton, withLabelTextOf: "Pause",  andWithNodeNameOf: NodeNames.PauseButton, withPauseState: false)
+        
+    
                     print("You tapped the resume button")
                     stateResume()
                 }
@@ -138,7 +128,7 @@ class TLScene1: SKScene{
     }
     
     private func setupPauseButton(){
-        pauseButton = createPauseButton()
+        pauseButton = ButtonFactory.createPauseButton()
         if let pauseButton = pauseButton{
             pauseButton.zPosition = 10
             self.addChild(pauseButton)
@@ -244,7 +234,7 @@ class TLScene1: SKScene{
     private func setupIntroMessageBox(){
         let currentLevelTimeLimit = self.timeLimit
         
-        introButton = createIntroMessageWith(levelTitle: "Level 1", levelDescription: "Find all the bats and shoot them", levelTimeLimit: currentLevelTimeLimit)
+        introButton = ButtonFactory.createIntroMessageWith(levelTitle: "Level 1", levelDescription: "Find all the bats and shoot them", levelTimeLimit: currentLevelTimeLimit)
         
         if let introButton = introButton {
             self.addChild(introButton)

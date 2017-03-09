@@ -6,6 +6,7 @@
 //  Copyright © 2017 AlexMakedonski. All rights reserved.
 //
 
+/**
 import SpriteKit
 
 func createPauseButton(withPosition position: CGPoint = CGPoint(x: -kViewWidth/2 + 5, y: -kViewHeight/2 + 5), andWithSizeOf size: CGSize = CGSize(width: kViewWidth*0.10, height: kViewHeight*0.06) ) -> SKSpriteNode{
@@ -46,5 +47,20 @@ func createPauseButton(withPosition position: CGPoint = CGPoint(x: -kViewWidth/2
         
 }
 
+func resetPausedButton(pauseButton: SKSpriteNode, withLabelTextOf labelText: String, andWithNodeNameOf nodeName: String, withPauseState pauseState: Bool){
+    
+    pauseButton.name = nodeName
+    pauseButton.userData?.setValue(pauseState, forKey: "isPaused")
+    
+    for node in pauseButton.children{
+        if let node = node as? SKLabelNode{
+            node.text = labelText
+            node.name = nodeName
+        }
+    }
+    
+    
+}
 
 
+**/
