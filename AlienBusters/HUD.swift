@@ -36,7 +36,7 @@ class HUD: SKSpriteNode{
     convenience init() {
         self.init(texture: nil, color: .clear, size: CGSize(width: 300, height: 300))
         self.anchorPoint = CGPoint(x: 0, y: 0)
-        self.zPosition = ZPositionOrder.hud
+        self.zPosition = 10
         self.size = CGSize(width: kViewWidth, height: kViewHeight)
         
         scoreIconTexture = hudAtlas?.textureNamed("text_score")

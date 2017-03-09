@@ -120,7 +120,6 @@ class MenuScene: SKScene{
             
             if nodeTouched.name == "Hard"{
                 userOptionsManager.setDifficultyLevel(userSelection: "Hard")
-                self.view?.presentScene(TestScene(size: self.size))
                 
                 hardButton.run(SKAction.run({
                     self.hardButton.zPosition = -10
@@ -179,13 +178,13 @@ class MenuScene: SKScene{
             
             if nodeTouched.name == "No Time Limit"{
                 //userOptionsManager.setGamePlayModeTo(gamePlayMode: "NoTimeLimit")
-                self.view?.presentScene(TestScene(size: self.size))
+                self.view?.presentScene(TLScene1(size: self.size))
 
             }
             
             if nodeTouched.name == "Unlimited Ammunition"{
                 //userOptionsManager.setGamePlayModeTo(gamePlayMode: "TimeLimit")
-                self.view?.presentScene(TestScene(size: self.size))
+                self.view?.presentScene(TLScene1(size: self.size))
 
             }
         }

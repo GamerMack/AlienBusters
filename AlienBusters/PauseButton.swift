@@ -82,7 +82,7 @@ class PauseButton: SKSpriteNode{
         pauseLabelNode.fontSize = 10.0
         pauseLabelNode.fontColor = SKColor.blue
         pauseLabelNode.position = CGPoint(x: -10, y: -10)
-        pauseLabelNode.zPosition = self.zPosition + 1
+        pauseLabelNode.zPosition = 12
         
         //Configure resume label node
         resumeLabelNode.text = "Resume"
@@ -91,8 +91,8 @@ class PauseButton: SKSpriteNode{
         resumeLabelNode.verticalAlignmentMode = .center
         resumeLabelNode.fontSize = 10.0
         resumeLabelNode.fontColor = SKColor.blue
-        resumeLabelNode.position = CGPoint(x: -self.size.width*1.6, y: -self.size.height)
-        resumeLabelNode.zPosition = self.zPosition + 1
+        resumeLabelNode.position = CGPoint(x: -30, y: -30)
+        resumeLabelNode.zPosition = 12
     }
     
     private func configureBasicParameters(){
@@ -103,7 +103,10 @@ class PauseButton: SKSpriteNode{
         self.position = CGPoint(x: kViewWidth/2, y: kViewHeight/2)
         
         //Rescale the size of the buttons
-        self.size = CGSize(width: kViewWidth*0.07, height: kViewHeight*0.05)
+        self.size = CGSize(width: kViewWidth*0.10, height: kViewHeight*0.06)
+        
+        //Set the zPosition
+        self.zPosition = 10
     }
     
     //MARK: - Actions

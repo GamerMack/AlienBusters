@@ -35,9 +35,11 @@ class Bat: SKSpriteNode{
         super.init(texture: texture, color: color, size: size)
     }
     
-    convenience init(scalingFactor: CGFloat = 1.0) {
+    convenience init?(scalingFactor: CGFloat = 1.0) {
         
-        let batTexture = TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .Enemies)!.textureNamed("bat")
+        guard let batTexture = TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .Enemies)?.textureNamed("bat") else { return nil }
+        
+        
         
         let batSize = batTexture.size()
         
@@ -48,7 +50,7 @@ class Bat: SKSpriteNode{
         self.yScale *= scalingFactor
         
         
-        self.physicsBody = SKPhysicsBody(circleOfRadius: batTexture.size().width/2)
+        self.physicsBody = SKPhysicsBody(circleOfRadius: batSize.width/2)
         self.physicsBody?.affectedByGravity = false
         self.physicsBody?.allowsRotation = false 
 
@@ -109,19 +111,19 @@ class Bat: SKSpriteNode{
     
     
     func update(){
-        let currentVelocity = self.physicsBody?.velocity
-        let currentXVelocity = currentVelocity?.dx
-        let currentYVelocity = currentVelocity?.dy
         
-        if(currentYVelocity! < CGFloat(30) && currentXVelocity! < CGFloat(30.0)){
+        guard let currentVelocity = self.physicsBody?.velocity else { return }
+        
+        let currentXVelocity = currentVelocity.dx
+        let currentYVelocity = currentVelocity.dy
+        
+        if(currentYVelocity < CGFloat(30) && currentXVelocity < CGFloat(30.0)){
 
-        var randomXImpulse = Int(arc4random_uniform(2))
-        var randomYImpulse = Int(arc4random_uniform(2))
+            var randomXImpulse = Int(arc4random_uniform(2))
+            var randomYImpulse = Int(arc4random_uniform(2))
         
-        RandomizeSign(coordinateValue: &randomXImpulse)
-        RandomizeSign(coordinateValue: &randomYImpulse)
-        
-     
+            RandomizeSign(coordinateValue: &randomXImpulse)
+            RandomizeSign(coordinateValue: &randomYImpulse)
         
             let impulseVector = CGVector(dx: randomXImpulse, dy: randomYImpulse)
             self.physicsBody?.applyImpulse(impulseVector)

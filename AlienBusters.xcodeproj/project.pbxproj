@@ -31,6 +31,8 @@
 		BD3049EF1E6FB5EE0083B0ED /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3049EE1E6FB5EE0083B0ED /* MenuScene.swift */; };
 		BDD8AA361E7127C70054AB61 /* SceneInterfaceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD8AA351E7127C70054AB61 /* SceneInterfaceManager.swift */; };
 		BDD8AA381E7129CA0054AB61 /* SceneInterfaceManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD8AA371E7129CA0054AB61 /* SceneInterfaceManagerDelegate.swift */; };
+		BDD8AA3B1E715AA40054AB61 /* SKSceneExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD8AA3A1E715AA40054AB61 /* SKSceneExtension.swift */; };
+		BDD8AA3D1E7162190054AB61 /* ButtonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD8AA3C1E7162190054AB61 /* ButtonManager.swift */; };
 		BDDB9E841E6FCAFF004D1D2B /* SpaceShip.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDB9E831E6FCAFF004D1D2B /* SpaceShip.swift */; };
 		BDDB9E861E6FD7C3004D1D2B /* SmokeEmitterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDB9E851E6FD7C3004D1D2B /* SmokeEmitterManager.swift */; };
 		BDDC24301E6E5966005E103C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDC242F1E6E5966005E103C /* AppDelegate.swift */; };
@@ -107,6 +109,8 @@
 		BD3049EE1E6FB5EE0083B0ED /* MenuScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
 		BDD8AA351E7127C70054AB61 /* SceneInterfaceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneInterfaceManager.swift; sourceTree = "<group>"; };
 		BDD8AA371E7129CA0054AB61 /* SceneInterfaceManagerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneInterfaceManagerDelegate.swift; sourceTree = "<group>"; };
+		BDD8AA3A1E715AA40054AB61 /* SKSceneExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKSceneExtension.swift; sourceTree = "<group>"; };
+		BDD8AA3C1E7162190054AB61 /* ButtonManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonManager.swift; sourceTree = "<group>"; };
 		BDDB9E831E6FCAFF004D1D2B /* SpaceShip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpaceShip.swift; sourceTree = "<group>"; };
 		BDDB9E851E6FD7C3004D1D2B /* SmokeEmitterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmokeEmitterManager.swift; sourceTree = "<group>"; };
 		BDDC242C1E6E5966005E103C /* AlienBusters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlienBusters.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -231,6 +235,14 @@
 			name = TransitionalScenes;
 			sourceTree = "<group>";
 		};
+		BDD8AA391E715A880054AB61 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				BDD8AA3A1E715AA40054AB61 /* SKSceneExtension.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		BDDC24231E6E5966005E103C = {
 			isa = PBXGroup;
 			children = (
@@ -250,6 +262,7 @@
 		BDDC242E1E6E5966005E103C /* AlienBusters */ = {
 			isa = PBXGroup;
 			children = (
+				BDD8AA391E715A880054AB61 /* Extensions */,
 				BD2323121E705C9B00E3A2FC /* SKSFiles */,
 				BD29126E1E6FEBBF00ADE12E /* UIElements */,
 				BDDC24841E6E9572005E103C /* SoundEffects */,
@@ -274,6 +287,7 @@
 				BD2DEE321E6EE9100060750D /* AnimationsManager.swift */,
 				BDDB9E851E6FD7C3004D1D2B /* SmokeEmitterManager.swift */,
 				BD2912711E6FF4E300ADE12E /* GameFonts.swift */,
+				BDD8AA3C1E7162190054AB61 /* ButtonManager.swift */,
 			);
 			name = Singletons;
 			sourceTree = "<group>";
@@ -487,11 +501,13 @@
 				BD2DEE351E6EF8160060750D /* NTLScene2.swift in Sources */,
 				BD2912631E6FE8C400ADE12E /* NTLScene1.swift in Sources */,
 				BD2912701E6FEBC900ADE12E /* StartButton.swift in Sources */,
+				BDD8AA3B1E715AA40054AB61 /* SKSceneExtension.swift in Sources */,
 				BDDC24831E6E9119005E103C /* Background.swift in Sources */,
 				BD3049E51E6FACBA0083B0ED /* NTLScene4.swift in Sources */,
 				BD2323111E705A2500E3A2FC /* QueenAlien.swift in Sources */,
 				BDDC244B1E6E615D005E103C /* SceneA.swift in Sources */,
 				BD2912761E70227600ADE12E /* Bat.swift in Sources */,
+				BDD8AA3D1E7162190054AB61 /* ButtonManager.swift in Sources */,
 				BDDC24561E6E69F5005E103C /* UserOptionsManager.swift in Sources */,
 				BD2912721E6FF4E300ADE12E /* GameFonts.swift in Sources */,
 				BD2DEE391E6EFD680060750D /* FallingAliens.swift in Sources */,

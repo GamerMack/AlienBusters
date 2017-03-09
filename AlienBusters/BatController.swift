@@ -28,13 +28,13 @@ class BatController: SKNode{
     
 
     private func setup(){
-        batsArray = [
-            Bat(scalingFactor: 0.3),
-            Bat(scalingFactor: 0.6),
-            Bat(scalingFactor: 1.0),
-            Bat(scalingFactor: 2.0),
-            Bat(scalingFactor: 4.0)
-        ]
+        
+        if let bat1 = Bat(scalingFactor: 0.3), let bat2 = Bat(scalingFactor: 0.6), let bat3 = Bat(scalingFactor: 1.0), let bat4 = Bat(scalingFactor: 2.0), let bat5 = Bat(scalingFactor: 4.0){
+                batsArray = [ bat1, bat2, bat3, bat4, bat5 ]
+            
+        }
+        
+      
     }
     
     func spawnBats(numberOfBats: Int){
