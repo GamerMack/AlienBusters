@@ -28,6 +28,7 @@
 		BD3049E91E6FB2D30083B0ED /* NoTimeLimitMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3049E81E6FB2D30083B0ED /* NoTimeLimitMode.swift */; };
 		BD3049EC1E6FB5AD0083B0ED /* TimeLimitMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3049EB1E6FB5AD0083B0ED /* TimeLimitMode.swift */; };
 		BD3049EF1E6FB5EE0083B0ED /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3049EE1E6FB5EE0083B0ED /* MenuScene.swift */; };
+		BD7689DC1E7259510066D59E /* TLScene4.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7689DB1E7259510066D59E /* TLScene4.swift */; };
 		BDD8AA361E7127C70054AB61 /* SceneInterfaceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD8AA351E7127C70054AB61 /* SceneInterfaceManager.swift */; };
 		BDD8AA381E7129CA0054AB61 /* SceneInterfaceManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD8AA371E7129CA0054AB61 /* SceneInterfaceManagerDelegate.swift */; };
 		BDD8AA3B1E715AA40054AB61 /* SKSceneExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD8AA3A1E715AA40054AB61 /* SKSceneExtension.swift */; };
@@ -105,6 +106,7 @@
 		BD3049E81E6FB2D30083B0ED /* NoTimeLimitMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoTimeLimitMode.swift; sourceTree = "<group>"; };
 		BD3049EB1E6FB5AD0083B0ED /* TimeLimitMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeLimitMode.swift; sourceTree = "<group>"; };
 		BD3049EE1E6FB5EE0083B0ED /* MenuScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
+		BD7689DB1E7259510066D59E /* TLScene4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TLScene4.swift; sourceTree = "<group>"; };
 		BDD8AA351E7127C70054AB61 /* SceneInterfaceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneInterfaceManager.swift; sourceTree = "<group>"; };
 		BDD8AA371E7129CA0054AB61 /* SceneInterfaceManagerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneInterfaceManagerDelegate.swift; sourceTree = "<group>"; };
 		BDD8AA3A1E715AA40054AB61 /* SKSceneExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKSceneExtension.swift; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 				BD29126A1E6FE96400ADE12E /* TLScene3.swift */,
 				BD2912661E6FE92300ADE12E /* TLScene1.swift */,
 				BD2912681E6FE94D00ADE12E /* TLScene2.swift */,
+				BD7689DB1E7259510066D59E /* TLScene4.swift */,
 				BD29126C1E6FE98700ADE12E /* TLScene5.swift */,
 			);
 			name = TimeLimitScenes;
@@ -526,6 +529,7 @@
 				BD2912651E6FE8FA00ADE12E /* NTLScene5.swift in Sources */,
 				BD3049EC1E6FB5AD0083B0ED /* TimeLimitMode.swift in Sources */,
 				BD2DEE3B1E6F05AA0060750D /* FallingAliensController.swift in Sources */,
+				BD7689DC1E7259510066D59E /* TLScene4.swift in Sources */,
 				BD3049E91E6FB2D30083B0ED /* NoTimeLimitMode.swift in Sources */,
 				BDDC249E1E6EA082005E103C /* HUD.swift in Sources */,
 				BD2B80231E71A53500E509AF /* ButtonFactory.swift in Sources */,

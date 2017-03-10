@@ -12,161 +12,208 @@ import SpriteKit
 
 class TLScene2: SKScene{
     
-    var gameNode = SKSpriteNode()
+    //MARK: Private enum for Game State
+    private enum State{
+        case Waiting, Running, Paused, GameOver
+    }
     
-    var player: CrossHair?
-    var background: Background?
+    //MARK: Cached Sounds
+    private let shootingSound = SKAction.playSoundFileNamed(SoundEffects.Laser6, waitForCompletion: false)
     
-    var queenAlien: QueenAlien?
-    var queenAlienIsVisible = false
-    var quenAlienCounterTime: TimeInterval = 0.00
-    var queenIntervalTime: TimeInterval = 10.00
+    //MARK: Variables for Game Objects
+    private var gameNode = SKSpriteNode()
+    private var player: CrossHair?
+    private var background: Background?
+    private var hud: HUD?
+
+    private var bat1: Bat?
+    private var bat2: Bat?
+    private var bat3: Bat?
+    private var bat4: Bat?
+    private var bat5: Bat?
     
-    var hud: HUD?
-    var bat: Bat?
+    //MARK: Current Game State
+    private var state: State = .Waiting
     
-    var timeLimit: Int = 30
-    var timerIsStarted = false
-    var lastUpdateTime: TimeInterval = 0.00
-    var totalRunningTime: TimeInterval = 0.00
+    //MARK: Timer-Related Variables
     
-    var helpButton: SKSpriteNode?
+    private var timeLimit: TimeInterval = 30.00
+    private var timerIsStarted = false
+    private var lastUpdateTime: TimeInterval = 0.00
+    private var totalRunningTime: TimeInterval = 0.00
+    
+    //MARK: Player Stats
+    private var numberOfKills: Int = 0
     
     override func didMove(to view: SKView) {
         configureBasicSceneElements(withPlayerTypeOf: .BlueLarge, andWithBackgroundOf: .ColoredForest, withBackgroundMusicFrom: BackgroundMusic.FlowingRocks)
         
-        configureHelpButton()
+        setupIntroMessageBox()
+        
+        setupBats()
+        
+       
         
         
-        let introBoxTexture = TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .UI)?.textureNamed("yellow_panel")
-        let introBox = SKSpriteNode(texture: introBoxTexture, color: .clear, size: CGSize(width: kViewWidth*0.4, height: kViewHeight*0.4))
-        introBox.position = CGPoint.zero
-        introBox.zPosition = 10
-        
-        let introxBoxHeight = introBoxTexture!.size().height
-        
-        let introText1 = SKLabelNode(fontNamed: FontTypes.NoteWorthyBold)
-        introBox.addChild(introText1)
-        introText1.position = CGPoint(x: 0, y: introxBoxHeight*0.4 )
-        introText1.text = "Level 2"
-        introText1.fontSize = 30.0
-        introText1.zPosition = 12
-        
-        let introText2 = SKLabelNode(fontNamed: FontTypes.NoteWorthyLight)
-        introBox.addChild(introText2)
-        introText2.position = CGPoint(x: 0, y: 0 )
-        introText2.text = "Find and Shoot the Bats! Watch out for Queen Wuzuh Tyan!"
-        introText2.fontSize = 15.0
-        introText2.zPosition = 12
-        
-        let introText3 = SKLabelNode(fontNamed: FontTypes.NoteWorthyLight)
-        introBox.addChild(introText3)
-        introText3.position = CGPoint(x: 0, y: -introxBoxHeight*0.4 )
-        introText3.fontSize = 20.0
-        introText3.text = "Time Limit: \(timeLimit) seconds"
-        introText3.zPosition = 12
-        self.addChild(introBox)
-        
-        
-        let introTextPulseAction = SKAction.sequence([
-            SKAction.fadeIn(withDuration: 0.2),
-            SKAction.fadeOut(withDuration: 0.2)
-            ])
-        
-        let pulsingAction = SKAction.repeatForever(introTextPulseAction)
-        
-        introText1.run(pulsingAction)
-        
-        introBox.run(SKAction.sequence([
-            SKAction.wait(forDuration: 6.0),
-            SKAction.removeFromParent(),
-            SKAction.run({
-                [weak self] in
-                self?.timerIsStarted = true
-            })
-            ]))
-        
-        
-        
-        bat = Bat()
-        queenAlien = QueenAlien()
-        
-        
-        gameNode.addChild(bat!)
-        gameNode.addChild(queenAlien!)
         self.addChild(gameNode)
     }
     
+    //MARK: User Input Handlers
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
+        guard let player = player else { return }
+
+        let touch = touches.first! as UITouch
+        let touchLocation = touch.location(in: self)
+        
+        if player.contains(touchLocation){
+            player.run(shootingSound)
+        }
+        
+        switch(state){
+        case .Waiting:
+            for node in nodes(at: touchLocation){
+                if node.name == NodeNames.StartButton{
+                    node.removeFromParent()
+                    stateRunning()
+                }
+            }
+        case .Running:
+            if let bat1 = bat2, player.contains(touchLocation), bat1.contains(touchLocation){
+              
+                bat1.respondToHitAt(touchLocation: touchLocation)
+                numberOfKills += 1
+                if(kDebug){
+                    showNumberOfKills()
+                }
+            }
+            
+            if let bat2 = bat2, player.contains(touchLocation),bat2.contains(touchLocation){
+
+                bat2.respondToHitAt(touchLocation: touchLocation)
+                numberOfKills += 1
+            }
+            
+            
+            if let bat3 = bat3, player.contains(touchLocation),bat3.contains(touchLocation){
+              
+                bat3.respondToHitAt(touchLocation: touchLocation)
+                numberOfKills += 1
+            }
+            
+            if let bat4 = bat4, player.contains(touchLocation),bat4.contains(touchLocation){
+          
+                bat4.respondToHitAt(touchLocation: touchLocation)
+                numberOfKills += 1
+            }
+            
+            if let bat5 = bat5, player.contains(touchLocation),bat5.contains(touchLocation){
+               
+                bat5.respondToHitAt(touchLocation: touchLocation)
+                numberOfKills += 1
+            }
+            
+            break
+        case .Paused:
+            break
+        case .GameOver:
+            break
+        }
     }
     
-    
-    override func didSimulatePhysics() {
-        
-        guard let bat = bat else { return }
-        
-       // bat.update()
-    }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         
+    
         guard let player = player else { return }
         
         let touch = touches.first! as UITouch
         let touchLocation = touch.location(in: self)
         
-        //player.updateTargetPosition(position: touchLocation) //Better suited for production version
         
-        player.position = touchLocation
+        
+        switch(state){
+        case .Waiting:
+            for node in nodes(at: touchLocation){
+                if node.name == NodeNames.StartButton{
+                    node.removeFromParent()
+                    stateRunning()
+                }
+            }
+        case .Running:
+            //player.updateTargetPosition(position: touchLocation) //Better suited for production version
+            player.position = touchLocation
+            
+            break
+        case .Paused:
+            break
+        case .GameOver:
+            break
+        }
+    
     }
     
-    override func update(_ currentTime: TimeInterval) {
-        if(timerIsStarted){
-            totalRunningTime += currentTime - lastUpdateTime
-            quenAlienCounterTime += currentTime - lastUpdateTime
-
-            lastUpdateTime = currentTime
+    
+    //MARK: - Game Loop Functions
+    
+    override func didSimulatePhysics() {
+        if(state == .Running){
+            if let bat1 = bat1, let bat2 = bat2, let bat3 = bat3, let bat4 = bat4, let bat5 = bat5{
             
-            
-            if(quenAlienCounterTime > queenIntervalTime){
-                
-                if(queenAlienIsVisible){
-                    queenAlien?.run(SKAction.fadeOut(withDuration: 1.0))
-                    queenAlien?.changeNoiseFieldBitMaskCategoryTo(noiseFieldBitmaskCategory: 0)
-
-                } else {
-                    queenAlien?.run(SKAction.fadeIn(withDuration: 1.0))
-                    queenAlien?.changeNoiseFieldBitMaskCategoryTo(noiseFieldBitmaskCategory: 1)
-                    
-                }
-                
-                queenAlienIsVisible = !queenAlienIsVisible
-                quenAlienCounterTime = 0
-            }
-            
-            
-            if(kDebug){
-                print("Current running time: \(totalRunningTime)")
+                    bat1.update()
+                    bat2.update()
+                    bat3.update()
+                    bat4.update()
+                    bat5.update()
             }
         }
+    }
+    
+    
+    override func update(_ currentTime: TimeInterval) {
         
-        guard let player = player, let bat = bat else { return }
+        if(state == .Running){
+
+                totalRunningTime += currentTime - lastUpdateTime
+                lastUpdateTime = currentTime
+                
+                if let player = player, let bat1 = bat1, let bat2 = bat2, let bat3 = bat3, let bat4 = bat4, let bat5 = bat5{
+                    
+                    player.update()
+                    bat1.checkForReposition()
+                    bat1.checkForReposition()
+                    bat2.checkForReposition()
+                    bat3.checkForReposition()
+                    bat4.checkForReposition()
+                    bat5.checkForReposition()
+                    
+                
+                
+                
+            }
+            
+        }
         
-        player.update()
-        bat.checkForReposition()
+        
+      
         
     }
     
     
+    //MARK: - Initial Scene Configuration
+    
     func configureBasicSceneElements(withPlayerTypeOf crossHairType: CrossHair.CrossHairType, andWithBackgroundOf backgroundType: Background.BackgroundType, withBackgroundMusicFrom fileName: String){
+        
+        //Set initial number of kills to zero
+        numberOfKills = 0
         
         //Configure GameNode Properties
         gameNode.scale(to: self.size)
         gameNode.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         gameNode.position = CGPoint.zero
         gameNode.color = SKColor.black
-        gameNode.alpha = 0.4
+        gameNode.alpha = 0.15
         
         //Configure background music
         BackgroundMusic.configureBackgroundMusicFrom(fileNamed: fileName, forParentNode: self)
@@ -177,58 +224,92 @@ class TLScene2: SKScene{
         
         //Configure player
         player = CrossHair(crossHairType: .BlueLarge)
-        player!.zPosition = 3
-        player?.physicsBody = SKPhysicsBody(circleOfRadius: 10.0)
-        player?.physicsBody?.affectedByGravity = false
-        player?.physicsBody?.fieldBitMask = 1
-        self.addChild(player!)
+        if let player = player{
+            player.zPosition = 3
+            player.physicsBody = SKPhysicsBody(circleOfRadius: 10.0)
+            player.physicsBody?.affectedByGravity = false
+            player.physicsBody?.fieldBitMask = 1
+            self.addChild(player)
+        }
         
         //Configure background
         background = Background(backgroundType: backgroundType)
-        background!.zPosition = -2
-        background!.scale(to: self.size)
-        gameNode.addChild(background!)
-        
+        if let background = background{
+            background.zPosition = -2
+            background.scale(to: self.size)
+            gameNode.addChild(background)
+        }
 
  
         
         //Configure HUD display
         hud = HUD()
-        hud!.zPosition = -1
-        self.addChild(hud!)
+            if let hud = hud{
+                hud.zPosition = -1
+                self.addChild(hud)
+        }
         
     }
     
-    private func configureHelpButton(){
+    private func setupBats(){
+        bat1 = Bat(scalingFactor: 1.1)
+        bat2 = Bat(scalingFactor: 1.4)
+        bat3 = Bat(scalingFactor: 1.2)
+        bat4 = Bat(scalingFactor: 1.9)
+        bat5 = Bat(scalingFactor: 2.6)
         
-        let helpButtonTexture = TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .UI)?.textureNamed("yellow_button01")
+        if let bat1 = bat1, let bat2 = bat2, let bat3 = bat3, let bat4 = bat4, let bat5 = bat5{
+            gameNode.addChild(bat1)
+            gameNode.addChild(bat2)
+            gameNode.addChild(bat3)
+            gameNode.addChild(bat4)
+            gameNode.addChild(bat5)
+        }
+    }
+    
+    private func setupIntroMessageBox(){
+        let currentLevelTimeLimit = self.timeLimit
         
-        let helpButtonHeight = kViewHeight*0.05
-        let helpButtonWidth = kViewWidth*0.06
-        let helpButtonSize = CGSize(width: helpButtonWidth, height: helpButtonHeight)
-        helpButton = SKSpriteNode(texture: helpButtonTexture!, color: SKColor.blue, size: helpButtonSize)
+        let introButton = ButtonFactory.createIntroMessageWith(levelTitle: "Level 2", levelDescription: "It's just got a little darker!", levelTimeLimit: currentLevelTimeLimit)
         
+        if let introButton = introButton {
+            self.addChild(introButton)
+            
+        }
         
-        guard let helpButton = helpButton else { return }
-        
-        helpButton.name = "Help"
-        helpButton.anchorPoint = CGPoint(x: 1.0, y: 1.0)
-        helpButton.zPosition = 12
-        helpButton.position = CGPoint(x: kViewWidth/2-helpButtonWidth-10, y: kViewHeight/2-helpButtonHeight-5)
-        
-        let helpButtonText = SKLabelNode(fontNamed: FontTypes.NoteWorthyLight)
-        helpButtonText.fontSize = 10.0
-        helpButtonText.fontColor = SKColor.blue
-        helpButtonText.text = "Help"
-        helpButtonText.name = "Help"
-        helpButtonText.verticalAlignmentMode = .center
-        helpButtonText.horizontalAlignmentMode = .center
-        helpButtonText.position = CGPoint(x: -15.0, y: -10.0)
-        helpButtonText.zPosition = 13
-        
-        helpButton.addChild(helpButtonText)
-        self.addChild(helpButton)
         
     }
     
+    //MARK: Private helper functions for Game State toggle controls
+    
+    private func stateRunning(){
+        state = .Running
+        timerIsStarted = true
+    }
+    
+    private func statePaused(){
+        state = .Paused
+        timerIsStarted = false
+    }
+    
+    private func stateResumed(){
+        state = .Running
+        timerIsStarted = true
+    }
+    
+    private func stateGameOver(){
+        state = .GameOver
+        timerIsStarted = false
+    }
+    
+    
+    //MARK: Private debug functions
+    
+    private func showNumberOfKills(){
+        print("Number of kills is: \(numberOfKills)")
+    }
+    
+    private func showTotalRunningTime(){
+        print("The total running time is: \(totalRunningTime)")
+    }
 }

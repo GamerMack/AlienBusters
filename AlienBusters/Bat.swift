@@ -21,7 +21,7 @@ class Bat: SKSpriteNode{
      **/
     
     private let textureAtlasManager = TextureAtlasManager.sharedInstance
-    private let textureAtlas = TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .Enemies)
+    private let textureAtlas = TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .Bats)
     
     private var health: Int = 2     //2 hits are required to destroy a flying alien
     
@@ -37,8 +37,7 @@ class Bat: SKSpriteNode{
     
     convenience init?(scalingFactor: CGFloat = 1.0) {
         
-        guard let batTexture = TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .Enemies)?.textureNamed("bat") else { return nil }
-        
+        guard let batTexture = TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .Bats)?.textureNamed("bat") else { return nil }
         
         
         let batSize = batTexture.size()
@@ -57,6 +56,9 @@ class Bat: SKSpriteNode{
         setPosition()
         configureActions()
         configureLighting()
+        
+        self.run(SKAction.wait(forDuration: 1.0))
+
 
     }
     
@@ -131,8 +133,23 @@ class Bat: SKSpriteNode{
     }
     
     
-   
-   
     
+    func respondToHitAt(touchLocation: CGPoint){
+        
+        if self.contains(touchLocation){
+            
+       
+                AnimationsFactory.createExplosionFor(spriteNode: self)
+                self.run(SKAction.sequence([
+                    SKAction.wait(forDuration: 2.0),
+                    SKAction.removeFromParent()
+                    ]))
+                
+        }
+        
+            
+    }
+
+
     
 }
