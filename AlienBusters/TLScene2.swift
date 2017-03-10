@@ -12,11 +12,7 @@ import SpriteKit
 
 class TLScene2: SKScene{
     
-    //MARK: Private enum for Game State
-    private enum State{
-        case Waiting, Running, Paused, GameOver
-    }
-    
+   
     //MARK: Cached Sounds
     private let shootingSound = SKAction.playSoundFileNamed(SoundEffects.Laser6, waitForCompletion: false)
     
@@ -31,10 +27,7 @@ class TLScene2: SKScene{
     private var bat3: Bat?
     private var bat4: Bat?
     private var bat5: Bat?
-    
-    //MARK: Current Game State
-    private var state: State = .Waiting
-    
+  
     //MARK: Timer-Related Variables
     
     private var timeLimit: TimeInterval = 30.00
@@ -67,59 +60,106 @@ class TLScene2: SKScene{
         let touch = touches.first! as UITouch
         let touchLocation = touch.location(in: self)
         
-        if player.contains(touchLocation){
-            player.run(shootingSound)
-        }
+       
         
-        switch(state){
-        case .Waiting:
+     
             for node in nodes(at: touchLocation){
                 if node.name == NodeNames.StartButton{
                     node.removeFromParent()
-                    stateRunning()
                 }
             }
-        case .Running:
+        
+        
+            if player.contains(touchLocation){
+                player.run(shootingSound)
+            }
+            
             if let bat1 = bat2, player.contains(touchLocation), bat1.contains(touchLocation){
               
-                bat1.respondToHitAt(touchLocation: touchLocation)
-                numberOfKills += 1
+                bat1.run(SKAction.sequence([
+                    SKAction.run({
+                    [weak self] in
+                        self?.numberOfKills += 1
+                        bat1.respondToHitAt(touchLocation: touchLocation)
+                    }),
+                    SKAction.removeFromParent()
+                    ]))
+                
+            
                 if(kDebug){
                     showNumberOfKills()
                 }
             }
             
-            if let bat2 = bat2, player.contains(touchLocation),bat2.contains(touchLocation){
+            if let bat2 = self.bat2, player.contains(touchLocation),bat2.contains(touchLocation){
 
-                bat2.respondToHitAt(touchLocation: touchLocation)
-                numberOfKills += 1
+                bat2.run(SKAction.sequence([
+                    SKAction.run({
+                        [weak self] in
+                        self?.numberOfKills += 1
+                        bat2.respondToHitAt(touchLocation: touchLocation)
+                    }),
+                    SKAction.removeFromParent()
+                    ]))
+                
+                
+                if(kDebug){
+                    showNumberOfKills()
+                }
             }
             
-            
-            if let bat3 = bat3, player.contains(touchLocation),bat3.contains(touchLocation){
+            if let bat3 = self.bat3, player.contains(touchLocation),bat3.contains(touchLocation){
               
-                bat3.respondToHitAt(touchLocation: touchLocation)
-                numberOfKills += 1
+                bat3.run(SKAction.sequence([
+                    SKAction.run({
+                        [weak self] in
+                        self?.numberOfKills += 1
+                        bat3.respondToHitAt(touchLocation: touchLocation)
+                    }),
+                    SKAction.removeFromParent()
+                    ]))
+                
+                
+                if(kDebug){
+                    showNumberOfKills()
+                }
             }
             
-            if let bat4 = bat4, player.contains(touchLocation),bat4.contains(touchLocation){
+            if let bat4 = self.bat4, player.contains(touchLocation),bat4.contains(touchLocation){
           
-                bat4.respondToHitAt(touchLocation: touchLocation)
-                numberOfKills += 1
+                bat4.run(SKAction.sequence([
+                    SKAction.run({
+                        [weak self] in
+                        self?.numberOfKills += 1
+                        bat4.respondToHitAt(touchLocation: touchLocation)
+                    }),
+                    SKAction.removeFromParent()
+                    ]))
+                
+                
+                if(kDebug){
+                    showNumberOfKills()
+                }
             }
             
-            if let bat5 = bat5, player.contains(touchLocation),bat5.contains(touchLocation){
+            if let bat5 = self.bat5, player.contains(touchLocation),bat5.contains(touchLocation){
                
-                bat5.respondToHitAt(touchLocation: touchLocation)
-                numberOfKills += 1
+                bat5.run(SKAction.sequence([
+                    SKAction.run({
+                        [weak self] in
+                        self?.numberOfKills += 1
+                        bat5.respondToHitAt(touchLocation: touchLocation)
+                    }),
+                    SKAction.removeFromParent()
+                    ]))
+                
+                
+                if(kDebug){
+                    showNumberOfKills()
+                }
             }
             
-            break
-        case .Paused:
-            break
-        case .GameOver:
-            break
-        }
+      
     }
     
     
@@ -133,24 +173,19 @@ class TLScene2: SKScene{
         
         
         
-        switch(state){
-        case .Waiting:
+        
             for node in nodes(at: touchLocation){
                 if node.name == NodeNames.StartButton{
                     node.removeFromParent()
-                    stateRunning()
                 }
             }
-        case .Running:
+      
             //player.updateTargetPosition(position: touchLocation) //Better suited for production version
             player.position = touchLocation
             
-            break
-        case .Paused:
-            break
-        case .GameOver:
-            break
-        }
+       
+        
+    
     
     }
     
@@ -158,7 +193,7 @@ class TLScene2: SKScene{
     //MARK: - Game Loop Functions
     
     override func didSimulatePhysics() {
-        if(state == .Running){
+     
             if let bat1 = bat1, let bat2 = bat2, let bat3 = bat3, let bat4 = bat4, let bat5 = bat5{
             
                     bat1.update()
@@ -167,13 +202,12 @@ class TLScene2: SKScene{
                     bat4.update()
                     bat5.update()
             }
-        }
+        
     }
     
     
     override func update(_ currentTime: TimeInterval) {
         
-        if(state == .Running){
 
                 totalRunningTime += currentTime - lastUpdateTime
                 lastUpdateTime = currentTime
@@ -192,9 +226,6 @@ class TLScene2: SKScene{
                 
                 
             }
-            
-        }
-        
         
       
         
@@ -279,29 +310,6 @@ class TLScene2: SKScene{
         
         
     }
-    
-    //MARK: Private helper functions for Game State toggle controls
-    
-    private func stateRunning(){
-        state = .Running
-        timerIsStarted = true
-    }
-    
-    private func statePaused(){
-        state = .Paused
-        timerIsStarted = false
-    }
-    
-    private func stateResumed(){
-        state = .Running
-        timerIsStarted = true
-    }
-    
-    private func stateGameOver(){
-        state = .GameOver
-        timerIsStarted = false
-    }
-    
     
     //MARK: Private debug functions
     
