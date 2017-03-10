@@ -35,8 +35,6 @@ class TLScene2: SKScene{
     private var lastUpdateTime: TimeInterval = 0.00
     private var totalRunningTime: TimeInterval = 0.00
     
-    //MARK: Player Stats
-    private var numberOfKills: Int = 0
     
     override func didMove(to view: SKView) {
         configureBasicSceneElements(withPlayerTypeOf: .BlueLarge, andWithBackgroundOf: .ColoredForest, withBackgroundMusicFrom: BackgroundMusic.FlowingRocks)
@@ -76,15 +74,12 @@ class TLScene2: SKScene{
             
             if let bat1 = bat2, player.contains(touchLocation), bat1.contains(touchLocation){
               
+                bat1.respondToHitAt(touchLocation: touchLocation)
                 bat1.run(SKAction.sequence([
-                    SKAction.run({
-                    [weak self] in
-                        self?.numberOfKills += 1
-                        bat1.respondToHitAt(touchLocation: touchLocation)
-                    }),
+                    SKAction.wait(forDuration: 0.25),
                     SKAction.removeFromParent()
                     ]))
-                
+                updateNumberOfKills()
             
                 if(kDebug){
                     showNumberOfKills()
@@ -93,14 +88,13 @@ class TLScene2: SKScene{
             
             if let bat2 = self.bat2, player.contains(touchLocation),bat2.contains(touchLocation){
 
+                bat2.respondToHitAt(touchLocation: touchLocation)
                 bat2.run(SKAction.sequence([
-                    SKAction.run({
-                        [weak self] in
-                        self?.numberOfKills += 1
-                        bat2.respondToHitAt(touchLocation: touchLocation)
-                    }),
+                    SKAction.wait(forDuration: 0.25),
                     SKAction.removeFromParent()
                     ]))
+                updateNumberOfKills()
+                
                 
                 
                 if(kDebug){
@@ -110,14 +104,14 @@ class TLScene2: SKScene{
             
             if let bat3 = self.bat3, player.contains(touchLocation),bat3.contains(touchLocation){
               
+                bat3.respondToHitAt(touchLocation: touchLocation)
                 bat3.run(SKAction.sequence([
-                    SKAction.run({
-                        [weak self] in
-                        self?.numberOfKills += 1
-                        bat3.respondToHitAt(touchLocation: touchLocation)
-                    }),
+                    SKAction.wait(forDuration: 0.25),
                     SKAction.removeFromParent()
                     ]))
+                updateNumberOfKills()
+                
+                
                 
                 
                 if(kDebug){
@@ -127,14 +121,13 @@ class TLScene2: SKScene{
             
             if let bat4 = self.bat4, player.contains(touchLocation),bat4.contains(touchLocation){
           
+                bat4.respondToHitAt(touchLocation: touchLocation)
                 bat4.run(SKAction.sequence([
-                    SKAction.run({
-                        [weak self] in
-                        self?.numberOfKills += 1
-                        bat4.respondToHitAt(touchLocation: touchLocation)
-                    }),
+                    SKAction.wait(forDuration: 0.25),
                     SKAction.removeFromParent()
                     ]))
+                updateNumberOfKills()
+                
                 
                 
                 if(kDebug){
@@ -144,15 +137,12 @@ class TLScene2: SKScene{
             
             if let bat5 = self.bat5, player.contains(touchLocation),bat5.contains(touchLocation){
                
+                bat5.respondToHitAt(touchLocation: touchLocation)
                 bat5.run(SKAction.sequence([
-                    SKAction.run({
-                        [weak self] in
-                        self?.numberOfKills += 1
-                        bat5.respondToHitAt(touchLocation: touchLocation)
-                    }),
+                    SKAction.wait(forDuration: 0.25),
                     SKAction.removeFromParent()
                     ]))
-                
+                updateNumberOfKills()
                 
                 if(kDebug){
                     showNumberOfKills()
@@ -237,7 +227,7 @@ class TLScene2: SKScene{
     func configureBasicSceneElements(withPlayerTypeOf crossHairType: CrossHair.CrossHairType, andWithBackgroundOf backgroundType: Background.BackgroundType, withBackgroundMusicFrom fileName: String){
         
         //Set initial number of kills to zero
-        numberOfKills = 0
+        gameNode.userData?.setValue(0, forKey: "numberOfKills")
         
         //Configure GameNode Properties
         gameNode.scale(to: self.size)
@@ -311,10 +301,23 @@ class TLScene2: SKScene{
         
     }
     
+    private func updateNumberOfKills(){
+        var originalNumberOfKills = gameNode.userData?.value(forKey: "numberOfKills") as? Int
+        
+        if let originalNumberOfKills = originalNumberOfKills{
+            gameNode.userData?.setValue(originalNumberOfKills+1, forKey: "numberOfKills")
+            
+        }
+    }
+    
     //MARK: Private debug functions
     
     private func showNumberOfKills(){
-        print("Number of kills is: \(numberOfKills)")
+        let numberOfKills = gameNode.userData?.value(forKey: "numberOfKills") as? Int
+        
+        if let accumulatedKills = numberOfKills{
+            print("Number of kills is: \(accumulatedKills)")
+        }
     }
     
     private func showTotalRunningTime(){
