@@ -10,7 +10,10 @@ import Foundation
 import SpriteKit
 
 
-protocol SceneInterfaceManagerDelegate{
+protocol SceneInterfaceManagerDelegate: class{
     
-     func setupIntroMessageBox()
+    //The managed scene is not necessary but makes the protocol more readable
+    weak var managedScene: SKEffectNode? { get set }
+    
+    func setupIntroMessageBox(levelTitle: String, levelDescription: String, levelTimeLimit: Double)
 }

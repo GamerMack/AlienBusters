@@ -10,30 +10,58 @@ import Foundation
 import SpriteKit
 
 
-class SceneInterfaceManager: SceneInterfaceManagerDelegate{
+class SceneInterfaceManager: SKSpriteNode, SceneInterfaceManagerDelegate{
     
-    var managedScene: TimeLimitMode
-
-    init(managedScene: TimeLimitMode){
-        self.managedScene = managedScene
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    override init(texture: SKTexture?, color: UIColor, size: CGSize) {
+        super.init(texture: nil, color: .clear, size: CGSize.zero)
     }
     
     
-    func setupIntroMessageBox(){
-        if let introMessage = ButtonFactory.createIntroMessageWith(levelTitle: "Level 1", levelDescription: "Find all the bats and shoot them", levelTimeLimit: managedScene.timeLimit){
+    //THis is not necessary, but is more readable semantically instead of having to call methods on the parent
+    weak var managedScene: SKEffectNode?{
+        get{
+            return self.parent as! SKEffectNode?
+        }
+        
+        set(newManagedScene){
+            self.move(toParent: newManagedScene!)
+        }
+        
+    }
+    
+    convenience init(instantiationMessage: String, newManagedScene: SKNode) {
+        
+        print(instantiationMessage)
+        self.init(texture: nil, color: .clear, size: CGSize.zero)
+        //parentNode.addChild(self)
+       // managedScene = parentNode as! SKEffectNode
+        managedScene = newManagedScene as! SKEffectNode
+    }
+    
+    
+ 
+    
+
+    
+    func setupIntroMessageBox(levelTitle: String, levelDescription: String, levelTimeLimit: Double){
+        
+        print("Inside the setupIntroMessageBox...")
+        
+        if let introMessage = ButtonFactory.createIntroMessageWith(levelTitle: levelTitle, levelDescription: levelDescription, levelTimeLimit: levelTimeLimit){
             
+            print("About to add the introMessage to the scene...")
+           // self.parent!.addChild(introMessage)
             
-            managedScene.addChild(introMessage)
-            
-            introMessage.run(SKAction.sequence([
-                SKAction.wait(forDuration: 4.0),
-                SKAction.removeFromParent(),
-                SKAction.run({
-                    [weak managedScene] in
-                    managedScene?.timerIsStarted = true
-                })
-                ]))
+            if let managedScene = managedScene{
+                managedScene.addChild(introMessage)
+            }
             
         }
     }
+    
+   
 }

@@ -17,8 +17,10 @@ class TLScene1: SKScene{
     }
     
     private var state: State = .Waiting
-
     
+    //SceneInterfaceManagerDelegate
+    weak var sceneInterfaceManagerDelegate: SceneInterfaceManager?
+
     //GameState Toggle Buttons
     var introButton: SKSpriteNode?
     var pauseButton: SKSpriteNode?
@@ -46,21 +48,31 @@ class TLScene1: SKScene{
     
     
     override func didMove(to view: SKView) {
-        
+    
+       
         //Configure crosshair type, background type, and background music
         configureBasicSceneElements(withPlayerTypeOf: .BlueLarge, andWithBackgroundOf: .ColoredForest, withBackgroundMusicFrom: BackgroundMusic.FlowingRocks)
         
-        //Setup the intro message for the current level
-        setupIntroMessageBox()
+        
         
         //Setup the pause/resume button
-        setupPauseButton()
+        //setupPauseButton()
         
         //Setup enemies
         setupEnemies()
         
         //Add the gameNode, which provides the dark overlay for hiding the bat
         self.addChild(gameNode)
+        
+        sceneInterfaceManagerDelegate = SceneInterfaceManager(instantiationMessage: "I've come alive", newManagedScene: self)
+        
+        guard let sceneInterfaceManagerDelegate = sceneInterfaceManagerDelegate else { return }
+        
+        
+        //Setup the intro message for the current level
+        //setupIntroMessageBox()
+        sceneInterfaceManagerDelegate.setupIntroMessageBox(levelTitle: "Level 1", levelDescription: "Find all the bats and shoot them!", levelTimeLimit: 30.0)
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -237,7 +249,8 @@ class TLScene1: SKScene{
         }
     }
     
-    private func setupIntroMessageBox(){
+    /** REFACTOR: This method will be called on the scene interface manager delegate
+    func setupIntroMessageBox(){
         let currentLevelTimeLimit = self.timeLimit
         
         introButton = ButtonFactory.createIntroMessageWith(levelTitle: "Level 1", levelDescription: "Find all the bats and shoot them", levelTimeLimit: currentLevelTimeLimit)
@@ -249,6 +262,8 @@ class TLScene1: SKScene{
         
        
     }
+ 
+    **/
     
         
     func gameOver(){

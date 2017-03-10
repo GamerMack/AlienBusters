@@ -24,6 +24,7 @@
 		BD2DEE371E6EF84E0060750D /* NTLScene3.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2DEE361E6EF84E0060750D /* NTLScene3.swift */; };
 		BD2DEE391E6EFD680060750D /* FallingAliens.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2DEE381E6EFD680060750D /* FallingAliens.swift */; };
 		BD2DEE3B1E6F05AA0060750D /* FallingAliensController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2DEE3A1E6F05AA0060750D /* FallingAliensController.swift */; };
+		BD2E4DCC1E72D38500D025C7 /* UserInterfaceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2E4DCB1E72D38500D025C7 /* UserInterfaceManager.swift */; };
 		BD3049E51E6FACBA0083B0ED /* NTLScene4.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3049E41E6FACBA0083B0ED /* NTLScene4.swift */; };
 		BD3049E91E6FB2D30083B0ED /* NoTimeLimitMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3049E81E6FB2D30083B0ED /* NoTimeLimitMode.swift */; };
 		BD3049EC1E6FB5AD0083B0ED /* TimeLimitMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3049EB1E6FB5AD0083B0ED /* TimeLimitMode.swift */; };
@@ -102,6 +103,7 @@
 		BD2DEE361E6EF84E0060750D /* NTLScene3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NTLScene3.swift; sourceTree = "<group>"; };
 		BD2DEE381E6EFD680060750D /* FallingAliens.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FallingAliens.swift; sourceTree = "<group>"; };
 		BD2DEE3A1E6F05AA0060750D /* FallingAliensController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FallingAliensController.swift; sourceTree = "<group>"; };
+		BD2E4DCB1E72D38500D025C7 /* UserInterfaceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInterfaceManager.swift; sourceTree = "<group>"; };
 		BD3049E41E6FACBA0083B0ED /* NTLScene4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NTLScene4.swift; sourceTree = "<group>"; };
 		BD3049E81E6FB2D30083B0ED /* NoTimeLimitMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoTimeLimitMode.swift; sourceTree = "<group>"; };
 		BD3049EB1E6FB5AD0083B0ED /* TimeLimitMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeLimitMode.swift; sourceTree = "<group>"; };
@@ -354,6 +356,7 @@
 				BDDC24531E6E69C4005E103C /* Math.swift */,
 				BDDC24991E6E9D0D005E103C /* HelperFunctions.swift */,
 				BDD8AA351E7127C70054AB61 /* SceneInterfaceManager.swift */,
+				BD2E4DCB1E72D38500D025C7 /* UserInterfaceManager.swift */,
 				BDD8AA371E7129CA0054AB61 /* SceneInterfaceManagerDelegate.swift */,
 			);
 			name = Utility;
@@ -518,6 +521,7 @@
 				BDD8AA381E7129CA0054AB61 /* SceneInterfaceManagerDelegate.swift in Sources */,
 				BDDC247F1E6E7654005E103C /* CrossHair.swift in Sources */,
 				BDDC24491E6E5C0B005E103C /* TextureAtlasManager.swift in Sources */,
+				BD2E4DCC1E72D38500D025C7 /* UserInterfaceManager.swift in Sources */,
 				BDDC24541E6E69C4005E103C /* Math.swift in Sources */,
 				BD2912691E6FE94D00ADE12E /* TLScene2.swift in Sources */,
 				BDDC24381E6E5966005E103C /* GameViewController.swift in Sources */,
