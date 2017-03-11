@@ -17,3 +17,14 @@ protocol SceneInterfaceManagerDelegate: class{
     
     func setupIntroMessageBox(levelTitle: String, levelDescription: String, levelTimeLimit: Double)
 }
+
+
+protocol SceneInterfaceManagerDelegateA: class{
+   
+    //The managed scene is not necessary but makes the protocol more readable
+    weak var managedScene: SKEffectNode? { get set }
+    
+    func setupIntroMessageBox(forParentNode parentNode: SKNode, levelTitle: String, levelDescription: String, levelTimeLimit: Double) 
+}
+
+

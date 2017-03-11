@@ -10,6 +10,84 @@ import Foundation
 import SpriteKit
 import UIKit
 
+/** Code for demonstration purpose only
+
+protocol Character{
+    var abilityLevel: Int { get set }
+}
+
+    protocol Hero: Character{
+        var abilityLevel: Int { get set }
+    }
+
+    protocol AlphaHero: Hero{
+        var abilityLevel: Int { get set }
+    }
+
+    protocol BetaHero: Hero{
+        var abilityLevel: Int { get set }
+    }
+
+
+    protocol OmegaHero: Hero{
+        var abilityLevel: Int { get set }
+    }
+
+protocol Villain{
+    var abilityLevel: Int { get set }
+}
+
+    protocol AlphaVillain{
+        var abilityLevel: Int { get set }
+
+    }
+
+    protocol BetaVillain{
+        var abilityLevel: Int { get set }
+
+    }
+
+    protocol OmegaVillain{
+        var abilityLevel: Int { get set }
+    }
+
+class WereWolf: Villain{
+    var abilityLevel: Int = 5
+}
+
+class Vampire: Villain{
+    var abilityLevel: Int = 0
+}
+
+
+func createMatchTypeA<C1: Hero, C2: Villain>(forParentNode: SKNode, withHeroOf hero: C1, andWithVillainOf villain: C2) where C1: AlphaHero, C2: OmegaVillain{
+    
+}
+
+func createMatchTypeA(forParentNode: SKNode, withHeroOf hero: AlphaHero, andWithVillainOf villain: OmegaVillain){
+    
+}
+
+func createMatch<C1: Character, C2: Character>(forParentNode: SKNode, withPlayerCharacterOf player: C1, andWithVillainOf villain: C2) where C1: Hero, C2: Villain {
+    
+}
+
+func createMatchA(forParentNode: SKNode, withPlayerCharacterOf plyaer: Hero, andWithVillainCharacterOf villain: Villain){
+    
+}
+
+func spawnVillains<V: Villain>(forParentNode parent: SKNode, fromVillains villains: V...){
+    
+    for villain in villains{
+        parent.addChild(villain as! SKNode)
+    }
+}
+
+
+**/
+
+
+
 
 typealias NumberUnit = Double
 

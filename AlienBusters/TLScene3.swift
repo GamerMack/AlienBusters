@@ -11,6 +11,89 @@
 import Foundation
 import SpriteKit
 
+extension TLScene3{
+    //Call this method at regular intervals in game loop execution to eliminate excess offscreen nodes
+    func removeOffScreenNodes(){
+        for node in self.children{
+            if(node.position.x > kViewWidth/2 || node.position.x < -kViewWidth/2){
+                node.removeFromParent()
+            }
+            
+            if(node.position.y > kViewHeight/2 || node.position.y < -kViewHeight/2){
+                node.removeFromParent()
+            }
+        }
+    }
+    
+    /** The lifetime of a node is stored in the userData dictionary; periodic checks are done to exmaine the life span of the node and remove aged nodes that lag frame rate; the method can be adapated for removing nodes of a specific type**/
+    func removeExpiredNodes(){
+        for node in self.children{
+            guard let nodeLifeTime = node.userData?.value(forKey: "nodeLifeTime") as? Double else { continue }
+            
+            if(nodeLifeTime > 30.0){
+                node.removeFromParent()
+            }
+        }
+    }
+    
+    
+    
+    /** Finds all the nodes with a specific node name belonging to speicifc parent node**/
+    subscript(nodeName: String, parentNodeName: String) -> [SKSpriteNode]{
+        get{
+            
+            var searchNodes = [SKSpriteNode]()
+            
+            for node in self.children{
+                if let node = node as? SKSpriteNode, node.parent?.name == parentNodeName{
+                    if node.name == nodeName{
+                        searchNodes.append(node)
+
+                    }
+                }
+            }
+            
+            return searchNodes
+        }
+        
+    }
+    
+    
+    /**This method will return the child node with given node name for a specific parent node
+     or alternatively, if using the setter, will remove the original node and add the new node **/
+    subscript(nodeName: String, parentNodeName: String) -> SKSpriteNode{
+        get{
+            
+            var searchNode = SKSpriteNode()
+            
+            for node in self.children{
+                if let node = node as? SKSpriteNode, node.parent?.name == parentNodeName{
+                    if node.name == nodeName{
+                        searchNode = node
+                    }
+                }
+            }
+            
+            return searchNode
+        }
+        
+        set(newNode){
+            
+            for node in self.children{
+                if let node = node as? SKSpriteNode, node.parent?.name == parentNodeName{
+                    if node.name == nodeName{
+                        node.parent?.addChild(newNode)
+                         node.removeFromParent()
+                        
+                    }
+                }
+            }
+            
+        }
+    }
+    
+}
+
 class TLScene3: SKScene{
     
     var gameNode = SKSpriteNode()

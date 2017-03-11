@@ -29,6 +29,8 @@
 		BD3049E91E6FB2D30083B0ED /* NoTimeLimitMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3049E81E6FB2D30083B0ED /* NoTimeLimitMode.swift */; };
 		BD3049EC1E6FB5AD0083B0ED /* TimeLimitMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3049EB1E6FB5AD0083B0ED /* TimeLimitMode.swift */; };
 		BD3049EF1E6FB5EE0083B0ED /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3049EE1E6FB5EE0083B0ED /* MenuScene.swift */; };
+		BD73EE481E73A60400CD7AD1 /* RandomVector.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD73EE471E73A60400CD7AD1 /* RandomVector.swift */; };
+		BD73EE4A1E73A66E00CD7AD1 /* RandomPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD73EE491E73A66E00CD7AD1 /* RandomPoint.swift */; };
 		BD7689DC1E7259510066D59E /* TLScene4.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7689DB1E7259510066D59E /* TLScene4.swift */; };
 		BDD8AA361E7127C70054AB61 /* SceneInterfaceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD8AA351E7127C70054AB61 /* SceneInterfaceManager.swift */; };
 		BDD8AA381E7129CA0054AB61 /* SceneInterfaceManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD8AA371E7129CA0054AB61 /* SceneInterfaceManagerDelegate.swift */; };
@@ -108,6 +110,8 @@
 		BD3049E81E6FB2D30083B0ED /* NoTimeLimitMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoTimeLimitMode.swift; sourceTree = "<group>"; };
 		BD3049EB1E6FB5AD0083B0ED /* TimeLimitMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeLimitMode.swift; sourceTree = "<group>"; };
 		BD3049EE1E6FB5EE0083B0ED /* MenuScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
+		BD73EE471E73A60400CD7AD1 /* RandomVector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomVector.swift; sourceTree = "<group>"; };
+		BD73EE491E73A66E00CD7AD1 /* RandomPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomPoint.swift; sourceTree = "<group>"; };
 		BD7689DB1E7259510066D59E /* TLScene4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TLScene4.swift; sourceTree = "<group>"; };
 		BDD8AA351E7127C70054AB61 /* SceneInterfaceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneInterfaceManager.swift; sourceTree = "<group>"; };
 		BDD8AA371E7129CA0054AB61 /* SceneInterfaceManagerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneInterfaceManagerDelegate.swift; sourceTree = "<group>"; };
@@ -358,6 +362,8 @@
 				BDD8AA351E7127C70054AB61 /* SceneInterfaceManager.swift */,
 				BD2E4DCB1E72D38500D025C7 /* UserInterfaceManager.swift */,
 				BDD8AA371E7129CA0054AB61 /* SceneInterfaceManagerDelegate.swift */,
+				BD73EE471E73A60400CD7AD1 /* RandomVector.swift */,
+				BD73EE491E73A66E00CD7AD1 /* RandomPoint.swift */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -512,6 +518,7 @@
 				BDD8AA3D1E7162190054AB61 /* ButtonManager.swift in Sources */,
 				BDDC24561E6E69F5005E103C /* UserOptionsManager.swift in Sources */,
 				BD2912721E6FF4E300ADE12E /* GameFonts.swift in Sources */,
+				BD73EE481E73A60400CD7AD1 /* RandomVector.swift in Sources */,
 				BD2DEE391E6EFD680060750D /* FallingAliens.swift in Sources */,
 				BDDC24361E6E5966005E103C /* TestScene.swift in Sources */,
 				BD2912671E6FE92300ADE12E /* TLScene1.swift in Sources */,
@@ -527,6 +534,7 @@
 				BDDC24381E6E5966005E103C /* GameViewController.swift in Sources */,
 				BDDC24301E6E5966005E103C /* AppDelegate.swift in Sources */,
 				BD2DEE371E6EF84E0060750D /* NTLScene3.swift in Sources */,
+				BD73EE4A1E73A66E00CD7AD1 /* RandomPoint.swift in Sources */,
 				BDDC24A01E6EB9D5005E103C /* Enemy.swift in Sources */,
 				BD29126B1E6FE96400ADE12E /* TLScene3.swift in Sources */,
 				BDDB9E841E6FCAFF004D1D2B /* SpaceShip.swift in Sources */,
