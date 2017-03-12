@@ -96,8 +96,6 @@ class BackgroundMusic{
 
 //Sound Effects
 
-
-
 class SoundEffects{
     static let Laser2 = "laser2.wav"
     static let Laser3 = "laser3.wav"
@@ -202,8 +200,11 @@ class NodeNames{
     static let ResumeButton = "ResumeButton"
     static let RestartGameButton = "RestartGame"
     static let ReturnToMenuButton = "ReturnToMenu"
+    static let GameOverButton = "GameOver"
     
 }
+
+//ZPosition Constants
 
 class ZPositionOrder{
     static let background = CGFloat(-12.0)

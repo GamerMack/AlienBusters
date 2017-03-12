@@ -1,5 +1,5 @@
 //
-//  TimeLimitMode.swift
+//  TimeLimitMode+GameStateExtension.swift
 //  AlienBusters
 //
 //  Created by Aleksander Makedonski on 3/8/17.
@@ -16,32 +16,36 @@ import SpriteKit
  
  **/
 
-class TimeLimitMode: SKScene{
-    
-    var timeLimit: TimeInterval = 0
-    var timerIsStarted: Bool = false
-    var lastUpdateTime: TimeInterval = 0.00
-    var totalRunningTime: TimeInterval = 0.00
 
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+
+extension TimeLimitScene{
+    
+    enum GameState: Int{
+        case Running, Paused, Waiting, GameOver
     }
     
-    override init(size: CGSize) {
-        super.init(size: size)
+   
+    //MARK: Game State Toggle Functions
+    
+    func enterGameOverState(){
+        state = .GameOver
+        timerIsStarted = false
     }
     
-    func setTimeLimit(newTimeLimit: TimeInterval){
-        timeLimit = newTimeLimit
+    func enterRunningState(){
+        state = .Running
+        timerIsStarted = true
     }
     
-    func toggleTimerState(){
-        timerIsStarted = !timerIsStarted
+    func enterPausedState(){
+        state = .Paused
+        timerIsStarted = false
+        
     }
     
-    func resetTotalRunningTime(){
-        totalRunningTime = 0
+    func enterResumedState(){
+        state = .Running
+        timerIsStarted = false
     }
-    
     
 }

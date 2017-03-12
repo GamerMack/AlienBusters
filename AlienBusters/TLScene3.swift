@@ -96,6 +96,25 @@ extension TLScene3{
 
 class TLScene3: SKScene{
     
+    /**
+    override var delegate: SKSceneDelegate?{
+        get{
+            return delegate as! TLScene3Delegate
+        }
+        
+        set(newDelegate){
+            
+            
+            if var delegate = super.delegate as? TLScene3Delegate{
+                delegate = newDelegate as! TLScene3Delegate
+            }
+            
+        }
+        
+    }
+    
+    **/
+    
     var gameNode = SKSpriteNode()
     
     var player: CrossHair?
@@ -104,7 +123,7 @@ class TLScene3: SKScene{
     
     var batController = BatController()
     
-    var timeLimit: Int = 30
+    var timeLimit: TimeInterval = 30.00
     var timerIsStarted = false
     var lastUpdateTime: TimeInterval = 0.00
     var totalRunningTime: TimeInterval = 0.00
@@ -112,6 +131,9 @@ class TLScene3: SKScene{
     var helpButton: SKSpriteNode?
     
     override func didMove(to view: SKView) {
+        
+        //delegate = TLScene3Delegate()
+        
         configureBasicSceneElements(withPlayerTypeOf: .BlueLarge, andWithBackgroundOf: .ColoredForest, withBackgroundMusicFrom: BackgroundMusic.FlowingRocks)
         
         configureHelpButton()
@@ -201,8 +223,15 @@ class TLScene3: SKScene{
             totalRunningTime += currentTime - lastUpdateTime
             lastUpdateTime = currentTime
             
+            /**Practice using the SKScene delegate later
+            if let delegate = delegate{
+                delegate.didFinishUpdate!(for: self)
+            }
+             **/
+            
             if(kDebug){
-                print("Current running time: \(totalRunningTime)")
+                //print("Current running time: \(totalRunningTime)")
+            
             }
         }
         

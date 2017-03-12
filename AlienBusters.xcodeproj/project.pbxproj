@@ -19,6 +19,7 @@
 		BD2912761E70227600ADE12E /* Bat.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2912751E70227600ADE12E /* Bat.swift */; };
 		BD2912781E704B9300ADE12E /* BatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2912771E704B9300ADE12E /* BatController.swift */; };
 		BD2B80231E71A53500E509AF /* ButtonFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2B80221E71A53500E509AF /* ButtonFactory.swift */; };
+		BD2BF7251E74FF7B0022C378 /* TestScene2.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2BF7241E74FF7B0022C378 /* TestScene2.swift */; };
 		BD2DEE331E6EE9100060750D /* AnimationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2DEE321E6EE9100060750D /* AnimationsManager.swift */; };
 		BD2DEE351E6EF8160060750D /* NTLScene2.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2DEE341E6EF8160060750D /* NTLScene2.swift */; };
 		BD2DEE371E6EF84E0060750D /* NTLScene3.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2DEE361E6EF84E0060750D /* NTLScene3.swift */; };
@@ -27,11 +28,14 @@
 		BD2E4DCC1E72D38500D025C7 /* UserInterfaceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2E4DCB1E72D38500D025C7 /* UserInterfaceManager.swift */; };
 		BD3049E51E6FACBA0083B0ED /* NTLScene4.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3049E41E6FACBA0083B0ED /* NTLScene4.swift */; };
 		BD3049E91E6FB2D30083B0ED /* NoTimeLimitMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3049E81E6FB2D30083B0ED /* NoTimeLimitMode.swift */; };
-		BD3049EC1E6FB5AD0083B0ED /* TimeLimitMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3049EB1E6FB5AD0083B0ED /* TimeLimitMode.swift */; };
+		BD3049EC1E6FB5AD0083B0ED /* TimeLimitScene+GameStateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3049EB1E6FB5AD0083B0ED /* TimeLimitScene+GameStateExtension.swift */; };
 		BD3049EF1E6FB5EE0083B0ED /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3049EE1E6FB5EE0083B0ED /* MenuScene.swift */; };
 		BD73EE481E73A60400CD7AD1 /* RandomVector.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD73EE471E73A60400CD7AD1 /* RandomVector.swift */; };
 		BD73EE4A1E73A66E00CD7AD1 /* RandomPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD73EE491E73A66E00CD7AD1 /* RandomPoint.swift */; };
 		BD7689DC1E7259510066D59E /* TLScene4.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7689DB1E7259510066D59E /* TLScene4.swift */; };
+		BD9BB5451E75007800726476 /* TimeLimitScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9BB5441E75007800726476 /* TimeLimitScene.swift */; };
+		BDCFE24D1E73DD06005DB85B /* TLScene3Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCFE24C1E73DD06005DB85B /* TLScene3Delegate.swift */; };
+		BDCFE2551E741012005DB85B /* RunningState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCFE2541E741012005DB85B /* RunningState.swift */; };
 		BDD8AA361E7127C70054AB61 /* SceneInterfaceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD8AA351E7127C70054AB61 /* SceneInterfaceManager.swift */; };
 		BDD8AA381E7129CA0054AB61 /* SceneInterfaceManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD8AA371E7129CA0054AB61 /* SceneInterfaceManagerDelegate.swift */; };
 		BDD8AA3B1E715AA40054AB61 /* SKSceneExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD8AA3A1E715AA40054AB61 /* SKSceneExtension.swift */; };
@@ -100,6 +104,7 @@
 		BD2912751E70227600ADE12E /* Bat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bat.swift; sourceTree = "<group>"; };
 		BD2912771E704B9300ADE12E /* BatController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BatController.swift; sourceTree = "<group>"; };
 		BD2B80221E71A53500E509AF /* ButtonFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonFactory.swift; sourceTree = "<group>"; };
+		BD2BF7241E74FF7B0022C378 /* TestScene2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestScene2.swift; sourceTree = "<group>"; };
 		BD2DEE321E6EE9100060750D /* AnimationsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationsManager.swift; sourceTree = "<group>"; };
 		BD2DEE341E6EF8160060750D /* NTLScene2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NTLScene2.swift; sourceTree = "<group>"; };
 		BD2DEE361E6EF84E0060750D /* NTLScene3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NTLScene3.swift; sourceTree = "<group>"; };
@@ -108,11 +113,14 @@
 		BD2E4DCB1E72D38500D025C7 /* UserInterfaceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInterfaceManager.swift; sourceTree = "<group>"; };
 		BD3049E41E6FACBA0083B0ED /* NTLScene4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NTLScene4.swift; sourceTree = "<group>"; };
 		BD3049E81E6FB2D30083B0ED /* NoTimeLimitMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoTimeLimitMode.swift; sourceTree = "<group>"; };
-		BD3049EB1E6FB5AD0083B0ED /* TimeLimitMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeLimitMode.swift; sourceTree = "<group>"; };
+		BD3049EB1E6FB5AD0083B0ED /* TimeLimitScene+GameStateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TimeLimitScene+GameStateExtension.swift"; sourceTree = "<group>"; };
 		BD3049EE1E6FB5EE0083B0ED /* MenuScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
 		BD73EE471E73A60400CD7AD1 /* RandomVector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomVector.swift; sourceTree = "<group>"; };
 		BD73EE491E73A66E00CD7AD1 /* RandomPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomPoint.swift; sourceTree = "<group>"; };
 		BD7689DB1E7259510066D59E /* TLScene4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TLScene4.swift; sourceTree = "<group>"; };
+		BD9BB5441E75007800726476 /* TimeLimitScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeLimitScene.swift; sourceTree = "<group>"; };
+		BDCFE24C1E73DD06005DB85B /* TLScene3Delegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TLScene3Delegate.swift; sourceTree = "<group>"; };
+		BDCFE2541E741012005DB85B /* RunningState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunningState.swift; sourceTree = "<group>"; };
 		BDD8AA351E7127C70054AB61 /* SceneInterfaceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneInterfaceManager.swift; sourceTree = "<group>"; };
 		BDD8AA371E7129CA0054AB61 /* SceneInterfaceManagerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneInterfaceManagerDelegate.swift; sourceTree = "<group>"; };
 		BDD8AA3A1E715AA40054AB61 /* SKSceneExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKSceneExtension.swift; sourceTree = "<group>"; };
@@ -213,7 +221,7 @@
 		BD3049E71E6FAF1D0083B0ED /* TimeLimitScenes */ = {
 			isa = PBXGroup;
 			children = (
-				BD3049EB1E6FB5AD0083B0ED /* TimeLimitMode.swift */,
+				BDCFE24C1E73DD06005DB85B /* TLScene3Delegate.swift */,
 				BD29126A1E6FE96400ADE12E /* TLScene3.swift */,
 				BD2912661E6FE92300ADE12E /* TLScene1.swift */,
 				BD2912681E6FE94D00ADE12E /* TLScene2.swift */,
@@ -227,6 +235,7 @@
 			isa = PBXGroup;
 			children = (
 				BDDC24351E6E5966005E103C /* TestScene.swift */,
+				BD2BF7241E74FF7B0022C378 /* TestScene2.swift */,
 				BDDC244A1E6E615D005E103C /* SceneA.swift */,
 			);
 			name = TestScenes;
@@ -239,6 +248,30 @@
 				BD3049EE1E6FB5EE0083B0ED /* MenuScene.swift */,
 			);
 			name = TransitionalScenes;
+			sourceTree = "<group>";
+		};
+		BD9BB5461E7500C800726476 /* BaseScenes */ = {
+			isa = PBXGroup;
+			children = (
+				BD9BB5441E75007800726476 /* TimeLimitScene.swift */,
+				BD3049EB1E6FB5AD0083B0ED /* TimeLimitScene+GameStateExtension.swift */,
+			);
+			name = BaseScenes;
+			sourceTree = "<group>";
+		};
+		BDCFE2531E741003005DB85B /* States */ = {
+			isa = PBXGroup;
+			children = (
+				BDCFE2541E741012005DB85B /* RunningState.swift */,
+			);
+			name = States;
+			sourceTree = "<group>";
+		};
+		BDCFE2561E741279005DB85B /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Entities;
 			sourceTree = "<group>";
 		};
 		BDD8AA391E715A880054AB61 /* Extensions */ = {
@@ -268,6 +301,8 @@
 		BDDC242E1E6E5966005E103C /* AlienBusters */ = {
 			isa = PBXGroup;
 			children = (
+				BDCFE2561E741279005DB85B /* Entities */,
+				BDCFE2531E741003005DB85B /* States */,
 				BDD8AA391E715A880054AB61 /* Extensions */,
 				BD2323121E705C9B00E3A2FC /* SKSFiles */,
 				BD29126E1E6FEBBF00ADE12E /* UIElements */,
@@ -301,6 +336,7 @@
 		BDDC244C1E6E6163005E103C /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				BD9BB5461E7500C800726476 /* BaseScenes */,
 				BD3049ED1E6FB5D80083B0ED /* TransitionalScenes */,
 				BD3049EA1E6FB55E0083B0ED /* TestScenes */,
 				BD3049E71E6FAF1D0083B0ED /* TimeLimitScenes */,
@@ -519,6 +555,7 @@
 				BDDC24561E6E69F5005E103C /* UserOptionsManager.swift in Sources */,
 				BD2912721E6FF4E300ADE12E /* GameFonts.swift in Sources */,
 				BD73EE481E73A60400CD7AD1 /* RandomVector.swift in Sources */,
+				BDCFE2551E741012005DB85B /* RunningState.swift in Sources */,
 				BD2DEE391E6EFD680060750D /* FallingAliens.swift in Sources */,
 				BDDC24361E6E5966005E103C /* TestScene.swift in Sources */,
 				BD2912671E6FE92300ADE12E /* TLScene1.swift in Sources */,
@@ -539,7 +576,7 @@
 				BD29126B1E6FE96400ADE12E /* TLScene3.swift in Sources */,
 				BDDB9E841E6FCAFF004D1D2B /* SpaceShip.swift in Sources */,
 				BD2912651E6FE8FA00ADE12E /* NTLScene5.swift in Sources */,
-				BD3049EC1E6FB5AD0083B0ED /* TimeLimitMode.swift in Sources */,
+				BD3049EC1E6FB5AD0083B0ED /* TimeLimitScene+GameStateExtension.swift in Sources */,
 				BD2DEE3B1E6F05AA0060750D /* FallingAliensController.swift in Sources */,
 				BD7689DC1E7259510066D59E /* TLScene4.swift in Sources */,
 				BD3049E91E6FB2D30083B0ED /* NoTimeLimitMode.swift in Sources */,
@@ -548,7 +585,10 @@
 				BD3049EF1E6FB5EE0083B0ED /* MenuScene.swift in Sources */,
 				BDDC249C1E6E9E71005E103C /* FlyingAlien.swift in Sources */,
 				BDDB9E861E6FD7C3004D1D2B /* SmokeEmitterManager.swift in Sources */,
+				BDCFE24D1E73DD06005DB85B /* TLScene3Delegate.swift in Sources */,
+				BD2BF7251E74FF7B0022C378 /* TestScene2.swift in Sources */,
 				BD2912781E704B9300ADE12E /* BatController.swift in Sources */,
+				BD9BB5451E75007800726476 /* TimeLimitScene.swift in Sources */,
 				BDDC24521E6E69A1005E103C /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
