@@ -17,16 +17,16 @@ class GameViewController: UIViewController {
         SoundLoader.preloadSounds()
         
       
-        let testScene2 = TestScene2(size: self.view.bounds.size)
+        let testScene3 = TestScene3(size: self.view.bounds.size)
         
         if let view = self.view as! SKView? {
             // Load the SKScene from 'GameScene.sks'
            
                 // Set the scale mode to scale to fit the window
-                testScene2.scaleMode = .aspectFill
+                testScene3.scaleMode = .aspectFill
                 
                 // Present the scene
-                view.presentScene(testScene2)
+                view.presentScene(testScene3)
             
             
             view.ignoresSiblingOrder = true

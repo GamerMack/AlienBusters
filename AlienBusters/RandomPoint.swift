@@ -36,7 +36,7 @@ class RandomPoint{
         }
     }
     
-    func getRandomPointAwayFromCenter() -> CGPoint{
+    func getRandomPointInRandomQuadrant() -> CGPoint{
         let distribution = GKRandomDistribution(lowestValue: 0, highestValue: 3)
         let randomScreenSide = distribution.nextInt()
         var randomQuadrantPoint: CGPoint
@@ -73,7 +73,7 @@ class RandomPoint{
     
     func getUpperLeftQuadrantPoint() -> CGPoint{
         
-        return getRandomPointWith(minimumXValueOf: 0, andMaximumXValueOf: ScreenSizeIntConstants.HalfScreenWidth, andWithMinimumYValueOf: -ScreenSizeIntConstants.HalfScreenHeight, andWithMaximumYValueOf: 0)
+        return getRandomPointWith(minimumXValueOf: -ScreenSizeIntConstants.HalfScreenWidth, andMaximumXValueOf: 0, andWithMinimumYValueOf: 0, andWithMaximumYValueOf: ScreenSizeIntConstants.HalfScreenHeight)
     }
     
     func getUpperRightQuadrantPoint() -> CGPoint{
@@ -131,29 +131,43 @@ class RandomGaussianPoint: RandomPoint{
     }
     
     
+  
+   
     override func getLeftScreenPoint() -> CGPoint {
-        return getRandomPointClusteredNear(xCoordinate: 0, yCoordinate: -Float(ScreenSizeFloatConstants.HalfScreenHeight/2), withXSpreadOf: Float(ScreenSizeFloatConstants.HalfScreenWidth), andWithYSpreadOf: Float(ScreenSizeFloatConstants.HalfScreenHeight)/Float(2.0))
+        return getRandomPointClusteredNear(xCoordinate: -Float(2*ScreenSizeFloatConstants.HalfScreenHeight/3), yCoordinate: 0, withXSpreadOf: Float(ScreenSizeFloatConstants.HalfScreenHeight)/Float(10.0) , andWithYSpreadOf: Float(ScreenSizeFloatConstants.HalfScreenWidth/5.0))
+        
+        
     }
     
     
+    override func getRightScreenPoint() -> CGPoint {
+        return getRandomPointClusteredNear(xCoordinate: Float(2*ScreenSizeFloatConstants.HalfScreenHeight/3), yCoordinate: 0, withXSpreadOf: Float(ScreenSizeFloatConstants.HalfScreenHeight)/Float(10.0) , andWithYSpreadOf: Float(ScreenSizeFloatConstants.HalfScreenWidth/5.0))
+        
+        
+    }
+    
     override func getUpperScreenPoint() -> CGPoint {
-        return getRandomPointClusteredNear(xCoordinate: 0, yCoordinate: Float(ScreenSizeFloatConstants.HalfScreenHeight/2), withXSpreadOf: Float(ScreenSizeFloatConstants.HalfScreenWidth), andWithYSpreadOf: Float(ScreenSizeFloatConstants.HalfScreenHeight)/Float(2.0))
+        return getRandomPointClusteredNear(xCoordinate: 0, yCoordinate: Float(ScreenSizeFloatConstants.HalfScreenHeight/2), withXSpreadOf: Float(ScreenSizeFloatConstants.HalfScreenWidth/5.0), andWithYSpreadOf: Float(ScreenSizeFloatConstants.HalfScreenHeight)/Float(10.0))
+    }
+    
+    override func getLowerScreenPoint() -> CGPoint {
+          return getRandomPointClusteredNear(xCoordinate: 0, yCoordinate: -Float(ScreenSizeFloatConstants.HalfScreenHeight/2), withXSpreadOf: Float(ScreenSizeFloatConstants.HalfScreenWidth/5.0), andWithYSpreadOf: Float(ScreenSizeFloatConstants.HalfScreenHeight)/Float(10.0))
     }
     
     override func getLowerRightQuadrantPoint() -> CGPoint {
-         return getRandomPointClusteredNear(xCoordinate: Float(ScreenSizeFloatConstants.HalfScreenWidth/2.0), yCoordinate: -Float(ScreenSizeFloatConstants.HalfScreenHeight/2), withXSpreadOf: Float(ScreenSizeFloatConstants.HalfScreenWidth)/Float(2.0), andWithYSpreadOf: Float(ScreenSizeFloatConstants.HalfScreenHeight)/Float(2.0))
+         return getRandomPointClusteredNear(xCoordinate: Float(ScreenSizeFloatConstants.HalfScreenWidth/2.0), yCoordinate: -Float(ScreenSizeFloatConstants.HalfScreenHeight/2.0), withXSpreadOf: Float(ScreenSizeFloatConstants.HalfScreenWidth)/Float(10.0), andWithYSpreadOf: Float(ScreenSizeFloatConstants.HalfScreenHeight)/Float(10.0))
     }
     
     override func getUpperLeftQuadrantPoint() -> CGPoint {
-         return getRandomPointClusteredNear(xCoordinate: -Float(ScreenSizeFloatConstants.HalfScreenWidth/2.0), yCoordinate: Float(ScreenSizeFloatConstants.HalfScreenHeight/2), withXSpreadOf: Float(ScreenSizeFloatConstants.HalfScreenWidth)/Float(2.0), andWithYSpreadOf: Float(ScreenSizeFloatConstants.HalfScreenHeight)/Float(2.0))
+         return getRandomPointClusteredNear(xCoordinate: -Float(ScreenSizeFloatConstants.HalfScreenWidth/2.0), yCoordinate: Float(ScreenSizeFloatConstants.HalfScreenHeight/2), withXSpreadOf: Float(ScreenSizeFloatConstants.HalfScreenWidth)/Float(10.0), andWithYSpreadOf: Float(ScreenSizeFloatConstants.HalfScreenHeight)/Float(10.0))
     }
     
     override func getLowerLeftQuadrantPoint() -> CGPoint {
-        return getRandomPointClusteredNear(xCoordinate: -Float(ScreenSizeFloatConstants.HalfScreenWidth/2.0), yCoordinate: -Float(ScreenSizeFloatConstants.HalfScreenHeight/2), withXSpreadOf: Float(ScreenSizeFloatConstants.HalfScreenWidth)/Float(2.0), andWithYSpreadOf: Float(ScreenSizeFloatConstants.HalfScreenHeight)/Float(2.0))
+        return getRandomPointClusteredNear(xCoordinate: -Float(ScreenSizeFloatConstants.HalfScreenWidth/2.0), yCoordinate: -Float(ScreenSizeFloatConstants.HalfScreenHeight/2), withXSpreadOf: Float(ScreenSizeFloatConstants.HalfScreenWidth)/Float(10.0), andWithYSpreadOf: Float(ScreenSizeFloatConstants.HalfScreenHeight)/Float(10.0))
     }
     
     override func getUpperRightQuadrantPoint() -> CGPoint {
-        return getRandomPointClusteredNear(xCoordinate: Float(ScreenSizeFloatConstants.HalfScreenWidth/2.0), yCoordinate: Float(ScreenSizeFloatConstants.HalfScreenHeight/2), withXSpreadOf: Float(ScreenSizeFloatConstants.HalfScreenWidth)/Float(2.0), andWithYSpreadOf: Float(ScreenSizeFloatConstants.HalfScreenHeight)/Float(2.0))
+        return getRandomPointClusteredNear(xCoordinate: Float(ScreenSizeFloatConstants.HalfScreenWidth/2.0), yCoordinate: Float(ScreenSizeFloatConstants.HalfScreenHeight/2), withXSpreadOf: Float(ScreenSizeFloatConstants.HalfScreenWidth)/Float(10.0), andWithYSpreadOf: Float(ScreenSizeFloatConstants.HalfScreenHeight)/Float(10.0))
     }
     
     private func getRandomPointClusteredNear(xCoordinate: Float, yCoordinate: Float, withXSpreadOf deviationX: Float, andWithYSpreadOf deviationY: Float) -> CGPoint{
@@ -162,8 +176,8 @@ class RandomGaussianPoint: RandomPoint{
         
         let gaussianDistributionY = GKGaussianDistribution(randomSource: self.randomSource, mean: yCoordinate, deviation: deviationY)
         
-        var xPos = gaussianDistributionX.nextInt()
-        var yPos = gaussianDistributionX.nextInt()
+        let xPos = gaussianDistributionX.nextInt()
+        let yPos = gaussianDistributionY.nextInt()
         
         
         return CGPoint(x: xPos, y: yPos)
