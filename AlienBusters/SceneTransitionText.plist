@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>FlyingSaucerTrack</key>
+	<dict/>
+	<key>BatTrack</key>
+	<dict>
+		<key>Transition1</key>
+		<dict>
+			<key>MainText</key>
+			<string>The Queen is displayed with how you have eliminated her beloved pet bats.  She is determined to stop you from shooting anymore.</string>
+			<key>Instructions</key>
+			<string>The Queen will appear periodically and momentarily use gravity fields to destabilize your crosshair.   Try to avoid her or else shooting bats will become much more difficult.</string>
+			<key>Title</key>
+			<string>Beware of the Queen&apos;s meddling ways...</string>
+		</dict>
+		<key>Intro</key>
+		<dict>
+			<key>Instructions</key>
+			<string>Your sniper crosshair is equipped with nightvision capability.  As soon as you place your crosshair over the bat, it will be illuminated.</string>
+			<key>MainText</key>
+			<string>Queen Wuzuh Tyan has released a swarm of stealth bats.  You must stop them from multiplying before they get out of  control.  </string>
+			<key>Title</key>
+			<string>Prepare to go into the darkness....</string>
+		</dict>
+	</dict>
+</dict>
+</plist>
