@@ -11,20 +11,18 @@ import SpriteKit
 
 class Bat: SKSpriteNode{
     
-    
-    //Timer-Related Variables
-    /**
-    var timeSinceLastFlyModeTransition = 0.00
-    var lastUpdateInterval = 0.00
-    var flyModeTransitionInterval = 2.00
-    var totalGameTime = 0.00
-     **/
-    
-    private let textureAtlasManager = TextureAtlasManager.sharedInstance
+   
     private let textureAtlas = TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .Bats)
+    
+    private let randomPointGenerator = RandomPoint(algorithmType: .Faster)
+    private let randomGaussianPointGenerator = RandomGaussianPoint(algorithmType: .Faster)
+    
+    
     
     private var health: Int = 2     //2 hits are required to destroy a flying alien
     
+    private var maxXComponentVelocity: Double = 100.0
+    private var maxYComponentVelocity: Double = 100.0
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -35,50 +33,50 @@ class Bat: SKSpriteNode{
         super.init(texture: texture, color: color, size: size)
     }
     
-    convenience init?(scalingFactor: CGFloat = 1.0) {
+    convenience init?(scalingFactor: CGFloat = 1.0, startingHealth: Int = 2, maxXVelocity: Double = 100.0, maxYVelocity: Double = 100.0) {
+        
+        
+        //Nonconfigurable parameters
         
         guard let batTexture = TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .Bats)?.textureNamed("bat") else { return nil }
-        
         
         let batSize = batTexture.size()
         
         self.init(texture: batTexture,color: SKColor.clear, size: batSize)
         
-        self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        performBasicConfiguration(circleRadius: batSize.width/2.0)
+        configureActions()
+        configureLighting()
+        setPosition()
+
+        
+        //Configurable parameters
+        
         self.xScale *= scalingFactor
         self.yScale *= scalingFactor
         
+        self.maxXComponentVelocity = maxXVelocity
+        self.maxYComponentVelocity = maxYVelocity
         
-        self.physicsBody = SKPhysicsBody(circleOfRadius: batSize.width/2)
-        self.physicsBody?.affectedByGravity = false
-        self.physicsBody?.allowsRotation = false 
-
-        setPosition()
-        configureActions()
-        configureLighting()
+        self.health = startingHealth
+        
         
         self.run(SKAction.wait(forDuration: 1.0))
 
-
     }
     
+
     
+    //MARK: Configuration functions
+    
+    private func performBasicConfiguration(circleRadius: CGFloat){
+        self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        self.physicsBody = SKPhysicsBody(circleOfRadius: circleRadius)
+        self.physicsBody?.affectedByGravity = false
+        self.physicsBody?.allowsRotation = false
+        
+    }
    
-    
-    func setPosition(){
-        
-        var randomXPos = Int(arc4random_uniform(UInt32(kViewWidth/2)))
-        var randomYPos = Int(arc4random_uniform(UInt32(kViewHeight/2)))
-        
-        RandomizeSign(coordinateValue: &randomXPos)
-        RandomizeSign(coordinateValue: &randomYPos)
-        
-        self.position = CGPoint(x: randomXPos, y: randomYPos)
-
-    }
-    
-    
- 
     
     private func configureActions(){
         
@@ -92,8 +90,6 @@ class Bat: SKSpriteNode{
         self.run(flyingAnimation)
         
         
-        
-        
     }
     
     private func configureLighting(){
@@ -101,7 +97,28 @@ class Bat: SKSpriteNode{
     }
     
     
-    func checkForReposition(){
+
+    
+    func setPosition(){
+        
+        let randomPoint = randomPointGenerator.getFullScreenPoint()
+        self.position = randomPoint
+        
+    }
+    
+    
+    
+    //MARK: GameLoop-Related Functions 
+    
+    func updatePhysics(){
+        checkForReposition()
+        
+        let randomVector = RandomVector(yComponentMin: -maxYComponentVelocity, yComponentMax: maxYComponentVelocity, xComponentMin: -maxXComponentVelocity, xComponentMax: maxXComponentVelocity)
+        
+        self.physicsBody?.velocity = randomVector.getVector()
+    }
+    
+    private func checkForReposition(){
         if(position.x < -kViewWidth/1.8 || position.x > kViewWidth/1.8){
             setPosition()
         }
@@ -112,33 +129,12 @@ class Bat: SKSpriteNode{
     }
     
     
-    func update(){
-        
-        guard let currentVelocity = self.physicsBody?.velocity else { return }
-        
-        let currentXVelocity = currentVelocity.dx
-        let currentYVelocity = currentVelocity.dy
-        
-        if(currentYVelocity < CGFloat(30) && currentXVelocity < CGFloat(30.0)){
-
-            var randomXImpulse = Int(arc4random_uniform(2))
-            var randomYImpulse = Int(arc4random_uniform(2))
-        
-            RandomizeSign(coordinateValue: &randomXImpulse)
-            RandomizeSign(coordinateValue: &randomYImpulse)
-        
-            let impulseVector = CGVector(dx: randomXImpulse, dy: randomYImpulse)
-            self.physicsBody?.applyImpulse(impulseVector)
-        }
-    }
-    
-    
+    //MARK:  User input event handlers
     
     func respondToHitAt(touchLocation: CGPoint){
         
         if self.contains(touchLocation){
             
-       
                 AnimationsFactory.createExplosionFor(spriteNode: self)
                 self.run(SKAction.sequence([
                     SKAction.wait(forDuration: 2.0),

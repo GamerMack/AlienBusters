@@ -135,7 +135,7 @@ class TLScene1: SKScene{
             return
         } else {
             guard let bat = bat else { return }
-            bat.update()
+            bat.updatePhysics()
         }
     }
     
@@ -176,7 +176,6 @@ class TLScene1: SKScene{
          
             if let player = player, let bat = bat{
                 player.update()
-                bat.checkForReposition()
             }
             
             lastUpdateTime = currentTime

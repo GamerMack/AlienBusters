@@ -36,6 +36,8 @@
 		BD312B111E755EF900DCB39C /* SceneTransitionText.plist in Resources */ = {isa = PBXBuildFile; fileRef = BD312B101E755EF900DCB39C /* SceneTransitionText.plist */; };
 		BD312B131E756A3B00DCB39C /* PlistUnarchiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD312B121E756A3B00DCB39C /* PlistUnarchiver.swift */; };
 		BD312B151E75733C00DCB39C /* ShapeShifter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD312B141E75733C00DCB39C /* ShapeShifter.swift */; };
+		BD312B3A1E75906C00DCB39C /* TestScene5.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD312B391E75906C00DCB39C /* TestScene5.swift */; };
+		BD312B3C1E759C5800DCB39C /* TestScene6.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD312B3B1E759C5800DCB39C /* TestScene6.swift */; };
 		BD73EE481E73A60400CD7AD1 /* RandomVector.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD73EE471E73A60400CD7AD1 /* RandomVector.swift */; };
 		BD73EE4A1E73A66E00CD7AD1 /* RandomPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD73EE491E73A66E00CD7AD1 /* RandomPoint.swift */; };
 		BD7689DC1E7259510066D59E /* TLScene4.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7689DB1E7259510066D59E /* TLScene4.swift */; };
@@ -127,6 +129,8 @@
 		BD312B101E755EF900DCB39C /* SceneTransitionText.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SceneTransitionText.plist; sourceTree = "<group>"; };
 		BD312B121E756A3B00DCB39C /* PlistUnarchiver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlistUnarchiver.swift; sourceTree = "<group>"; };
 		BD312B141E75733C00DCB39C /* ShapeShifter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShapeShifter.swift; sourceTree = "<group>"; };
+		BD312B391E75906C00DCB39C /* TestScene5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestScene5.swift; sourceTree = "<group>"; };
+		BD312B3B1E759C5800DCB39C /* TestScene6.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestScene6.swift; sourceTree = "<group>"; };
 		BD73EE471E73A60400CD7AD1 /* RandomVector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomVector.swift; sourceTree = "<group>"; };
 		BD73EE491E73A66E00CD7AD1 /* RandomPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomPoint.swift; sourceTree = "<group>"; };
 		BD7689DB1E7259510066D59E /* TLScene4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TLScene4.swift; sourceTree = "<group>"; };
@@ -258,6 +262,8 @@
 				BD2BF7241E74FF7B0022C378 /* TestScene2.swift */,
 				BD2DC2071E75331E0067D1A2 /* TestScene3.swift */,
 				BD2DC22C1E755D710067D1A2 /* TestScene4.swift */,
+				BD312B391E75906C00DCB39C /* TestScene5.swift */,
+				BD312B3B1E759C5800DCB39C /* TestScene6.swift */,
 				BDDC244A1E6E615D005E103C /* SceneA.swift */,
 			);
 			name = TestScenes;
@@ -579,8 +585,10 @@
 			files = (
 				BD2DEE331E6EE9100060750D /* AnimationsManager.swift in Sources */,
 				BDD8AA361E7127C70054AB61 /* SceneInterfaceManager.swift in Sources */,
+				BD312B3A1E75906C00DCB39C /* TestScene5.swift in Sources */,
 				BD2DEE351E6EF8160060750D /* NTLScene2.swift in Sources */,
 				BD2912631E6FE8C400ADE12E /* NTLScene1.swift in Sources */,
+				BD312B3C1E759C5800DCB39C /* TestScene6.swift in Sources */,
 				BDD8AA3B1E715AA40054AB61 /* SKSceneExtension.swift in Sources */,
 				BDDC24831E6E9119005E103C /* Background.swift in Sources */,
 				BD3049E51E6FACBA0083B0ED /* NTLScene4.swift in Sources */,

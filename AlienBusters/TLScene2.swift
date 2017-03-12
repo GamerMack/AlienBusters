@@ -186,11 +186,11 @@ class TLScene2: SKScene{
      
             if let bat1 = bat1, let bat2 = bat2, let bat3 = bat3, let bat4 = bat4, let bat5 = bat5{
             
-                    bat1.update()
-                    bat2.update()
-                    bat3.update()
-                    bat4.update()
-                    bat5.update()
+                    bat1.updatePhysics()
+                    bat2.updatePhysics()
+                    bat3.updatePhysics()
+                    bat4.updatePhysics()
+                    bat5.updatePhysics()
             }
         
     }
@@ -205,12 +205,6 @@ class TLScene2: SKScene{
                 if let player = player, let bat1 = bat1, let bat2 = bat2, let bat3 = bat3, let bat4 = bat4, let bat5 = bat5{
                     
                     player.update()
-                    bat1.checkForReposition()
-                    bat1.checkForReposition()
-                    bat2.checkForReposition()
-                    bat3.checkForReposition()
-                    bat4.checkForReposition()
-                    bat5.checkForReposition()
                     
                 
                 

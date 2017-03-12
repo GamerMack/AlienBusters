@@ -14,6 +14,11 @@ struct RandomVector{
     var xComponent: Double
     var yComponent: Double
     
+    init(){
+        xComponent = 0.00
+        yComponent = 0.00
+    }
+    
     init(yComponentMin: Double, yComponentMax: Double,xComponentMin: Double, xComponentMax: Double) {
         
         xComponent = Double(arc4random_uniform(UInt32(xComponentMax-xComponentMax))) + xComponentMin
