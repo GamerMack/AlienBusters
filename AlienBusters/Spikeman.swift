@@ -16,6 +16,7 @@ class Spikeman: SKSpriteNode{
     
     var health: Int = 2
     var initialVelocity = 50.0
+    var isDamaged = false
     
     var jumpAnimation = SKAction()
     var walkingAnimation = SKAction()
@@ -60,6 +61,9 @@ class Spikeman: SKSpriteNode{
         self.physicsBody?.allowsRotation = false
         self.physicsBody?.friction = 0.0
         self.physicsBody?.linearDamping = 0.0
+        
+        self.physicsBody?.categoryBitMask = PhysicsCategory.Enemy 
+        self.physicsBody?.contactTestBitMask = PhysicsCategory.Animal
         
         self.physicsBody?.velocity.dx = CGFloat(initialVelocity)
         
@@ -112,6 +116,42 @@ class Spikeman: SKSpriteNode{
                 self.physicsBody?.velocity.dx = -currentXVelocity
             }
         }
+        
+    }
+    
+    func isInDamagedState() -> Bool{
+        return isDamaged
+    }
+    
+    func toggleDamageState(){
+        isDamaged = !isDamaged
+    }
+    
+    func takeDamage(){
+        self.removeAction(forKey: "walkingAnimation")
+        let originalZPosition = self.zPosition
+        let originalVelocity = self.physicsBody?.velocity
+        
+        self.run(
+            SKAction.sequence([
+                SKAction.rotate(byAngle: CGFloat(90.0*M_PI/180.0), duration: 1.0),
+                SKAction.run({
+                    self.isDamaged = true
+                    self.physicsBody?.velocity = CGVector.zero
+                    self.physicsBody?.categoryBitMask = PhysicsCategory.DamagedEnemy
+                    }),
+                SKAction.wait(forDuration: 2.0),
+                SKAction.rotate(toAngle: originalZPosition, duration: 1.0),
+                SKAction.run({
+                    self.isDamaged = false
+                    self.physicsBody?.velocity = originalVelocity!
+                    self.physicsBody?.categoryBitMask = PhysicsCategory.Enemy
+                    self.run(self.walkingAnimation, withKey: "walkingAnimation")
+                }),
+                
+                ])
+        )
+        
         
     }
     

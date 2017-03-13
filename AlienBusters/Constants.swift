@@ -13,118 +13,6 @@ import SpriteKit
 //Debug Mode Flag
 let kDebug = true
 
-//Screen Size
-let kViewSize = UIScreen.main.bounds
-let kViewWidth = kViewSize.width
-let kViewHeight = kViewSize.height
-
-class ScreenSizeIntConstants{
-    static let ScreenSize = UIScreen.main.bounds
-    static let ScreenWidth = Int(UIScreen.main.bounds.width)
-    static let ScrrenHeight = Int(UIScreen.main.bounds.height)
-    static let HalfScreenHeight = Int(UIScreen.main.bounds.height/2)
-    static let HalfScreenWidth = Int(UIScreen.main.bounds.width/2)
-}
-
-class ScreenSizeFloatConstants{
-    static let ScreenSize = UIScreen.main.bounds
-    static let ScreenWidth = UIScreen.main.bounds.width
-    static let ScrrenHeight = UIScreen.main.bounds.height
-    static let HalfScreenHeight = UIScreen.main.bounds.height/2
-    static let HalfScreenWidth = UIScreen.main.bounds.width/2
-}
-
-//Fonts
-let kFuturaCondensedExtraBold = "Futura-CondensedExtraBold"
-let kFuturaCondensedMedium = "Futura-CondensedMedium"
-let kFuturaMedium = "Futura-Medium"
-let kFuturaMediumItalic = "Futura-MediumItalic"
-let kNoteWorthyBold = "Noteworthy-Bold"
-let kNoteWorthyLight = "Noteworthy-Light"
-let kMarkerFeltThin = "MarkerFelt-Thin"
-let kMarkerFeltWide = "MarkerFelt-Wide"
-
-class FontTypes{
-    static let FuturaCondensedExtraBold = kFuturaCondensedExtraBold
-    static let FuturaCondensedMedium = kFuturaCondensedMedium
-    static let FuturaMedium = kFuturaMedium
-    static let FuturaMediumItalic = kFuturaMediumItalic
-    static let NoteWorthyBold = kNoteWorthyBold
-    static let NoteWorthyLight = kNoteWorthyLight
-    static let MarkerFeltThin = kMarkerFeltThin
-    static let MarkerFeltWie = kMarkerFeltWide
-}
-
-
-//Background Audio Track Titles
-let kGermanVirtue = "German Virtue.mp3"
-let kInfiniteDescent = "Infinite Descent.mp3"
-let kItalianMom = "Italian Mom.mp3"
-let kMishiefStroll = "Mishief Stroll.mp3"
-let kMissionPlausible = "Mission Plausible.mp3"
-let kCheerfulAnnoyance = "Cheerful Annoyance.mp3"
-let kDrummingSticks = "Drumming Sticks.mp3"
-let kFarmFrolics = "Farm Frolics.mp3"
-let kFlowingRocks = "Flowing Rocks.mp3"
-let kGameOver = "Game Over.mp3"
-
-
-class BackgroundMusic{
-    static let GermanVirtue = kGermanVirtue
-    static let InfiniteDescent = kInfiniteDescent
-    static let ItalianMom = kItalianMom
-    static let MishiefStroll = kMishiefStroll
-    static let MissionPlausible = kMissionPlausible
-    static let CheerfulAnnoyance = kCheerfulAnnoyance
-    static let DrummingSticks = kDrummingSticks
-    static let FarmFrolics = kFarmFrolics
-    static let FlowingRocks = kFlowingRocks
-    static let GameOver = kGameOver
-    
-    
-    //Configure background music
-    static func configureBackgroundMusicFrom(fileNamed fileName: String, forParentNode parentNode: SKNode){
-        
-        let bg = SKAudioNode(fileNamed: fileName)
-        bg.autoplayLooped = true
-        parentNode.addChild(bg)
-        
-    }
-
-}
-
-
-//Sound Effects
-
-class SoundEffects{
-    static let Laser2 = "laser2.wav"
-    static let Laser3 = "laser3.wav"
-    static let Laser4 = "laser4.wav"
-    static let Laser5 = "laser5.wav"
-    static let Laser6 = "laser6.wav"
-    static let Laser7 = "laser7.wav"
-    static let Laser8 = "laser8.wav"
-    static let Laser9 = "laser9.wav"
-    static let Explosion2 = "rumble2.wav"
-    static let Explosion3 = "rumble3.wav"
-    
-}
-
-class SoundEffectsNoFileExtension{
-    static let Laser2 = "laser2"
-    static let Laser3 = "laser3"
-    static let Laser4 = "laser4"
-    static let Laser5 = "laser5"
-    static let Laser6 = "laser6"
-    static let Laser7 = "laser7"
-    static let Laser8 = "laser8"
-    static let Laser9 = "laser9"
-    static let Explosion2 = "rumble2"
-    static let Explosion3 = "rumble3"
-    
-}
-
-
 
 //UserOptions and Configuration Constants
 
@@ -182,14 +70,6 @@ class PlayerStats{
     static let OverallShootingAccuracy = "OverallShootingAccuracy"
 }
 
-//Contact Bitmasks
-
-class PhysicsCategory{
-    static let NoCategory: UInt32 = 0b0 << 0
-    static let Player: UInt32 = 0b0 << 1
-    static let Enemy: UInt32 = 0b0 << 2
-    static let Ground: UInt32 = 0b0 << 3
-}
 
 
 //Node Names

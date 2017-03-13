@@ -101,8 +101,8 @@ class CrossHair: SKSpriteNode{
     }
     
     private func move(){
-        let newX = Smooth(startPoint: Double(self.position.x), endPoint: Double(targetPosition.x), percentToMove: moveFilter)
-        let newY = Smooth(startPoint: Double(self.position.y), endPoint: Double(targetPosition.y), percentToMove: moveFilter)
+        let newX = Smooth(startPoint: self.position.x, endPoint: targetPosition.x, percentToMove: NumberUnit(moveFilter))
+        let newY = Smooth(startPoint: self.position.y, endPoint: targetPosition.y, percentToMove: NumberUnit(moveFilter))
         
         self.position = CGPoint(x: newX, y: newY)
     }

@@ -87,5 +87,8 @@ class Animal: SKSpriteNode{
         self.physicsBody?.mass = 0.02
         self.physicsBody?.linearDamping = 0.0
         
+        self.physicsBody?.categoryBitMask = PhysicsCategory.Animal
+        self.physicsBody?.contactTestBitMask = PhysicsCategory.Ground | PhysicsCategory.Enemy | PhysicsCategory.DamagedEnemy
+        self.physicsBody?.collisionBitMask = ~PhysicsCategory.DamagedEnemy
     }
 }

@@ -10,7 +10,7 @@ import Foundation
 import SpriteKit
 import GameplayKit
 
-class SpikemanScene1: TimeLimitScene{
+class SpikemanScene1: TimeLimitScene, SKPhysicsContactDelegate{
     
     private var spikeman: Spikeman!
     private var background: Background!
@@ -18,6 +18,9 @@ class SpikemanScene1: TimeLimitScene{
     private var animal: Animal!
     
     override func didMove(to view: SKView) {
+        
+        //Configure background music
+        BackgroundMusic.configureBackgroundMusicFrom(fileNamed: BackgroundMusic.CheerfulAnnoyance, forParentNode: self)
         
         //Configure scene anchor point
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
@@ -38,6 +41,9 @@ class SpikemanScene1: TimeLimitScene{
         
         self.physicsBody = SKPhysicsBody(edgeFrom: leftEdgePoint, to: rightEdgePoint)
         self.physicsWorld.gravity = CGVector(dx: 0, dy: -0.05)
+        self.physicsWorld.contactDelegate = self
+        self.physicsBody?.categoryBitMask = PhysicsCategory.Ground
+        self.physicsBody?.contactTestBitMask = PhysicsCategory.Animal
         
         //Configure RandomGenerator
         let minInitialXPosition = -Int(ScreenSizeFloatConstants.HalfScreenWidth*0.70)
@@ -68,15 +74,51 @@ class SpikemanScene1: TimeLimitScene{
     }
     
     override func didSimulatePhysics() {
-        spikeman.updatePhysics()
+        if(!spikeman.isInDamagedState()){
+            spikeman.updatePhysics()
+        }
+        
     }
     
     //User input handlers
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let touch = touches.first! as UITouch
+        let touchLocation = touch.location(in: self)
         
+        if(spikeman.contains(touchLocation)){
+            spikeman.takeDamage()
+        }
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         
+    }
+    
+    //Contact handler
+    func didBegin(_ contact: SKPhysicsContact) {
+        
+        var otherBody: SKPhysicsBody
+        let animalMask = PhysicsCategory.Animal
+        
+        //The other body is not the animal
+        if(contact.bodyA.categoryBitMask & animalMask) > 0{
+            otherBody = contact.bodyB
+        }else{
+            otherBody = contact.bodyA
+        }
+        
+        switch(otherBody.categoryBitMask){
+        case PhysicsCategory.Ground:
+            print("The animal hit the ground")
+            break
+        case PhysicsCategory.Enemy:
+            print("The animal hit the enemy")
+            break
+        case PhysicsCategory.DamagedEnemy:
+            print("The animal hit the damaged enemy")
+        default:
+            print("This contact has no game logic associated with it")
+            break
+        }
     }
 }

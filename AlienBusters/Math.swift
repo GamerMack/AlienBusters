@@ -89,14 +89,14 @@ func spawnVillains<V: Villain>(forParentNode parent: SKNode, fromVillains villai
 
 
 
-typealias NumberUnit = Double
+typealias NumberUnit = CGFloat
 
 func DegreesToRadians(angleInDegrees: NumberUnit) -> NumberUnit{
-    return angleInDegrees*(M_PI/180.0)
+    return angleInDegrees*CGFloat(M_PI/180.0)
 }
 
 func RadiansToDegrees(angleInRadians: NumberUnit) -> NumberUnit{
-    return angleInRadians*(180.0/M_PI)
+    return angleInRadians*CGFloat(180.0/M_PI)
 }
 
 func Smooth(startPoint: NumberUnit, endPoint: NumberUnit, percentToMove: NumberUnit) -> NumberUnit{

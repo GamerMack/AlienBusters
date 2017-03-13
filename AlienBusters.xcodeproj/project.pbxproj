@@ -18,6 +18,12 @@
 		BD2912721E6FF4E300ADE12E /* GameFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2912711E6FF4E300ADE12E /* GameFonts.swift */; };
 		BD2912761E70227600ADE12E /* Bat.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2912751E70227600ADE12E /* Bat.swift */; };
 		BD2912781E704B9300ADE12E /* BatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2912771E704B9300ADE12E /* BatController.swift */; };
+		BD2AB5471E76B11D0041B2AE /* BackgroundMusic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2AB5461E76B11D0041B2AE /* BackgroundMusic.swift */; };
+		BD2AB5491E76B16A0041B2AE /* SoundEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2AB5481E76B16A0041B2AE /* SoundEffects.swift */; };
+		BD2AB54D1E76B2640041B2AE /* ScreenSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2AB54C1E76B2640041B2AE /* ScreenSize.swift */; };
+		BD2AB54F1E76B2A00041B2AE /* Typography.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2AB54E1E76B2A00041B2AE /* Typography.swift */; };
+		BD2AB5521E76B2DE0041B2AE /* PhysicsCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2AB5511E76B2DE0041B2AE /* PhysicsCategories.swift */; };
+		BD2AB5541E76B3190041B2AE /* SoundLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2AB5531E76B3190041B2AE /* SoundLoader.swift */; };
 		BD2B80231E71A53500E509AF /* ButtonFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2B80221E71A53500E509AF /* ButtonFactory.swift */; };
 		BD2BF7251E74FF7B0022C378 /* TestScene2.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2BF7241E74FF7B0022C378 /* TestScene2.swift */; };
 		BD2D363F1E7639AE00F0B3A0 /* RandomVectorUniform.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2D363E1E7639AE00F0B3A0 /* RandomVectorUniform.swift */; };
@@ -120,6 +126,12 @@
 		BD2912711E6FF4E300ADE12E /* GameFonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameFonts.swift; sourceTree = "<group>"; };
 		BD2912751E70227600ADE12E /* Bat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bat.swift; sourceTree = "<group>"; };
 		BD2912771E704B9300ADE12E /* BatController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BatController.swift; sourceTree = "<group>"; };
+		BD2AB5461E76B11D0041B2AE /* BackgroundMusic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundMusic.swift; sourceTree = "<group>"; };
+		BD2AB5481E76B16A0041B2AE /* SoundEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundEffects.swift; sourceTree = "<group>"; };
+		BD2AB54C1E76B2640041B2AE /* ScreenSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenSize.swift; sourceTree = "<group>"; };
+		BD2AB54E1E76B2A00041B2AE /* Typography.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Typography.swift; sourceTree = "<group>"; };
+		BD2AB5511E76B2DE0041B2AE /* PhysicsCategories.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhysicsCategories.swift; sourceTree = "<group>"; };
+		BD2AB5531E76B3190041B2AE /* SoundLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundLoader.swift; sourceTree = "<group>"; };
 		BD2B80221E71A53500E509AF /* ButtonFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonFactory.swift; sourceTree = "<group>"; };
 		BD2BF7241E74FF7B0022C378 /* TestScene2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestScene2.swift; sourceTree = "<group>"; };
 		BD2D363E1E7639AE00F0B3A0 /* RandomVectorUniform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomVectorUniform.swift; sourceTree = "<group>"; };
@@ -238,6 +250,36 @@
 				BD2B80221E71A53500E509AF /* ButtonFactory.swift */,
 			);
 			name = UIElements;
+			sourceTree = "<group>";
+		};
+		BD2AB54A1E76B1830041B2AE /* SoundAndMusic */ = {
+			isa = PBXGroup;
+			children = (
+				BD2AB5531E76B3190041B2AE /* SoundLoader.swift */,
+				BD2AB5461E76B11D0041B2AE /* BackgroundMusic.swift */,
+				BD2AB5481E76B16A0041B2AE /* SoundEffects.swift */,
+			);
+			name = SoundAndMusic;
+			sourceTree = "<group>";
+		};
+		BD2AB54B1E76B1A50041B2AE /* Math */ = {
+			isa = PBXGroup;
+			children = (
+				BDDC24531E6E69C4005E103C /* Math.swift */,
+				BD2D36401E7639BA00F0B3A0 /* RandomVectorGaussian.swift */,
+				BD73EE471E73A60400CD7AD1 /* RandomVector.swift */,
+				BD73EE491E73A66E00CD7AD1 /* RandomPoint.swift */,
+				BD2D363E1E7639AE00F0B3A0 /* RandomVectorUniform.swift */,
+			);
+			name = Math;
+			sourceTree = "<group>";
+		};
+		BD2AB5501E76B2B00041B2AE /* Typography */ = {
+			isa = PBXGroup;
+			children = (
+				BD2AB54E1E76B2A00041B2AE /* Typography.swift */,
+			);
+			name = Typography;
 			sourceTree = "<group>";
 		};
 		BD2DC2091E75366C0067D1A2 /* Scenes.scnassets */ = {
@@ -476,17 +518,17 @@
 		BDDC24501E6E6993005E103C /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				BD2AB5501E76B2B00041B2AE /* Typography */,
+				BD2AB54B1E76B1A50041B2AE /* Math */,
+				BD2AB54A1E76B1830041B2AE /* SoundAndMusic */,
 				BDDC242F1E6E5966005E103C /* AppDelegate.swift */,
 				BDDC24511E6E69A1005E103C /* Constants.swift */,
-				BDDC24531E6E69C4005E103C /* Math.swift */,
 				BDDC24991E6E9D0D005E103C /* HelperFunctions.swift */,
 				BDD8AA351E7127C70054AB61 /* SceneInterfaceManager.swift */,
 				BD2E4DCB1E72D38500D025C7 /* UserInterfaceManager.swift */,
 				BDD8AA371E7129CA0054AB61 /* SceneInterfaceManagerDelegate.swift */,
-				BD73EE471E73A60400CD7AD1 /* RandomVector.swift */,
-				BD73EE491E73A66E00CD7AD1 /* RandomPoint.swift */,
-				BD2D363E1E7639AE00F0B3A0 /* RandomVectorUniform.swift */,
-				BD2D36401E7639BA00F0B3A0 /* RandomVectorGaussian.swift */,
+				BD2AB54C1E76B2640041B2AE /* ScreenSize.swift */,
+				BD2AB5511E76B2DE0041B2AE /* PhysicsCategories.swift */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -638,9 +680,11 @@
 				BD2DEE331E6EE9100060750D /* AnimationsManager.swift in Sources */,
 				BDD8AA361E7127C70054AB61 /* SceneInterfaceManager.swift in Sources */,
 				BD312B3A1E75906C00DCB39C /* TestScene5.swift in Sources */,
+				BD2AB54F1E76B2A00041B2AE /* Typography.swift in Sources */,
 				BD2DEE351E6EF8160060750D /* NTLScene2.swift in Sources */,
 				BD2912631E6FE8C400ADE12E /* NTLScene1.swift in Sources */,
 				BD312B3C1E759C5800DCB39C /* TestScene6.swift in Sources */,
+				BD2AB54D1E76B2640041B2AE /* ScreenSize.swift in Sources */,
 				BDD8AA3B1E715AA40054AB61 /* SKSceneExtension.swift in Sources */,
 				BDDC24831E6E9119005E103C /* Background.swift in Sources */,
 				BD2D363F1E7639AE00F0B3A0 /* RandomVectorUniform.swift in Sources */,
@@ -649,6 +693,7 @@
 				BD2323111E705A2500E3A2FC /* QueenAlien.swift in Sources */,
 				BDDC244B1E6E615D005E103C /* SceneA.swift in Sources */,
 				BD2912761E70227600ADE12E /* Bat.swift in Sources */,
+				BD2AB5541E76B3190041B2AE /* SoundLoader.swift in Sources */,
 				BDD8AA3D1E7162190054AB61 /* ButtonManager.swift in Sources */,
 				BDDC24561E6E69F5005E103C /* UserOptionsManager.swift in Sources */,
 				BD2912721E6FF4E300ADE12E /* GameFonts.swift in Sources */,
@@ -658,6 +703,7 @@
 				BDDC24361E6E5966005E103C /* TestScene.swift in Sources */,
 				BD2912671E6FE92300ADE12E /* TLScene1.swift in Sources */,
 				BDDC24811E6E7C30005E103C /* GameOverScene.swift in Sources */,
+				BD2AB5491E76B16A0041B2AE /* SoundEffects.swift in Sources */,
 				BDDC249A1E6E9D0D005E103C /* HelperFunctions.swift in Sources */,
 				BD29126D1E6FE98700ADE12E /* TLScene5.swift in Sources */,
 				BD2D36411E7639BA00F0B3A0 /* RandomVectorGaussian.swift in Sources */,
@@ -671,6 +717,7 @@
 				BDDC24301E6E5966005E103C /* AppDelegate.swift in Sources */,
 				BDAD68781E768E3B00771E25 /* WingmanScene1.swift in Sources */,
 				BD2D36431E764F5200F0B3A0 /* TestScene7.swift in Sources */,
+				BD2AB5521E76B2DE0041B2AE /* PhysicsCategories.swift in Sources */,
 				BD2DEE371E6EF84E0060750D /* NTLScene3.swift in Sources */,
 				BD73EE4A1E73A66E00CD7AD1 /* RandomPoint.swift in Sources */,
 				BDDC24A01E6EB9D5005E103C /* Enemy.swift in Sources */,
@@ -684,6 +731,7 @@
 				BD3049E91E6FB2D30083B0ED /* NoTimeLimitMode.swift in Sources */,
 				BDDC249E1E6EA082005E103C /* HUD.swift in Sources */,
 				BD2DC2081E75331E0067D1A2 /* TestScene3.swift in Sources */,
+				BD2AB5471E76B11D0041B2AE /* BackgroundMusic.swift in Sources */,
 				BDAD687D1E768FA900771E25 /* Spikeman.swift in Sources */,
 				BD2B80231E71A53500E509AF /* ButtonFactory.swift in Sources */,
 				BD3049EF1E6FB5EE0083B0ED /* MenuScene.swift in Sources */,
