@@ -120,11 +120,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AlienBusters/TestScene8.swift"
-            timestampString = "511109565.420288"
+            timestampString = "511110987.67675"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "99"
-            endingLineNumber = "99"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
             landmarkName = "getPositionOfRandomBackgroundObject()"
             landmarkType = "7">
          </BreakpointContent>

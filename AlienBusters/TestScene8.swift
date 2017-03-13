@@ -24,6 +24,8 @@ class TestScene8: SKScene{
     
     ]
     
+    var backgroundObjectsPositions = [CGPoint]()
+    
     
     var wingmanArray = [Wingman]()
     var currentWingmanIndex: Int = 0
@@ -88,15 +90,20 @@ class TestScene8: SKScene{
             
             backgroundObjects[index].zPosition = -1
             backgroundObjects[index].position = randomSpawnPoint
+            backgroundObjectsPositions.append(randomSpawnPoint)
             
             self.addChild(backgroundObjects[index])
         }
     }
     
     private func getPositionOfRandomBackgroundObject() -> CGPoint{
-        let randomIndex = Int(arc4random_uniform(UInt32(backgroundObjects.count-1)))
         
-        return backgroundObjects[randomIndex].position
+        let numberOfPositions: UInt32 = UInt32(backgroundObjectsPositions.count-1)
+        
+        let randomIndex = Int(arc4random_uniform(numberOfPositions))
+        
+        return backgroundObjectsPositions[randomIndex]
+ 
         
     }
     

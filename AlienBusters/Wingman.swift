@@ -76,7 +76,7 @@ class Wingman: SKSpriteNode{
     
     func updatePhysics(){
         
-        let randomVector = RandomVector.init(yComponentMin: -5, yComponentMax: 5, xComponentMin: -5, xComponentMax: 5)
+        let randomVector = RandomVector.init(yComponentMin: -15, yComponentMax: 15, xComponentMin: -15, xComponentMax: 15)
     
         self.physicsBody?.velocity = randomVector.getVector()
     }
