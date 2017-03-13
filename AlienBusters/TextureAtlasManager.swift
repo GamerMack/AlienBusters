@@ -28,6 +28,7 @@ class TextureAtlasManager{
         case UFO
         case Bats
         case DialogueAvatars
+        case Animals
     }
     
     func getTextureAtlasOfType(textureAtlasType: TextureAtlasType) -> SKTextureAtlas?{
@@ -64,10 +65,13 @@ class TextureAtlasManager{
                 return batsAtlas
             case .DialogueAvatars:
                 return dialogueAvatarsAtlas
+            case .Animals:
+                return animalsAtlas
 
         }
     }
     
+    private var animalsAtlas: SKTextureAtlas?
     private var crosshairAtlas: SKTextureAtlas?
     private var enemiesAtlas: SKTextureAtlas?
     private var hudAtlas: SKTextureAtlas?
@@ -88,6 +92,7 @@ class TextureAtlasManager{
     }
     
     private func setup(){
+        animalsAtlas = SKTextureAtlas(named: "Animals")
         crosshairAtlas = SKTextureAtlas(named: "CrossHair")
         enemiesAtlas = SKTextureAtlas(named: "Enemies")
         batsAtlas = SKTextureAtlas(named: "Bats")

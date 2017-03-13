@@ -1,19 +1,17 @@
 //
-//  TLScene6.swift
+//  WingmanScene1.swift
 //  AlienBusters
 //
-//  Created by Aleksander Makedonski on 3/12/17.
+//  Created by Aleksander Makedonski on 3/13/17.
 //  Copyright © 2017 AlexMakedonski. All rights reserved.
 //
 
 import Foundation
 import SpriteKit
 
-/**
-This test scene demonstrates how to incorporate a state machine for game state using an enum type declared within an extension to the scene class
- **/
 
-class TestScene2: TimeLimitScene{
+class WingmanScene1: TimeLimitScene{
+    
     
     static let buttonPositionOffset: CGFloat = 20.0
     
@@ -51,12 +49,12 @@ class TestScene2: TimeLimitScene{
         
         
         return shapeNode
-    
+        
     }()
     
     
     let pauseButton: SKShapeNode = {
-       let nodeRect = CGRect(x: -ScreenSizeFloatConstants.HalfScreenWidth + TestScene2.buttonPositionOffset, y: -ScreenSizeFloatConstants.HalfScreenHeight + TestScene2.buttonPositionOffset, width: ScreenSizeFloatConstants.HalfScreenWidth*0.8, height: ScreenSizeFloatConstants.HalfScreenHeight*0.7)
+        let nodeRect = CGRect(x: -ScreenSizeFloatConstants.HalfScreenWidth + TestScene2.buttonPositionOffset, y: -ScreenSizeFloatConstants.HalfScreenHeight + TestScene2.buttonPositionOffset, width: ScreenSizeFloatConstants.HalfScreenWidth*0.8, height: ScreenSizeFloatConstants.HalfScreenHeight*0.7)
         
         let shapeNode = SKShapeNode(rect: nodeRect, cornerRadius: 2.00)
         shapeNode.fillColor = SKColor.cyan
@@ -89,7 +87,7 @@ class TestScene2: TimeLimitScene{
         return shapeNode
     }()
     
-
+    
     
     override func didMove(to view: SKView) {
         //Add background music
@@ -118,7 +116,7 @@ class TestScene2: TimeLimitScene{
         
         let resumeButtonLabel = createLabelWith(textOf: "Resume", andNodeNameOf: NodeNames.ResumeButton)
         resumeButtonLabel.position = CGPoint(x: 150, y: -100)
-       resumeButton.addChild(resumeButtonLabel)
+        resumeButton.addChild(resumeButtonLabel)
         self.addChild(resumeButton)
         
         
@@ -160,41 +158,41 @@ class TestScene2: TimeLimitScene{
         let touchLocation = touch.location(in: self)
         
         switch(state){
-            case .Running:
-                if(pauseButton.contains(touchLocation)){
-                    enterPausedState()
-                }
-                
-                if(gameOverButton.contains(touchLocation)){
-                    enterGameOverState()
-                }
-                break
-            case .Paused:
-                if(resumeButton.contains(touchLocation)){
-                    enterResumedState()
-                }
-                
-                break
-            case .GameOver:
-                break
-            case .Waiting:
-                if(startButton.contains(touchLocation)){
-                    enterRunningState()
-                }
-                break
+        case .Running:
+            if(pauseButton.contains(touchLocation)){
+                enterPausedState()
+            }
+            
+            if(gameOverButton.contains(touchLocation)){
+                enterGameOverState()
+            }
+            break
+        case .Paused:
+            if(resumeButton.contains(touchLocation)){
+                enterResumedState()
+            }
+            
+            break
+        case .GameOver:
+            break
+        case .Waiting:
+            if(startButton.contains(touchLocation)){
+                enterRunningState()
+            }
+            break
         }
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         switch(state){
-            case .Running:
-                break
-            case .Paused:
-                break
-            case .GameOver:
-                break
-            case .Waiting:
-                break
+        case .Running:
+            break
+        case .Paused:
+            break
+        case .GameOver:
+            break
+        case .Waiting:
+            break
         }
     }
     
@@ -210,7 +208,7 @@ class TestScene2: TimeLimitScene{
         //Configure Horizontal and Vertical Alignment Modes
         label.horizontalAlignmentMode = .center
         label.verticalAlignmentMode = .center
-      
+        
         
         //Set node name
         label.name = NodeNames.ResumeButton
@@ -218,12 +216,12 @@ class TestScene2: TimeLimitScene{
         return label
     }
     
-   
-
+    
+    
 }
 
 
-extension TestScene2{
+extension WingmanScene1{
     
     //MARK: Game state toggles
     override func enterGameOverState() {
@@ -266,22 +264,21 @@ extension TestScene2{
         resumeButton.removeAction(forKey: "fadeAnimation")
     }
     
-     func runGameWaitingAnimations(){
+    func runGameWaitingAnimations(){
         pauseButton.run(gameWaitingAction, withKey: "gameWaitingAction")
         startButton.run(gameWaitingAction, withKey: "gameWaitingAction")
         gameOverButton.run(gameWaitingAction, withKey: "gameWaitingAction")
         resumeButton.run(gameWaitingAction, withKey: "gameWaitingAction")
-
+        
     }
     
     
-     func removeGameWaitingAnimations(){
+    func removeGameWaitingAnimations(){
         pauseButton.removeAction(forKey: "gameWaitingAction")
         startButton.removeAction(forKey: "gameWaitingAction")
         gameOverButton.removeAction(forKey: "gameWaitingAction")
         resumeButton.removeAction(forKey: "gameWaitingAction")
-
+        
     }
 
-    
 }
