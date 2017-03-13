@@ -17,6 +17,10 @@ class SpikemanScene1: TimeLimitScene, SKPhysicsContactDelegate{
     private var player: CrossHair!
     private var animal: Animal!
     
+    //Number of hits on enemy
+    private var numberOfHits: Int = 0
+
+    
     override func didMove(to view: SKView) {
         
         //Configure background music
@@ -70,7 +74,7 @@ class SpikemanScene1: TimeLimitScene, SKPhysicsContactDelegate{
     
     //Game Loop Functions
     override func update(_ currentTime: TimeInterval) {
-        animal.position.x = spikeman.position.x 
+        animal.position.x = spikeman.position.x
     }
     
     override func didSimulatePhysics() {
@@ -109,12 +113,15 @@ class SpikemanScene1: TimeLimitScene, SKPhysicsContactDelegate{
         
         switch(otherBody.categoryBitMask){
         case PhysicsCategory.Ground:
+            animal.flyAway()
             print("The animal hit the ground")
             break
         case PhysicsCategory.Enemy:
             print("The animal hit the enemy")
+            animal.die()
             break
         case PhysicsCategory.DamagedEnemy:
+            animal.flyAway()
             print("The animal hit the damaged enemy")
         default:
             print("This contact has no game logic associated with it")

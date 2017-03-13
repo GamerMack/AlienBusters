@@ -13,6 +13,8 @@ class Animal: SKSpriteNode{
     
     let textureAtlas = TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .Animals)
     
+    var shapeOverlay = SKShapeNode()
+    
     enum AnimalType{
         case Elephant
         case Giraffe
@@ -74,6 +76,15 @@ class Animal: SKSpriteNode{
         
         self.init(texture: texture, color: .clear, size: animalSize)
         
+        
+        shapeOverlay = SKShapeNode(circleOfRadius: animalSize.width/2)
+        shapeOverlay.fillColor = SKColor.red
+        shapeOverlay.strokeColor = SKColor.clear
+        shapeOverlay.zPosition = 15
+        shapeOverlay.alpha = 0
+        
+        self.addChild(shapeOverlay)
+        
         configurePhysics(physicsBodyRadius: animalSize.width/2)
     
     }
@@ -89,6 +100,37 @@ class Animal: SKSpriteNode{
         
         self.physicsBody?.categoryBitMask = PhysicsCategory.Animal
         self.physicsBody?.contactTestBitMask = PhysicsCategory.Ground | PhysicsCategory.Enemy | PhysicsCategory.DamagedEnemy
-        self.physicsBody?.collisionBitMask = ~PhysicsCategory.DamagedEnemy
+        self.physicsBody?.collisionBitMask = ~PhysicsCategory.DamagedEnemy | ~PhysicsCategory.Enemy
+    }
+    
+    func die(){
+        self.shapeOverlay.alpha = 0.70
+        self.run(SKAction.sequence([
+            SKAction.fadeOut(withDuration: 0.90),
+            SKAction.removeFromParent()
+            ]))
+    }
+    
+    func flyAway(){
+        let thankYouMessage = SKLabelNode(fontNamed: FontTypes.NoteWorthyLight)
+        thankYouMessage.text = "You saved me!"
+        thankYouMessage.fontSize = 40.0
+        
+        self.run(SKAction.sequence([
+            SKAction.run({
+                self.physicsBody?.affectedByGravity = false
+                }),
+            SKAction.move(to: CGPoint.zero, duration: 1.0)
+            
+            ]))
+        
+        self.run(SKAction.sequence([
+            SKAction.run({
+                self.addChild(thankYouMessage)
+                }),
+            SKAction.fadeOut(withDuration: 4.0),
+            SKAction.removeFromParent()
+            ]))
+        
     }
 }

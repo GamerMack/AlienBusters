@@ -64,6 +64,7 @@ class Spikeman: SKSpriteNode{
         
         self.physicsBody?.categoryBitMask = PhysicsCategory.Enemy 
         self.physicsBody?.contactTestBitMask = PhysicsCategory.Animal
+        self.physicsBody?.collisionBitMask = ~PhysicsCategory.Animal
         
         self.physicsBody?.velocity.dx = CGFloat(initialVelocity)
         
@@ -96,6 +97,28 @@ class Spikeman: SKSpriteNode{
     
     
     //Game loop functions
+    
+    func updatePosition(){
+        
+        let xPosition = self.position.x
+        let yPosition = self.position.y
+        
+        
+        let minAllowableXPosition = -ScreenSizeFloatConstants.HalfScreenWidth*0.9
+        let maxAllowableXPosition = ScreenSizeFloatConstants.HalfScreenWidth*0.9
+        
+        if(xPosition < minAllowableXPosition || xPosition > maxAllowableXPosition){
+            
+            let randomSource = GKLinearCongruentialRandomSource()
+            let randomDist = GKRandomDistribution(randomSource: randomSource, lowestValue: -Int(ScreenSizeFloatConstants.HalfScreenWidth*0.7), highestValue: Int(ScreenSizeFloatConstants.HalfScreenWidth*0.7))
+            
+            let randomPoint = CGPoint(x: randomDist.nextInt(), y: Int(yPosition))
+
+            self.position = randomPoint
+        }
+
+    }
+    
     
     func updatePhysics(){
         //Get random point
