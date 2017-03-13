@@ -24,6 +24,7 @@
 		BD2AB54F1E76B2A00041B2AE /* Typography.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2AB54E1E76B2A00041B2AE /* Typography.swift */; };
 		BD2AB5521E76B2DE0041B2AE /* PhysicsCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2AB5511E76B2DE0041B2AE /* PhysicsCategories.swift */; };
 		BD2AB5541E76B3190041B2AE /* SoundLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2AB5531E76B3190041B2AE /* SoundLoader.swift */; };
+		BD2AB5561E76DB2F0041B2AE /* BackgroundObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2AB5551E76DB2F0041B2AE /* BackgroundObject.swift */; };
 		BD2B80231E71A53500E509AF /* ButtonFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2B80221E71A53500E509AF /* ButtonFactory.swift */; };
 		BD2BF7251E74FF7B0022C378 /* TestScene2.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2BF7241E74FF7B0022C378 /* TestScene2.swift */; };
 		BD2D363F1E7639AE00F0B3A0 /* RandomVectorUniform.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2D363E1E7639AE00F0B3A0 /* RandomVectorUniform.swift */; };
@@ -72,7 +73,7 @@
 		BDDC243D1E6E5966005E103C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDDC243C1E6E5966005E103C /* Assets.xcassets */; };
 		BDDC24401E6E5966005E103C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDDC243E1E6E5966005E103C /* LaunchScreen.storyboard */; };
 		BDDC24491E6E5C0B005E103C /* TextureAtlasManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDC24481E6E5C0B005E103C /* TextureAtlasManager.swift */; };
-		BDDC244B1E6E615D005E103C /* SceneA.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDC244A1E6E615D005E103C /* SceneA.swift */; };
+		BDDC244B1E6E615D005E103C /* TestScene8.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDC244A1E6E615D005E103C /* TestScene8.swift */; };
 		BDDC24521E6E69A1005E103C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDC24511E6E69A1005E103C /* Constants.swift */; };
 		BDDC24541E6E69C4005E103C /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDC24531E6E69C4005E103C /* Math.swift */; };
 		BDDC24561E6E69F5005E103C /* UserOptionsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDC24551E6E69F5005E103C /* UserOptionsManager.swift */; };
@@ -132,6 +133,7 @@
 		BD2AB54E1E76B2A00041B2AE /* Typography.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Typography.swift; sourceTree = "<group>"; };
 		BD2AB5511E76B2DE0041B2AE /* PhysicsCategories.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhysicsCategories.swift; sourceTree = "<group>"; };
 		BD2AB5531E76B3190041B2AE /* SoundLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundLoader.swift; sourceTree = "<group>"; };
+		BD2AB5551E76DB2F0041B2AE /* BackgroundObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundObject.swift; sourceTree = "<group>"; };
 		BD2B80221E71A53500E509AF /* ButtonFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonFactory.swift; sourceTree = "<group>"; };
 		BD2BF7241E74FF7B0022C378 /* TestScene2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestScene2.swift; sourceTree = "<group>"; };
 		BD2D363E1E7639AE00F0B3A0 /* RandomVectorUniform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomVectorUniform.swift; sourceTree = "<group>"; };
@@ -182,7 +184,7 @@
 		BDDC243F1E6E5966005E103C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BDDC24411E6E5966005E103C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BDDC24481E6E5C0B005E103C /* TextureAtlasManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextureAtlasManager.swift; sourceTree = "<group>"; };
-		BDDC244A1E6E615D005E103C /* SceneA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneA.swift; sourceTree = "<group>"; };
+		BDDC244A1E6E615D005E103C /* TestScene8.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestScene8.swift; sourceTree = "<group>"; };
 		BDDC24511E6E69A1005E103C /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BDDC24531E6E69C4005E103C /* Math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Math.swift; sourceTree = "<group>"; };
 		BDDC24551E6E69F5005E103C /* UserOptionsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserOptionsManager.swift; sourceTree = "<group>"; };
@@ -326,7 +328,7 @@
 				BD312B391E75906C00DCB39C /* TestScene5.swift */,
 				BD312B3B1E759C5800DCB39C /* TestScene6.swift */,
 				BD2D36421E764F5200F0B3A0 /* TestScene7.swift */,
-				BDDC244A1E6E615D005E103C /* SceneA.swift */,
+				BDDC244A1E6E615D005E103C /* TestScene8.swift */,
 			);
 			name = TestScenes;
 			sourceTree = "<group>";
@@ -542,6 +544,7 @@
 				BDDC249B1E6E9E71005E103C /* FlyingAlien.swift */,
 				BD2DEE381E6EFD680060750D /* FallingAliens.swift */,
 				BDDC249D1E6EA082005E103C /* HUD.swift */,
+				BD2AB5551E76DB2F0041B2AE /* BackgroundObject.swift */,
 				BDDC249F1E6EB9D5005E103C /* Enemy.swift */,
 				BD2DEE3A1E6F05AA0060750D /* FallingAliensController.swift */,
 				BDDB9E831E6FCAFF004D1D2B /* SpaceShip.swift */,
@@ -691,7 +694,7 @@
 				BD3049E51E6FACBA0083B0ED /* NTLScene4.swift in Sources */,
 				BD312B131E756A3B00DCB39C /* PlistUnarchiver.swift in Sources */,
 				BD2323111E705A2500E3A2FC /* QueenAlien.swift in Sources */,
-				BDDC244B1E6E615D005E103C /* SceneA.swift in Sources */,
+				BDDC244B1E6E615D005E103C /* TestScene8.swift in Sources */,
 				BD2912761E70227600ADE12E /* Bat.swift in Sources */,
 				BD2AB5541E76B3190041B2AE /* SoundLoader.swift in Sources */,
 				BDD8AA3D1E7162190054AB61 /* ButtonManager.swift in Sources */,
@@ -735,6 +738,7 @@
 				BDAD687D1E768FA900771E25 /* Spikeman.swift in Sources */,
 				BD2B80231E71A53500E509AF /* ButtonFactory.swift in Sources */,
 				BD3049EF1E6FB5EE0083B0ED /* MenuScene.swift in Sources */,
+				BD2AB5561E76DB2F0041B2AE /* BackgroundObject.swift in Sources */,
 				BDDC249C1E6E9E71005E103C /* FlyingAlien.swift in Sources */,
 				BDAD68841E769F2900771E25 /* Animal.swift in Sources */,
 				BDDB9E861E6FD7C3004D1D2B /* SmokeEmitterManager.swift in Sources */,
