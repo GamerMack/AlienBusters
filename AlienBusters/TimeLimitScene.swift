@@ -20,6 +20,7 @@ class TimeLimitScene: SKScene{
     var timerIsStarted: Bool = false
     var lastUpdateTime: TimeInterval = 0.00
     var totalRunningTime: TimeInterval = 0.00
+    var frameCount: TimeInterval = 0.00
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)

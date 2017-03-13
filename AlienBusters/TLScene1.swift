@@ -135,7 +135,7 @@ class TLScene1: SKScene{
             return
         } else {
             guard let bat = bat else { return }
-            bat.updatePhysics()
+            bat.updatePhysicsWithARC4Random()
         }
     }
     

@@ -12,9 +12,8 @@ import SpriteKit
 
 class TestScene6: TimeLimitScene{
     
-    let bat1 = Bat()
-    let bat2 = Bat(scalingFactor: 2.0, startingHealth: 5, maxXVelocity: 10, maxYVelocity: 10)!
-    let bat3 = Bat(scalingFactor: 3.0, startingHealth: 5, maxXVelocity: 50, maxYVelocity: 50)!
+    let bat1 = Bat(xVelocity: 5.0, yVelocity: 5.0, applyImpulseInterval: 3.00)!
+
     
     override func didMove(to view: SKView) {
         //Configure background music
@@ -22,21 +21,23 @@ class TestScene6: TimeLimitScene{
         
         //Add bats to the scene
         self.addChild(bat1)
-        self.addChild(bat2)
-        self.addChild(bat3)
         
     }
     
     //GameLoop Functions
     
     override func update(_ currentTime: TimeInterval) {
+        frameCount = currentTime - lastUpdateTime
         
+        if(frameCount > bat1.getApplyImpulseInterval()){
+            bat1.updateWithAppliedImpulse()
+            frameCount = 0.00
+        }
+        
+        lastUpdateTime = currentTime
     }
     
     override func didSimulatePhysics() {
-        bat1.updatePhysics()
-        bat2.updatePhysics()
-        bat3.updatePhysics()
     }
     
     //User input handling

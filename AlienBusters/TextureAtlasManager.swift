@@ -27,6 +27,7 @@ class TextureAtlasManager{
         case SpaceShips
         case UFO
         case Bats
+        case DialogueAvatars
     }
     
     func getTextureAtlasOfType(textureAtlasType: TextureAtlasType) -> SKTextureAtlas?{
@@ -61,6 +62,8 @@ class TextureAtlasManager{
                 return spaceShipsAtlas
             case .Bats:
                 return batsAtlas
+            case .DialogueAvatars:
+                return dialogueAvatarsAtlas
 
         }
     }
@@ -78,25 +81,27 @@ class TextureAtlasManager{
     private var userInterfaceAtlas: SKTextureAtlas?
     private var spaceShipsAtlas: SKTextureAtlas?
     private var batsAtlas: SKTextureAtlas?
+    private var dialogueAvatarsAtlas: SKTextureAtlas?
     
     private init(){
         setup()
     }
     
     private func setup(){
-          crosshairAtlas = SKTextureAtlas(named: "CrossHair")
-          enemiesAtlas = SKTextureAtlas(named: "Enemies")
+        crosshairAtlas = SKTextureAtlas(named: "CrossHair")
+        enemiesAtlas = SKTextureAtlas(named: "Enemies")
         batsAtlas = SKTextureAtlas(named: "Bats")
-          hudAtlas = SKTextureAtlas(named: "HUD")
-          treesAtlas = SKTextureAtlas(named: "Trees")
-          flyingAliensAtlas = SKTextureAtlas(named: "FlyingAliens")
-          regularExplosionAtlas = SKTextureAtlas(named: "RegularExplosion")
-          groundExplosionAtlas = SKTextureAtlas(named: "GroundExplosion")
-          backgroundObjectsAtlas = SKTextureAtlas(named: "BackgroundObjects")
-          backgroundScenesAtlas = SKTextureAtlas(named: "BackgroundScenes.atlas")
-            ufoAtlas = SKTextureAtlas(named: "UFO.atlas")
-            userInterfaceAtlas = SKTextureAtlas(named: "UI.atlas")
-            spaceShipsAtlas = SKTextureAtlas(named: "SpaceShips.atlas")
+        hudAtlas = SKTextureAtlas(named: "HUD")
+        treesAtlas = SKTextureAtlas(named: "Trees")
+        flyingAliensAtlas = SKTextureAtlas(named: "FlyingAliens")
+        regularExplosionAtlas = SKTextureAtlas(named: "RegularExplosion")
+        groundExplosionAtlas = SKTextureAtlas(named: "GroundExplosion")
+        backgroundObjectsAtlas = SKTextureAtlas(named: "BackgroundObjects")
+        backgroundScenesAtlas = SKTextureAtlas(named: "BackgroundScenes.atlas")
+        ufoAtlas = SKTextureAtlas(named: "UFO.atlas")
+        userInterfaceAtlas = SKTextureAtlas(named: "UI.atlas")
+        spaceShipsAtlas = SKTextureAtlas(named: "SpaceShips.atlas")
+        dialogueAvatarsAtlas = SKTextureAtlas(named: "DialogueAvatars.atlas")
     }
     
 }

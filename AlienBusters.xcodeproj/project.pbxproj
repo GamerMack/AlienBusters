@@ -20,6 +20,9 @@
 		BD2912781E704B9300ADE12E /* BatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2912771E704B9300ADE12E /* BatController.swift */; };
 		BD2B80231E71A53500E509AF /* ButtonFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2B80221E71A53500E509AF /* ButtonFactory.swift */; };
 		BD2BF7251E74FF7B0022C378 /* TestScene2.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2BF7241E74FF7B0022C378 /* TestScene2.swift */; };
+		BD2D363F1E7639AE00F0B3A0 /* RandomVectorUniform.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2D363E1E7639AE00F0B3A0 /* RandomVectorUniform.swift */; };
+		BD2D36411E7639BA00F0B3A0 /* RandomVectorGaussian.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2D36401E7639BA00F0B3A0 /* RandomVectorGaussian.swift */; };
+		BD2D36431E764F5200F0B3A0 /* TestScene7.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2D36421E764F5200F0B3A0 /* TestScene7.swift */; };
 		BD2DC2081E75331E0067D1A2 /* TestScene3.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2DC2071E75331E0067D1A2 /* TestScene3.swift */; };
 		BD2DC20B1E7536940067D1A2 /* SCNScene1.scn in Resources */ = {isa = PBXBuildFile; fileRef = BD2DC20A1E7536940067D1A2 /* SCNScene1.scn */; };
 		BD2DC22D1E755D710067D1A2 /* TestScene4.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2DC22C1E755D710067D1A2 /* TestScene4.swift */; };
@@ -113,6 +116,9 @@
 		BD2912771E704B9300ADE12E /* BatController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BatController.swift; sourceTree = "<group>"; };
 		BD2B80221E71A53500E509AF /* ButtonFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonFactory.swift; sourceTree = "<group>"; };
 		BD2BF7241E74FF7B0022C378 /* TestScene2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestScene2.swift; sourceTree = "<group>"; };
+		BD2D363E1E7639AE00F0B3A0 /* RandomVectorUniform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomVectorUniform.swift; sourceTree = "<group>"; };
+		BD2D36401E7639BA00F0B3A0 /* RandomVectorGaussian.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomVectorGaussian.swift; sourceTree = "<group>"; };
+		BD2D36421E764F5200F0B3A0 /* TestScene7.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestScene7.swift; sourceTree = "<group>"; };
 		BD2DC2071E75331E0067D1A2 /* TestScene3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestScene3.swift; sourceTree = "<group>"; };
 		BD2DC20A1E7536940067D1A2 /* SCNScene1.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = SCNScene1.scn; sourceTree = "<group>"; };
 		BD2DC22C1E755D710067D1A2 /* TestScene4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestScene4.swift; sourceTree = "<group>"; };
@@ -264,6 +270,7 @@
 				BD2DC22C1E755D710067D1A2 /* TestScene4.swift */,
 				BD312B391E75906C00DCB39C /* TestScene5.swift */,
 				BD312B3B1E759C5800DCB39C /* TestScene6.swift */,
+				BD2D36421E764F5200F0B3A0 /* TestScene7.swift */,
 				BDDC244A1E6E615D005E103C /* SceneA.swift */,
 			);
 			name = TestScenes;
@@ -439,6 +446,8 @@
 				BDD8AA371E7129CA0054AB61 /* SceneInterfaceManagerDelegate.swift */,
 				BD73EE471E73A60400CD7AD1 /* RandomVector.swift */,
 				BD73EE491E73A66E00CD7AD1 /* RandomPoint.swift */,
+				BD2D363E1E7639AE00F0B3A0 /* RandomVectorUniform.swift */,
+				BD2D36401E7639BA00F0B3A0 /* RandomVectorGaussian.swift */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -591,6 +600,7 @@
 				BD312B3C1E759C5800DCB39C /* TestScene6.swift in Sources */,
 				BDD8AA3B1E715AA40054AB61 /* SKSceneExtension.swift in Sources */,
 				BDDC24831E6E9119005E103C /* Background.swift in Sources */,
+				BD2D363F1E7639AE00F0B3A0 /* RandomVectorUniform.swift in Sources */,
 				BD3049E51E6FACBA0083B0ED /* NTLScene4.swift in Sources */,
 				BD312B131E756A3B00DCB39C /* PlistUnarchiver.swift in Sources */,
 				BD2323111E705A2500E3A2FC /* QueenAlien.swift in Sources */,
@@ -607,6 +617,7 @@
 				BDDC24811E6E7C30005E103C /* GameOverScene.swift in Sources */,
 				BDDC249A1E6E9D0D005E103C /* HelperFunctions.swift in Sources */,
 				BD29126D1E6FE98700ADE12E /* TLScene5.swift in Sources */,
+				BD2D36411E7639BA00F0B3A0 /* RandomVectorGaussian.swift in Sources */,
 				BDD8AA381E7129CA0054AB61 /* SceneInterfaceManagerDelegate.swift in Sources */,
 				BDDC247F1E6E7654005E103C /* CrossHair.swift in Sources */,
 				BDDC24491E6E5C0B005E103C /* TextureAtlasManager.swift in Sources */,
@@ -615,6 +626,7 @@
 				BD2912691E6FE94D00ADE12E /* TLScene2.swift in Sources */,
 				BDDC24381E6E5966005E103C /* GameViewController.swift in Sources */,
 				BDDC24301E6E5966005E103C /* AppDelegate.swift in Sources */,
+				BD2D36431E764F5200F0B3A0 /* TestScene7.swift in Sources */,
 				BD2DEE371E6EF84E0060750D /* NTLScene3.swift in Sources */,
 				BD73EE4A1E73A66E00CD7AD1 /* RandomPoint.swift in Sources */,
 				BDDC24A01E6EB9D5005E103C /* Enemy.swift in Sources */,

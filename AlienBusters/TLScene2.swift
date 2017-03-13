@@ -186,11 +186,11 @@ class TLScene2: SKScene{
      
             if let bat1 = bat1, let bat2 = bat2, let bat3 = bat3, let bat4 = bat4, let bat5 = bat5{
             
-                    bat1.updatePhysics()
-                    bat2.updatePhysics()
-                    bat3.updatePhysics()
-                    bat4.updatePhysics()
-                    bat5.updatePhysics()
+                    bat1.updatePhysicsWithARC4Random()
+                    bat2.updatePhysicsWithARC4Random()
+                    bat3.updatePhysicsWithARC4Random()
+                    bat4.updatePhysicsWithARC4Random()
+                    bat5.updatePhysicsWithARC4Random()
             }
         
     }
