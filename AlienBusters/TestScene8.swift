@@ -12,6 +12,11 @@ import GameplayKit
 
 class TestScene8: SKScene{
     
+    //MARK: UI Buttons
+    
+    var menuButton = SKSpriteNode()
+    var restartButton = SKSpriteNode()
+    
     
     //MARK: Explosion Animation
     var explosionAnimation = SKAction()
@@ -48,7 +53,7 @@ class TestScene8: SKScene{
         }()
     
     var currentNumberOfEnemies: Int = 0
-    var maximumNumberOFEnemies: Int = 20
+    var maximumNumberOFEnemies: Int = 5
     var numberOfEnemiesKilled: Int = 0
     
     var initialNumberOfEnemiesSpawned: Int = 2
@@ -93,7 +98,9 @@ class TestScene8: SKScene{
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         self.backgroundColor = SKColor.black
         
-        
+        //Configure menu and restart buttons
+        self.setupMenuAndRestartButtons()
+    
         //Configure particle emitter for background
         
         let emitterPath = Bundle.main.path(forResource: "StarryNight", ofType: "sks")!
@@ -145,7 +152,7 @@ class TestScene8: SKScene{
         
         if(currentNumberOfEnemies > maximumNumberOFEnemies){
             self.isPaused = true
-            hud2.showRestartButtons()
+            self.showRestartButtons()
     
         }
         
@@ -328,3 +335,79 @@ class TestScene8: SKScene{
 
     
 }
+
+extension TestScene8{
+    
+    func setupMenuAndRestartButtons(){
+        
+        guard let menuButtonTexture = TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .HUD)?.textureNamed("button-menu") else { return }
+        
+        guard let restartButtonTexture = TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .HUD)?.textureNamed("button-restart") else { return }
+        
+        menuButton = SKSpriteNode(texture: menuButtonTexture)
+        restartButton = SKSpriteNode(texture: restartButtonTexture)
+        
+            menuButton.name = NodeNames.ReturnToMenuButton
+            restartButton.name = NodeNames.RestartGameButton
+            
+            menuButton.size = CGSize(width: kViewWidth*0.2, height: kViewHeight*0.3)
+            restartButton.size = CGSize(width: kViewWidth*0.2, height: kViewHeight*0.3)
+            
+            menuButton.position = CGPoint(x: kViewWidth*0.5*0.2, y: 0)
+            restartButton.position = CGPoint(x: menuButton.position.x - menuButton.size.width - 30, y: menuButton.position.y)
+            
+            let returnToMenuText = SKLabelNode(fontNamed: FontTypes.NoteWorthyLight)
+            returnToMenuText.text = "Main Menu"
+            returnToMenuText.fontSize = 20.0
+            returnToMenuText.fontColor = SKColor.white
+            returnToMenuText.verticalAlignmentMode = .bottom
+            returnToMenuText.position = CGPoint(x: 0, y: -menuButton.size.height)
+            menuButton.addChild(returnToMenuText)
+            
+            let restartGameText = SKLabelNode(fontNamed: FontTypes.NoteWorthyLight)
+            restartGameText.text = "Restart Level"
+            restartGameText.fontSize = 20.0
+            restartGameText.fontColor = SKColor.white
+            restartGameText.verticalAlignmentMode = .bottom
+            restartGameText.position = CGPoint(x: 0, y: -restartButton.size.height)
+            restartButton.addChild(restartGameText)
+            
+            restartButton.zPosition = -15
+            menuButton.zPosition = -15
+            
+            restartButton.alpha = 0
+            menuButton.alpha = 0
+            
+        
+            self.addChild(restartButton)
+            self.addChild(menuButton)
+            
+        
+        
+    }
+    
+    func showRestartButtons(){
+        //Set the button alpha to zero
+        
+            
+            restartButton.alpha = 1
+            menuButton.alpha = 1
+        
+            
+            
+            menuButton.zPosition = 15
+            restartButton.zPosition = 15
+            
+            
+            let fadeAnimation = SKAction.fadeAlpha(to: 1.0, duration: 1.0)
+            
+            restartButton.run(fadeAnimation)
+            menuButton.run(fadeAnimation)
+    }
+    
+    
+    
+
+    
+}
+

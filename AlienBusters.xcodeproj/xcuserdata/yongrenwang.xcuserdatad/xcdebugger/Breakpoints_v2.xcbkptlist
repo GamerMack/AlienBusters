@@ -120,11 +120,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AlienBusters/TestScene8.swift"
-            timestampString = "511166084.643392"
+            timestampString = "511166787.062445"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "242"
-            endingLineNumber = "242"
+            startingLineNumber = "249"
+            endingLineNumber = "249"
             landmarkName = "getPositionOfRandomBackgroundObject()"
             landmarkType = "7">
          </BreakpointContent>
@@ -136,11 +136,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AlienBusters/TestScene8.swift"
-            timestampString = "511166084.643392"
+            timestampString = "511166787.062445"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "199"
-            endingLineNumber = "199"
+            startingLineNumber = "206"
+            endingLineNumber = "206"
             landmarkName = "touchesBegan(_:with:)"
             landmarkType = "7">
          </BreakpointContent>

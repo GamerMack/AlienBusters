@@ -15,9 +15,7 @@ class HUD2: SKSpriteNode{
     private let textureAtlasManager = TextureAtlasManager.sharedInstance
     private let hudAtlas = TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .HUD)
     
-    
-    //MARK: Return-to-Menu and Restart Buttons
-    var restartButton: SKSpriteNode?
+   
     var menuButton: SKSpriteNode?
     
     //MARK: Game Performance/Stats Metrics (dynamically updated)
@@ -95,8 +93,6 @@ class HUD2: SKSpriteNode{
         
         
         
-        setupRestartButtons()
-        
         
     }
     
@@ -121,78 +117,5 @@ class HUD2: SKSpriteNode{
     }
     
     
-    private func setupRestartButtons(){
-        
-        guard let menuButtonTexture = TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .HUD)?.textureNamed("button-menu") else { return }
-        
-        guard let restartButtonTexture = TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .HUD)?.textureNamed("button-restart") else { return }
-        
-        menuButton = SKSpriteNode(texture: menuButtonTexture)
-        
-        restartButton = SKSpriteNode(texture: restartButtonTexture)
-        
-        if let menuButton = menuButton, let restartButton = restartButton{
-            menuButton.name = NodeNames.ReturnToMenuButton
-            restartButton.name = NodeNames.RestartGameButton
-            
-            menuButton.size = CGSize(width: kViewWidth*0.2, height: kViewHeight*0.3)
-            restartButton.size = CGSize(width: kViewWidth*0.2, height: kViewHeight*0.3)
-            
-            menuButton.position = CGPoint(x: kViewWidth*0.5*0.2, y: 0)
-            restartButton.position = CGPoint(x: menuButton.position.x - menuButton.size.width - 30, y: menuButton.position.y)
-            
-            let returnToMenuText = SKLabelNode(fontNamed: FontTypes.NoteWorthyLight)
-            returnToMenuText.text = "Main Menu"
-            returnToMenuText.fontSize = 20.0
-            returnToMenuText.fontColor = SKColor.white
-            returnToMenuText.verticalAlignmentMode = .bottom
-            returnToMenuText.position = CGPoint(x: 0, y: -menuButton.size.height)
-            menuButton.addChild(returnToMenuText)
-            
-            let restartGameText = SKLabelNode(fontNamed: FontTypes.NoteWorthyLight)
-            restartGameText.text = "Restart Level"
-            restartGameText.fontSize = 20.0
-            restartGameText.fontColor = SKColor.white
-            restartGameText.verticalAlignmentMode = .bottom
-            restartGameText.position = CGPoint(x: 0, y: -restartButton.size.height)
-            restartButton.addChild(restartGameText)
-            
-            restartButton.zPosition = -15
-            menuButton.zPosition = -15
-            
-            restartButton.alpha = 0
-            menuButton.alpha = 0
-            
-            
-            
-        }
-        
-    }
-        
-        func showRestartButtons(){
-            //Set the button alpha to zero
-            if let restartButton = restartButton, let menuButton = menuButton{
-               
-                self.addChild(restartButton)
-                self.addChild(menuButton)
-                
-                restartButton.alpha = 0
-                menuButton.alpha = 0
-                
-                
-                
-                menuButton.zPosition = 12
-                restartButton.zPosition = 12
-                
-                
-                let fadeAnimation = SKAction.fadeAlpha(to: 1.0, duration: 1.0)
-                
-                restartButton.run(fadeAnimation)
-                menuButton.run(fadeAnimation)
-            }
-            
-    }
-    
-        
     
 }
