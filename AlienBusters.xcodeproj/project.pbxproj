@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BD11B6DC1E77A30800E8CED3 /* ExplosionEmitter.sks in Resources */ = {isa = PBXBuildFile; fileRef = BD11B6DB1E77A30800E8CED3 /* ExplosionEmitter.sks */; };
 		BD2323111E705A2500E3A2FC /* QueenAlien.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2323101E705A2500E3A2FC /* QueenAlien.swift */; };
 		BD2323141E705CB100E3A2FC /* GravityFields.sks in Resources */ = {isa = PBXBuildFile; fileRef = BD2323131E705CB100E3A2FC /* GravityFields.sks */; };
 		BD2912631E6FE8C400ADE12E /* NTLScene1.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2912621E6FE8C400ADE12E /* NTLScene1.swift */; };
@@ -116,6 +117,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BD11B6DB1E77A30800E8CED3 /* ExplosionEmitter.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ExplosionEmitter.sks; sourceTree = "<group>"; };
 		BD2323101E705A2500E3A2FC /* QueenAlien.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueenAlien.swift; sourceTree = "<group>"; };
 		BD2323131E705CB100E3A2FC /* GravityFields.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GravityFields.sks; sourceTree = "<group>"; };
 		BD2912621E6FE8C400ADE12E /* NTLScene1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NTLScene1.swift; sourceTree = "<group>"; };
@@ -242,6 +244,7 @@
 			children = (
 				BD2323131E705CB100E3A2FC /* GravityFields.sks */,
 				BDAD68811E769BBE00771E25 /* Spikeman.sks */,
+				BD11B6DB1E77A30800E8CED3 /* ExplosionEmitter.sks */,
 			);
 			name = SKSFiles;
 			sourceTree = "<group>";
@@ -652,6 +655,7 @@
 				BDDC248F1E6E95A1005E103C /* laser4.wav in Resources */,
 				BDDC24731E6E6E48005E103C /* Mishief Stroll.mp3 in Resources */,
 				BDDC24711E6E6E48005E103C /* Infinite Descent.mp3 in Resources */,
+				BD11B6DC1E77A30800E8CED3 /* ExplosionEmitter.sks in Resources */,
 				BD312B111E755EF900DCB39C /* SceneTransitionText.plist in Resources */,
 				BDDC24771E6E6E48005E103C /* Sad Descent.mp3 in Resources */,
 				BDDC24791E6E6E48005E103C /* Space Cadet.mp3 in Resources */,

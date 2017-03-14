@@ -104,10 +104,28 @@ class Wingman: SKSpriteNode{
     //MARK: ************** USER INPUT HANDLERS
     
     func respondToHit(){
-        let explosionAnimation = AnimationsManager.sharedInstance.getAnimationWithNameOf(animationName: "explosionAnimatonWithSound")
-        self.run(explosionAnimation)
+      
+        
         self.removeFromParent()
     }
     
+
+    override func removeFromParent() {
+    
+       /** let removeAnimation = AnimationsManager.sharedInstance.getAnimationWithNameOf(animationName: AnimationNames.ExplosionAnimationWithSound)
+        self.run(removeAnimation)
+         **/
+        
+       
+        super.removeFromParent()
+    }
+    
+    
+    deinit {
+        //Not yet implemented
+        /**
+        let removeAnimation = AnimationsManager.sharedInstance.getAnimationWithNameOf(animationName: AnimationNames.ExplosionAnimationWithSound)
+        self.run(removeAnimation) **/
+    }
     
 }

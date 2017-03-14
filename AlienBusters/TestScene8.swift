@@ -13,6 +13,10 @@ import GameplayKit
 class TestScene8: SKScene{
     
     
+    //MARK: Explosion Animation
+    var explosionAnimation = SKAction()
+    var explosionSound = SKAction.playSoundFileNamed(SoundEffects.Explosion3, waitForCompletion: false)
+    
     //MARK: Variables related to background objects
     lazy var backgroundObjects: [BackgroundObject] = [
         BackgroundObject(backgroundObjectType: .Sun),
@@ -62,6 +66,7 @@ class TestScene8: SKScene{
     let randomPointGenerator = RandomPoint(algorithmType: .Faster)
     
     
+    //MARK: ***************SCENE INITIALIZERS
     convenience init(size: CGSize, numberOfBackgroundObjects: Int, hideInterval: TimeInterval, spawnInterval: TimeInterval, initialNumberOfEnemiesSpawned: Int, enemiesSpawnedPerInterval: Int, randomVectorConfigurationForUpdate: RandomVectorConfiguration) {
     
         self.init(size: size)
@@ -74,9 +79,14 @@ class TestScene8: SKScene{
     }
     
     override func didMove(to view: SKView) {
+        
+        
         //Set anchor point of current scene to center
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         self.backgroundColor = SKColor.black
+        
+        //Configure explosion animation
+        configureExplosionAnimation()
         
         //Configure player
         player = CrossHair(crossHairType: .BlueLarge)
@@ -90,26 +100,19 @@ class TestScene8: SKScene{
         
         //Spawn Background Objects
         spawnBackgroundObjects(numberOfBackgroundObjects: self.numberOfBackgroundObjects, scaledByFactorOf: 0.40)
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
-        let touch = touches.first! as UITouch
-        let touchLocation = touch.location(in: self)
-    
-        if player.contains(touchLocation){
-            player.run(shootingSound)
-        }
         
         
-        for node in nodes(at: touchLocation){
-            if let node = node as? Wingman, player.contains(touchLocation){
-                AnimationsFactory.createExplosionFor(spriteNode: node)
-                node.removeFromParent()
-            }
-        }
+        let emitterNodePath = Bundle.main.path(forResource: "ExplosionEmitter", ofType: "sks")!
+        let emitterNode = NSKeyedUnarchiver.unarchiveObject(withFile: emitterNodePath) as! SKEmitterNode
+        emitterNode.position = player.position
+        emitterNode.targetNode = self
+        emitterNode.zPosition = 15
+        
+      
         
     }
+    
+ 
     
     //MARK: *************** GAME LOOP FUNCTIONS
     
@@ -157,6 +160,28 @@ class TestScene8: SKScene{
         let touchLocation = node.location(in: self)
         
         player.updateTargetPosition(position: touchLocation)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        let touch = touches.first! as UITouch
+        let touchLocation = touch.location(in: self)
+        
+       
+        
+        
+        for node in nodes(at: touchLocation){
+            if let node = node as? Wingman, player.contains(touchLocation){
+               node.run(SKAction.sequence([
+                explosionSound,
+                explosionAnimation
+                ]))
+
+            } else {
+                player.run(shootingSound)
+            }
+        }
+        
     }
     
     private func spawnBackgroundObjects(numberOfBackgroundObjects: Int, scaledByFactorOf scaleFactor: CGFloat){
@@ -208,14 +233,14 @@ class TestScene8: SKScene{
     
     private func spawnWingmanFromPrototype(numberOfWingman: Int){
         
-        for idx in 0..<numberOfWingman{
+        for _ in 0..<numberOfWingman{
             let randomScaleFactor = RandomFloatRange(min: 0.4, max: 0.7)
             let wingmanCopy = self.wingman.copy() as! Wingman
             wingmanCopy.xScale *= randomScaleFactor
             wingmanCopy.yScale *= randomScaleFactor
             let randomSpawnPoint = randomPointGenerator.getRandomPointInRandomQuadrant()
             wingmanCopy.position = randomSpawnPoint
-            wingmanCopy.name = "wingman\(idx)"
+            wingmanCopy.name = "wingman"
             self.addChild(wingmanCopy)
             
         }
@@ -244,6 +269,24 @@ class TestScene8: SKScene{
             wingmanArray.append(newWingman)
         }
         
+    }
+    
+    private func configureExplosionAnimation(){
+        if let textureAtlas = TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .RegularExplosion){
+            
+            self.explosionAnimation = SKAction.animate(with: [
+                textureAtlas.textureNamed("regularExplosion00"),
+                textureAtlas.textureNamed("regularExplosion01"),
+                textureAtlas.textureNamed("regularExplosion02"),
+                textureAtlas.textureNamed("regularExplosion03"),
+                textureAtlas.textureNamed("regularExplosion04"),
+                textureAtlas.textureNamed("regularExplosion05"),
+                textureAtlas.textureNamed("regularExplosion06"),
+                textureAtlas.textureNamed("regularExplosion07"),
+                textureAtlas.textureNamed("regularExplosion08")
+                ], timePerFrame: 0.25)
+            
+        }
     }
     
 }

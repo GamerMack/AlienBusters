@@ -9,6 +9,12 @@
 import Foundation
 import SpriteKit
 
+
+class AnimationNames{
+    static let ExplosionAnimation = "explosionAnimation"
+    static let ExplosionAnimationWithSound = "explosionAnimationWithSound"
+}
+
 class AnimationsManager{
     
     static let sharedInstance = AnimationsManager()
