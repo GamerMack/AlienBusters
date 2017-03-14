@@ -47,6 +47,10 @@ class TestScene8: SKScene{
         
         }()
     
+    var currentNumberOfEnemies: Int = 0
+    var maximumNumberOFEnemies: Int = 20
+    var numberOfEnemiesKilled: Int = 0
+    
     var initialNumberOfEnemiesSpawned: Int = 2
     var randomVectorConfigurationForUpdate: RandomVectorConfiguration = RandomVectorConfiguration(minimumVectorYComponent: -50.00, maximumVectorYComponent: 50.00, minimumVectorXComponent: -50.00, maximumVectorXComponent: 50.00)
     
@@ -102,11 +106,7 @@ class TestScene8: SKScene{
         spawnBackgroundObjects(numberOfBackgroundObjects: self.numberOfBackgroundObjects, scaledByFactorOf: 0.40)
         
         
-        let emitterNodePath = Bundle.main.path(forResource: "ExplosionEmitter", ofType: "sks")!
-        let emitterNode = NSKeyedUnarchiver.unarchiveObject(withFile: emitterNodePath) as! SKEmitterNode
-        emitterNode.position = player.position
-        emitterNode.targetNode = self
-        emitterNode.zPosition = 15
+       
         
       
         
@@ -123,6 +123,14 @@ class TestScene8: SKScene{
     override func update(_ currentTime: TimeInterval) {
         frameCount += currentTime - lastUpdateTime
         hideIntervalFrameCount += currentTime - lastUpdateTime
+        
+        if(currentNumberOfEnemies > maximumNumberOFEnemies){
+            let gameOverScene = GameOverScene(size: self.size, gameOverReason: "Too many enemies spawned!")
+            let transition = SKTransition.fade(withDuration: 2.00)
+            
+            self.view?.presentScene(gameOverScene, transition: transition)
+            
+        }
         
         player.update()
         
@@ -176,7 +184,13 @@ class TestScene8: SKScene{
                 explosionSound,
                 explosionAnimation
                 ]))
-
+                
+                currentNumberOfEnemies -= 1
+                numberOfEnemiesKilled += 1
+                
+                print("Current Number of enemies is: \(currentNumberOfEnemies)")
+                print("Number of kills is: \(numberOfEnemiesKilled)")
+                
             } else {
                 player.run(shootingSound)
             }
@@ -241,6 +255,8 @@ class TestScene8: SKScene{
             let randomSpawnPoint = randomPointGenerator.getRandomPointInRandomQuadrant()
             wingmanCopy.position = randomSpawnPoint
             wingmanCopy.name = "wingman"
+            
+            currentNumberOfEnemies += 1
             self.addChild(wingmanCopy)
             
         }
@@ -288,5 +304,7 @@ class TestScene8: SKScene{
             
         }
     }
+    
+
     
 }
