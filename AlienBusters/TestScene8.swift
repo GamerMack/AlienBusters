@@ -12,6 +12,10 @@ import GameplayKit
 
 class TestScene8: SKScene{
     
+    
+    //MARK: Number for the Current Level
+    var levelNumber: Int = 1
+    
     //MARK: UI Buttons
     
     var menuButton = SKSpriteNode()
@@ -80,9 +84,10 @@ class TestScene8: SKScene{
     var hud2 = HUD2()
     
     //MARK: ***************SCENE INITIALIZERS
-    convenience init(size: CGSize, numberOfBackgroundObjects: Int, hideInterval: TimeInterval, spawnInterval: TimeInterval, initialNumberOfEnemiesSpawned: Int, enemiesSpawnedPerInterval: Int, randomVectorConfigurationForUpdate: RandomVectorConfiguration) {
+    convenience init(size: CGSize, levelNumber: Int, numberOfBackgroundObjects: Int, hideInterval: TimeInterval, spawnInterval: TimeInterval, initialNumberOfEnemiesSpawned: Int, enemiesSpawnedPerInterval: Int, randomVectorConfigurationForUpdate: RandomVectorConfiguration) {
     
         self.init(size: size)
+        self.levelNumber = levelNumber
         self.hideInterval = hideInterval
         self.spawnInterval = spawnInterval
         self.enemiesSpawnedPerInterval = enemiesSpawnedPerInterval
