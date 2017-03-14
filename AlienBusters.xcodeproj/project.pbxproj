@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BD11B6DC1E77A30800E8CED3 /* ExplosionEmitter.sks in Resources */ = {isa = PBXBuildFile; fileRef = BD11B6DB1E77A30800E8CED3 /* ExplosionEmitter.sks */; };
+		BD11B6DE1E77BBB900E8CED3 /* HUD2.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD11B6DD1E77BBB900E8CED3 /* HUD2.swift */; };
 		BD2323111E705A2500E3A2FC /* QueenAlien.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2323101E705A2500E3A2FC /* QueenAlien.swift */; };
 		BD2323141E705CB100E3A2FC /* GravityFields.sks in Resources */ = {isa = PBXBuildFile; fileRef = BD2323131E705CB100E3A2FC /* GravityFields.sks */; };
 		BD2912631E6FE8C400ADE12E /* NTLScene1.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2912621E6FE8C400ADE12E /* NTLScene1.swift */; };
@@ -118,6 +119,7 @@
 
 /* Begin PBXFileReference section */
 		BD11B6DB1E77A30800E8CED3 /* ExplosionEmitter.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ExplosionEmitter.sks; sourceTree = "<group>"; };
+		BD11B6DD1E77BBB900E8CED3 /* HUD2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUD2.swift; sourceTree = "<group>"; };
 		BD2323101E705A2500E3A2FC /* QueenAlien.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueenAlien.swift; sourceTree = "<group>"; };
 		BD2323131E705CB100E3A2FC /* GravityFields.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GravityFields.sks; sourceTree = "<group>"; };
 		BD2912621E6FE8C400ADE12E /* NTLScene1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NTLScene1.swift; sourceTree = "<group>"; };
@@ -547,6 +549,7 @@
 				BDDC249B1E6E9E71005E103C /* FlyingAlien.swift */,
 				BD2DEE381E6EFD680060750D /* FallingAliens.swift */,
 				BDDC249D1E6EA082005E103C /* HUD.swift */,
+				BD11B6DD1E77BBB900E8CED3 /* HUD2.swift */,
 				BD2AB5551E76DB2F0041B2AE /* BackgroundObject.swift */,
 				BDDC249F1E6EB9D5005E103C /* Enemy.swift */,
 				BD2DEE3A1E6F05AA0060750D /* FallingAliensController.swift */,
@@ -754,6 +757,7 @@
 				BDDC24521E6E69A1005E103C /* Constants.swift in Sources */,
 				BDAD68801E768FF600771E25 /* SpikemanScene1.swift in Sources */,
 				BD2DC22D1E755D710067D1A2 /* TestScene4.swift in Sources */,
+				BD11B6DE1E77BBB900E8CED3 /* HUD2.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

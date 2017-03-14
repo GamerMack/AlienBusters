@@ -67,8 +67,12 @@ class TestScene8: SKScene{
     var hideIntervalFrameCount: TimeInterval = 0.00
     var hideInterval: TimeInterval = 8.00
     
+    
+    //Random Point Generator
     let randomPointGenerator = RandomPoint(algorithmType: .Faster)
     
+    //HUD display
+    var hud2 = HUD2()
     
     //MARK: ***************SCENE INITIALIZERS
     convenience init(size: CGSize, numberOfBackgroundObjects: Int, hideInterval: TimeInterval, spawnInterval: TimeInterval, initialNumberOfEnemiesSpawned: Int, enemiesSpawnedPerInterval: Int, randomVectorConfigurationForUpdate: RandomVectorConfiguration) {
@@ -91,6 +95,13 @@ class TestScene8: SKScene{
         
         //Configure explosion animation
         configureExplosionAnimation()
+        
+        //Configure initial HUD display
+        currentNumberOfEnemies = 0
+        numberOfEnemiesKilled = 0
+        self.addChild(hud2)
+        hud2.setNumberOfEnemiesTo(numberOfEnemies: currentNumberOfEnemies)
+        hud2.setNumberOfEnemiesKilledTo(numberKilled: numberOfEnemiesKilled)
         
         //Configure player
         player = CrossHair(crossHairType: .BlueLarge)
@@ -125,11 +136,9 @@ class TestScene8: SKScene{
         hideIntervalFrameCount += currentTime - lastUpdateTime
         
         if(currentNumberOfEnemies > maximumNumberOFEnemies){
-            let gameOverScene = GameOverScene(size: self.size, gameOverReason: "Too many enemies spawned!")
-            let transition = SKTransition.fade(withDuration: 2.00)
-            
-            self.view?.presentScene(gameOverScene, transition: transition)
-            
+            self.isPaused = true
+            hud2.showRestartButtons()
+    
         }
         
         player.update()
@@ -188,8 +197,8 @@ class TestScene8: SKScene{
                 currentNumberOfEnemies -= 1
                 numberOfEnemiesKilled += 1
                 
-                print("Current Number of enemies is: \(currentNumberOfEnemies)")
-                print("Number of kills is: \(numberOfEnemiesKilled)")
+                hud2.setNumberOfEnemiesKilledTo(numberKilled: numberOfEnemiesKilled)
+                hud2.setNumberOfEnemiesTo(numberOfEnemies: currentNumberOfEnemies)
                 
             } else {
                 player.run(shootingSound)
@@ -260,6 +269,9 @@ class TestScene8: SKScene{
             self.addChild(wingmanCopy)
             
         }
+        
+        hud2.setNumberOfEnemiesTo(numberOfEnemies: currentNumberOfEnemies)
+
     }
     
  

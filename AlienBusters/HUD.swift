@@ -33,7 +33,7 @@ class HUD: SKSpriteNode{
         super.init(texture: texture, color: color, size: size)
     }
     
-    convenience init() {
+        convenience init() {
         self.init(texture: nil, color: .clear, size: CGSize(width: 300, height: 300))
         self.anchorPoint = CGPoint(x: 0, y: 0)
         self.zPosition = 10
@@ -87,7 +87,7 @@ class HUD: SKSpriteNode{
 
     }
     
-    func showRestartButtons(){
+        func showRestartButtons(){
         //Set the button alpha to zero
         if let restartButton = restartButton, let menuButton = menuButton{
             restartButton.alpha = 0
@@ -105,7 +105,7 @@ class HUD: SKSpriteNode{
         
     }
     
-    private func setupRestartButtons(){
+        private func setupRestartButtons(){
         
         guard let menuButtonTexture = TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .HUD)?.textureNamed("button-menu") else { return }
         
@@ -142,10 +142,7 @@ class HUD: SKSpriteNode{
             restartButton.zPosition = -15
             menuButton.zPosition = -15
             
-//            self.addChild(restartButton)
-//            self.addChild(menuButton)
-//            
-            
+
         }
         
         
@@ -154,7 +151,7 @@ class HUD: SKSpriteNode{
     }
     
   
-    func setKillCountDisplay(newKillCount: Int){
+        func setKillCountDisplay(newKillCount: Int){
         let formatter = NumberFormatter()
         formatter.minimumIntegerDigits = 5
         
@@ -164,19 +161,22 @@ class HUD: SKSpriteNode{
         
     }
     
-    func setBulletDisplay(newBulletAmount: Int){
-        let emptyBulletTexture = hudAtlas?.textureNamed("icon_bullet_empty_long")
+        func setBulletDisplay(newBulletAmount: Int){
+            let emptyBulletTexture = hudAtlas?.textureNamed("icon_bullet_empty_long")
         
-        if let emptyBulletTexture = emptyBulletTexture{
-            let textureChangeAction = SKAction.setTexture(emptyBulletTexture)
+            if let emptyBulletTexture = emptyBulletTexture{
+                let textureChangeAction = SKAction.setTexture(emptyBulletTexture)
             
-            for index in 0...bulletNodes.count-1{
-                if index < newBulletAmount{
-                    bulletNodes[index].alpha = 1.0
-                } else {
-                    bulletNodes[index].run(textureChangeAction)
+                for index in 0...bulletNodes.count-1{
+                    if index < newBulletAmount{
+                        bulletNodes[index].alpha = 1.0
+                    } else {
+                        bulletNodes[index].run(textureChangeAction)
+                    }
                 }
             }
-        }
     }
+    
 }
+
+
