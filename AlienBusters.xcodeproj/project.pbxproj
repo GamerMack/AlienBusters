@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		BD11B6DC1E77A30800E8CED3 /* ExplosionEmitter.sks in Resources */ = {isa = PBXBuildFile; fileRef = BD11B6DB1E77A30800E8CED3 /* ExplosionEmitter.sks */; };
 		BD11B6DE1E77BBB900E8CED3 /* HUD2.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD11B6DD1E77BBB900E8CED3 /* HUD2.swift */; };
+		BD11B6E01E77C46400E8CED3 /* StarryNight.sks in Resources */ = {isa = PBXBuildFile; fileRef = BD11B6DF1E77C46400E8CED3 /* StarryNight.sks */; };
+		BD11B6E21E77C50600E8CED3 /* FireFlies.sks in Resources */ = {isa = PBXBuildFile; fileRef = BD11B6E11E77C50600E8CED3 /* FireFlies.sks */; };
+		BD11B6E41E77C51900E8CED3 /* Rain.sks in Resources */ = {isa = PBXBuildFile; fileRef = BD11B6E31E77C51900E8CED3 /* Rain.sks */; };
 		BD2323111E705A2500E3A2FC /* QueenAlien.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2323101E705A2500E3A2FC /* QueenAlien.swift */; };
 		BD2323141E705CB100E3A2FC /* GravityFields.sks in Resources */ = {isa = PBXBuildFile; fileRef = BD2323131E705CB100E3A2FC /* GravityFields.sks */; };
 		BD2912631E6FE8C400ADE12E /* NTLScene1.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2912621E6FE8C400ADE12E /* NTLScene1.swift */; };
@@ -120,6 +123,9 @@
 /* Begin PBXFileReference section */
 		BD11B6DB1E77A30800E8CED3 /* ExplosionEmitter.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ExplosionEmitter.sks; sourceTree = "<group>"; };
 		BD11B6DD1E77BBB900E8CED3 /* HUD2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUD2.swift; sourceTree = "<group>"; };
+		BD11B6DF1E77C46400E8CED3 /* StarryNight.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = StarryNight.sks; sourceTree = "<group>"; };
+		BD11B6E11E77C50600E8CED3 /* FireFlies.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = FireFlies.sks; sourceTree = "<group>"; };
+		BD11B6E31E77C51900E8CED3 /* Rain.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Rain.sks; sourceTree = "<group>"; };
 		BD2323101E705A2500E3A2FC /* QueenAlien.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueenAlien.swift; sourceTree = "<group>"; };
 		BD2323131E705CB100E3A2FC /* GravityFields.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GravityFields.sks; sourceTree = "<group>"; };
 		BD2912621E6FE8C400ADE12E /* NTLScene1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NTLScene1.swift; sourceTree = "<group>"; };
@@ -247,6 +253,9 @@
 				BD2323131E705CB100E3A2FC /* GravityFields.sks */,
 				BDAD68811E769BBE00771E25 /* Spikeman.sks */,
 				BD11B6DB1E77A30800E8CED3 /* ExplosionEmitter.sks */,
+				BD11B6DF1E77C46400E8CED3 /* StarryNight.sks */,
+				BD11B6E11E77C50600E8CED3 /* FireFlies.sks */,
+				BD11B6E31E77C51900E8CED3 /* Rain.sks */,
 			);
 			name = SKSFiles;
 			sourceTree = "<group>";
@@ -649,6 +658,7 @@
 				BDDC24781E6E6E48005E103C /* Sad Town.mp3 in Resources */,
 				BDDC24721E6E6E48005E103C /* Italian Mom.mp3 in Resources */,
 				BDDC243B1E6E5966005E103C /* Main.storyboard in Resources */,
+				BD11B6E01E77C46400E8CED3 /* StarryNight.sks in Resources */,
 				BDDC246A1E6E6E48005E103C /* Alpha Dance.mp3 in Resources */,
 				BD2323141E705CB100E3A2FC /* GravityFields.sks in Resources */,
 				BDDC24761E6E6E48005E103C /* Polka Train.mp3 in Resources */,
@@ -666,11 +676,13 @@
 				BDDC24981E6E9C55005E103C /* rumble3.wav in Resources */,
 				BDAD68821E769BBE00771E25 /* Spikeman.sks in Resources */,
 				BDDC248E1E6E95A1005E103C /* laser3.wav in Resources */,
+				BD11B6E21E77C50600E8CED3 /* FireFlies.sks in Resources */,
 				BDDC243D1E6E5966005E103C /* Assets.xcassets in Resources */,
 				BDDC24941E6E95A1005E103C /* laser9.wav in Resources */,
 				BDDC246C1E6E6E48005E103C /* Drumming Sticks.mp3 in Resources */,
 				BDDC24401E6E5966005E103C /* LaunchScreen.storyboard in Resources */,
 				BDDC246D1E6E6E48005E103C /* Farm Frolics.mp3 in Resources */,
+				BD11B6E41E77C51900E8CED3 /* Rain.sks in Resources */,
 				BDDC24751E6E6E48005E103C /* Night at the Beach.mp3 in Resources */,
 				BDDC248D1E6E95A1005E103C /* laser2.wav in Resources */,
 				BDDC24921E6E95A1005E103C /* laser7.wav in Resources */,

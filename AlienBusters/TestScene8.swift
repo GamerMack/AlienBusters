@@ -93,6 +93,14 @@ class TestScene8: SKScene{
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         self.backgroundColor = SKColor.black
         
+        
+        //Configure particle emitter for background
+        
+        let emitterPath = Bundle.main.path(forResource: "StarryNight", ofType: "sks")!
+        let emitterNode = NSKeyedUnarchiver.unarchiveObject(withFile: emitterPath) as! SKEmitterNode
+        emitterNode.targetNode = emitterNode
+        self.addChild(emitterNode)
+        
         //Configure explosion animation
         configureExplosionAnimation()
         
