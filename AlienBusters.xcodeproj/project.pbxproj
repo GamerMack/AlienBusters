@@ -67,6 +67,7 @@
 		BDAD68801E768FF600771E25 /* SpikemanScene1.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAD687F1E768FF600771E25 /* SpikemanScene1.swift */; };
 		BDAD68821E769BBE00771E25 /* Spikeman.sks in Resources */ = {isa = PBXBuildFile; fileRef = BDAD68811E769BBE00771E25 /* Spikeman.sks */; };
 		BDAD68841E769F2900771E25 /* Animal.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAD68831E769F2900771E25 /* Animal.swift */; };
+		BDB542681E78438000C63C8D /* OuterBarriers.sks in Resources */ = {isa = PBXBuildFile; fileRef = BDB542671E78438000C63C8D /* OuterBarriers.sks */; };
 		BDCFE24D1E73DD06005DB85B /* TLScene3Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCFE24C1E73DD06005DB85B /* TLScene3Delegate.swift */; };
 		BDCFE2551E741012005DB85B /* RunningState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCFE2541E741012005DB85B /* RunningState.swift */; };
 		BDD8AA361E7127C70054AB61 /* SceneInterfaceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD8AA351E7127C70054AB61 /* SceneInterfaceManager.swift */; };
@@ -185,6 +186,7 @@
 		BDAD687F1E768FF600771E25 /* SpikemanScene1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpikemanScene1.swift; sourceTree = "<group>"; };
 		BDAD68811E769BBE00771E25 /* Spikeman.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Spikeman.sks; sourceTree = "<group>"; };
 		BDAD68831E769F2900771E25 /* Animal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animal.swift; sourceTree = "<group>"; };
+		BDB542671E78438000C63C8D /* OuterBarriers.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = OuterBarriers.sks; sourceTree = "<group>"; };
 		BDCFE24C1E73DD06005DB85B /* TLScene3Delegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TLScene3Delegate.swift; sourceTree = "<group>"; };
 		BDCFE2541E741012005DB85B /* RunningState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunningState.swift; sourceTree = "<group>"; };
 		BDD8AA351E7127C70054AB61 /* SceneInterfaceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneInterfaceManager.swift; sourceTree = "<group>"; };
@@ -264,6 +266,7 @@
 				BD11B6DF1E77C46400E8CED3 /* StarryNight.sks */,
 				BD11B6E11E77C50600E8CED3 /* FireFlies.sks */,
 				BD11B6E31E77C51900E8CED3 /* Rain.sks */,
+				BDB542671E78438000C63C8D /* OuterBarriers.sks */,
 			);
 			name = SKSFiles;
 			sourceTree = "<group>";
@@ -699,6 +702,7 @@
 				BD11B6E21E77C50600E8CED3 /* FireFlies.sks in Resources */,
 				BDDC243D1E6E5966005E103C /* Assets.xcassets in Resources */,
 				BDDC24941E6E95A1005E103C /* laser9.wav in Resources */,
+				BDB542681E78438000C63C8D /* OuterBarriers.sks in Resources */,
 				BDDC246C1E6E6E48005E103C /* Drumming Sticks.mp3 in Resources */,
 				BDDC24401E6E5966005E103C /* LaunchScreen.storyboard in Resources */,
 				BDDC246D1E6E6E48005E103C /* Farm Frolics.mp3 in Resources */,

@@ -135,13 +135,15 @@ class FlyingAlienScene: SKScene{
         BackgroundMusic.configureBackgroundMusicFrom(fileNamed: BackgroundMusic.MissionPlausible, forParentNode: self)
         
         //Configure barrier node
+    
+        
         let barrierNode = SKSpriteNode(texture: nil, color: .clear, size: self.size)
         barrierNode.zPosition = 2
         barrierNode.anchorPoint = CGPoint(x: 0, y: 0)
         barrierNode.position = CGPoint.zero
         
-        let cgSize = self.size
-        let startingPoint = CGPoint(x: -300, y: -200)
+        let cgSize = CGSize(width: ScreenSizeFloatConstants.ScreenWidth*0.6, height: ScreenSizeFloatConstants.ScrrenHeight*0.6)
+        let startingPoint = CGPoint(x: 0.00, y: 0.00)
         let cgRect = CGRect(origin: startingPoint, size: cgSize)
         barrierNode.physicsBody = SKPhysicsBody(edgeLoopFrom: cgRect)
         
@@ -153,12 +155,13 @@ class FlyingAlienScene: SKScene{
         barrierNode.physicsBody?.contactTestBitMask = PhysicsCategory.Enemy
         
         self.addChild(barrierNode)
-        
+ 
+       
         
         //Add initial flying aliens
         flyingAlien = FlyingAlien(alienColor: .blue)
         let randomPoint = randomPointGenerator.getRandomPointInRandomQuadrant()
-        flyingAlien.position = randomPoint
+        flyingAlien.position = self.anchorPoint//randomPoint
         flyingAlien.physicsBody?.fieldBitMask = PhysicsCategory.Enemy
         flyingAlien.physicsBody?.mass = 5.00
         flyingAlien.physicsBody?.linearDamping = 0.00

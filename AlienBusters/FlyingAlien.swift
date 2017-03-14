@@ -159,16 +159,24 @@ class FlyingAlien: SKSpriteNode, Enemy{
         
         switch(self.health){
         case 2:
-            randomVector = RandomVector(yComponentMin: -400, yComponentMax: 400, xComponentMin: -40, xComponentMax: 40)
+            randomVector = RandomVector(yComponentMin: 200, yComponentMax: 300, xComponentMin: 200, xComponentMax: 300)
+            randomVector.randomizeXComponentSign()
+            randomVector.randomizeYComponentSign()
             break
         case 1:
-            randomVector = RandomVector(yComponentMin: -300, yComponentMax: 300, xComponentMin: -30, xComponentMax: 30)
+            randomVector = RandomVector(yComponentMin: 200, yComponentMax: 300, xComponentMin: 200, xComponentMax: 300)
+            randomVector.randomizeYComponentSign()
+            randomVector.randomizeYComponentSign()
             break
         case 0:
-            randomVector = RandomVector(yComponentMin: -100, yComponentMax: 100, xComponentMin: -10, xComponentMax: 10)
+            randomVector = RandomVector(yComponentMin: 200, yComponentMax: 300, xComponentMin: 200, xComponentMax: 300)
+            randomVector.randomizeYComponentSign()
+            randomVector.randomizeXComponentSign()
             break
         default:
-            randomVector = RandomVector(yComponentMin: -500, yComponentMax: 500, xComponentMin: -10, xComponentMax: 10)
+            randomVector = RandomVector(yComponentMin: 200, yComponentMax: 300, xComponentMin: 200, xComponentMax: 300)
+                randomVector.randomizeXComponentSign()
+                randomVector.randomizeYComponentSign()
             break
         }
         
