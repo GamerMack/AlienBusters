@@ -13,8 +13,9 @@ class CrossHair: SKSpriteNode{
     
     //MARK: Private class constants
     private let textureAtlas = TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .CrossHair)
+    
     private let touchOffset = 44.0
-    private let moveFilter = 0.02
+    private let moveFilter = 0.80
     
     //MARK: Private class variables
     private var targetPosition = CGPoint()

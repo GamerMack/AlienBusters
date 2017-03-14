@@ -12,7 +12,9 @@ import GameplayKit
 
 class TestScene8: SKScene{
     
-    let backgroundObjects: [BackgroundObject] = [
+    
+    //MARK: Variables related to background objects
+    lazy var backgroundObjects: [BackgroundObject] = [
         BackgroundObject(backgroundObjectType: .Sun),
         BackgroundObject(backgroundObjectType: .Cloud1),
         BackgroundObject(backgroundObjectType: .Cloud2),
@@ -20,45 +22,96 @@ class TestScene8: SKScene{
         BackgroundObject(backgroundObjectType: .HalfMoon),
         BackgroundObject(backgroundObjectType: .Cloud3),
         BackgroundObject(backgroundObjectType: .Cloud5),
-        BackgroundObject(backgroundObjectType: .Cloud6)
+        BackgroundObject(backgroundObjectType: .Cloud6),
+        BackgroundObject(backgroundObjectType: .Cloud4)
     
     ]
     
+    var numberOfBackgroundObjects: Int = 3
     var backgroundObjectsPositions = [CGPoint]()
     
     
+    //Wingman Array Variables
     var wingmanArray = [Wingman]()
     var currentWingmanIndex: Int = 0
+    
+    //Wingman Prototype
+    var wingman: Wingman = {
+        let randomScalingFactor = RandomFloatRange(min: 0.7, max: 1.4)
+        let wingman = Wingman(scalingFactor: randomScalingFactor)!
+        return wingman
+        
+        }()
+    
+    var initialNumberOfEnemiesSpawned: Int = 2
+    var randomVectorConfigurationForUpdate: RandomVectorConfiguration = RandomVectorConfiguration(minimumVectorYComponent: -50.00, maximumVectorYComponent: 50.00, minimumVectorXComponent: -50.00, maximumVectorXComponent: 50.00)
+    
+    //Player Variables
+    var player: CrossHair!
+    var shootingSound = SKAction.playSoundFileNamed(SoundEffects.Laser3, waitForCompletion: false)
     
     //Timer Related Variables
     var frameCount: TimeInterval = 0.00
     var lastUpdateTime: TimeInterval = 0.00
     var spawnInterval: TimeInterval = 5.00
+    var enemiesSpawnedPerInterval: Int = 2
     
     var hideIntervalFrameCount: TimeInterval = 0.00
-    var hideInterval: TimeInterval = 2.00
+    var hideInterval: TimeInterval = 8.00
     
     let randomPointGenerator = RandomPoint(algorithmType: .Faster)
+    
+    
+    convenience init(size: CGSize, numberOfBackgroundObjects: Int, hideInterval: TimeInterval, spawnInterval: TimeInterval, initialNumberOfEnemiesSpawned: Int, enemiesSpawnedPerInterval: Int, randomVectorConfigurationForUpdate: RandomVectorConfiguration) {
+    
+        self.init(size: size)
+        self.hideInterval = hideInterval
+        self.spawnInterval = spawnInterval
+        self.enemiesSpawnedPerInterval = enemiesSpawnedPerInterval
+        self.initialNumberOfEnemiesSpawned = initialNumberOfEnemiesSpawned
+        self.randomVectorConfigurationForUpdate = randomVectorConfigurationForUpdate
+        self.numberOfBackgroundObjects = numberOfBackgroundObjects
+    }
     
     override func didMove(to view: SKView) {
         //Set anchor point of current scene to center
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         self.backgroundColor = SKColor.black
         
+        //Configure player
+        player = CrossHair(crossHairType: .BlueLarge)
+        self.addChild(player)
+        
         //Configure Background music
         BackgroundMusic.configureBackgroundMusicFrom(fileNamed: BackgroundMusic.MissionPlausible, forParentNode: self)
         
         //Populate WingmanArray
-        populateWingmanArrayWith(wingmanNumberOf: 10)
+        spawnWingmanFromPrototype(numberOfWingman: self.initialNumberOfEnemiesSpawned)
         
         //Spawn Background Objects
-        spawnBackgroundObjects(scaledByFactorOf: 0.40)
+        spawnBackgroundObjects(numberOfBackgroundObjects: self.numberOfBackgroundObjects, scaledByFactorOf: 0.40)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
+        let touch = touches.first! as UITouch
+        let touchLocation = touch.location(in: self)
+    
+        if player.contains(touchLocation){
+            player.run(shootingSound)
+        }
+        
+        
+        for node in nodes(at: touchLocation){
+            if let node = node as? Wingman, player.contains(touchLocation){
+                AnimationsFactory.createExplosionFor(spriteNode: node)
+                node.removeFromParent()
+            }
+        }
+        
     }
     
+    //MARK: *************** GAME LOOP FUNCTIONS
     
     override func didSimulatePhysics() {
         updateAllWingmanPhysics()
@@ -68,8 +121,10 @@ class TestScene8: SKScene{
         frameCount += currentTime - lastUpdateTime
         hideIntervalFrameCount += currentTime - lastUpdateTime
         
+        player.update()
+        
         if(frameCount > spawnInterval){
-            spawnWingman()
+            spawnWingmanFromPrototype(numberOfWingman: enemiesSpawnedPerInterval)
             frameCount = 0
         }
         
@@ -82,11 +137,36 @@ class TestScene8: SKScene{
         lastUpdateTime = currentTime
     }
     
-    private func spawnBackgroundObjects(scaledByFactorOf scaleFactor: CGFloat){
+    
+    //Helper function for update method
+    private func updateAllWingmanPhysics(){
+        for node in self.children{
+            if let node = node as? Wingman{
+                node.updatePhysicsWith(randomVectorConfiguration: self.randomVectorConfigurationForUpdate)
+            }
+        }
+    }
+    
+    
+    
+    //MARK: ******************* USER INPUT HANDLERS
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        for index in 0..<backgroundObjects.count-1{
+        let node = touches.first! as UITouch
+        let touchLocation = node.location(in: self)
+        
+        player.updateTargetPosition(position: touchLocation)
+    }
+    
+    private func spawnBackgroundObjects(numberOfBackgroundObjects: Int, scaledByFactorOf scaleFactor: CGFloat){
+        
+        let numberOfObjects: Int = numberOfBackgroundObjects > (backgroundObjects.count-1) ? (backgroundObjects.count-1) : numberOfBackgroundObjects
+        
+        
+        for index in 0..<numberOfObjects{
             
-            var randomSpawnPoint = index % 2 == 0 ? randomPointGenerator.getUpperScreenPoint() : randomPointGenerator.getLowerScreenPoint()
+            let randomSpawnPoint = index % 2 == 0 ? randomPointGenerator.getUpperScreenPoint() : randomPointGenerator.getLowerScreenPoint()
             
             backgroundObjects[index].zPosition = -1
             backgroundObjects[index].position = randomSpawnPoint
@@ -107,15 +187,8 @@ class TestScene8: SKScene{
         
     }
     
-    private func populateWingmanArrayWith(wingmanNumberOf wingmanNumber: Int){
-        
-        for index in 0..<wingmanNumber{
-            let randomScalingFactor = RandomFloatRange(min: 0.5, max: 1.5)
-            let newWingman = Wingman(scalingFactor: randomScalingFactor)!
-            newWingman.name = "wingman\(index)"
-            wingmanArray.append(newWingman)
-        }
-    }
+    
+ 
     
     private func spawnWingman(){
         
@@ -131,13 +204,24 @@ class TestScene8: SKScene{
         }
     }
     
-    private func updateAllWingmanPhysics(){
-        for node in self.children{
-            if let node = node as? Wingman{
-                node.updatePhysics()
-            }
+
+    
+    private func spawnWingmanFromPrototype(numberOfWingman: Int){
+        
+        for idx in 0..<numberOfWingman{
+            let randomScaleFactor = RandomFloatRange(min: 0.4, max: 0.7)
+            let wingmanCopy = self.wingman.copy() as! Wingman
+            wingmanCopy.xScale *= randomScaleFactor
+            wingmanCopy.yScale *= randomScaleFactor
+            let randomSpawnPoint = randomPointGenerator.getRandomPointInRandomQuadrant()
+            wingmanCopy.position = randomSpawnPoint
+            wingmanCopy.name = "wingman\(idx)"
+            self.addChild(wingmanCopy)
+            
         }
     }
+    
+ 
     
     private func hideAllWingman(){
         for node in self.children{
@@ -146,6 +230,20 @@ class TestScene8: SKScene{
                 node.zPosition = -2
             }
         }
+    }
+    
+    
+    //Optional function for populating an array with wingman
+    private func populateWingmanArrayWith(wingmanNumberOf wingmanNumber: Int){
+        
+        
+        for index in 0..<wingmanNumber{
+            let randomScalingFactor = RandomFloatRange(min: 0.5, max: 1.5)
+            let newWingman = Wingman(scalingFactor: randomScalingFactor)!
+            newWingman.name = "wingman\(index)"
+            wingmanArray.append(newWingman)
+        }
+        
     }
     
 }

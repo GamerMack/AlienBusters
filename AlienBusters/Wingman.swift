@@ -15,7 +15,9 @@ class Wingman: SKSpriteNode{
     
     
     var flappingAnimation: SKAction!
-        
+    
+    
+    //MARK: ***************INITIALIZATION AND CONFIGURATION
        
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -73,12 +75,38 @@ class Wingman: SKSpriteNode{
         self.run(flappingAnimation, withKey: "flappingAnimation")
     }
     
+    //MARK: **************OVERLOADED UPDATE FUNCTIONS
     
+    
+    //Default update function
     func updatePhysics(){
         
-        let randomVector = RandomVector.init(yComponentMin: -15, yComponentMax: 15, xComponentMin: -15, xComponentMax: 15)
+        let randomVector = RandomVector.init(yComponentMin: -85, yComponentMax: 85, xComponentMin: -85, xComponentMax: 85)
     
         self.physicsBody?.velocity = randomVector.getVector()
+    }
+    
+    func updatePhysicsWith(minVectorY: Double, maxVectorY: Double, minVectorX: Double, maxVectorX: Double){
+        
+        let randomVector = RandomVector.init(yComponentMin: minVectorY, yComponentMax: maxVectorY, xComponentMin: minVectorX, xComponentMax: maxVectorX)
+        
+        self.physicsBody?.velocity = randomVector.getVector()
+    }
+    
+    func updatePhysicsWith(randomVectorConfiguration: RandomVectorConfiguration){
+        
+        let randomVector = RandomVector.init(randomVectorConfiguration: randomVectorConfiguration)
+        
+        self.physicsBody?.velocity = randomVector.getVector()
+    }
+    
+    
+    //MARK: ************** USER INPUT HANDLERS
+    
+    func respondToHit(){
+        let explosionAnimation = AnimationsManager.sharedInstance.getAnimationWithNameOf(animationName: "explosionAnimatonWithSound")
+        self.run(explosionAnimation)
+        self.removeFromParent()
     }
     
     

@@ -9,6 +9,31 @@
 import Foundation
 import SpriteKit
 
+struct RandomVectorConfiguration{
+    var minVectorX: Double = 0.00
+    var maxVectorX: Double = 0.00
+    var minVectorY: Double = 0.00
+    var maxVectorY: Double = 0.00
+    
+    init(){
+        minVectorX = 0.00
+        maxVectorX = 0.00
+        
+        minVectorY = 0.00
+        maxVectorY = 0.00
+        
+    }
+    
+    init(minimumVectorYComponent: Double, maximumVectorYComponent: Double, minimumVectorXComponent: Double, maximumVectorXComponent: Double) {
+        
+        minVectorX = minimumVectorXComponent
+        maxVectorX = maximumVectorXComponent
+        
+        minVectorY = minimumVectorYComponent
+        maxVectorY = maximumVectorYComponent
+    }
+}
+
 
 struct RandomVector{
     var xComponent: Double
@@ -25,6 +50,19 @@ struct RandomVector{
         
         yComponent = Double(arc4random_uniform(UInt32(yComponentMax-yComponentMin))) + yComponentMin
         
+    }
+    
+    init(randomVectorConfiguration: RandomVectorConfiguration){
+        self.init()
+        
+        let minX = randomVectorConfiguration.minVectorX
+        let maxX = randomVectorConfiguration.maxVectorX
+        
+        let minY = randomVectorConfiguration.minVectorY
+        let maxY = randomVectorConfiguration.maxVectorY
+        
+        xComponent = Double(arc4random_uniform(UInt32(maxX-minX))) + minX
+        yComponent = Double(arc4random_uniform(UInt32(maxY-minY))) + minY
     }
     
     mutating func randomizeXComponentSign(){
