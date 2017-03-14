@@ -10,7 +10,7 @@ import Foundation
 import SpriteKit
 import GameplayKit
 
-class SpaceShip: SKSpriteNode{
+class SpaceShip: SKSpriteNode, Enemy{
     
     //MARK: *****************Nested Enum Type for Different SpaceShip Types
     enum SpaceShipType{
@@ -34,7 +34,7 @@ class SpaceShip: SKSpriteNode{
     //MARK: ***************Timer-Related Variables
     var timeSinceLastFlyModeTransition = 0.00
     var lastUpdateInterval = 0.00
-    var flyModeTransitionInterval = 2.00
+    var flyModeTransitionInterval = 4.00
     var totalGameTime = 0.00
     
     

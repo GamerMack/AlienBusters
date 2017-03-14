@@ -23,14 +23,16 @@ class GameViewController: UIViewController {
         
         let testScene8 = TestScene8(size: UIScreen.main.bounds.size, levelNumber: 1, numberOfBackgroundObjects: 5, hideInterval: 10.0, spawnInterval: 4.00, initialNumberOfEnemiesSpawned: 1, enemiesSpawnedPerInterval: 2, randomVectorConfigurationForUpdate: randomVectorConfiguration)
         
+        let spaceShipLevel = SpaceShipLevel(size: UIScreen.main.bounds.size, levelNumber: 1, numberOfBackgroundObjects: 3, spawnInterval: 4.00, initialNumberOfEnemiesSpawned: 2, enemiesSpawnedPerInterval: 2)
+        
         if let view = self.view as! SKView? {
             // Load the SKScene from 'GameScene.sks'
            
                 // Set the scale mode to scale to fit the window
-                testScene8.scaleMode = .aspectFill
+                spaceShipLevel.scaleMode = .aspectFill
                 
                 // Present the scene
-                view.presentScene(testScene8)
+                view.presentScene(spaceShipLevel)
             
             
             view.ignoresSiblingOrder = true

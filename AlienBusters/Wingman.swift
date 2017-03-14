@@ -9,7 +9,7 @@
 import Foundation
 import SpriteKit
 
-class Wingman: SKSpriteNode{
+class Wingman: SKSpriteNode, Enemy{
     
     let textureAtlas = TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .Enemies)
     

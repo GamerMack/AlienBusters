@@ -45,8 +45,8 @@ class TestScene8: SKScene{
     var backgroundObjectsPositions = [CGPoint]()
     
     
-    //Wingman Prototype
-    var wingman: Wingman = {
+    //Enemy Prototype
+    var enemy: Enemy = {
         let randomScalingFactor = RandomFloatRange(min: 0.7, max: 1.4)
         let wingman = Wingman(scalingFactor: randomScalingFactor)!
         return wingman
@@ -132,7 +132,7 @@ class TestScene8: SKScene{
         BackgroundMusic.configureBackgroundMusicFrom(fileNamed: BackgroundMusic.MissionPlausible, forParentNode: self)
         
         //Populate WingmanArray
-        spawnWingmanFromPrototype(numberOfWingman: self.initialNumberOfEnemiesSpawned)
+        spawnEnemyFromPrototype(numberOfEnemy: self.initialNumberOfEnemiesSpawned)
         
         //Spawn Background Objects
         spawnBackgroundObjects(numberOfBackgroundObjects: self.numberOfBackgroundObjects, scaledByFactorOf: 0.40)
@@ -165,7 +165,7 @@ class TestScene8: SKScene{
         player.update()
         
         if(frameCount > spawnInterval){
-            spawnWingmanFromPrototype(numberOfWingman: enemiesSpawnedPerInterval)
+            spawnEnemyFromPrototype(numberOfEnemy: enemiesSpawnedPerInterval)
             frameCount = 0
         }
         
@@ -279,19 +279,22 @@ class TestScene8: SKScene{
  
 
     
-    private func spawnWingmanFromPrototype(numberOfWingman: Int){
+    private func spawnEnemyFromPrototype(numberOfEnemy: Int){
         
-        for _ in 0..<numberOfWingman{
+        for _ in 0..<numberOfEnemy{
             let randomScaleFactor = RandomFloatRange(min: 0.4, max: 0.7)
-            let wingmanCopy = self.wingman.copy() as! Wingman
-            wingmanCopy.xScale *= randomScaleFactor
-            wingmanCopy.yScale *= randomScaleFactor
+            
+            let enemy = self.enemy as! Wingman
+            let enemyCopy = enemy.copy() as! Wingman
+            
+            enemyCopy.xScale *= randomScaleFactor
+            enemyCopy.yScale *= randomScaleFactor
             let randomSpawnPoint = randomPointGenerator.getRandomPointInRandomQuadrant()
-            wingmanCopy.position = randomSpawnPoint
-            wingmanCopy.name = "wingman"
+            enemyCopy.position = randomSpawnPoint
+            enemyCopy.name = "wingman"
             
             currentNumberOfEnemies += 1
-            wingmanCopy.move(toParent: self)
+            enemyCopy.move(toParent: self)
             
         }
         

@@ -8,6 +8,8 @@
 
 import Foundation
 
+//Generic protocol for enemies
+
 protocol Enemy {
     
 }

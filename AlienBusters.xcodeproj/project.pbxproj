@@ -46,6 +46,7 @@
 		BD2E4DCC1E72D38500D025C7 /* UserInterfaceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2E4DCB1E72D38500D025C7 /* UserInterfaceManager.swift */; };
 		BD2E96C31E77D7D200C16DA7 /* LevelLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2E96C21E77D7D200C16DA7 /* LevelLoader.swift */; };
 		BD2E96C61E77FBEB00C16DA7 /* DeprecatedCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2E96C51E77FBEB00C16DA7 /* DeprecatedCode.swift */; };
+		BD2E96C81E78032700C16DA7 /* SpaceShipLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2E96C71E78032700C16DA7 /* SpaceShipLevel.swift */; };
 		BD3049E51E6FACBA0083B0ED /* NTLScene4.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3049E41E6FACBA0083B0ED /* NTLScene4.swift */; };
 		BD3049E91E6FB2D30083B0ED /* NoTimeLimitMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3049E81E6FB2D30083B0ED /* NoTimeLimitMode.swift */; };
 		BD3049EC1E6FB5AD0083B0ED /* TimeLimitScene+GameStateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3049EB1E6FB5AD0083B0ED /* TimeLimitScene+GameStateExtension.swift */; };
@@ -80,7 +81,7 @@
 		BDDC243D1E6E5966005E103C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDDC243C1E6E5966005E103C /* Assets.xcassets */; };
 		BDDC24401E6E5966005E103C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDDC243E1E6E5966005E103C /* LaunchScreen.storyboard */; };
 		BDDC24491E6E5C0B005E103C /* TextureAtlasManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDC24481E6E5C0B005E103C /* TextureAtlasManager.swift */; };
-		BDDC244B1E6E615D005E103C /* TestScene8.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDC244A1E6E615D005E103C /* TestScene8.swift */; };
+		BDDC244B1E6E615D005E103C /* WingmanLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDC244A1E6E615D005E103C /* WingmanLevel.swift */; };
 		BDDC24521E6E69A1005E103C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDC24511E6E69A1005E103C /* Constants.swift */; };
 		BDDC24541E6E69C4005E103C /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDC24531E6E69C4005E103C /* Math.swift */; };
 		BDDC24561E6E69F5005E103C /* UserOptionsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDC24551E6E69F5005E103C /* UserOptionsManager.swift */; };
@@ -162,6 +163,7 @@
 		BD2E4DCB1E72D38500D025C7 /* UserInterfaceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInterfaceManager.swift; sourceTree = "<group>"; };
 		BD2E96C21E77D7D200C16DA7 /* LevelLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelLoader.swift; sourceTree = "<group>"; };
 		BD2E96C51E77FBEB00C16DA7 /* DeprecatedCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeprecatedCode.swift; sourceTree = "<group>"; };
+		BD2E96C71E78032700C16DA7 /* SpaceShipLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpaceShipLevel.swift; sourceTree = "<group>"; };
 		BD3049E41E6FACBA0083B0ED /* NTLScene4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NTLScene4.swift; sourceTree = "<group>"; };
 		BD3049E81E6FB2D30083B0ED /* NoTimeLimitMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoTimeLimitMode.swift; sourceTree = "<group>"; };
 		BD3049EB1E6FB5AD0083B0ED /* TimeLimitScene+GameStateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TimeLimitScene+GameStateExtension.swift"; sourceTree = "<group>"; };
@@ -198,7 +200,7 @@
 		BDDC243F1E6E5966005E103C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BDDC24411E6E5966005E103C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BDDC24481E6E5C0B005E103C /* TextureAtlasManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextureAtlasManager.swift; sourceTree = "<group>"; };
-		BDDC244A1E6E615D005E103C /* TestScene8.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestScene8.swift; sourceTree = "<group>"; };
+		BDDC244A1E6E615D005E103C /* WingmanLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WingmanLevel.swift; sourceTree = "<group>"; };
 		BDDC24511E6E69A1005E103C /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BDDC24531E6E69C4005E103C /* Math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Math.swift; sourceTree = "<group>"; };
 		BDDC24551E6E69F5005E103C /* UserOptionsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserOptionsManager.swift; sourceTree = "<group>"; };
@@ -314,8 +316,9 @@
 			isa = PBXGroup;
 			children = (
 				BD2E96C21E77D7D200C16DA7 /* LevelLoader.swift */,
-				BDDC244A1E6E615D005E103C /* TestScene8.swift */,
+				BDDC244A1E6E615D005E103C /* WingmanLevel.swift */,
 				BD2E96C51E77FBEB00C16DA7 /* DeprecatedCode.swift */,
+				BD2E96C71E78032700C16DA7 /* SpaceShipLevel.swift */,
 			);
 			name = TestScene8Prototype;
 			sourceTree = "<group>";
@@ -566,6 +569,7 @@
 		BDDC247D1E6E763D005E103C /* Characters */ = {
 			isa = PBXGroup;
 			children = (
+				BDDC249F1E6EB9D5005E103C /* Enemy.swift */,
 				BDAD687C1E768FA900771E25 /* Spikeman.swift */,
 				BDDC247E1E6E7654005E103C /* CrossHair.swift */,
 				BDDC24821E6E9119005E103C /* Background.swift */,
@@ -574,7 +578,6 @@
 				BDDC249D1E6EA082005E103C /* HUD.swift */,
 				BD11B6DD1E77BBB900E8CED3 /* HUD2.swift */,
 				BD2AB5551E76DB2F0041B2AE /* BackgroundObject.swift */,
-				BDDC249F1E6EB9D5005E103C /* Enemy.swift */,
 				BD2DEE3A1E6F05AA0060750D /* FallingAliensController.swift */,
 				BDDB9E831E6FCAFF004D1D2B /* SpaceShip.swift */,
 				BD2912751E70227600ADE12E /* Bat.swift */,
@@ -728,7 +731,7 @@
 				BD2E96C61E77FBEB00C16DA7 /* DeprecatedCode.swift in Sources */,
 				BD312B131E756A3B00DCB39C /* PlistUnarchiver.swift in Sources */,
 				BD2323111E705A2500E3A2FC /* QueenAlien.swift in Sources */,
-				BDDC244B1E6E615D005E103C /* TestScene8.swift in Sources */,
+				BDDC244B1E6E615D005E103C /* WingmanLevel.swift in Sources */,
 				BD2912761E70227600ADE12E /* Bat.swift in Sources */,
 				BD2AB5541E76B3190041B2AE /* SoundLoader.swift in Sources */,
 				BDD8AA3D1E7162190054AB61 /* ButtonManager.swift in Sources */,
@@ -760,6 +763,7 @@
 				BD73EE4A1E73A66E00CD7AD1 /* RandomPoint.swift in Sources */,
 				BDDC24A01E6EB9D5005E103C /* Enemy.swift in Sources */,
 				BD29126B1E6FE96400ADE12E /* TLScene3.swift in Sources */,
+				BD2E96C81E78032700C16DA7 /* SpaceShipLevel.swift in Sources */,
 				BDDB9E841E6FCAFF004D1D2B /* SpaceShip.swift in Sources */,
 				BD2912651E6FE8FA00ADE12E /* NTLScene5.swift in Sources */,
 				BD3049EC1E6FB5AD0083B0ED /* TimeLimitScene+GameStateExtension.swift in Sources */,
