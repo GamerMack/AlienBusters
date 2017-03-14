@@ -33,9 +33,12 @@ class SceneInterfaceManager: SKSpriteNode, SceneInterfaceManagerDelegate{
         
     }
     
-    convenience init(instantiationMessage: String, newManagedScene: SKNode) {
+    convenience init(newManagedScene: SKNode, instantiationMessage: String = "SceneInterfaceManager Instantiated") {
         
-        print(instantiationMessage)
+        if(kDebug){
+            print(instantiationMessage)
+        }
+        
         self.init(texture: nil, color: .clear, size: CGSize.zero)
         //parentNode.addChild(self)
        // managedScene = parentNode as! SKEffectNode
@@ -43,6 +46,22 @@ class SceneInterfaceManager: SKSpriteNode, SceneInterfaceManagerDelegate{
     }
     
     
+    
+    func setupIntroMessageBox(levelTitle: String, levelDescription: String, enemyName: String, spawningLimit: Int){
+        
+        print("Inside the setupIntroMessageBox...")
+        
+        if let introMessage = ButtonFactory.createIntroMessageWith(levelTitle: levelTitle, levelDescription: levelDescription, enemyName: enemyName, spawningLimit: spawningLimit){
+            
+            print("About to add the introMessage to the scene...")
+            // self.parent!.addChild(introMessage)
+            
+            if let managedScene = managedScene{
+                managedScene.addChild(introMessage)
+            }
+            
+        }
+    }
  
     
 

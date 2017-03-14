@@ -11,7 +11,7 @@ import SpriteKit
 
 /** This method doesn't work **/
 
-class UserInterfaceManager: SceneInterfaceManagerDelegate{
+class UserInterfaceManager{
     
     init(){
         

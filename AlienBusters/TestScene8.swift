@@ -20,6 +20,7 @@ class TestScene8: SKScene{
     
     var menuButton = SKSpriteNode()
     var restartButton = SKSpriteNode()
+    var sceneInterfaceManagerDelegate: SceneInterfaceManagerDelegate!
     
     
     //MARK: Explosion Animation
@@ -43,10 +44,6 @@ class TestScene8: SKScene{
     var numberOfBackgroundObjects: Int = 3
     var backgroundObjectsPositions = [CGPoint]()
     
-    
-    //Wingman Array Variables
-    var wingmanArray = [Wingman]()
-    var currentWingmanIndex: Int = 0
     
     //Wingman Prototype
     var wingman: Wingman = {
@@ -103,8 +100,9 @@ class TestScene8: SKScene{
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         self.backgroundColor = SKColor.black
         
-        //Configure menu and restart buttons
-        //....
+        //Configure SceneInterfaceManagerDelegate
+        sceneInterfaceManagerDelegate = SceneInterfaceManager(newManagedScene: self)
+        sceneInterfaceManagerDelegate.setupIntroMessageBox(levelTitle: "Level \(levelNumber)", levelDescription: "Wingman likes to hide", enemyName: "Wingman", spawningLimit: self.maximumNumberOFEnemies)
         
         
         //Configure particle emitter for background
@@ -207,9 +205,10 @@ class TestScene8: SKScene{
         let touch = touches.first! as UITouch
         let touchLocation = touch.location(in: self)
         
+        
+        
        
         if(restartButton.contains(touchLocation)){
-            let transition = SKTransition.crossFade(withDuration: 2.0)
             
             LevelLoader.loadLevel2From(currentScene: self, difficultyLevel: .Hard)
             //self.view?.presentScene(self, transition: transition)
@@ -224,6 +223,11 @@ class TestScene8: SKScene{
         
         
         for node in nodes(at: touchLocation){
+            
+            if node.name == NodeNames.StartButton{
+                node.removeFromParent()
+            }
+            
             if let node = node as? Wingman, player.contains(touchLocation){
                node.run(SKAction.sequence([
                 explosionSound,
@@ -273,21 +277,6 @@ class TestScene8: SKScene{
     
     
  
-    
-    private func spawnWingman(){
-        
-        if(currentWingmanIndex < wingmanArray.count-1){
-            
-            let currentWingman = wingmanArray[currentWingmanIndex]
-            let randomSpawnPoint = randomPointGenerator.getRandomPointInRandomQuadrant()
-            currentWingman.position = randomSpawnPoint
-            self.addChild(currentWingman)
-            
-            currentWingmanIndex += 1
-            
-        }
-    }
-    
 
     
     private func spawnWingmanFromPrototype(numberOfWingman: Int){
@@ -322,19 +311,7 @@ class TestScene8: SKScene{
     }
     
     
-    //Optional function for populating an array with wingman
-    private func populateWingmanArrayWith(wingmanNumberOf wingmanNumber: Int){
-        
-        
-        for index in 0..<wingmanNumber{
-            let randomScalingFactor = RandomFloatRange(min: 0.5, max: 1.5)
-            let newWingman = Wingman(scalingFactor: randomScalingFactor)!
-            newWingman.name = "wingman\(index)"
-            wingmanArray.append(newWingman)
-        }
-        
-    }
-    
+ 
     private func configureExplosionAnimation(){
         if let textureAtlas = TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .RegularExplosion){
             

@@ -8,8 +8,11 @@
 
 import Foundation
 import SpriteKit
+import GameplayKit
 
 class SpaceShip: SKSpriteNode{
+    
+    //MARK: *****************Nested Enum Type for Different SpaceShip Types
     enum SpaceShipType{
         case Red1,Red2,Red3
         case Blue1,Blue2,Blue3
@@ -18,20 +21,27 @@ class SpaceShip: SKSpriteNode{
     }
     
     
-    //Timer-Related Variables
+    private let textureAtlasManager = TextureAtlasManager.sharedInstance
+    private let textureAtlas = TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .FlyingAliens)
+    
+    
+    //MARK: ***************** Variables for Ship State
+    private var isInStealthMode: Bool = false
+    private var health: Int = 2     //2 hits are required to destroy a flying alien
+    private var spaceShipType: SpaceShipType = .Red1
+    private var travelSpeed: CGFloat = 0.00
+    
+    //MARK: ***************Timer-Related Variables
     var timeSinceLastFlyModeTransition = 0.00
     var lastUpdateInterval = 0.00
     var flyModeTransitionInterval = 2.00
     var totalGameTime = 0.00
     
-    private let textureAtlasManager = TextureAtlasManager.sharedInstance
-    private let textureAtlas = TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .FlyingAliens)
     
-    private var isInStealthMode: Bool = false
-    private var health: Int = 2     //2 hits are required to destroy a flying alien
-    private var spaceShipType: SpaceShipType = .Red1
+    //MARK: *******************Random Point Generator
+    var randomPointGenerator = RandomPoint(algorithmType: .Faster)
     
-    
+    //MARK: *************** INITIALIZERS
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
@@ -41,7 +51,7 @@ class SpaceShip: SKSpriteNode{
         super.init(texture: texture, color: color, size: size)
     }
     
-    convenience init?(spaceShipType: SpaceShipType) {
+    convenience init?(spaceShipTypeOf spaceShipType: SpaceShipType = .Red1, travelSpeedOf travelSpeed: CGFloat = 50.0, scalingFactor: CGFloat = 1.0) {
         var texture: SKTexture?
         
         switch(spaceShipType){
@@ -90,58 +100,64 @@ class SpaceShip: SKSpriteNode{
         guard let alienTexture = texture else { return nil }
         
         self.init(texture: alienTexture, color: .clear, size: alienTexture.size() )
+        
+        self.xScale *= scalingFactor
+        self.yScale *= scalingFactor
+        
         setSpaceShipTypeTo(spaceShipType: spaceShipType)
-        setup()
+        
+        setupWithSpeedOf(travelSpeed: travelSpeed)
+        self.travelSpeed = travelSpeed
     }
+    
+    
+    //MARK: **************BASIC CONFIGURATION HELPER FUNCTIONS
     
     private func setSpaceShipTypeTo(spaceShipType: SpaceShipType){
         self.spaceShipType = spaceShipType
     }
     
-    private func setup(){
+    private func setupWithSpeedOf(travelSpeed: CGFloat){
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         self.zPosition = 1
         
         setRandomPosition()
-        let randomWidth = Double(arc4random_uniform(200))
-        let randomHeight = Double(arc4random_uniform(200))
         
-        let cgRect = CGRect(x: 0, y: 0, width: randomWidth, height: randomHeight)
+        let randomDist = GKRandomDistribution(lowestValue: 10, highestValue: 300)
+        let cgRect = CGRect(x: self.position.x, y: self.position.y, width: CGFloat(randomDist.nextUniform()), height: CGFloat(randomDist.nextUniform()))
         
         let spaceShipPath = CGPath(ellipseIn: cgRect, transform: nil)
       
-        
-        let pathAnimation = SKAction.repeatForever(SKAction.follow(spaceShipPath, asOffset: true, orientToPath: true, speed: 50.0))
+        let pathAnimation = SKAction.repeatForever(SKAction.follow(spaceShipPath, asOffset: true, orientToPath: true, speed: travelSpeed))
         
         self.run(pathAnimation, withKey: "pathAnimation")
     }
     
     func setRandomPosition(){
-        let randomXPos = -100 + Int(arc4random_uniform(100))
-        let randomYPos = -100 + Int(arc4random_uniform(100))
-        position = CGPoint(x: randomXPos, y: randomYPos)
         
+        let randomPoint = randomPointGenerator.getRandomPointInRandomQuadrant()
+        position = randomPoint
         
     }
     
-    
+    //MARK: ***************** GameLoop-Related Function
     
     func update(currentTime: TimeInterval){
         updateFlyingMode(currentTime: currentTime)
         
         
         if(isOffScreen()){
-            setRandomPosition()
+            setupWithSpeedOf(travelSpeed: self.travelSpeed)
         }
     }
     
     private func isOffScreen() -> Bool{
         
-        if(position.x > kViewWidth/2 || position.x < -kViewWidth/2){
+        if(position.x > ScreenSizeFloatConstants.HalfScreenWidth || position.x < -ScreenSizeFloatConstants.HalfScreenWidth){
             return true
         }
         
-        if(position.y > kViewHeight/2 || position.y < -kViewHeight/2){
+        if(position.y > ScreenSizeFloatConstants.HalfScreenHeight || position.y < -ScreenSizeFloatConstants.HalfScreenHeight){
             return true
         }
         
@@ -151,7 +167,6 @@ class SpaceShip: SKSpriteNode{
     private func updateFlyingMode(currentTime: TimeInterval){
         
         timeSinceLastFlyModeTransition += currentTime - lastUpdateInterval
-        totalGameTime += timeSinceLastFlyModeTransition
         
         if(timeSinceLastFlyModeTransition > flyModeTransitionInterval){
             
@@ -168,6 +183,8 @@ class SpaceShip: SKSpriteNode{
         lastUpdateInterval = currentTime
     }
     
+    
+    //MARK: ******************* User-Input Handling Functions
     
     func respondToHitAt(touchLocation: CGPoint){
         

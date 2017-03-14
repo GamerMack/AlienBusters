@@ -64,14 +64,14 @@ class TLScene1: SKScene{
         //Add the gameNode, which provides the dark overlay for hiding the bat
         self.addChild(gameNode)
         
-        sceneInterfaceManagerDelegate = SceneInterfaceManager(instantiationMessage: "I've come alive", newManagedScene: self)
+        //sceneInterfaceManagerDelegate = SceneInterfaceManager(instantiationMessage: "I've come alive", newManagedScene: self)
         
         guard let sceneInterfaceManagerDelegate = sceneInterfaceManagerDelegate else { return }
         
         
         //Setup the intro message for the current level
         //setupIntroMessageBox()
-        sceneInterfaceManagerDelegate.setupIntroMessageBox(levelTitle: "Level 1", levelDescription: "Find all the bats and shoot them!", levelTimeLimit: 30.0)
+       // sceneInterfaceManagerDelegate.setupIntroMessageBox(levelTitle: "Level 1", levelDescription: "Find all the bats and shoot them!", levelTimeLimit: 30.0)
         
     }
     

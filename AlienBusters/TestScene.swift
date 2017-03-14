@@ -61,7 +61,7 @@ class TestScene: SKScene {
         **/
         
         
-        spaceShip = SpaceShip(spaceShipType: .Blue1)
+       // spaceShip = SpaceShip(spaceShipType: .Blue1)
         gameNode.addChild(spaceShip!)
         
         let barrierNode = SKSpriteNode(texture: nil, color: .clear, size: self.size)
