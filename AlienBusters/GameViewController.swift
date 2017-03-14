@@ -17,7 +17,11 @@ class GameViewController: UIViewController {
         SoundLoader.preloadSounds()
         
       
-        let testScene8 = TestScene8(size: self.view.bounds.size)
+        let menuScene = MenuScene(size: UIScreen.main.bounds.size)
+        
+        let randomVectorConfiguration = RandomVectorConfiguration(minimumVectorYComponent: -20, maximumVectorYComponent: 20, minimumVectorXComponent: -20, maximumVectorXComponent: 20)
+        
+        let testScene8 = TestScene8(size: UIScreen.main.bounds.size, levelNumber: 1, numberOfBackgroundObjects: 5, hideInterval: 10.0, spawnInterval: 4.00, initialNumberOfEnemiesSpawned: 1, enemiesSpawnedPerInterval: 2, randomVectorConfigurationForUpdate: randomVectorConfiguration)
         
         if let view = self.view as! SKView? {
             // Load the SKScene from 'GameScene.sks'

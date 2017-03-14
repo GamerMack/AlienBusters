@@ -57,7 +57,7 @@ class TestScene8: SKScene{
         }()
     
     var currentNumberOfEnemies: Int = 0
-    var maximumNumberOFEnemies: Int = 5
+    var maximumNumberOFEnemies: Int = 10
     var numberOfEnemiesKilled: Int = 0
     
     var initialNumberOfEnemiesSpawned: Int = 2
@@ -104,14 +104,17 @@ class TestScene8: SKScene{
         self.backgroundColor = SKColor.black
         
         //Configure menu and restart buttons
-        self.setupMenuAndRestartButtons()
-    
+        //....
+        
+        
         //Configure particle emitter for background
+        
         
         let emitterPath = Bundle.main.path(forResource: "StarryNight", ofType: "sks")!
         let emitterNode = NSKeyedUnarchiver.unarchiveObject(withFile: emitterPath) as! SKEmitterNode
-        emitterNode.targetNode = emitterNode
-        self.addChild(emitterNode)
+        emitterNode.targetNode = self
+        emitterNode.move(toParent: self)
+        
         
         //Configure explosion animation
         configureExplosionAnimation()
@@ -205,6 +208,19 @@ class TestScene8: SKScene{
         let touchLocation = touch.location(in: self)
         
        
+        if(restartButton.contains(touchLocation)){
+            let transition = SKTransition.crossFade(withDuration: 2.0)
+            
+            LevelLoader.loadLevel2From(currentScene: self, difficultyLevel: .Hard)
+            //self.view?.presentScene(self, transition: transition)
+        }
+        
+        
+        if(menuButton.contains(touchLocation)){
+            let transition = SKTransition.crossFade(withDuration: 2.0)
+            self.view?.presentScene(MenuScene(size: self.size), transition: transition)
+        }
+        
         
         
         for node in nodes(at: touchLocation){
@@ -246,9 +262,9 @@ class TestScene8: SKScene{
     
     private func getPositionOfRandomBackgroundObject() -> CGPoint{
         
-        let numberOfPositions: UInt32 = UInt32(backgroundObjectsPositions.count-1)
+        let randomDist = GKRandomDistribution(lowestValue: 0, highestValue: backgroundObjectsPositions.count-1)
         
-        let randomIndex = Int(arc4random_uniform(numberOfPositions))
+        let randomIndex = randomDist.nextInt()
         
         return backgroundObjectsPositions[randomIndex]
  
@@ -286,7 +302,7 @@ class TestScene8: SKScene{
             wingmanCopy.name = "wingman"
             
             currentNumberOfEnemies += 1
-            self.addChild(wingmanCopy)
+            wingmanCopy.move(toParent: self)
             
         }
         
@@ -367,7 +383,8 @@ extension TestScene8{
             returnToMenuText.fontColor = SKColor.white
             returnToMenuText.verticalAlignmentMode = .bottom
             returnToMenuText.position = CGPoint(x: 0, y: -menuButton.size.height)
-            menuButton.addChild(returnToMenuText)
+            returnToMenuText.name = NodeNames.ReturnToMenuButton
+            returnToMenuText.move(toParent: menuButton)
             
             let restartGameText = SKLabelNode(fontNamed: FontTypes.NoteWorthyLight)
             restartGameText.text = "Restart Level"
@@ -375,7 +392,8 @@ extension TestScene8{
             restartGameText.fontColor = SKColor.white
             restartGameText.verticalAlignmentMode = .bottom
             restartGameText.position = CGPoint(x: 0, y: -restartButton.size.height)
-            restartButton.addChild(restartGameText)
+            restartGameText.name = NodeNames.RestartGameButton
+            restartGameText.move(toParent: restartButton)
             
             restartButton.zPosition = -15
             menuButton.zPosition = -15
@@ -384,8 +402,6 @@ extension TestScene8{
             menuButton.alpha = 0
             
         
-            self.addChild(restartButton)
-            self.addChild(menuButton)
             
         
         
@@ -394,11 +410,13 @@ extension TestScene8{
     func showRestartButtons(){
         //Set the button alpha to zero
         
+            setupMenuAndRestartButtons()
             
             restartButton.alpha = 1
             menuButton.alpha = 1
         
-            
+            menuButton.move(toParent: self)
+            restartButton.move(toParent: self)
             
             menuButton.zPosition = 15
             restartButton.zPosition = 15

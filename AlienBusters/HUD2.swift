@@ -15,8 +15,6 @@ class HUD2: SKSpriteNode{
     private let textureAtlasManager = TextureAtlasManager.sharedInstance
     private let hudAtlas = TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .HUD)
     
-   
-    var menuButton: SKSpriteNode?
     
     //MARK: Game Performance/Stats Metrics (dynamically updated)
     
@@ -69,8 +67,9 @@ class HUD2: SKSpriteNode{
         numberOfEnemiesKilled.verticalAlignmentMode = .center
         numberOfEnemiesKilled.horizontalAlignmentMode = .left
         
-        self.addChild(numberOfEnemiesKilled)
-        self.addChild(killCountIcon)
+        numberOfEnemiesKilled.move(toParent: self)
+        killCountIcon.move(toParent: self)
+       
         
         numberEnemiesLabel.fontName = FontTypes.NoteWorthyBold
         numberEnemiesLabel.fontColor = SKColor.white
@@ -87,11 +86,10 @@ class HUD2: SKSpriteNode{
         numberEnemiesLabel.position = CGPoint(x: iconXPos + 30, y: iconYPos - 50)
         currentNumberOfEnemies.position = CGPoint(x: iconXPos + 150, y: iconYPos - 50)
         
+        numberEnemiesLabel.move(toParent: self)
+        currentNumberOfEnemies.move(toParent: self)
         
-        self.addChild(numberEnemiesLabel)
-        self.addChild(currentNumberOfEnemies)
-        
-        
+       
         
         
     }

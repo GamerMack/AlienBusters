@@ -132,8 +132,10 @@ class MenuScene: SKScene{
                 }))
                 hardButton.run(SKAction.wait(forDuration: 5.0))
                 
-                noTimeLimitModeButton.zPosition = 2
-                timeLimitModeButton.zPosition = 2
+                 self.view?.presentScene(TestScene8(size: self.size, levelNumber: 1, numberOfBackgroundObjects: 3, hideInterval: 5.00, spawnInterval: 5.00, initialNumberOfEnemiesSpawned: 3, enemiesSpawnedPerInterval: 3, randomVectorConfigurationForUpdate: RandomVectorConfiguration(minimumVectorYComponent: -10, maximumVectorYComponent: 10, minimumVectorXComponent: -10, maximumVectorXComponent: 10)))
+                
+                // noTimeLimitModeButton.zPosition = 2
+                // timeLimitModeButton.zPosition = 2
 
             }
             
@@ -152,8 +154,10 @@ class MenuScene: SKScene{
                 }))
                 mediumButton.run(SKAction.wait(forDuration: 5.0))
                 
-                noTimeLimitModeButton.zPosition = 2
-                timeLimitModeButton.zPosition = 2
+                 self.view?.presentScene(TestScene8(size: self.size, levelNumber: 1, numberOfBackgroundObjects: 3, hideInterval: 5.00, spawnInterval: 5.00, initialNumberOfEnemiesSpawned: 3, enemiesSpawnedPerInterval: 3, randomVectorConfigurationForUpdate: RandomVectorConfiguration(minimumVectorYComponent: -10, maximumVectorYComponent: 10, minimumVectorXComponent: -10, maximumVectorXComponent: 10)))
+                
+               // noTimeLimitModeButton.zPosition = 2
+              //  timeLimitModeButton.zPosition = 2
             }
             
             if nodeTouched.name == "Easy"{
@@ -170,11 +174,15 @@ class MenuScene: SKScene{
                 }))
                 easyButton.run(SKAction.wait(forDuration: 5.0))
                 
-                noTimeLimitModeButton.zPosition = 2
-                timeLimitModeButton.zPosition = 2
+                self.view?.presentScene(TestScene8(size: self.size, levelNumber: 1, numberOfBackgroundObjects: 3, hideInterval: 5.00, spawnInterval: 5.00, initialNumberOfEnemiesSpawned: 1, enemiesSpawnedPerInterval: 1, randomVectorConfigurationForUpdate: RandomVectorConfiguration(minimumVectorYComponent: -10, maximumVectorYComponent: 10, minimumVectorXComponent: -10, maximumVectorXComponent: 10)))
+                
+                //noTimeLimitModeButton.zPosition = 2
+                //timeLimitModeButton.zPosition = 2
                 
             }
             
+            
+            /** Gameplay Mode may not be implemented
             
             if nodeTouched.name == "No Time Limit"{
                 //userOptionsManager.setGamePlayModeTo(gamePlayMode: "NoTimeLimit")
@@ -187,6 +195,7 @@ class MenuScene: SKScene{
                 self.view?.presentScene(TLScene1(size: self.size))
 
             }
+            **/
         }
         
     }
