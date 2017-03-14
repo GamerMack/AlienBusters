@@ -157,7 +157,7 @@ class TestScene: SKScene {
                 numberOfBullets -= 1
                 
                 if let flyingAlien = flyingAlien, flyingAlien.contains(touchLocation){
-                    flyingAlien.respondToHitAt(touchLocation: touchLocation)
+                    flyingAlien.respondToHit()
                 }
                 
                 if let spaceShip = spaceShip, spaceShip.contains(touchLocation){

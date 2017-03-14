@@ -70,7 +70,7 @@ class FallingAliensController: SKNode{
         
         for node in self.children{
             if let alien = node as? FlyingAlien{
-                alien.update(currentTime: delta)
+                alien.updateFlyingMode(currentTime: delta)
             }
         }
         

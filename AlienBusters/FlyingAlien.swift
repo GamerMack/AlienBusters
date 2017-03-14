@@ -26,9 +26,10 @@ class FlyingAlien: SKSpriteNode, Enemy{
     var totalGameTime = 0.00
     
     
-    var health: Int = 2                 //2 hits are required to destroy a flying alien
+    var health: Int = Int(2)           //2 hits are required to destroy a flying alien
     var alienColor: AlienColor = .blue
-
+    
+    let randomPointGenerator = RandomPoint(algorithmType: .Faster)
     
     //var defaultForceApplied = 40.0
     var isManned: Bool = false{
@@ -82,7 +83,7 @@ class FlyingAlien: SKSpriteNode, Enemy{
         super.init(texture: texture, color: color, size: size)
     }
     
-    convenience init?(alienColor: AlienColor) {
+    convenience init?(alienColor: AlienColor, startingHealth: Int = 2) {
         var texture: SKTexture?
 
         switch(alienColor){
@@ -107,6 +108,7 @@ class FlyingAlien: SKSpriteNode, Enemy{
         self.init(texture: alienTexture, color: .clear, size: alienTexture.size() )
         setAlienColorTo(alienColor: alienColor)
         setup()
+        self.health = startingHealth
     }
     
     private func setAlienColorTo(alienColor: AlienColor){
@@ -114,7 +116,7 @@ class FlyingAlien: SKSpriteNode, Enemy{
     }
     
     private func setup(){
-        position = CGPoint(x: -20.0, y: 20.0)
+        position = randomPointGenerator.getRandomPointInRandomQuadrant()
         configurePhysics()
     }
     
@@ -125,17 +127,15 @@ class FlyingAlien: SKSpriteNode, Enemy{
         self.physicsBody = SKPhysicsBody(circleOfRadius: texture.size().width/2, center: self.position)
         self.physicsBody?.allowsRotation = false
         self.physicsBody?.affectedByGravity = false
+        self.physicsBody?.categoryBitMask = PhysicsCategory.Enemy
+        self.physicsBody?.collisionBitMask = PhysicsCategory.Ground
+        self.physicsBody?.contactTestBitMask = PhysicsCategory.Ground
         
     }
     
     
-    func update(currentTime: TimeInterval){
-        updateFlyingMode(currentTime: currentTime)
-        updateVelocity()
     
-    }
-    
-    private func updateFlyingMode(currentTime: TimeInterval){
+    func updateFlyingMode(currentTime: TimeInterval){
         timeSinceLastFlyModeTransition += currentTime - lastUpdateInterval
         
         if(timeSinceLastFlyModeTransition > flyModeTransitionInterval){
@@ -147,55 +147,64 @@ class FlyingAlien: SKSpriteNode, Enemy{
         
     }
     
-    private func updateVelocity(){
-        var xForceComponent: Int = getForceVelocityComponent()
-        var yForceComponent: Int = getForceVelocityComponent()
+    func updatePhysics(){
         
-        randomizeVelocityComponentDirection(velocityComponent: &xForceComponent)
-        randomizeVelocityComponentDirection(velocityComponent: &yForceComponent)
-        
-        let forceVectorApplied = CGVector(dx: xForceComponent, dy: yForceComponent)
-        
-        self.physicsBody?.applyImpulse(forceVectorApplied, at: self.position)
+        self.physicsBody?.velocity = getRandomVectorAjustedForHealth()
 
     }
     
-    private func getForceVelocityComponent() -> Int{
+    private func getRandomVectorAjustedForHealth() -> CGVector{
+        
+        var randomVector: RandomVector
+        
         switch(self.health){
         case 2:
-            return Int(arc4random_uniform(20))
+            randomVector = RandomVector(yComponentMin: -400, yComponentMax: 400, xComponentMin: -40, xComponentMax: 40)
+            break
         case 1:
-            return Int(arc4random_uniform(30))
+            randomVector = RandomVector(yComponentMin: -300, yComponentMax: 300, xComponentMin: -30, xComponentMax: 30)
+            break
         case 0:
-            return Int(arc4random_uniform(45))
+            randomVector = RandomVector(yComponentMin: -100, yComponentMax: 100, xComponentMin: -10, xComponentMax: 10)
+            break
         default:
-            return Int(arc4random_uniform(10))
+            randomVector = RandomVector(yComponentMin: -500, yComponentMax: 500, xComponentMin: -10, xComponentMax: 10)
+            break
         }
-    }
-    
-    private func randomizeVelocityComponentDirection(velocityComponent: inout Int){
-        let coinFlip = Int(arc4random_uniform(2))
         
-        velocityComponent = coinFlip == 1 ? velocityComponent: -velocityComponent
-
+        return randomVector.getVector()
+        
     }
     
-    func respondToHitAt(touchLocation: CGPoint){
+    
+    func respondToHit(){
         
         if(!isManned) { return }
         
-        if self.contains(touchLocation){
-            
             switch(self.health){
             case 2:
-                self.run(SKAction.fadeAlpha(to: 0.6, duration: 0.25))
+                self.run(SKAction.sequence([
+                    SKAction.rotate(byAngle: 90, duration: 0.50),
+                    SKAction.rotate(byAngle: 90, duration: 0.50),
+                    SKAction.rotate(byAngle: 90, duration: 0.50),
+                    SKAction.rotate(byAngle: 90, duration: 0.50)
+                    ]))
+                print("Health Level 2, now decreased to Level 1")
                 self.health -= 1
                 break
             case 1:
-                self.run(SKAction.fadeAlpha(to: 0.3, duration: 0.25))
+                self.run(SKAction.sequence([
+                    SKAction.rotate(byAngle: 90, duration: 0.50),
+                    SKAction.rotate(byAngle: 90, duration: 0.50),
+                    SKAction.rotate(byAngle: 90, duration: 0.50),
+                    SKAction.rotate(byAngle: 90, duration: 0.50)
+                    ]))
+                print("Health Level 1, now decreased to Level 0")
                 self.health -= 1
                 break
             case 0:
+                print("About to explode...")
+
                 AnimationsFactory.createExplosionFor(spriteNode: self)
                 self.run(SKAction.sequence([
                     SKAction.wait(forDuration: 2.0),
@@ -210,12 +219,7 @@ class FlyingAlien: SKSpriteNode, Enemy{
                     ]))
                 
             }
-          
-                
-        }
-            
-            
-          
+        
         
     }
     

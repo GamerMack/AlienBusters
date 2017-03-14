@@ -17,4 +17,6 @@ class PhysicsCategory{
     static let DamagedEnemy: UInt32 = 4     //0b1 << 2
     static let Ground: UInt32 = 8           //0b1 << 3
     static let Animal: UInt32 = 32          //0b1 << 4
+
 }
+

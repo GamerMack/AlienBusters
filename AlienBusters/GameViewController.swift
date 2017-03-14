@@ -16,7 +16,7 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
         SoundLoader.preloadSounds()
         
-      
+      /**
         let menuScene = MenuScene(size: UIScreen.main.bounds.size)
         
         let randomVectorConfiguration = RandomVectorConfiguration(minimumVectorYComponent: -20, maximumVectorYComponent: 20, minimumVectorXComponent: -20, maximumVectorXComponent: 20)
@@ -25,14 +25,18 @@ class GameViewController: UIViewController {
         
         let spaceShipLevel = SpaceShipLevel(size: UIScreen.main.bounds.size, levelNumber: 1, numberOfBackgroundObjects: 3, spawnInterval: 4.00, initialNumberOfEnemiesSpawned: 2, enemiesSpawnedPerInterval: 2)
         
+         **/
+        
+        let flyingAlienScene = FlyingAlienScene(size: UIScreen.main.bounds.size, levelNumber: 1)
+        
         if let view = self.view as! SKView? {
             // Load the SKScene from 'GameScene.sks'
            
                 // Set the scale mode to scale to fit the window
-                spaceShipLevel.scaleMode = .aspectFill
+                flyingAlienScene.scaleMode = .aspectFill
                 
                 // Present the scene
-                view.presentScene(spaceShipLevel)
+                view.presentScene(flyingAlienScene)
             
             
             view.ignoresSiblingOrder = true
