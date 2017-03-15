@@ -121,11 +121,18 @@ class BatScene: TestScene8{
         frameCount += currentTime - lastUpdateTime
         hideIntervalFrameCount += currentTime - lastUpdateTime
         
+        
+        if(numberOfEnemiesKilled > minimumBatsKilledForLevelCompletion){
+            loadNextScene(difficultyLevel: .Easy)
+        }
+        
         if(batController.getTotalNumberOfBatsSpawned() > maximumNumberOFEnemies){
             self.isPaused = true
             self.showRestartButtons()
             
         }
+        
+        
         
         player.update()
         batController.update(currentTime: currentTime)
@@ -159,8 +166,7 @@ class BatScene: TestScene8{
         
         if(restartButton.contains(touchLocation)){
             
-            WingmanLevelLoader.loadLevel2From(currentScene: self, difficultyLevel: .Hard)
-            //self.view?.presentScene(self, transition: transition)
+            reloadCurrentScene(difficultyLevel: .Easy)
         }
         
         
@@ -228,6 +234,52 @@ class BatScene: TestScene8{
         }
     }
     
+    
+    private func reloadCurrentScene(difficultyLevel: BatSceneLevelLoader.DifficultyLevel){
+        switch(levelNumber){
+        case 1:
+            BatSceneLevelLoader.loadLevel1From(currentScene: self, difficultyLevel: difficultyLevel)
+            break
+        case 2:
+            BatSceneLevelLoader.loadLevel2From(currentScene: self, difficultyLevel: difficultyLevel)
+            break
+        case 3:
+            BatSceneLevelLoader.loadLevel3From(currentScene: self, difficultyLevel: difficultyLevel)
+            break
+        case 4:
+            BatSceneLevelLoader.loadLevel4From(currentScene: self, difficultyLevel: difficultyLevel)
+            break
+        case 5:
+            BatSceneLevelLoader.loadLevel5From(currentScene: self, difficultyLevel: difficultyLevel)
+            break
+        default:
+            //TODO: Not yet implemented
+            break
+        }
+    }
+    
+    private func loadNextScene(difficultyLevel: BatSceneLevelLoader.DifficultyLevel){
+        
+        switch(levelNumber){
+        case 1:
+            BatSceneLevelLoader.loadLevel2From(currentScene: self, difficultyLevel: difficultyLevel)
+            break
+        case 2:
+            BatSceneLevelLoader.loadLevel3From(currentScene: self, difficultyLevel: difficultyLevel)
+            break
+        case 3:
+            BatSceneLevelLoader.loadLevel3From(currentScene: self, difficultyLevel: difficultyLevel)
+            break
+        case 4:
+            BatSceneLevelLoader.loadLevel4From(currentScene: self, difficultyLevel: difficultyLevel)
+            break
+        case 5:
+            //TODO: Not yet implemented; load transitional scene or scene for next track
+            break
+        default:
+            break
+        }
+    }
     
     
 }

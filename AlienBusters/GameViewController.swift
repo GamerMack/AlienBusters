@@ -32,7 +32,7 @@ class GameViewController: UIViewController {
         
        // let spaceShipLevel = SpaceShipLevel(size: self.view.bounds.size, levelNumber: 1, numberOfBackgroundObjects: 4, spawnInterval: 10.0, initialNumberOfEnemiesSpawned: 1, enemiesSpawnedPerInterval: 2, spaceShipTravelSpeed: 10.0, spaceShipTransitionInterval: 3.0)
         
-        let batScene = BatScene(size: self.view.bounds.size, levelNumber: 2, levelDescription: "Bats are harder to see!", numberOfBackgroundObjects: 5, spawnInterval: 10.00, initialNumberOfEnemiesSpawned: 1, minBatsSpawned: 0, maxBatsSpawned: 1, minBatComponentVelocity: 10.00, maxBatComponentVelocity: 40.00,lightNodeFallOff: 2.0, maximumBatsAllowedToSpawn: 10, minimumBatsKilledForLevelCompletion: 5)
+    let batScene = BatScene(size: self.view.frame.size, levelNumber: 1, levelDescription: "Shoot all the bats!", numberOfBackgroundObjects: 6, spawnInterval: 10.0, initialNumberOfEnemiesSpawned: 1, minBatsSpawned: 0, maxBatsSpawned: 1, minBatComponentVelocity: 0, maxBatComponentVelocity: 20.0, lightNodeFallOff: 2, maximumBatsAllowedToSpawn: 40, minimumBatsKilledForLevelCompletion: 10)
         
         if let view = self.view as! SKView? {
             // Load the SKScene from 'GameScene.sks'

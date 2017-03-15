@@ -31,6 +31,7 @@
 		BD2AB5541E76B3190041B2AE /* SoundLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2AB5531E76B3190041B2AE /* SoundLoader.swift */; };
 		BD2AB5561E76DB2F0041B2AE /* BackgroundObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2AB5551E76DB2F0041B2AE /* BackgroundObject.swift */; };
 		BD2B80231E71A53500E509AF /* ButtonFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2B80221E71A53500E509AF /* ButtonFactory.swift */; };
+		BD2B98681E795C8F00E8E8D9 /* BatSceneLevelLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2B98671E795C8F00E8E8D9 /* BatSceneLevelLoader.swift */; };
 		BD2BF7251E74FF7B0022C378 /* TestScene2.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2BF7241E74FF7B0022C378 /* TestScene2.swift */; };
 		BD2D363F1E7639AE00F0B3A0 /* RandomVectorUniform.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2D363E1E7639AE00F0B3A0 /* RandomVectorUniform.swift */; };
 		BD2D36411E7639BA00F0B3A0 /* RandomVectorGaussian.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2D36401E7639BA00F0B3A0 /* RandomVectorGaussian.swift */; };
@@ -153,6 +154,7 @@
 		BD2AB5531E76B3190041B2AE /* SoundLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundLoader.swift; sourceTree = "<group>"; };
 		BD2AB5551E76DB2F0041B2AE /* BackgroundObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundObject.swift; sourceTree = "<group>"; };
 		BD2B80221E71A53500E509AF /* ButtonFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonFactory.swift; sourceTree = "<group>"; };
+		BD2B98671E795C8F00E8E8D9 /* BatSceneLevelLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BatSceneLevelLoader.swift; sourceTree = "<group>"; };
 		BD2BF7241E74FF7B0022C378 /* TestScene2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestScene2.swift; sourceTree = "<group>"; };
 		BD2D363E1E7639AE00F0B3A0 /* RandomVectorUniform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomVectorUniform.swift; sourceTree = "<group>"; };
 		BD2D36401E7639BA00F0B3A0 /* RandomVectorGaussian.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomVectorGaussian.swift; sourceTree = "<group>"; };
@@ -334,6 +336,7 @@
 				BD2E96C71E78032700C16DA7 /* SpaceShipLevel.swift */,
 				BD2E96C91E781E3100C16DA7 /* FlyingAlienScene.swift */,
 				BD37C2871E79290900ACCF38 /* SpaceShipLevelLoader.swift */,
+				BD2B98671E795C8F00E8E8D9 /* BatSceneLevelLoader.swift */,
 			);
 			name = TestScene8Prototype;
 			sourceTree = "<group>";
@@ -791,6 +794,7 @@
 				BD7689DC1E7259510066D59E /* TLScene4.swift in Sources */,
 				BD3049E91E6FB2D30083B0ED /* NoTimeLimitMode.swift in Sources */,
 				BD37C2881E79290900ACCF38 /* SpaceShipLevelLoader.swift in Sources */,
+				BD2B98681E795C8F00E8E8D9 /* BatSceneLevelLoader.swift in Sources */,
 				BDDC249E1E6EA082005E103C /* HUD.swift in Sources */,
 				BD2DC2081E75331E0067D1A2 /* TestScene3.swift in Sources */,
 				BD2AB5471E76B11D0041B2AE /* BackgroundMusic.swift in Sources */,
