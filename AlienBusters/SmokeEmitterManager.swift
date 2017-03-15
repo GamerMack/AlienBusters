@@ -81,6 +81,9 @@ class SmokeEmitterManager{
         emitterNode.particleSpeed = speed
         emitterNode.particleSpeedRange = speedRange
         
+        //Particle color configuration
+        emitterNode.particleColor = UIColor.orange
+        
     }
     
     

@@ -10,40 +10,19 @@ import Foundation
 import SpriteKit
 import GameplayKit
 
-class SpaceShipLevel: SKScene{
+class SpaceShipLevel: TestScene8{
     
+    //MARK: Particle emitter for damaged ship
+    //Configure particle emitter for background
     
-    //MARK: Number for the Current Level
-    var levelNumber: Int = 1
+    /**
+    let fireEmitterNode: SKEmitterNode = {
+        let emitterPath = Bundle.main.path(forResource: "Fire", ofType: "sks")!
+        let emitterNode = NSKeyedUnarchiver.unarchiveObject(withFile: emitterPath) as! SKEmitterNode
+        return emitterNode
     
-    //MARK: UI Buttons
-    
-    var menuButton = SKSpriteNode()
-    var restartButton = SKSpriteNode()
-    var sceneInterfaceManagerDelegate: SceneInterfaceManagerDelegate!
-    
-    
-    //MARK: Explosion Animation
-    var explosionAnimation = SKAction()
-    var explosionSound = SKAction.playSoundFileNamed(SoundEffects.Explosion3, waitForCompletion: false)
-    
-    //MARK: Variables related to background objects
-    lazy var backgroundObjects: [BackgroundObject] = [
-        BackgroundObject(backgroundObjectType: .Sun),
-        BackgroundObject(backgroundObjectType: .Cloud1),
-        BackgroundObject(backgroundObjectType: .Cloud2),
-        BackgroundObject(backgroundObjectType: .FullMoon),
-        BackgroundObject(backgroundObjectType: .HalfMoon),
-        BackgroundObject(backgroundObjectType: .Cloud3),
-        BackgroundObject(backgroundObjectType: .Cloud5),
-        BackgroundObject(backgroundObjectType: .Cloud6),
-        BackgroundObject(backgroundObjectType: .Cloud4)
-        
-    ]
-    
-    var numberOfBackgroundObjects: Int = 3
-    var backgroundObjectsPositions = [CGPoint]()
-    
+    }()
+    **/
     /**SpaceShip types
     Red Color: Red1,Red2,Red3
     Blue Color: Blue1,Blue2,Blue3
@@ -59,39 +38,23 @@ class SpaceShipLevel: SKScene{
         SpaceShip(spaceShipTypeOf: .Blue1, travelSpeedOf: 20.0, scalingFactor: 0.8)!,
         SpaceShip(spaceShipTypeOf: .Blue2, travelSpeedOf: 20.0, scalingFactor: 0.8)!,
         SpaceShip(spaceShipTypeOf: .Blue3, travelSpeedOf: 20.0, scalingFactor: 0.8)!,
-        SpaceShip(spaceShipTypeOf: .Orange1, travelSpeedOf: 20.0, scalingFactor: 0.8)!,
-        SpaceShip(spaceShipTypeOf: .Orange2, travelSpeedOf: 20.0, scalingFactor: 0.8)!,
-        SpaceShip(spaceShipTypeOf: .Orange3, travelSpeedOf: 20.0, scalingFactor: 0.8)!,
     
     ]
     
     var currentSpaceShipIndex: Int = 0
     
-    var currentNumberOfEnemies: Int = 0
-    var maximumNumberOFEnemies: Int = 10
-    var numberOfEnemiesKilled: Int = 0
+    var randomSpaceShipIndex: Int {
+        get{
+            return GKRandomDistribution(lowestValue: 0, highestValue: backgroundObjectsPositions.count-1).nextInt()
+        }
+    }
     
-    var initialNumberOfEnemiesSpawned: Int = 2
-    var randomVectorConfigurationForUpdate: RandomVectorConfiguration = RandomVectorConfiguration(minimumVectorYComponent: -50.00, maximumVectorYComponent: 50.00, minimumVectorXComponent: -50.00, maximumVectorXComponent: 50.00)
-    
-    //Player Variables
-    var player: CrossHair!
-    var shootingSound = SKAction.playSoundFileNamed(SoundEffects.Laser3, waitForCompletion: false)
     
     //Timer Related Variables
-    var frameCount: TimeInterval = 0.00
-    var lastUpdateTime: TimeInterval = 0.00
-    var spawnInterval: TimeInterval = 5.00
-    var enemiesSpawnedPerInterval: Int = 2
     var stealthInterval: TimeInterval = 4.00
     var stealthIntervalCounter: TimeInterval = 0.00
     
-    //Random Point Generator
-    let randomPointGenerator = RandomPoint(algorithmType: .Faster)
-    
-    //HUD display
-    var hud2 = HUD2()
-    
+
     //MARK: ***************SCENE INITIALIZERS
     convenience init(size: CGSize, levelNumber: Int, numberOfBackgroundObjects: Int, spawnInterval: TimeInterval, initialNumberOfEnemiesSpawned: Int, enemiesSpawnedPerInterval: Int) {
         
@@ -112,12 +75,10 @@ class SpaceShipLevel: SKScene{
         
         //Configure SceneInterfaceManagerDelegate
         sceneInterfaceManagerDelegate = SceneInterfaceManager(newManagedScene: self)
-        sceneInterfaceManagerDelegate.setupIntroMessageBox(levelTitle: "Level \(levelNumber)", levelDescription: "Wingman likes to hide", enemyName: "Wingman", spawningLimit: self.maximumNumberOFEnemies)
+        sceneInterfaceManagerDelegate.setupIntroMessageBox(levelTitle: "Level \(levelNumber)", levelDescription: "Stealth ships appear and disappear!", enemyName: "Stealth Fighters", spawningLimit: self.maximumNumberOFEnemies)
         
         
         //Configure particle emitter for background
-        
-        
         let emitterPath = Bundle.main.path(forResource: "StarryNight", ofType: "sks")!
         let emitterNode = NSKeyedUnarchiver.unarchiveObject(withFile: emitterPath) as! SKEmitterNode
         emitterNode.targetNode = self
@@ -136,6 +97,7 @@ class SpaceShipLevel: SKScene{
         
         //Configure player
         player = CrossHair(crossHairType: .BlueLarge)
+        player.zPosition = 10
         self.addChild(player)
         
         //Configure Background music
@@ -146,8 +108,6 @@ class SpaceShipLevel: SKScene{
         
         //Spawn Background Objects
         spawnBackgroundObjects(numberOfBackgroundObjects: self.numberOfBackgroundObjects, scaledByFactorOf: 0.40)
-        
-        
         
         
         
@@ -166,13 +126,14 @@ class SpaceShipLevel: SKScene{
         frameCount += currentTime - lastUpdateTime
         stealthIntervalCounter += currentTime - lastUpdateTime
         
+        player.update()
+
+        
         if(currentNumberOfEnemies > maximumNumberOFEnemies){
             self.isPaused = true
             self.showRestartButtons()
             
         }
-        
-        player.update()
         
         if(stealthIntervalCounter > stealthInterval){
             //spawn the spaceships from an array
@@ -181,7 +142,6 @@ class SpaceShipLevel: SKScene{
         }
         
         updateAllSpaceShips(currentTime: currentTime)
-        
         lastUpdateTime = currentTime
     }
     
@@ -212,8 +172,7 @@ class SpaceShipLevel: SKScene{
         let touch = touches.first! as UITouch
         let touchLocation = touch.location(in: self)
         
-        
-        
+
         
         if(restartButton.contains(touchLocation)){
             
@@ -227,61 +186,79 @@ class SpaceShipLevel: SKScene{
             self.view?.presentScene(MenuScene(size: self.size), transition: transition)
         }
         
-        
-        
         for node in nodes(at: touchLocation){
             
             if node.name == NodeNames.StartButton{
                 node.removeFromParent()
             }
             
-            if let node = node as? SpaceShip, player.contains(touchLocation){
+        }
+        
+        
+        if player.contains(touchLocation){
+            player.run(shootingSound)
+
+            for node in nodes(at: touchLocation){
                 
-                
-                processResponseForSpaceShipNode(node)
-                
-                currentNumberOfEnemies -= 1
-                numberOfEnemiesKilled += 1
-                
+                if node.name == "SpaceShip"{
+                    
+                    guard let node = node as? SpaceShip else { return }
+                    
+                    print("The space ship's health is \(node.getHealth())")
+                    
+                    switch(node.getHealth()){
+                    case 2:
+                        print("The space ship took damage")
+                        node.takeDamage1()
+
+                        break
+                    case 1:
+                        print("The space ship took damage")
+                        node.takeDamage2()
+        
+                        break
+                    case 0:
+                        print("The space ship died")
+                    
+                        node.run(SKAction.group([
+                            explosionSound,
+                            explosionAnimation
+                            ]))
+                        node.run(SKAction.sequence([
+                            SKAction.wait(forDuration: 2.0),
+                            SKAction.removeFromParent()
+                            ]))
+                        currentNumberOfEnemies -= 1
+                        numberOfEnemiesKilled += 1
+                        break
+                    default:
+                        print("The space ship died")
+                    
+                        node.run(SKAction.group([
+                            explosionSound,
+                            explosionAnimation
+                            ]))
+                        node.run(SKAction.sequence([
+                            SKAction.wait(forDuration: 2.0),
+                            SKAction.removeFromParent()
+                            ]))
+            
+                        currentNumberOfEnemies -= 1
+                        numberOfEnemiesKilled += 1
+                        break
+                    
+                }
+                    
                 hud2.setNumberOfEnemiesKilledTo(numberKilled: numberOfEnemiesKilled)
                 hud2.setNumberOfEnemiesTo(numberOfEnemies: currentNumberOfEnemies)
-                
-            } else {
-                player.run(shootingSound)
+                    
             }
         }
         
-    }
-    
-    private func spawnBackgroundObjects(numberOfBackgroundObjects: Int, scaledByFactorOf scaleFactor: CGFloat){
-        
-        let numberOfObjects: Int = numberOfBackgroundObjects > (backgroundObjects.count-1) ? (backgroundObjects.count-1) : numberOfBackgroundObjects
-        
-        
-        for index in 0..<numberOfObjects{
             
-            let randomSpawnPoint = index % 2 == 0 ? randomPointGenerator.getUpperScreenPoint() : randomPointGenerator.getLowerScreenPoint()
-            
-            backgroundObjects[index].zPosition = -1
-            backgroundObjects[index].position = randomSpawnPoint
-            backgroundObjectsPositions.append(randomSpawnPoint)
-            
-            self.addChild(backgroundObjects[index])
         }
-    }
-    
-    private func getPositionOfRandomBackgroundObject() -> CGPoint{
-        
-        let randomDist = GKRandomDistribution(lowestValue: 0, highestValue: backgroundObjectsPositions.count-1)
-        
-        let randomIndex = randomDist.nextInt()
-        
-        return backgroundObjectsPositions[randomIndex]
-        
         
     }
-    
-    
     
     
     private func spawnSpaceShipFromArray(){
@@ -292,10 +269,9 @@ class SpaceShipLevel: SKScene{
         
         let spaceShip = spaceShips[currentSpaceShipIndex].copy() as! SpaceShip
         
-        
+        spaceShip.zPosition = player.zPosition-1
         spaceShip.name = "SpaceShip"
         spaceShip.userData?.setValue(2, forKey: "health")
-        spaceShip.userData?.setValue(false, forKey: "isInStealthMode")
         
         spaceShip.move(toParent: self)
         currentSpaceShipIndex += 1
@@ -309,18 +285,14 @@ class SpaceShipLevel: SKScene{
     
     private func spawnEnemyFromRandomArrayIndex(){
         
-        let randomDist = GKRandomDistribution(lowestValue: 0, highestValue: spaceShips.count-1)
-        
-        let spaceShip = spaceShips[randomDist.nextInt()] as! SpaceShip
+        let spaceShip = spaceShips[randomSpaceShipIndex]
         
         spaceShip.name = "SpaceShip"
+        
         spaceShip.userData?.setValue(2, forKey: "health")
-        spaceShip.userData?.setValue(false, forKey: "isInStealthMode")
-            
         currentNumberOfEnemies += 1
         spaceShip.move(toParent: self)
-            
-    
+        
         
         hud2.setNumberOfEnemiesTo(numberOfEnemies: currentNumberOfEnemies)
         
@@ -352,82 +324,7 @@ class SpaceShipLevel: SKScene{
     
 }
 
-extension SpaceShipLevel{
-    
-    func setupMenuAndRestartButtons(){
-        
-        guard let menuButtonTexture = TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .HUD)?.textureNamed("button-menu") else { return }
-        
-        guard let restartButtonTexture = TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .HUD)?.textureNamed("button-restart") else { return }
-        
-        menuButton = SKSpriteNode(texture: menuButtonTexture)
-        restartButton = SKSpriteNode(texture: restartButtonTexture)
-        
-        menuButton.name = NodeNames.ReturnToMenuButton
-        restartButton.name = NodeNames.RestartGameButton
-        
-        menuButton.size = CGSize(width: kViewWidth*0.2, height: kViewHeight*0.3)
-        restartButton.size = CGSize(width: kViewWidth*0.2, height: kViewHeight*0.3)
-        
-        menuButton.position = CGPoint(x: kViewWidth*0.5*0.2, y: 0)
-        restartButton.position = CGPoint(x: menuButton.position.x - menuButton.size.width - 30, y: menuButton.position.y)
-        
-        let returnToMenuText = SKLabelNode(fontNamed: FontTypes.NoteWorthyLight)
-        returnToMenuText.text = "Main Menu"
-        returnToMenuText.fontSize = 20.0
-        returnToMenuText.fontColor = SKColor.white
-        returnToMenuText.verticalAlignmentMode = .bottom
-        returnToMenuText.position = CGPoint(x: 0, y: -menuButton.size.height)
-        returnToMenuText.name = NodeNames.ReturnToMenuButton
-        returnToMenuText.move(toParent: menuButton)
-        
-        let restartGameText = SKLabelNode(fontNamed: FontTypes.NoteWorthyLight)
-        restartGameText.text = "Restart Level"
-        restartGameText.fontSize = 20.0
-        restartGameText.fontColor = SKColor.white
-        restartGameText.verticalAlignmentMode = .bottom
-        restartGameText.position = CGPoint(x: 0, y: -restartButton.size.height)
-        restartGameText.name = NodeNames.RestartGameButton
-        restartGameText.move(toParent: restartButton)
-        
-        restartButton.zPosition = -15
-        menuButton.zPosition = -15
-        
-        restartButton.alpha = 0
-        menuButton.alpha = 0
-        
-        
-        
-        
-        
-    }
-    
-    func showRestartButtons(){
-        //Set the button alpha to zero
-        
-        setupMenuAndRestartButtons()
-        
-        restartButton.alpha = 1
-        menuButton.alpha = 1
-        
-        menuButton.move(toParent: self)
-        restartButton.move(toParent: self)
-        
-        menuButton.zPosition = 15
-        restartButton.zPosition = 15
-        
-        
-        let fadeAnimation = SKAction.fadeAlpha(to: 1.0, duration: 1.0)
-        
-        restartButton.run(fadeAnimation)
-        menuButton.run(fadeAnimation)
-    }
-    
-    
-    
-    
-    
-}
+
 
 
 extension SpaceShipLevel{

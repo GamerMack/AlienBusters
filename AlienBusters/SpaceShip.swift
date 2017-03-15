@@ -21,8 +21,21 @@ class SpaceShip: SKSpriteNode, Enemy{
     }
     
     
+    //MARK: *********************Fire Emitter Node (for damaged ship)
+    let fireEmitterNode: SKEmitterNode = {
+        let emitterPath = Bundle.main.path(forResource: "Fire", ofType: "sks")!
+        let emitterNode = NSKeyedUnarchiver.unarchiveObject(withFile: emitterPath) as! SKEmitterNode
+        return emitterNode
+        
+    }()
+    
+    
+    
+    //MARK: ************************* References to App-level singletons
     private let textureAtlasManager = TextureAtlasManager.sharedInstance
     private let textureAtlas = TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .FlyingAliens)
+    
+    private let smokeEmitterManager = SmokeEmitterManager.sharedInstance
     
     
     //MARK: ***************** Variables for Ship State
@@ -34,7 +47,7 @@ class SpaceShip: SKSpriteNode, Enemy{
     //MARK: ***************Timer-Related Variables
     var timeSinceLastFlyModeTransition = 0.00
     var lastUpdateInterval = 0.00
-    var flyModeTransitionInterval = 4.00
+    var flyModeTransitionInterval = 2.00
     var totalGameTime = 0.00
     
     
@@ -119,7 +132,6 @@ class SpaceShip: SKSpriteNode, Enemy{
     
     private func setupWithSpeedOf(travelSpeed: CGFloat){
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
-        self.zPosition = 1
         
         setRandomPosition()
         
@@ -139,6 +151,8 @@ class SpaceShip: SKSpriteNode, Enemy{
         position = randomPoint
         
     }
+    
+  
     
     //MARK: ***************** GameLoop-Related Function
     
@@ -184,46 +198,74 @@ class SpaceShip: SKSpriteNode, Enemy{
     }
     
     
+   
+    
     //MARK: ******************* User-Input Handling Functions
     
-    func respondToHitAt(touchLocation: CGPoint){
+    func getHealth() -> Int {
+    
+        return self.health
+    }
+    
+    
+    func respondToHit(){
         
         if(isInStealthMode) { return }
         
-        if self.contains(touchLocation){
-            
             switch(self.health){
             case 2:
-                let emitterNode = SmokeEmitterManager.sharedInstance.createSmokeEmitterFor(engineState: .NormalRunning)
-                emitterNode.position = CGPoint(x: 0, y: -10)
-                emitterNode.zPosition = 2
-                self.addChild(emitterNode)
+               // self.takeDamage(engineState: .NormalRunning)
+                if(kDebug){
+                    print("Space Ship was hit. Original health level: \(self.health)")
+                }
                 self.health -= 1
+
                 break
             case 1:
-                self.removeAllChildren()
-                let emitterNode = SmokeEmitterManager.sharedInstance.createSmokeEmitterFor(engineState: .Accelerated)
-                emitterNode.position = CGPoint(x: 0, y: -10)
-                emitterNode.zPosition = 2
-
-                self.addChild(emitterNode)
+               // self.takeDamage(engineState: .LowFuel)
+                if(kDebug){
+                    print("Space Ship was hit. Original health level: \(self.health)")
+                }
                 self.health -= 1
                 break
             case 0:
-                AnimationsFactory.createExplosionFor(spriteNode: self)
-                self.run(SKAction.sequence([
-                    SKAction.wait(forDuration: 2.0),
-                    SKAction.removeFromParent()
-                    ]))
+               self.die()
                 break
             default:
-                AnimationsFactory.createExplosionFor(spriteNode: self)
-                self.run(SKAction.sequence([
-                    SKAction.wait(forDuration: 2.0),
-                    SKAction.removeFromParent()
-                    ]))
+                self.die()
             }
-        }
+        
+    }
+    
+    func reduceHealthBy(healthLoss: Int = 1){
+        self.health -= healthLoss
+    }
+    
+    func takeDamage1(){
+        self.reduceHealthBy(healthLoss: 1)
+        fireEmitterNode.targetNode = self
+        self.addChild(fireEmitterNode)
+    }
+    
+    func takeDamage2(){
+        self.reduceHealthBy(healthLoss: 1)
+        fireEmitterNode.particleBirthRate = 500
+        fireEmitterNode.particleSpeed = 400
+        fireEmitterNode.particleSpeedRange = 50
+        fireEmitterNode.emissionAngleRange = 100
+    }
+    
+    func die(){
+        self.run(SKAction.sequence([
+            SKAction.wait(forDuration: 2.0),
+            SKAction.removeFromParent()
+            ]))
+        
+    }
+    
+    
+    deinit{
+        print("I've been deinitialized")
     }
     
 

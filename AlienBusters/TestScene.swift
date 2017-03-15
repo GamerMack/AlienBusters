@@ -161,7 +161,7 @@ class TestScene: SKScene {
                 }
                 
                 if let spaceShip = spaceShip, spaceShip.contains(touchLocation){
-                    spaceShip.respondToHitAt(touchLocation: touchLocation)
+                    spaceShip.respondToHit()
                 }
                 
 //                if let hud = hud, let pauseButton = hud.pauseButton, pauseButton.contains(touchLocation){

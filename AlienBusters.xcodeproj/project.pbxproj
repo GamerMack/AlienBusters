@@ -57,6 +57,7 @@
 		BD312B151E75733C00DCB39C /* ShapeShifter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD312B141E75733C00DCB39C /* ShapeShifter.swift */; };
 		BD312B3A1E75906C00DCB39C /* TestScene5.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD312B391E75906C00DCB39C /* TestScene5.swift */; };
 		BD312B3C1E759C5800DCB39C /* TestScene6.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD312B3B1E759C5800DCB39C /* TestScene6.swift */; };
+		BD37C2861E79022500ACCF38 /* Fire.sks in Resources */ = {isa = PBXBuildFile; fileRef = BD37C2851E79022500ACCF38 /* Fire.sks */; };
 		BD73EE481E73A60400CD7AD1 /* RandomVector.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD73EE471E73A60400CD7AD1 /* RandomVector.swift */; };
 		BD73EE4A1E73A66E00CD7AD1 /* RandomPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD73EE491E73A66E00CD7AD1 /* RandomPoint.swift */; };
 		BD7689DC1E7259510066D59E /* TLScene4.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7689DB1E7259510066D59E /* TLScene4.swift */; };
@@ -176,6 +177,7 @@
 		BD312B141E75733C00DCB39C /* ShapeShifter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShapeShifter.swift; sourceTree = "<group>"; };
 		BD312B391E75906C00DCB39C /* TestScene5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestScene5.swift; sourceTree = "<group>"; };
 		BD312B3B1E759C5800DCB39C /* TestScene6.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestScene6.swift; sourceTree = "<group>"; };
+		BD37C2851E79022500ACCF38 /* Fire.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Fire.sks; sourceTree = "<group>"; };
 		BD73EE471E73A60400CD7AD1 /* RandomVector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomVector.swift; sourceTree = "<group>"; };
 		BD73EE491E73A66E00CD7AD1 /* RandomPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomPoint.swift; sourceTree = "<group>"; };
 		BD7689DB1E7259510066D59E /* TLScene4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TLScene4.swift; sourceTree = "<group>"; };
@@ -267,6 +269,7 @@
 				BD11B6E11E77C50600E8CED3 /* FireFlies.sks */,
 				BD11B6E31E77C51900E8CED3 /* Rain.sks */,
 				BDB542671E78438000C63C8D /* OuterBarriers.sks */,
+				BD37C2851E79022500ACCF38 /* Fire.sks */,
 			);
 			name = SKSFiles;
 			sourceTree = "<group>";
@@ -693,6 +696,7 @@
 				BDDC24711E6E6E48005E103C /* Infinite Descent.mp3 in Resources */,
 				BD11B6DC1E77A30800E8CED3 /* ExplosionEmitter.sks in Resources */,
 				BD312B111E755EF900DCB39C /* SceneTransitionText.plist in Resources */,
+				BD37C2861E79022500ACCF38 /* Fire.sks in Resources */,
 				BDDC24771E6E6E48005E103C /* Sad Descent.mp3 in Resources */,
 				BDDC24791E6E6E48005E103C /* Space Cadet.mp3 in Resources */,
 				BDDC246F1E6E6E48005E103C /* Game Over.mp3 in Resources */,
