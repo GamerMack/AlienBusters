@@ -35,20 +35,18 @@ class SpaceShip: SKSpriteNode, Enemy{
     private let textureAtlasManager = TextureAtlasManager.sharedInstance
     private let textureAtlas = TextureAtlasManager.sharedInstance.getTextureAtlasOfType(textureAtlasType: .FlyingAliens)
     
-    private let smokeEmitterManager = SmokeEmitterManager.sharedInstance
     
     
     //MARK: ***************** Variables for Ship State
     private var isInStealthMode: Bool = false
     private var health: Int = 2     //2 hits are required to destroy a flying alien
     private var spaceShipType: SpaceShipType = .Red1
-    private var travelSpeed: CGFloat = 0.00
+    private var travelSpeed: CGFloat = 5.00
     
     //MARK: ***************Timer-Related Variables
     var timeSinceLastFlyModeTransition = 0.00
     var lastUpdateInterval = 0.00
     var flyModeTransitionInterval = 2.00
-    var totalGameTime = 0.00
     
     
     //MARK: *******************Random Point Generator
@@ -64,7 +62,7 @@ class SpaceShip: SKSpriteNode, Enemy{
         super.init(texture: texture, color: color, size: size)
     }
     
-    convenience init?(spaceShipTypeOf spaceShipType: SpaceShipType = .Red1, travelSpeedOf travelSpeed: CGFloat = 50.0, scalingFactor: CGFloat = 1.0) {
+    convenience init?(spaceShipTypeOf spaceShipType: SpaceShipType = .Red1, travelSpeedOf travelSpeed: CGFloat = 5.0, scalingFactor: CGFloat = 1.0,flyModeTransitionInterval: TimeInterval = 4.00, healthLevel: Int = 2) {
         var texture: SKTexture?
         
         switch(spaceShipType){
@@ -117,10 +115,12 @@ class SpaceShip: SKSpriteNode, Enemy{
         self.xScale *= scalingFactor
         self.yScale *= scalingFactor
         
+        //Configure spaceship properties
         setSpaceShipTypeTo(spaceShipType: spaceShipType)
-        
+        resetHealth(toHealthLevelOf: healthLevel)
         setupWithSpeedOf(travelSpeed: travelSpeed)
-        self.travelSpeed = travelSpeed
+        resetFlySpeed(toFlyingSpeedOf: travelSpeed)
+        resetFlyModeTransitionInterval(toFlyModeTransitionInterval: flyModeTransitionInterval)
     }
     
     
@@ -135,14 +135,42 @@ class SpaceShip: SKSpriteNode, Enemy{
         
         setRandomPosition()
         
-        let randomDist = GKRandomDistribution(lowestValue: 10, highestValue: 300)
-        let cgRect = CGRect(x: self.position.x, y: self.position.y, width: CGFloat(randomDist.nextUniform()), height: CGFloat(randomDist.nextUniform()))
+        let currentPosition = self.position
+        let firstPoint = randomPointGenerator.getRandomPointInRandomQuadrant()
+        let destinationPoint = randomPointGenerator.getRandomPointInRandomQuadrant()
         
-        let spaceShipPath = CGPath(ellipseIn: cgRect, transform: nil)
-      
-        let pathAnimation = SKAction.repeatForever(SKAction.follow(spaceShipPath, asOffset: true, orientToPath: true, speed: travelSpeed))
+        let angle1 = AngleBetweenPoints(targetPosition: firstPoint, currentPosition: currentPosition)
         
-        self.run(pathAnimation, withKey: "pathAnimation")
+        let angle2 = AngleBetweenPoints(targetPosition: destinationPoint, currentPosition: firstPoint)
+        
+        let angle3 = AngleBetweenPoints(targetPosition: currentPosition, currentPosition: destinationPoint)
+        
+        let action1 = SKAction.group([
+            SKAction.rotate(toAngle: angle1, duration: 0.10),
+            SKAction.move(to: firstPoint, duration: TimeInterval(travelSpeed))
+            ])
+        
+        let action2 = SKAction.group([
+            SKAction.rotate(toAngle: angle2, duration: 0.10),
+            SKAction.move(to: destinationPoint, duration: TimeInterval(travelSpeed))
+            ])
+        
+        let action3 = SKAction.group([
+            SKAction.rotate(toAngle: angle3, duration: 0.10),
+            SKAction.move(to: currentPosition, duration: TimeInterval(travelSpeed))
+            ])
+        
+        let trianglePathAnimation = SKAction.repeatForever(SKAction.sequence([
+            action1,
+            action2,
+            action3
+            ]))
+        
+        
+        //let spaceShipPath = CGPath(ellipseIn: cgRect, transform: nil)
+        //let pathAnimation = SKAction.repeatForever(SKAction.follow(spaceShipPath, asOffset: true, orientToPath: true, speed: travelSpeed))
+       // let pathAnimation2 = SKAction.repeatForever(SKAction.follow(spaceShipPath, asOffset: true, orientToPath: true, duration: TimeInterval(travelSpeed)))
+        self.run(trianglePathAnimation, withKey: "pathAnimation")
     }
     
     func setRandomPosition(){
@@ -185,8 +213,8 @@ class SpaceShip: SKSpriteNode, Enemy{
         if(timeSinceLastFlyModeTransition > flyModeTransitionInterval){
             
             let changeAction = isInStealthMode ?
-                SKAction.fadeAlpha(to: 1.0, duration: 0.25) :
-                SKAction.fadeAlpha(to: 0.0, duration: 0.25)
+                SKAction.fadeAlpha(to: 1.0, duration: 1.5) :
+                SKAction.fadeAlpha(to: 0.0, duration: 1.5)
             
             self.run(changeAction)
             
@@ -202,12 +230,7 @@ class SpaceShip: SKSpriteNode, Enemy{
     
     //MARK: ******************* User-Input Handling Functions
     
-    func getHealth() -> Int {
-    
-        return self.health
-    }
-    
-    
+ 
     func respondToHit(){
         
         if(isInStealthMode) { return }
@@ -237,8 +260,31 @@ class SpaceShip: SKSpriteNode, Enemy{
         
     }
     
+    
+    //MARK: ******** OTHER HELPER FUNCTIONS
+    
+    func getHealth() -> Int {
+        
+        return self.health
+    }
+    
+    func resetHealth(toHealthLevelOf healthLevel: Int){
+        self.health = healthLevel
+    }
+    
+    
     func reduceHealthBy(healthLoss: Int = 1){
         self.health -= healthLoss
+    }
+    
+    
+    func resetFlyModeTransitionInterval(toFlyModeTransitionInterval timeInterval: TimeInterval){
+        self.flyModeTransitionInterval = timeInterval
+    }
+    
+    
+    func resetFlySpeed(toFlyingSpeedOf flyingSpeed: CGFloat){
+        self.travelSpeed = flyingSpeed
     }
     
     func takeDamage1(){

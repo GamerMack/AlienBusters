@@ -107,7 +107,7 @@ func AngleBetweenPoints(targetPosition: CGPoint, currentPosition: CGPoint) -> Nu
     let deltaX = targetPosition.x - currentPosition.x
     let deltaY = targetPosition.y - currentPosition.y
     
-    return NumberUnit((atan2(deltaY, deltaX))) - DegreesToRadians(angleInDegrees: 90)
+    return (NumberUnit((atan2(deltaY, deltaX))) - NumberUnit(M_PI/2))
 }
 
 func DistanceBetweenPoints(firstPoint: CGPoint, secondPoint: CGPoint) -> NumberUnit{

@@ -32,12 +32,12 @@ class SpaceShipLevel: TestScene8{
     
     //SpaceShip Prototype
     var spaceShips: [SpaceShip] = [
-        SpaceShip(spaceShipTypeOf: .Red1, travelSpeedOf: 20.0, scalingFactor: 0.8)!,
-        SpaceShip(spaceShipTypeOf: .Red2, travelSpeedOf: 20.0, scalingFactor: 0.8)!,
-        SpaceShip(spaceShipTypeOf: .Red3, travelSpeedOf: 20.0, scalingFactor: 0.8)!,
-        SpaceShip(spaceShipTypeOf: .Blue1, travelSpeedOf: 20.0, scalingFactor: 0.8)!,
-        SpaceShip(spaceShipTypeOf: .Blue2, travelSpeedOf: 20.0, scalingFactor: 0.8)!,
-        SpaceShip(spaceShipTypeOf: .Blue3, travelSpeedOf: 20.0, scalingFactor: 0.8)!,
+        SpaceShip(spaceShipTypeOf: .Red1, travelSpeedOf: 5.0, scalingFactor: 0.8)!,
+        SpaceShip(spaceShipTypeOf: .Red2, travelSpeedOf: 5.0, scalingFactor: 0.8)!,
+        SpaceShip(spaceShipTypeOf: .Red3, travelSpeedOf: 5.0, scalingFactor: 0.8)!,
+        SpaceShip(spaceShipTypeOf: .Blue1, travelSpeedOf: 5.0, scalingFactor: 0.8)!,
+        SpaceShip(spaceShipTypeOf: .Blue2, travelSpeedOf: 5.0, scalingFactor: 0.8)!,
+        SpaceShip(spaceShipTypeOf: .Blue3, travelSpeedOf: 5.0, scalingFactor: 0.8)!,
     
     ]
     
@@ -51,7 +51,7 @@ class SpaceShipLevel: TestScene8{
     
     
     //Timer Related Variables
-    var stealthInterval: TimeInterval = 4.00
+    var stealthInterval: TimeInterval = 10.00
     var stealthIntervalCounter: TimeInterval = 0.00
     
 
