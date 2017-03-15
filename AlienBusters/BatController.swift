@@ -29,6 +29,9 @@ class BatController: SKNode{
     }
     
     
+    //MARK: ************* TOTAL NUMBER OF BATS SPAWNED
+    private var totalNumberOfBatsSpawned: Int = 0
+    
     //MARK: ************ INITIALIZERS
     
     required init?(coder aDecoder: NSCoder) {
@@ -41,9 +44,10 @@ class BatController: SKNode{
     }
     
     
-    convenience init(batSpawningInterval: TimeInterval = 10.00, minBatsSpawned: Int = 0,  maxBatsSpawned: Int = 2) {
+    convenience init(batSpawningInterval: TimeInterval = 10.00, minBatsSpawned: Int = 1,  maxBatsSpawned: Int = 3) {
         
         self.init()
+        setup()
         self.minimumBatsSpawnedPerInterval = minBatsSpawned
         self.maximumBatsSpawnedPerInterval = maxBatsSpawned
         self.batSpawningInterval = batSpawningInterval
@@ -66,26 +70,19 @@ class BatController: SKNode{
         frameCount += currentTime - lastUpdateTime
         
         if(frameCount > batSpawningInterval){
-            spawnRandomNumberOfBatsFrom(minimum: 1, toMaximum: 5)
+            spawnRandomNumberOfBatsFrom(minimum: self.minimumBatsSpawnedPerInterval, toMaximum: self.maximumBatsSpawnedPerInterval)
             frameCount = 0
         }
         
         for node in self.children{
             if let bat = node as? Bat{
-                    let currentVelocity = bat.physicsBody?.velocity
-                    let currentXVelocity = currentVelocity?.dx
-                    let currentYVelocity = currentVelocity?.dy
-                
-                if let currentXVelocity = currentXVelocity, let currentYVelocity = currentYVelocity, currentYVelocity < CGFloat(30) && currentXVelocity < CGFloat(30){
-                    
-                    var randomVector = RandomVector(yComponentMin: 0, yComponentMax: 1, xComponentMin: 0, xComponentMax: 1)
-                    
+            
+                    var randomVector = RandomVector(yComponentMin: 0, yComponentMax: 20, xComponentMin: 0, xComponentMax: 20)
+                        
                     randomVector.randomizeXComponentSign()
                     randomVector.randomizeYComponentSign()
-                    
-                    bat.physicsBody?.applyImpulse(randomVector.getVector())
-                    
-                }
+                        
+                    bat.physicsBody?.velocity = randomVector.getVector()
                 
                 
             }
@@ -102,8 +99,13 @@ class BatController: SKNode{
         for _ in 0...numberOfBats{
             
             let batClone = batsArray[batIndex].copy() as! Bat
-            
+            let radius = batClone.size.width/2.0
+            batClone.physicsBody = SKPhysicsBody(circleOfRadius: radius)
+            batClone.physicsBody?.affectedByGravity = false
+            batClone.physicsBody?.allowsRotation = false
+            batClone.physicsBody?.linearDamping = 0.0
             self.addChild(batClone)
+            totalNumberOfBatsSpawned += 1
         }
         
     }
@@ -114,8 +116,14 @@ class BatController: SKNode{
         for _ in 0...numberOfBats{
             
             let batClone = batsArray[batIndex].copy() as! Bat
-            
+            let radius = batClone.size.width/2.0
+            batClone.physicsBody = SKPhysicsBody(circleOfRadius: radius)
+            batClone.physicsBody?.affectedByGravity = false
+            batClone.physicsBody?.allowsRotation = false
+            batClone.physicsBody?.linearDamping = 0.0
             self.addChild(batClone)
+            
+            totalNumberOfBatsSpawned += 1
         }
         
     }
@@ -133,6 +141,14 @@ class BatController: SKNode{
                 }
             }
         }
+    }
+    
+    func getTotalNumberOfBatsSpawned() -> Int{
+        return totalNumberOfBatsSpawned
+    }
+    
+    func reduceNumberOfBatsSpawnedBy(numberEliminated: Int){
+        totalNumberOfBatsSpawned -= numberEliminated
     }
     
 }

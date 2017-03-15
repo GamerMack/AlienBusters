@@ -84,6 +84,7 @@ class CrossHair: SKSpriteNode{
     
     private func configureLighting(){
         let crosshairLight = SKLightNode()
+        crosshairLight.name = NodeNames.CrossHairLight
         crosshairLight.categoryBitMask = 1
         crosshairLight.lightColor = SKColor.yellow
         crosshairLight.shadowColor = SKColor.gray

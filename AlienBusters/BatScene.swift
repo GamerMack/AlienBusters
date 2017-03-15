@@ -15,9 +15,9 @@ import GameplayKit
 class BatScene: TestScene8{
     
     
-    var batController = BatController(batSpawningInterval: 4.00, minBatsSpawned: 0, maxBatsSpawned: 2)
+    var batController = BatController(batSpawningInterval: 4.00, minBatsSpawned: 0, maxBatsSpawned: 0)
     var minBatsSpawned: Int = 0
-    var maxBatsSpawned: Int = 2
+    var maxBatsSpawned: Int = 0
    
     
     //MARK: ***************SCENE INITIALIZERS
@@ -39,7 +39,7 @@ class BatScene: TestScene8{
         
         //Set anchor point of current scene to center
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
-        self.backgroundColor = SKColor.gray
+        self.backgroundColor = SKColor.black
     
         
         //Configure SceneInterfaceManagerDelegate
@@ -62,18 +62,24 @@ class BatScene: TestScene8{
         currentNumberOfEnemies = 0
         numberOfEnemiesKilled = 0
         self.addChild(hud2)
-        hud2.setNumberOfEnemiesTo(numberOfEnemies: currentNumberOfEnemies)
         hud2.setNumberOfEnemiesKilledTo(numberKilled: numberOfEnemiesKilled)
         
         //Configure player
         player = CrossHair(crossHairType: .BlueLarge)
+        player.zPosition = 15
+        let lightNode = player.childNode(withName: NodeNames.CrossHairLight) as! SKLightNode
+        lightNode.falloff = 2.0
+    
         self.addChild(player)
         
         //Configure Background music
         BackgroundMusic.configureBackgroundMusicFrom(fileNamed: BackgroundMusic.MissionPlausible, forParentNode: self)
         
         //Spawn inital number of bats
+        self.addChild(batController)
         batController.spawnBats(numberOfBats: self.initialNumberOfEnemiesSpawned)
+        let totalNumberOfBatsSpawned = batController.getTotalNumberOfBatsSpawned()
+        hud2.setNumberOfEnemiesTo(numberOfEnemies: totalNumberOfBatsSpawned)
         
         //Spawn Background Objects
         spawnBackgroundObjects(numberOfBackgroundObjects: self.numberOfBackgroundObjects, scaledByFactorOf: 0.40)
@@ -97,7 +103,7 @@ class BatScene: TestScene8{
         frameCount += currentTime - lastUpdateTime
         hideIntervalFrameCount += currentTime - lastUpdateTime
         
-        if(currentNumberOfEnemies > maximumNumberOFEnemies){
+        if(batController.getTotalNumberOfBatsSpawned() > maximumNumberOFEnemies){
             self.isPaused = true
             self.showRestartButtons()
             
@@ -105,7 +111,7 @@ class BatScene: TestScene8{
         
         player.update()
         batController.update(currentTime: currentTime)
-       
+        hud2.setNumberOfEnemiesTo(numberOfEnemies: batController.getTotalNumberOfBatsSpawned())
     
         
         lastUpdateTime = currentTime
@@ -159,11 +165,11 @@ class BatScene: TestScene8{
                     explosionAnimation
                     ]))
                 
-                currentNumberOfEnemies -= 1
                 numberOfEnemiesKilled += 1
-                
                 hud2.setNumberOfEnemiesKilledTo(numberKilled: numberOfEnemiesKilled)
-                hud2.setNumberOfEnemiesTo(numberOfEnemies: currentNumberOfEnemies)
+                
+                batController.reduceNumberOfBatsSpawnedBy(numberEliminated: 1)
+                hud2.setNumberOfEnemiesTo(numberOfEnemies: batController.getTotalNumberOfBatsSpawned())
                 
             } else {
                 player.run(shootingSound)
