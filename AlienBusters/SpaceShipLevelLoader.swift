@@ -1,15 +1,15 @@
 //
-//  LevelLoader.swift
+//  SpaceShipLevelLoader.swift
 //  AlienBusters
 //
-//  Created by Aleksander Makedonski on 3/14/17.
+//  Created by Aleksander Makedonski on 3/15/17.
 //  Copyright © 2017 AlexMakedonski. All rights reserved.
 //
 
 import Foundation
 import SpriteKit
 
-class WingmanLevelLoader{
+class SpaceShipLevelLoader{
     
     enum DifficultyLevel{
         case Hard
@@ -27,11 +27,11 @@ class WingmanLevelLoader{
         var nextScene: SKScene
         
         switch(difficultyLevel){
-            case .Hard:
-                nextScene = loadSceneFrom(currentScene, withLevelNumber: 2, numberOfBackgroundObjects: 3, enemyHideInterval: 6, enemySpawnInterval: 6, initialNumberOfEnemies: 2, perIntervalSpawningRate: 2, randomVectorConfigurationForEnemyUpdate: randomVectorConfiguration)
+        case .Hard:
+            nextScene = loadSceneFrom(currentScene, withLevelNumber: 2, numberOfBackgroundObjects: 3, enemyHideInterval: 6, enemySpawnInterval: 6, initialNumberOfEnemies: 2, perIntervalSpawningRate: 2, randomVectorConfigurationForEnemyUpdate: randomVectorConfiguration)
             break
-            case .Medium:
-                nextScene = loadSceneFrom(currentScene, withLevelNumber: 2, numberOfBackgroundObjects: 3, enemyHideInterval: 6, enemySpawnInterval: 6, initialNumberOfEnemies: 2, perIntervalSpawningRate: 2, randomVectorConfigurationForEnemyUpdate: randomVectorConfiguration)
+        case .Medium:
+            nextScene = loadSceneFrom(currentScene, withLevelNumber: 2, numberOfBackgroundObjects: 3, enemyHideInterval: 6, enemySpawnInterval: 6, initialNumberOfEnemies: 2, perIntervalSpawningRate: 2, randomVectorConfigurationForEnemyUpdate: randomVectorConfiguration)
             break
         case .Easy:
             nextScene = loadSceneFrom(currentScene, withLevelNumber: 2, numberOfBackgroundObjects: 3, enemyHideInterval: 6, enemySpawnInterval: 6, initialNumberOfEnemies: 2, perIntervalSpawningRate: 2, randomVectorConfigurationForEnemyUpdate: randomVectorConfiguration)
@@ -88,7 +88,7 @@ class WingmanLevelLoader{
         currentScene.view?.presentScene(nextScene, transition: mainTransition)
     }
     
-
+    
     static func loadLevel2From(currentScene: SKScene, difficultyLevel: DifficultyLevel){
         
         let randomVectorConfiguration = RandomVectorConfiguration(minimumVectorYComponent: -20, maximumVectorYComponent: 20, minimumVectorXComponent: -20, maximumVectorXComponent: 20)
@@ -96,15 +96,15 @@ class WingmanLevelLoader{
         var nextScene: SKScene
         
         switch(difficultyLevel){
-            case .Hard:
-                nextScene = loadSceneFrom(currentScene, withLevelNumber: 2, numberOfBackgroundObjects: 3, enemyHideInterval: 6, enemySpawnInterval: 6, initialNumberOfEnemies: 2, perIntervalSpawningRate: 2, randomVectorConfigurationForEnemyUpdate: randomVectorConfiguration)
-                break
-            case .Medium:
-                nextScene = loadSceneFrom(currentScene, withLevelNumber: 2, numberOfBackgroundObjects: 3, enemyHideInterval: 6, enemySpawnInterval: 6, initialNumberOfEnemies: 2, perIntervalSpawningRate: 2, randomVectorConfigurationForEnemyUpdate: randomVectorConfiguration)
-                break
-            case .Easy:
-                nextScene = loadSceneFrom(currentScene, withLevelNumber: 2, numberOfBackgroundObjects: 3, enemyHideInterval: 6, enemySpawnInterval: 6, initialNumberOfEnemies: 2, perIntervalSpawningRate: 2, randomVectorConfigurationForEnemyUpdate: randomVectorConfiguration)
-                break
+        case .Hard:
+            nextScene = loadSceneFrom(currentScene, withLevelNumber: 2, numberOfBackgroundObjects: 3, enemyHideInterval: 6, enemySpawnInterval: 6, initialNumberOfEnemies: 2, perIntervalSpawningRate: 2, randomVectorConfigurationForEnemyUpdate: randomVectorConfiguration)
+            break
+        case .Medium:
+            nextScene = loadSceneFrom(currentScene, withLevelNumber: 2, numberOfBackgroundObjects: 3, enemyHideInterval: 6, enemySpawnInterval: 6, initialNumberOfEnemies: 2, perIntervalSpawningRate: 2, randomVectorConfigurationForEnemyUpdate: randomVectorConfiguration)
+            break
+        case .Easy:
+            nextScene = loadSceneFrom(currentScene, withLevelNumber: 2, numberOfBackgroundObjects: 3, enemyHideInterval: 6, enemySpawnInterval: 6, initialNumberOfEnemies: 2, perIntervalSpawningRate: 2, randomVectorConfigurationForEnemyUpdate: randomVectorConfiguration)
+            break
         }
         
         

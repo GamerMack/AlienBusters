@@ -30,7 +30,7 @@ class GameViewController: UIViewController {
  
          **/
         
-        let spaceShipLevel = SpaceShipLevel(size: UIScreen.main.bounds.size, levelNumber: 1, numberOfBackgroundObjects: 3, spawnInterval: 4.00, initialNumberOfEnemiesSpawned: 2, enemiesSpawnedPerInterval: 2)
+        let spaceShipLevel = SpaceShipLevel(size: self.view.bounds.size, levelNumber: 1, numberOfBackgroundObjects: 4, spawnInterval: 10.0, initialNumberOfEnemiesSpawned: 1, enemiesSpawnedPerInterval: 2, spaceShipTravelSpeed: 10.0, spaceShipTransitionInterval: 3.0)
         
         if let view = self.view as! SKView? {
             // Load the SKScene from 'GameScene.sks'

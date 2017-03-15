@@ -120,12 +120,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AlienBusters/SpaceShipLevel.swift"
-            timestampString = "511248296.93544"
+            timestampString = "511256760.052985"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "335"
-            endingLineNumber = "335"
+            startingLineNumber = "345"
+            endingLineNumber = "345"
             landmarkName = "processResponseForSpaceShipNode(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AlienBusters/SpaceShipLevel.swift"
+            timestampString = "511256588.742836"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
+            landmarkName = "configureSpaceShipTravelSpeeds(spaceShipTravelSpeed:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

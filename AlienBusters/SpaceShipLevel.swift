@@ -12,17 +12,7 @@ import GameplayKit
 
 class SpaceShipLevel: TestScene8{
     
-    //MARK: Particle emitter for damaged ship
-    //Configure particle emitter for background
-    
-    /**
-    let fireEmitterNode: SKEmitterNode = {
-        let emitterPath = Bundle.main.path(forResource: "Fire", ofType: "sks")!
-        let emitterNode = NSKeyedUnarchiver.unarchiveObject(withFile: emitterPath) as! SKEmitterNode
-        return emitterNode
-    
-    }()
-    **/
+
     /**SpaceShip types
     Red Color: Red1,Red2,Red3
     Blue Color: Blue1,Blue2,Blue3
@@ -41,6 +31,9 @@ class SpaceShipLevel: TestScene8{
     
     ]
     
+    var spaceShipTransitionInterval: TimeInterval = 3.00
+    var spaceShipFlySpeed: TimeInterval = 5.00
+    
     var currentSpaceShipIndex: Int = 0
     
     var randomSpaceShipIndex: Int {
@@ -50,13 +43,10 @@ class SpaceShipLevel: TestScene8{
     }
     
     
-    //Timer Related Variables
-    var stealthInterval: TimeInterval = 10.00
-    var stealthIntervalCounter: TimeInterval = 0.00
     
 
     //MARK: ***************SCENE INITIALIZERS
-    convenience init(size: CGSize, levelNumber: Int, numberOfBackgroundObjects: Int, spawnInterval: TimeInterval, initialNumberOfEnemiesSpawned: Int, enemiesSpawnedPerInterval: Int) {
+    convenience init(size: CGSize, levelNumber: Int, numberOfBackgroundObjects: Int, spawnInterval: TimeInterval, initialNumberOfEnemiesSpawned: Int, enemiesSpawnedPerInterval: Int, spaceShipTravelSpeed: TimeInterval, spaceShipTransitionInterval: TimeInterval) {
         
         self.init(size: size)
         self.levelNumber = levelNumber
@@ -64,6 +54,24 @@ class SpaceShipLevel: TestScene8{
         self.enemiesSpawnedPerInterval = enemiesSpawnedPerInterval
         self.initialNumberOfEnemiesSpawned = initialNumberOfEnemiesSpawned
         self.numberOfBackgroundObjects = numberOfBackgroundObjects
+        self.spaceShipTransitionInterval = spaceShipTransitionInterval
+        self.spaceShipFlySpeed = spaceShipTravelSpeed
+        
+    }
+    
+    
+    private func configureStealthModeIntervalTimes(stealthInterval: TimeInterval){
+        for ship in spaceShips{
+            ship.resetFlyModeTransitionInterval(toFlyModeTransitionInterval: stealthInterval)
+        }
+    }
+    
+    
+    private func configureSpaceShipTravelSpeeds(spaceShipTravelSpeed: TimeInterval){
+
+        for ship in spaceShips{
+            ship.resetFlySpeed(toFlyingSpeedOf: spaceShipTravelSpeed)
+        }
     }
     
     override func didMove(to view: SKView) {
@@ -103,8 +111,11 @@ class SpaceShipLevel: TestScene8{
         //Configure Background music
         BackgroundMusic.configureBackgroundMusicFrom(fileNamed: BackgroundMusic.MissionPlausible, forParentNode: self)
         
+        
+      
         //Spawn first spaceship
         spawnSpaceShipFromArray()
+
         
         //Spawn Background Objects
         spawnBackgroundObjects(numberOfBackgroundObjects: self.numberOfBackgroundObjects, scaledByFactorOf: 0.40)
@@ -124,7 +135,6 @@ class SpaceShipLevel: TestScene8{
     
     override func update(_ currentTime: TimeInterval) {
         frameCount += currentTime - lastUpdateTime
-        stealthIntervalCounter += currentTime - lastUpdateTime
         
         player.update()
 
@@ -135,10 +145,10 @@ class SpaceShipLevel: TestScene8{
             
         }
         
-        if(stealthIntervalCounter > stealthInterval){
+        if(frameCount > spawnInterval){
             //spawn the spaceships from an array
             spawnSpaceShipFromArray()
-            stealthIntervalCounter = 0
+            frameCount = 0
         }
         
         updateAllSpaceShips(currentTime: currentTime)
@@ -176,7 +186,7 @@ class SpaceShipLevel: TestScene8{
         
         if(restartButton.contains(touchLocation)){
             
-            LevelLoader.loadLevel2From(currentScene: self, difficultyLevel: .Hard)
+            WingmanLevelLoader.loadLevel2From(currentScene: self, difficultyLevel: .Hard)
             //self.view?.presentScene(self, transition: transition)
         }
         

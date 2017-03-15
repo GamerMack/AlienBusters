@@ -41,7 +41,7 @@ class SpaceShip: SKSpriteNode, Enemy{
     private var isInStealthMode: Bool = false
     private var health: Int = 2     //2 hits are required to destroy a flying alien
     private var spaceShipType: SpaceShipType = .Red1
-    private var travelSpeed: CGFloat = 5.00
+    private var travelSpeed: TimeInterval = 5.00
     
     //MARK: ***************Timer-Related Variables
     var timeSinceLastFlyModeTransition = 0.00
@@ -62,7 +62,7 @@ class SpaceShip: SKSpriteNode, Enemy{
         super.init(texture: texture, color: color, size: size)
     }
     
-    convenience init?(spaceShipTypeOf spaceShipType: SpaceShipType = .Red1, travelSpeedOf travelSpeed: CGFloat = 5.0, scalingFactor: CGFloat = 1.0,flyModeTransitionInterval: TimeInterval = 4.00, healthLevel: Int = 2) {
+    convenience init?(spaceShipTypeOf spaceShipType: SpaceShipType = .Red1, travelSpeedOf travelSpeed: TimeInterval = 5.0, scalingFactor: CGFloat = 1.0,flyModeTransitionInterval: TimeInterval = 4.00, healthLevel: Int = 2) {
         var texture: SKTexture?
         
         switch(spaceShipType){
@@ -130,7 +130,7 @@ class SpaceShip: SKSpriteNode, Enemy{
         self.spaceShipType = spaceShipType
     }
     
-    private func setupWithSpeedOf(travelSpeed: CGFloat){
+    private func setupWithSpeedOf(travelSpeed: TimeInterval){
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         
         setRandomPosition()
@@ -189,7 +189,7 @@ class SpaceShip: SKSpriteNode, Enemy{
         
         
         if(isOffScreen()){
-            setupWithSpeedOf(travelSpeed: self.travelSpeed)
+            setupWithSpeedOf(travelSpeed: TimeInterval(self.travelSpeed))
         }
     }
     
@@ -283,7 +283,7 @@ class SpaceShip: SKSpriteNode, Enemy{
     }
     
     
-    func resetFlySpeed(toFlyingSpeedOf flyingSpeed: CGFloat){
+    func resetFlySpeed(toFlyingSpeedOf flyingSpeed: TimeInterval){
         self.travelSpeed = flyingSpeed
     }
     
