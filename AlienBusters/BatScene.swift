@@ -14,23 +14,41 @@ import GameplayKit
 
 class BatScene: TestScene8{
     
-    
+    //MARK: ******************** BAT CONFIGURATION PARAMTERS
     var batController = BatController(batSpawningInterval: 4.00, minBatsSpawned: 0, maxBatsSpawned: 0)
     var minBatsSpawned: Int = 0
     var maxBatsSpawned: Int = 0
-   
+    var minBatComponentVelocity: Double = 0
+    var maxBatComponentVelocity: Double = 0
+    var maximumBatsAllowedToSpawn: Int = 0
+    var minimumBatsKilledForLevelCompletion: Int = 0
+    
+    //MARK: ****************** CrossHair LightNode Configuration
+    var lightNodeFallOff: CGFloat = 2.0
+    
+    
+    //MARK: ******************** Start Button Configuration Parameters
+    var levelDescription: String = ""
+    
     
     //MARK: ***************SCENE INITIALIZERS
-    convenience init(size: CGSize, levelNumber: Int, numberOfBackgroundObjects: Int, spawnInterval: TimeInterval, initialNumberOfEnemiesSpawned: Int, minBatsSpawned: Int, maxBatsSpawned: Int) {
+    convenience init(size: CGSize, levelNumber: Int, levelDescription: String, numberOfBackgroundObjects: Int, spawnInterval: TimeInterval, initialNumberOfEnemiesSpawned: Int, minBatsSpawned: Int, maxBatsSpawned: Int, minBatComponentVelocity: Double, maxBatComponentVelocity: Double,lightNodeFallOff: CGFloat, maximumBatsAllowedToSpawn: Int, minimumBatsKilledForLevelCompletion: Int) {
         
         self.init(size: size)
         self.levelNumber = levelNumber
+        self.levelDescription = levelDescription
         self.numberOfBackgroundObjects = numberOfBackgroundObjects
         self.initialNumberOfEnemiesSpawned = initialNumberOfEnemiesSpawned
         self.spawnInterval = spawnInterval
         self.minBatsSpawned = minBatsSpawned
         self.maxBatsSpawned = maxBatsSpawned
         self.batController = BatController(batSpawningInterval: spawnInterval, minBatsSpawned: minBatsSpawned, maxBatsSpawned: maxBatsSpawned)
+        self.maxBatComponentVelocity = maxBatComponentVelocity
+        self.minBatComponentVelocity = minBatComponentVelocity
+        self.lightNodeFallOff = lightNodeFallOff
+        self.maximumBatsAllowedToSpawn = maximumBatsAllowedToSpawn
+        self.minimumBatsKilledForLevelCompletion = minimumBatsKilledForLevelCompletion
+        
     }
     
     
@@ -44,7 +62,7 @@ class BatScene: TestScene8{
         
         //Configure SceneInterfaceManagerDelegate
         sceneInterfaceManagerDelegate = SceneInterfaceManager(newManagedScene: self)
-        sceneInterfaceManagerDelegate.setupIntroMessageBox(levelTitle: "Level \(levelNumber)", levelDescription: "Wingman likes to hide", enemyName: "Wingman", spawningLimit: self.maximumNumberOFEnemies)
+        sceneInterfaceManagerDelegate.setupIntroMessageBox(levelTitle: "Level \(levelNumber)", levelDescription: self.levelDescription, enemyName: "Bat", spawningLimit: self.maximumBatsAllowedToSpawn)
         
         
         //Configure particle emitter for background
@@ -68,7 +86,7 @@ class BatScene: TestScene8{
         player = CrossHair(crossHairType: .BlueLarge)
         player.zPosition = 15
         let lightNode = player.childNode(withName: NodeNames.CrossHairLight) as! SKLightNode
-        lightNode.falloff = 2.0
+        lightNode.falloff = self.lightNodeFallOff
     
         self.addChild(player)
         
@@ -111,7 +129,7 @@ class BatScene: TestScene8{
         
         player.update()
         batController.update(currentTime: currentTime)
-        hud2.setNumberOfEnemiesTo(numberOfEnemies: batController.getTotalNumberOfBatsSpawned())
+        hud2.setNumberOfEnemiesTo(numberOfEnemies: batController.getTotalBatCount())
     
         
         lastUpdateTime = currentTime
@@ -167,9 +185,8 @@ class BatScene: TestScene8{
                 
                 numberOfEnemiesKilled += 1
                 hud2.setNumberOfEnemiesKilledTo(numberKilled: numberOfEnemiesKilled)
-                
-                batController.reduceNumberOfBatsSpawnedBy(numberEliminated: 1)
-                hud2.setNumberOfEnemiesTo(numberOfEnemies: batController.getTotalNumberOfBatsSpawned())
+                hud2.setNumberOfEnemiesTo(numberOfEnemies: batController.getTotalBatCount())
+               
                 
             } else {
                 player.run(shootingSound)

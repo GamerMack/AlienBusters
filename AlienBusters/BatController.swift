@@ -16,9 +16,9 @@ class BatController: SKNode{
     //MARK: ************  Timer-related variables
     private var frameCount = 0.0
     private var lastUpdateTime = 0.0
-    private var batSpawningInterval = 10.9
+    private var batSpawningInterval = 10.0
     private var minimumBatsSpawnedPerInterval: Int = 0
-    private var maximumBatsSpawnedPerInterval: Int = 2
+    private var maximumBatsSpawnedPerInterval: Int = 1
     
     //MARK: ************ Variables related to bats array
     private var batsArray = [Bat]()
@@ -32,6 +32,11 @@ class BatController: SKNode{
     //MARK: ************* TOTAL NUMBER OF BATS SPAWNED
     private var totalNumberOfBatsSpawned: Int = 0
     
+    
+    //MARK: **************** BAT VELOCITY VARIABLES
+    private var maxComponentVelocity: Double = 10
+    private var minComponentVelocity: Double = 0
+    
     //MARK: ************ INITIALIZERS
     
     required init?(coder aDecoder: NSCoder) {
@@ -44,13 +49,16 @@ class BatController: SKNode{
     }
     
     
-    convenience init(batSpawningInterval: TimeInterval = 10.00, minBatsSpawned: Int = 1,  maxBatsSpawned: Int = 3) {
+    convenience init(batSpawningInterval: TimeInterval = 10.00, minBatsSpawned: Int = 0,  maxBatsSpawned: Int = 1, minBatComponentVelocity: Double = 0, maxBatComponentVelocity: Double = 5) {
         
         self.init()
         setup()
         self.minimumBatsSpawnedPerInterval = minBatsSpawned
         self.maximumBatsSpawnedPerInterval = maxBatsSpawned
         self.batSpawningInterval = batSpawningInterval
+        self.minComponentVelocity = minBatComponentVelocity
+        self.maxComponentVelocity = maxBatComponentVelocity
+        self.totalNumberOfBatsSpawned = 0
     }
 
     private func setup(){
@@ -77,7 +85,7 @@ class BatController: SKNode{
         for node in self.children{
             if let bat = node as? Bat{
             
-                    var randomVector = RandomVector(yComponentMin: 0, yComponentMax: 20, xComponentMin: 0, xComponentMax: 20)
+                    var randomVector = RandomVector(yComponentMin: self.minComponentVelocity, yComponentMax: self.maxComponentVelocity, xComponentMin: self.minComponentVelocity, xComponentMax: self.maxComponentVelocity)
                         
                     randomVector.randomizeXComponentSign()
                     randomVector.randomizeYComponentSign()
@@ -149,6 +157,19 @@ class BatController: SKNode{
     
     func reduceNumberOfBatsSpawnedBy(numberEliminated: Int){
         totalNumberOfBatsSpawned -= numberEliminated
+    }
+    
+    func getTotalBatCount() -> Int{
+        
+        var numberOfBats = 0
+        
+        for node in self.children{
+            if let node = node as? Bat{
+                numberOfBats += 1
+            }
+        }
+        
+        return numberOfBats
     }
     
 }
