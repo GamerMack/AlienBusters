@@ -30,18 +30,20 @@ class GameViewController: UIViewController {
  
          **/
         
-       // let spaceShipLevel = SpaceShipLevel(size: self.view.bounds.size, levelNumber: 1, numberOfBackgroundObjects: 4, spawnInterval: 10.0, initialNumberOfEnemiesSpawned: 1, enemiesSpawnedPerInterval: 2, spaceShipTravelSpeed: 10.0, spaceShipTransitionInterval: 3.0)
+       /** let spaceShipLevel = SpaceShipLevel(size: self.view.bounds.size, levelNumber: 1, numberOfBackgroundObjects: 4, spawnInterval: 10.0, initialNumberOfEnemiesSpawned: 1, enemiesSpawnedPerInterval: 2, spaceShipTravelSpeed: 10.0, spaceShipTransitionInterval: 3.0)
         
-    let batScene = BatScene(size: self.view.frame.size, levelNumber: 1, levelDescription: "Shoot all the bats!", numberOfBackgroundObjects: 6, spawnInterval: 10.0, initialNumberOfEnemiesSpawned: 1, minBatsSpawned: 0, maxBatsSpawned: 1, minBatComponentVelocity: 0, maxBatComponentVelocity: 20.0, lightNodeFallOff: 2, maximumBatsAllowedToSpawn: 40, minimumBatsKilledForLevelCompletion: 10)
+        **/
+    
         
         if let view = self.view as! SKView? {
             // Load the SKScene from 'GameScene.sks'
+                let ufoScene = UFOScene(size: self.view.frame.size, levelNumber: 1, numberOfBackgroundObjects: 5, spawnInterval: 10.0, initialNumberOfEnemiesSpawned: 1, enemiesSpawnedPerInterval: 3)
            
                 // Set the scale mode to scale to fit the window
-                batScene.scaleMode = .aspectFill
+                ufoScene.scaleMode = .aspectFill
                 
                 // Present the scene
-                view.presentScene(batScene)
+                view.presentScene(ufoScene)
             
             
             view.ignoresSiblingOrder = true

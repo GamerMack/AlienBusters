@@ -73,6 +73,7 @@ class CrossHair: SKSpriteNode{
         
         self.init(texture: crosshairTexture, color: .clear, size: crosshairTexture.size())
         configureLighting()
+        configurePhysics()
         setup()
         
     }
@@ -90,6 +91,15 @@ class CrossHair: SKSpriteNode{
         crosshairLight.shadowColor = SKColor.gray
         crosshairLight.ambientColor = SKColor.clear
         self.addChild(crosshairLight)
+    }
+    
+    private func configurePhysics(){
+        let radius = self.size.width/2.0
+        self.physicsBody = SKPhysicsBody(circleOfRadius: radius)
+        self.physicsBody?.fieldBitMask = PhysicsCategory.Player
+        self.physicsBody?.affectedByGravity = false
+        self.physicsBody?.allowsRotation = false
+    
     }
     
     //MARK: - Update

@@ -61,6 +61,8 @@
 		BD37C2861E79022500ACCF38 /* Fire.sks in Resources */ = {isa = PBXBuildFile; fileRef = BD37C2851E79022500ACCF38 /* Fire.sks */; };
 		BD37C2881E79290900ACCF38 /* SpaceShipLevelLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD37C2871E79290900ACCF38 /* SpaceShipLevelLoader.swift */; };
 		BD37C28A1E792ED200ACCF38 /* BatScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD37C2891E792ED200ACCF38 /* BatScene.swift */; };
+		BD62A1961E79749B002E239F /* UFO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD62A1951E79749B002E239F /* UFO.swift */; };
+		BD62A1981E798264002E239F /* UFOScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD62A1971E798264002E239F /* UFOScene.swift */; };
 		BD73EE481E73A60400CD7AD1 /* RandomVector.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD73EE471E73A60400CD7AD1 /* RandomVector.swift */; };
 		BD73EE4A1E73A66E00CD7AD1 /* RandomPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD73EE491E73A66E00CD7AD1 /* RandomPoint.swift */; };
 		BD7689DC1E7259510066D59E /* TLScene4.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7689DB1E7259510066D59E /* TLScene4.swift */; };
@@ -184,6 +186,8 @@
 		BD37C2851E79022500ACCF38 /* Fire.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Fire.sks; sourceTree = "<group>"; };
 		BD37C2871E79290900ACCF38 /* SpaceShipLevelLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpaceShipLevelLoader.swift; sourceTree = "<group>"; };
 		BD37C2891E792ED200ACCF38 /* BatScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BatScene.swift; sourceTree = "<group>"; };
+		BD62A1951E79749B002E239F /* UFO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UFO.swift; sourceTree = "<group>"; };
+		BD62A1971E798264002E239F /* UFOScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UFOScene.swift; sourceTree = "<group>"; };
 		BD73EE471E73A60400CD7AD1 /* RandomVector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomVector.swift; sourceTree = "<group>"; };
 		BD73EE491E73A66E00CD7AD1 /* RandomPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomPoint.swift; sourceTree = "<group>"; };
 		BD7689DB1E7259510066D59E /* TLScene4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TLScene4.swift; sourceTree = "<group>"; };
@@ -337,6 +341,7 @@
 				BD2E96C91E781E3100C16DA7 /* FlyingAlienScene.swift */,
 				BD37C2871E79290900ACCF38 /* SpaceShipLevelLoader.swift */,
 				BD2B98671E795C8F00E8E8D9 /* BatSceneLevelLoader.swift */,
+				BD62A1971E798264002E239F /* UFOScene.swift */,
 			);
 			name = TestScene8Prototype;
 			sourceTree = "<group>";
@@ -604,6 +609,7 @@
 				BD312B141E75733C00DCB39C /* ShapeShifter.swift */,
 				BDAD68791E768F3000771E25 /* Wingman.swift */,
 				BDAD68831E769F2900771E25 /* Animal.swift */,
+				BD62A1951E79749B002E239F /* UFO.swift */,
 			);
 			name = Characters;
 			sourceTree = "<group>";
@@ -753,6 +759,7 @@
 				BD312B131E756A3B00DCB39C /* PlistUnarchiver.swift in Sources */,
 				BD2323111E705A2500E3A2FC /* QueenAlien.swift in Sources */,
 				BD2E96CA1E781E3100C16DA7 /* FlyingAlienScene.swift in Sources */,
+				BD62A1981E798264002E239F /* UFOScene.swift in Sources */,
 				BDDC244B1E6E615D005E103C /* WingmanLevel.swift in Sources */,
 				BD2912761E70227600ADE12E /* Bat.swift in Sources */,
 				BD2AB5541E76B3190041B2AE /* SoundLoader.swift in Sources */,
@@ -786,6 +793,7 @@
 				BDDC24A01E6EB9D5005E103C /* Enemy.swift in Sources */,
 				BD29126B1E6FE96400ADE12E /* TLScene3.swift in Sources */,
 				BD2E96C81E78032700C16DA7 /* SpaceShipLevel.swift in Sources */,
+				BD62A1961E79749B002E239F /* UFO.swift in Sources */,
 				BDDB9E841E6FCAFF004D1D2B /* SpaceShip.swift in Sources */,
 				BD2912651E6FE8FA00ADE12E /* NTLScene5.swift in Sources */,
 				BD3049EC1E6FB5AD0083B0ED /* TimeLimitScene+GameStateExtension.swift in Sources */,

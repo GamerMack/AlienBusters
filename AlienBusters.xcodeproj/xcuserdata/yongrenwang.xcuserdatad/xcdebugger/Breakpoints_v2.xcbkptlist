@@ -168,13 +168,45 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AlienBusters/GameViewController.swift"
-            timestampString = "511271318.168697"
+            timestampString = "511280338.699268"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AlienBusters.GameViewController.viewDidLoad () -&gt; ()"
+                  moduleName = "AlienBusters"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yongrenwang/Desktop/AlienBusters/AlienBusters/GameViewController.swift"
+                  timestampString = "511280623.403471"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38"
+                  offsetFromSymbolStart = "91">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AlienBusters.GameViewController.viewDidLoad () -&gt; ()"
+                  moduleName = "AlienBusters"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yongrenwang/Desktop/AlienBusters/AlienBusters/GameViewController.swift"
+                  timestampString = "511280623.406044"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38"
+                  offsetFromSymbolStart = "256">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
