@@ -59,6 +59,7 @@
 		BD312B3C1E759C5800DCB39C /* TestScene6.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD312B3B1E759C5800DCB39C /* TestScene6.swift */; };
 		BD37C2861E79022500ACCF38 /* Fire.sks in Resources */ = {isa = PBXBuildFile; fileRef = BD37C2851E79022500ACCF38 /* Fire.sks */; };
 		BD37C2881E79290900ACCF38 /* SpaceShipLevelLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD37C2871E79290900ACCF38 /* SpaceShipLevelLoader.swift */; };
+		BD37C28A1E792ED200ACCF38 /* BatScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD37C2891E792ED200ACCF38 /* BatScene.swift */; };
 		BD73EE481E73A60400CD7AD1 /* RandomVector.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD73EE471E73A60400CD7AD1 /* RandomVector.swift */; };
 		BD73EE4A1E73A66E00CD7AD1 /* RandomPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD73EE491E73A66E00CD7AD1 /* RandomPoint.swift */; };
 		BD7689DC1E7259510066D59E /* TLScene4.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7689DB1E7259510066D59E /* TLScene4.swift */; };
@@ -180,6 +181,7 @@
 		BD312B3B1E759C5800DCB39C /* TestScene6.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestScene6.swift; sourceTree = "<group>"; };
 		BD37C2851E79022500ACCF38 /* Fire.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Fire.sks; sourceTree = "<group>"; };
 		BD37C2871E79290900ACCF38 /* SpaceShipLevelLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpaceShipLevelLoader.swift; sourceTree = "<group>"; };
+		BD37C2891E792ED200ACCF38 /* BatScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BatScene.swift; sourceTree = "<group>"; };
 		BD73EE471E73A60400CD7AD1 /* RandomVector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomVector.swift; sourceTree = "<group>"; };
 		BD73EE491E73A66E00CD7AD1 /* RandomPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomPoint.swift; sourceTree = "<group>"; };
 		BD7689DB1E7259510066D59E /* TLScene4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TLScene4.swift; sourceTree = "<group>"; };
@@ -327,6 +329,7 @@
 			children = (
 				BD2E96C21E77D7D200C16DA7 /* LevelLoader.swift */,
 				BDDC244A1E6E615D005E103C /* WingmanLevel.swift */,
+				BD37C2891E792ED200ACCF38 /* BatScene.swift */,
 				BD2E96C51E77FBEB00C16DA7 /* DeprecatedCode.swift */,
 				BD2E96C71E78032700C16DA7 /* SpaceShipLevel.swift */,
 				BD2E96C91E781E3100C16DA7 /* FlyingAlienScene.swift */,
@@ -733,6 +736,7 @@
 				BD2DEE331E6EE9100060750D /* AnimationsManager.swift in Sources */,
 				BDD8AA361E7127C70054AB61 /* SceneInterfaceManager.swift in Sources */,
 				BD312B3A1E75906C00DCB39C /* TestScene5.swift in Sources */,
+				BD37C28A1E792ED200ACCF38 /* BatScene.swift in Sources */,
 				BD2AB54F1E76B2A00041B2AE /* Typography.swift in Sources */,
 				BD2DEE351E6EF8160060750D /* NTLScene2.swift in Sources */,
 				BD2912631E6FE8C400ADE12E /* NTLScene1.swift in Sources */,

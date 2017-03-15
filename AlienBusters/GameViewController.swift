@@ -30,16 +30,18 @@ class GameViewController: UIViewController {
  
          **/
         
-        let spaceShipLevel = SpaceShipLevel(size: self.view.bounds.size, levelNumber: 1, numberOfBackgroundObjects: 4, spawnInterval: 10.0, initialNumberOfEnemiesSpawned: 1, enemiesSpawnedPerInterval: 2, spaceShipTravelSpeed: 10.0, spaceShipTransitionInterval: 3.0)
+       // let spaceShipLevel = SpaceShipLevel(size: self.view.bounds.size, levelNumber: 1, numberOfBackgroundObjects: 4, spawnInterval: 10.0, initialNumberOfEnemiesSpawned: 1, enemiesSpawnedPerInterval: 2, spaceShipTravelSpeed: 10.0, spaceShipTransitionInterval: 3.0)
+        
+        let batScene = BatScene(size: self.view.bounds.size, levelNumber: 1, numberOfBackgroundObjects: 2, spawnInterval: 4.00, initialNumberOfEnemiesSpawned: 3, minBatsSpawned: 1, maxBatsSpawned: 3)
         
         if let view = self.view as! SKView? {
             // Load the SKScene from 'GameScene.sks'
            
                 // Set the scale mode to scale to fit the window
-                spaceShipLevel.scaleMode = .aspectFill
+                batScene.scaleMode = .aspectFill
                 
                 // Present the scene
-                view.presentScene(spaceShipLevel)
+                view.presentScene(batScene)
             
             
             view.ignoresSiblingOrder = true

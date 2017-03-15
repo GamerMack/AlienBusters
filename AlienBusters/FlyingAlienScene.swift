@@ -298,7 +298,7 @@ class FlyingAlienScene: SKScene{
         
         if(restartButton.contains(touchLocation)){
             
-            LevelLoader.loadLevel2From(currentScene: self, difficultyLevel: .Hard)
+            WingmanLevelLoader.loadLevel2From(currentScene: self, difficultyLevel: .Hard)
             //self.view?.presentScene(self, transition: transition)
         }
         
